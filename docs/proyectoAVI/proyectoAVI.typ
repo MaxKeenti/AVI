@@ -112,14 +112,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
     columns: 2,
     gutter: 6pt,
     box(fill: rgb("#ea6c38"), radius: 2pt, width: 18pt, height: 18pt)[
-      #align(center + horizon)[#text(fill: white, weight: "bold", size: 12pt)[m]]
+      #align(center + horizon)[#text(fill: white, size: 12pt)[m]]
     ],
-    stack(dir: ttb, spacing: 3pt, text(fill: white, weight: "bold", size: 14pt)[Atlalilco], box(
+    stack(dir: ttb, spacing: 3pt, text(fill: white, size: 14pt)[Atlalilco], box(
       fill: rgb("#e8c050"),
       radius: 1pt,
       inset: (x: 3pt, y: 1pt),
     )[
-      #text(fill: black, weight: "bold", size: 7pt)[12]
+      #text(fill: black, size: 7pt)[12]
     ]),
   )
 ]
@@ -176,7 +176,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
     content(
       (-0.8, -3),
       angle: 90deg,
-      [#text(fill: rgb(255, 255, 255, 50), size: 14pt, tracking: 2pt, weight: "bold")[AVENIDA TLÁHUAC]],
+      [#text(fill: rgb(255, 255, 255, 50), size: 14pt, tracking: 2pt)[AVENIDA TLÁHUAC]],
     )
   })
 
