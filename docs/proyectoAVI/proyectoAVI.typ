@@ -85,5 +85,104 @@ Personas que usan el metro como los empleados, investigadores, estudiantes o tra
 == Alcance de funciones
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
+#pagebreak()
+
+#set page(
+  width: auto,
+  height: auto,
+  margin: 1cm,
+  fill: white,
+)
+
 = Mapa del escenario y distribución
-mapa
+
+#set text(fallback: true)
+
+// 1. DEFINE LABELS EXTERNALLY
+// Defining these here protects them from Cetz's internal `grid` and `stack` functions.
+#let entrance-arrow = box(
+  fill: rgb("#da7347"),
+  radius: 2pt,
+  inset: (x: 4pt, y: 2pt),
+  align(center + horizon)[#text(fill: black, weight: "bold", size: 8pt)[→]],
+)
+
+#let atlalilco-label = box[
+  #grid(
+    columns: 2,
+    gutter: 6pt,
+    box(fill: rgb("#ea6c38"), radius: 2pt, width: 18pt, height: 18pt)[
+      #align(center + horizon)[#text(fill: white, weight: "bold", size: 12pt)[m]]
+    ],
+    stack(dir: ttb, spacing: 3pt, text(fill: white, weight: "bold", size: 14pt)[Atlalilco], box(
+      fill: rgb("#e8c050"),
+      radius: 1pt,
+      inset: (x: 3pt, y: 1pt),
+    )[
+      #text(fill: black, weight: "bold", size: 7pt)[12]
+    ]),
+  )
+]
+
+// 2. DRAW THE MAP
+#cetz.canvas({
+  import cetz.draw: *
+
+  // BASE CANVAS (Roads Background)
+  rect((0, 0), (15, 16), fill: rgb("#3a4b66"), stroke: none)
+
+  // MAP GEOMETRY (Rotated Group)
+  group(name: "map-geometry", {
+    // In 0.4.2, transformations go at the top of the group
+    set-origin((7.5, 8))
+    rotate(-8.5deg)
+
+    let block-color = rgb("#233144")
+    let park-color = rgb("#0c3a38")
+
+    // --- BLOCKS (Left Side) ---
+    rect((-10, 3.5), (-2.5, 10), radius: 0.2, fill: park-color, stroke: none)
+    rect((-10, -0.5), (-1.5, 3.0), radius: 0.2, fill: block-color, stroke: none)
+    rect((-10, -10), (-2.0, -1.0), radius: 0.2, fill: block-color, stroke: none)
+
+    // --- BLOCKS (Right Side) ---
+    rect((1.5, 5.5), (10, 10), radius: 0.2, fill: block-color, stroke: none)
+    rect((1.5, 0), (8, 4.5), radius: 0.2, fill: block-color, stroke: none)
+    rect((1.5, -10), (10, -0.5), radius: 0.2, fill: block-color, stroke: none)
+
+    // --- TRANSLUCENT SUBWAY OVERLAY ---
+    line(
+      (-1.5, -10),
+      (1.5, -10), // Bottom segment
+      (1.5, -2.0),
+      (4.5, -2.0), // Right entrance extrusion bottom
+      (4.5, 1.0),
+      (1.5, 1.0), // Right entrance extrusion top
+      (1.5, 10),
+      (-1.5, 10), // Top segment
+      (-1.5, 2.0),
+      (-4.0, 2.0), // Left entrance extrusion top
+      (-4.0, -0.5),
+      (-1.5, -0.5), // Left entrance extrusion bottom
+      fill: rgb(74, 104, 152, 130),
+      stroke: none,
+      close: true,
+    )
+
+    // --- MAIN ROAD MEDIAN ---
+    line((0, -10), (0, 10), stroke: 2.5pt + rgb("#eab94a"))
+
+    // --- STREET NAME ---
+    content(
+      (-0.8, -3),
+      angle: 90deg,
+      [#text(fill: rgb(255, 255, 255, 50), size: 14pt, tracking: 2pt, weight: "bold")[AVENIDA TLÁHUAC]],
+    )
+  })
+
+  // 3. INSERT LABELS (Global Unrotated Coordinates)
+  // By referencing the variables, we safely bypass the namespace issues
+  content((4.8, 7.8), entrance-arrow)
+  content((9.2, 5.8), entrance-arrow)
+  content((7.5, 8.0), atlalilco-label)
+})
