@@ -1,4 +1,34 @@
+#import "@preview/cetz:0.4.2"
 #import "portada-template.typ": portada
+
+#show raw: set text(
+  font: "JetBrainsMono NFM",
+  weight: "medium",
+  size: 1em,
+)
+
+#import "@preview/codly:1.3.0": *
+#show: codly-init.with()
+
+#codly(
+  languages: (
+    ts: (name: "TypeScript", icon: "", color: rgb("#3178C6")),
+    typ: (name: "Typst", icon: "", color: rgb("#239DAD")),
+  ),
+  number-format: n => str(n),
+)
+
+#set text(
+  font: "ITC Avant Garde Gothic",
+  lang: "es",
+  weight: "semibold",
+)
+
+#set page(
+  paper: "us-letter",
+  margin: (left: 3cm, top: 2.5cm, right: 2.5cm, bottom: 2.5cm),
+  numbering: "1",
+)
 
 #let integrantes = (
   "Alatorre Fuentes Eduardo - 2023601658",
@@ -24,18 +54,6 @@
   integrantes,
   "6NM69",
   "Bustamante Tranquilino Rocío",
-)
-
-#set text(
-  font: "ITC Avant Garde Gothic",
-  lang: "es",
-  weight: "semibold",
-)
-
-#set page(
-  paper: "us-letter",
-  margin: (left: 3cm, top: 2.5cm, right: 2.5cm, bottom: 2.5cm),
-  numbering: "1",
 )
 
 #pagebreak()
