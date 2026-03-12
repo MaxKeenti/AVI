@@ -71,7 +71,7 @@ La creación de experiencias inmersivas en mundos virtuales es posible gracias a
 
 A continuación, se clasifican los principales tipos de dispositivos utilizados en la actualidad.
 
-== 1. Dispositivos de Visualización (La Puerta de Entrada)
+== Dispositivos de Visualización (La Puerta de Entrada)
 
 Son el elemento central de cualquier experiencia de realidad virtual. Su función es sumergir al usuario en el mundo digital, aislando o complementando el entorno físico.
 
@@ -81,7 +81,7 @@ Son el elemento central de cualquier experiencia de realidad virtual. Su funció
 
 - *Gafas de Realidad Aumentada (AR)* : A diferencia de los HMD inmersivos, estos dispositivos tienen pantallas transparentes que superponen información y objetos digitales sobre el mundo real. La sensación de inmersión es menor, pero permiten la interacción con el entorno físico @elgazi2025immersive. Ejemplo: Microsoft HoloLens.
 
-== 2. Dispositivos de Entrada e Interacción (Manos Digitales)
+== Dispositivos de Entrada e Interacción (Manos Digitales)
 
 Permiten al usuario tocar, coger y manipular objetos, así como desplazarse e interactuar con el entorno virtual.
 
@@ -90,21 +90,21 @@ Permiten al usuario tocar, coger y manipular objetos, así como desplazarse e in
 - *Sistemas de seguimiento ocular (Eye Tracking)* : Integrados en algunos HMDs avanzados, permiten saber hacia dónde mira el usuario. Esto sirve para interacciones sociales más realistas y para optimizar el rendimiento gráfico mediante renderizado foveado (solo se renderiza en alta calidad la zona a la que se mira) @tukur2025panoramic.
 - *Seguimiento corporal completo (Full-Body Tracking)* : Utilizan sensores adicionales (generalmente colocados en cintura y tobillos) para capturar los movimientos de todo el cuerpo, permitiendo que el avatar digital del usuario refleje con precisión sus acciones @acevedo2024systematic.
 
-== 3. Dispositivos de Retroalimentación Sensorial (Sintiendo lo Virtual)
+== Dispositivos de Retroalimentación Sensorial (Sintiendo lo Virtual)
 
 Estos dispositivos buscan involucrar otros sentidos más allá de la vista y el oído para profundizar en la inmersión.
 
 - *Dispositivos hápticos* : Van más allá de la simple vibración de los mandos. Los chalecos y trajes hápticos utilizan una serie de actuadores para simular impactos, rozaduras o la sensación de la lluvia sobre el cuerpo @bhowmik2024virtual. Su objetivo es añadir una capa de fisicalidad a la experiencia virtual.
 - *Audio espacial 3D* : El sonido es crucial para la inmersión. Los sistemas de audio espacial, ya sean integrados en el HMD o mediante auriculares especializados, utilizan algoritmos (HRTF) para simular que los sonidos provienen de direcciones y distancias específicas dentro del espacio 3D, engañando al cerebro para que perciba un entorno acústico realista @bhowmik2024virtual.
 
-== 4. Dispositivos de Locomoción y Periféricos Especializados (Movimiento y Realismo)
+== Dispositivos de Locomoción y Periféricos Especializados (Movimiento y Realismo)
 
 Solucionan la limitación del espacio físico y aumentan el realismo en aplicaciones específicas.
 
 - *Cintas de marcha omnidireccionales* : Permiten al usuario caminar, correr o gatear en cualquier dirección mientras se mantiene físicamente en el mismo lugar. El dispositivo detecta el movimiento y lo traduce en desplazamiento dentro del mundo virtual, ofreciendo una locomoción natural sin necesidad de espacio físico real @tukur2025panoramic.
 - *Periféricos de simulación* : Son dispositivos diseñados para aumentar el realismo en géneros o aplicaciones específicas. Incluyen volantes con pedales para simuladores de conducción, palancas de vuelo (flight sticks) para aviación o réplicas de armas @acevedo2024systematic.
 
-== 5. Tecnologías de Rastreo (El "Cómo" nos ven)
+== Tecnologías de Rastreo (El "Cómo" nos ven)
 
 Aunque no son dispositivos que el usuario sostenga, son sistemas fundamentales integrados en el equipo o el entorno para que el sistema de realidad virtual pueda seguir los movimientos.
 
