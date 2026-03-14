@@ -88,7 +88,21 @@ Personas que usan el metro como los empleados, investigadores, estudiantes o tra
 - C\#
 
 == Alcance de funciones
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Las funciones con las que el usario podra tener interaccion en este ambiente virtual se incluye:
+
+- Navegación: El usuario se podra desplazar por la estación como en la vida real, podra cambiar de direccion y simular el transbordo a otra estacion.
+
+- Interacción con Objetos: Posibilidad de abrir puertas del ascensor, activar torniquetes, simular una recarga de saldo o presionar botones de emrgencia.
+
+- Sistema de Información: Visualización de mapas interactivos para el transbordo segun la estacion o paneles que muestran el tiempo de llegada de los trenes al interactuar con ellos.
+
+Las funciones de simulación y comportamiento que se implementaran para dar realismo al ambiente virtual son:
+
+- Ciclo de Arribo y Salida: Simular del movimiento de los trenes, saber donde es la apertura y cierre de puertas y tiempo estimado de espera al abordar.
+
+- Simulación de Multitudes: Generación de agentes que caminan por los pasillos, suben y bajan del tren para dar realismo al ambiente.
+
+- Sistema de Audio Ambiental: Activación de sonidos espaciales (el sonido del tren acercándose, anuncios por altavoz, ruido de fondo de la gente).
 
 #pagebreak()
 
