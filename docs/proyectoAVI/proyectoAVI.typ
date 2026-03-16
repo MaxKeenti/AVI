@@ -61,7 +61,8 @@
 #set heading(numbering: "1.")
 #set list(indent: 1.5em)
 
-#title("Ambiente virtual inmersivo para el metro")
+= Nombre del proyecto
+#title("Atlalilco virtual: Simulación de una estación del Metro CDMX")
 
 = Objetivo general
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -74,6 +75,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
 - Conciencia Ambiental y Biodiversidad: Integrar un módulo de Sustentabilidad Urbana que visualice el impacto positivo del uso del metro en la reducción de emisiones de CO2, incluyendo la importancia del cuidado de la fauna que a veces llega a las vías como perros o especies rescatadas.
 
 - Optimización del Rendimiento: Asegurar que el ambiente virtual mantenga una tasa de cuadros por segundo (FPS) estable para evitar el mareo por movimiento, permitiendo una navegación fluida tanto para investigadores como para estudiantes.
+
+= Justificación
+El proyecto "Atlalilco virtual: Simulación de una estación del Metro CDMX" surge como una iniciativa para explorar el potencial de los ambientes virtuales inmersivos en la educación y la investigación. La elección de una estación del metro como escenario se debe a su relevancia en la vida cotidiana de millones de personas, así como a su complejidad técnica y social que ofrece un amplio campo de estudio. Al crear una simulación detallada y realista de una estación del metro, se busca proporcionar a los usuarios una experiencia educativa que les permita comprender mejor el funcionamiento de este sistema de transporte, su impacto ambiental y su importancia en la movilidad urbana. Además, el proyecto pretende fomentar la conciencia sobre la sustentabilidad y la biodiversidad, destacando cómo el uso del transporte público puede contribuir a la reducción de emisiones de CO2 y al cuidado de la fauna urbana. En un contexto donde la tecnología y la educación están cada vez más interconectadas, este proyecto se posiciona como una herramienta innovadora para la enseñanza y la investigación en el ámbito de los ambientes virtuales, ofreciendo una experiencia inmersiva que combina el aprendizaje con la exploración interactiva.
+
 = Alcance
 El presente proyecto tiene como alcance el desarrollo de un ambiente virtual inmersivo que represente de manera interactiva una estación del Metro de la Ciudad de México. Este entorno permitirá a los usuarios recorrer digitalmente distintos espacios de la estación, observar elementos estructurales y conocer información relevante sobre su funcionamiento.
 El proyecto se enfocará principalmente en la simulación de espacios clave como andenes, accesos, señalización y áreas de circulación de usuarios. Asimismo, se incorporarán elementos interactivos que proporcionen información educativa relacionada con el sistema de transporte, normas de seguridad y aspectos históricos del metro.
@@ -85,7 +90,6 @@ Personas que usan el metro como los empleados, investigadores, estudiantes o tra
 - Unreal Engine
 - Blender
 - Meta Quest Pro
-- C\#
 
 == Alcance de funciones
 Las funciones con las que el usario podra tener interaccion en este ambiente virtual se incluye:
