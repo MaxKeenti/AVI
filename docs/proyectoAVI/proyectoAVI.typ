@@ -65,7 +65,7 @@
 #title("Atlalilco virtual: Simulación de una estación del Metro CDMX")
 
 = Objetivo general
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Crear una experiencia interactiva de realidad virtual que replique la inflaestructura del METRO de la CDMX para sensibilizar a los usuarios sobre la eficiencia del transporte público, la reducción de la huella de carbono y los protocolos de seguridad, transformando la percepción del entorno urbano a través de una navegación inmersiva y educativa. 
 
 = Objetivos específicos
 - Modelado Técnico y Fiel: Diseñar y texturizar un modelo 3D detallado de una estación representativa del Metro de la CDMX para garantizar el realismo dentro del ambiente virtual inmersivo.
