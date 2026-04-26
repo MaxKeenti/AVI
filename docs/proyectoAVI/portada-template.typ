@@ -19,10 +19,10 @@
 
   #set page(
     paper: "us-letter",
-    margin: (left: 3cm, top: 2.5cm, right: 2.5cm, bottom: 2.5cm)
+    margin: (left: 3cm, top: 2.5cm, right: 2.5cm, bottom: 2.5cm),
   )
   #set align(center)
-  
+
   // === Logos ===
   #let logo-ipn = image("media/logos/IPN_Logo.svg", height: 3.5cm)
   #let logo-upiicsa = image("media/logos/UPIICSA_Logo.svg", height: 3.5cm)
@@ -34,8 +34,7 @@
   // === Header with logos ===
   #grid(
     columns: (1fr, 1fr),
-    [#align(left)[#logo-ipn]],
-    [#align(right)[#logo-upiicsa]],
+    [#align(left)[#logo-ipn]], [#align(right)[#logo-upiicsa]],
   )
 
   // === Titles ===
@@ -43,16 +42,19 @@
   #text(18pt, weight: "semibold")[#ipn]
   #v(0.4cm)
   #text(17pt, weight: "semibold")[#upiicsa]
-  
+
   // Add some space before the columns start
-  #v(1cm) 
+  #v(1cm)
 
   // === Two Column Grid ===
   #grid(
-    columns: (1fr, 1fr), // Two equal columns
-    row-gutter: 0.8cm,   // Space between rows
-    column-gutter: 0.5cm,// Space between columns
-    
+    columns: (1fr, 1fr),
+    // Two equal columns
+    row-gutter: 0.8cm,
+    // Space between rows
+    column-gutter: 0.5cm,
+    // Space between columns
+
     // --- Row 1 ---
     [
       #text(11pt, stretch: 75%)[#titulo_carrera]
@@ -79,13 +81,13 @@
 
     // --- Row 3 ---
     [
-       // We keep the list logic here, but now it lives in the left column
-       #text(11pt, stretch: 75%)[#titulo_alumno]
-       #v(0.1cm)
-       #text(12pt, weight: "semibold")[
+      // We keep the list logic here, but now it lives in the left column
+      #text(11pt, stretch: 75%)[#titulo_alumno]
+      #v(0.1cm)
+      #text(12pt, weight: "semibold")[
         #if type(alumnos) == array {
           // We align left strictly for the bullets so they look nice
-          align(center, list(..alumnos)) 
+          align(left, list(..alumnos.sorted()))
         } else {
           alumnos
         }
@@ -104,6 +106,6 @@
       #text(11pt, stretch: 75%)[#titulo_fecha]
       #v(0.1cm)
       #text(12pt, weight: "semibold")[#fecha]
-    ]
+    ],
   )
 ]
