@@ -26,7 +26,7 @@
   fill: rgb("#2A2A2A"),
 )
 
-#show heading: set text(font: "Fraunces 72pt", weight: "black", fill: rgb("#FFB81C"))
+#show heading: set text(font: "Fraunces 72pt", weight: "black", fill: rgb("#E67D22"))
 
 #set page(
   paper: "us-letter",
@@ -68,7 +68,7 @@
 #table(
   columns: 8,
   align: center,
-  fill: (x, y) => if y == 0 { rgb("#FFB81C") } else { rgb("#F7F6F1") },
+  fill: (x, y) => if y == 0 { rgb("#E67D22") } else { rgb("#F7F6F1") },
   text(weight: "bold", fill: rgb("#2A2A2A"))[Característica],
   text(weight: "bold", fill: rgb("#2A2A2A"))[RV],
   text(weight: "bold", fill: rgb("#2A2A2A"))[RA],
