@@ -13,8 +13,8 @@
 
 #codly(
   languages: (
-    ts: (name: "TypeScript", icon: "", color: rgb("#3178C6")),
-    typ: (name: "Typst", icon: "", color: rgb("#239DAD")),
+    ts: (name: "TypeScript", icon: "", color: rgb("#FFB81C")),
+    typ: (name: "Typst", icon: "", color: rgb("#FFB81C")),
   ),
   number-format: n => str(n),
 )
@@ -23,14 +23,16 @@
   font: "ITC Avant Garde Gothic",
   lang: "es",
   weight: "semibold",
+  fill: rgb("#2A2A2A"),
 )
 
-#show heading: set text(font: "Fraunces 72pt", weight: "black")
+#show heading: set text(font: "Fraunces 72pt", weight: "black", fill: rgb("#FFB81C"))
 
 #set page(
   paper: "us-letter",
   margin: (left: 3cm, top: 2.5cm, right: 2.5cm, bottom: 2.5cm),
   numbering: "1",
+  fill: rgb("#F7F6F1"),
 )
 
 #let integrantes = (
@@ -66,15 +68,15 @@
 #table(
   columns: 8,
   align: center,
-  fill: (x, y) => if y == 0 { rgb("#5fa949") } else { rgb("#d4edda") },
-  text(weight: "bold", fill: white)[Característica],
-  text(weight: "bold", fill: white)[RV],
-  text(weight: "bold", fill: white)[RA],
-  text(weight: "bold", fill: white)[RM],
-  text(weight: "bold", fill: white)[Set Virtual],
-  text(weight: "bold", fill: white)[Actor Virtual],
-  text(weight: "bold", fill: white)[Escenario Virtual],
-  text(weight: "bold", fill: white)[Personaje Virtual],
+  fill: (x, y) => if y == 0 { rgb("#FFB81C") } else { rgb("#F7F6F1") },
+  text(weight: "bold", fill: rgb("#2A2A2A"))[Característica],
+  text(weight: "bold", fill: rgb("#2A2A2A"))[RV],
+  text(weight: "bold", fill: rgb("#2A2A2A"))[RA],
+  text(weight: "bold", fill: rgb("#2A2A2A"))[RM],
+  text(weight: "bold", fill: rgb("#2A2A2A"))[Set Virtual],
+  text(weight: "bold", fill: rgb("#2A2A2A"))[Actor Virtual],
+  text(weight: "bold", fill: rgb("#2A2A2A"))[Escenario Virtual],
+  text(weight: "bold", fill: rgb("#2A2A2A"))[Personaje Virtual],
 
   [Tiempo Real], [✓], [✓], [✓], [✓], [✓], [X], [X],
   [3D], [✓], [✓], [✓], [✓], [✓], [✓], [✓],
