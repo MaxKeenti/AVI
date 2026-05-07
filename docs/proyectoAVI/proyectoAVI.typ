@@ -120,5 +120,9 @@ Las funciones de simulación y comportamiento que se implementaran para dar real
 
 = Mapa del escenario y distribución
 
-#let mapa = image("media/logos/Metro Talismán.pdf", height: 3.5cm)
+#let mapa = image("media/logos/1.jpg", height: 3.5cm)
+#let mapa2 = image("media/logos/2.jpg", height: 3.5cm)
+
 #align(center)[#mapa]
+#align(center)[#mapa2]
+
