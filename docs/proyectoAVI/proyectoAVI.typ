@@ -47,7 +47,7 @@
   "INTEGRANTES",
   "SECUENCIA",
   "PROFESORA",
-  "Ambientes Virtuales",
+  "Ambientes Virtuales Inmersivos",
   "Simulación de Ambientes Virtuales",
   "Equipo 5",
   "2026 - 2",
@@ -111,12 +111,6 @@ Las funciones de simulación y comportamiento que se implementaran para dar real
 
 #pagebreak()
 
-#set page(
-  width: auto,
-  height: auto,
-  margin: 1cm,
-  fill: white,
-)
 
 = Mapa del escenario y distribución
 
