@@ -472,3 +472,26 @@ FodyWeavers.xsd
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,windows,visualstudiocode,visualstudio
+
+# ── GSD baseline (auto-generated) ──
+.gsd
+.gsd-id
+.mcp.json
+.bg-shell/
+*.swp
+*.swo
+.idea/
+.vscode/
+.env
+.env.*
+!.env.example
+.next/
+dist/
+build/
+.venv/
+venv/
+target/
+vendor/
+coverage/
+.cache/
+tmp/
