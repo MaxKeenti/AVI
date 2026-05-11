@@ -62,61 +62,61 @@
 #set list(indent: 1.5em)
 
 = Nombre del proyecto
-#title("Talismán virtual: Simulación de una estación del Metro CDMX")
+#title("VR-Cirugía: Quirófano Educativo en Realidad Virtual")
 
 = Objetivo general
-Creación de una experiencia interactiva de realidad virtual que replique la infraestructura del METRO de la CDMX, en especifico de la estacion Talismán, para sensibilizar a los usuarios sobre la eficiencia del transporte público, la reducción de la huella de carbono y los protocolos de seguridad, transformando la percepción del entorno urbano a través de una navegación inmersiva y educativa.
+Desarrollo de una experiencia educativa de realidad virtual que sitúe al usuario dentro de un quirófano, permitiéndole conocer de forma interactiva los procedimientos preoperatorios, el instrumental quirúrgico y el equipamiento médico presente en una sala de operaciones. A través de esta inmersión, se busca acercar a estudiantes de medicina a estos entornos críticos de manera accesible, mostrando además cómo las tecnologías de realidad virtual, aumentada y mixta están transformando la práctica quirúrgica moderna.
 
 = Objetivos específicos
-- Modelado Técnico y Fiel: Diseñar y texturizar un modelo 3D  de una estación representativa del Metro de la CDMX para reflejar el entorno de la estacion dentro del ambiente virtual inmersivo.
+- Modelado del Quirófano: Diseñar y texturizar un modelo 3D de un quirófano equipado con instrumental y maquinaria médica representativa, reflejando fielmente el entorno de una sala de operaciones real dentro del ambiente virtual inmersivo.
 
-- Interactividad Didáctica: Implementar puntos de información interactivos dentro del recorrido virtual que expliquen el funcionamiento técnico del metro, su historia, las normas de seguridad para el usuario y la presencia del mamut.
+- Interactividad Educativa: Implementar puntos de información interactivos sobre el instrumental y equipamiento del quirófano que permitan al usuario identificar cada elemento, conocer su función y comprender su papel dentro de los protocolos preoperatorios.
 
-- Conciencia Ambiental y Biodiversidad: Integrar un módulo de Sustentabilidad Urbana que visualice el impacto positivo del uso del metro en la reducción de emisiones de CO2, incluyendo la importancia del cuidado de la fauna que a veces llega a las vías como perros o especies rescatadas.
+- Protocolos Preoperatorios: Recrear de forma guiada procedimientos que no requieren modelos humanos, tales como el conteo de instrumental quirúrgico, la verificación del equipo de anestesia, la preparación del campo estéril y el checklist de seguridad quirúrgica de la OMS.
 
-- Optimización del Rendimiento: Asegurar que el ambiente virtual mantenga una tasa de cuadros por segundo (FPS) estable para evitar el mareo por movimiento, permitiendo una navegación fluida tanto para investigadores como para estudiantes.
+- Optimización del Rendimiento: Asegurar que el ambiente virtual mantenga una tasa de cuadros por segundo (FPS) estable para evitar el mareo por movimiento, permitiendo una navegación fluida para los estudiantes.
 
 = Justificación
-El proyecto "Talismán virtual: Simulación de una estación del Metro CDMX" surge como una iniciativa para explorar el potencial de los ambientes virtuales inmersivos en la educación y la investigación. La elección de una estación del metro como escenario se debe a su relevancia en la vida cotidiana de millones de personas, así como a su complejidad técnica y social que ofrece un amplio campo de estudio. Al crear una simulación detallada y realista de una estación del metro, se busca proporcionar a los usuarios una experiencia educativa que les permita comprender mejor el funcionamiento de este sistema de transporte, su impacto ambiental y su importancia en la movilidad urbana. Además, el proyecto pretende fomentar la conciencia sobre la sustentabilidad y la biodiversidad, destacando cómo el uso del transporte público puede contribuir a la reducción de emisiones de CO2 y al cuidado de la fauna urbana. En un contexto donde la tecnología y la educación están cada vez más interconectadas, este proyecto se posiciona como una herramienta innovadora para la enseñanza y la investigación en el ámbito de los ambientes virtuales, ofreciendo una experiencia inmersiva que combina el aprendizaje con la exploración interactiva.
+El proyecto "VR-Cirugía" surge como una iniciativa para explorar el potencial de los ambientes virtuales inmersivos en la educación médica. El quirófano es un entorno de alta complejidad técnica al que los estudiantes de medicina tienen acceso limitado durante su formación; la realidad virtual ofrece la posibilidad de familiarizarse con este espacio sin las restricciones logísticas, de seguridad y de disponibilidad que implica un quirófano real. Al crear una simulación interactiva de una sala de operaciones, se busca proporcionar a los estudiantes una experiencia educativa que les permita comprender los protocolos preoperatorios, identificar el instrumental y el equipamiento médico, y entender cómo la tecnología inmersiva está siendo adoptada en la práctica quirúrgica contemporánea. En un contexto donde la realidad virtual, aumentada y mixta están siendo incorporadas en hospitales y centros de formación médica para mejorar procedimientos quirúrgicos, este proyecto demuestra de primera mano ese potencial al colocar al usuario dentro del mismo entorno donde estas tecnologías se aplican. Además, contribuye a reducir la aprensión que genera el quirófano tanto en estudiantes como en pacientes, haciendo accesible el conocimiento sobre lo que ocurre en este espacio y cómo cada elemento presente puede salvar vidas.
 
 = Alcance
-El presente proyecto tiene como alcance el desarrollo de un ambiente virtual inmersivo que represente de manera interactiva una estación del Metro de la Ciudad de México. Este entorno permitirá a los usuarios recorrer digitalmente distintos espacios de la estación, observar elementos estructurales y conocer información relevante sobre su funcionamiento.
-El proyecto se enfocará principalmente en la simulación de espacios clave como andenes, accesos, señalización y áreas de circulación de usuarios. Asimismo, se incorporarán elementos interactivos que proporcionen información educativa relacionada con el sistema de transporte, normas de seguridad y aspectos históricos del metro.
-Cabe mencionar que este proyecto se plantea como una simulación con fines educativos y de demostración tecnológica, por lo que no busca replicar todo el sistema del metro de manera completa, sino mostrar un modelo representativo que permita comprender su funcionamiento y utilidad dentro de un entorno virtual.
+El presente proyecto tiene como alcance el desarrollo de un ambiente virtual inmersivo que represente de manera interactiva un quirófano equipado con instrumental y maquinaria médica. Este entorno permitirá a los usuarios explorar la sala de operaciones, interactuar con los elementos presentes y recibir información educativa sobre su uso y los protocolos asociados.
+El proyecto se enfocará en la recreación de procedimientos preoperatorios que no involucran modelos humanos, tales como el conteo y la identificación de instrumental quirúrgico, la verificación del equipo de anestesia, la preparación del campo estéril y la aplicación del checklist de seguridad quirúrgica de la OMS. No se pretende simular procedimientos quirúrgicos en sí mismos ni interacciones con pacientes.
+Este proyecto se plantea como una simulación con fines educativos y de demostración tecnológica, dirigida a instituciones y escuelas de medicina que deseen apoyar el aprendizaje de sus alumnos mediante ambientes virtuales, permitiéndoles adentrarse de forma accesible y segura en un entorno de suma importancia clínica.
 
 == Público objetivo
-Personas que usan el metro como los empleados, investigadores, estudiantes o trabajadores; como apoyo general y contenido didactico.
+Estudiantes de medicina y ciencias de la salud, así como escuelas y facultades de medicina que busquen complementar la formación de sus alumnos mediante herramientas de realidad virtual como apoyo didáctico en el área quirúrgica.
 
 == Tecnologías a utilizar
 - Unity
-- Blender
-- Meta Quest Pro
 
 == Alcance de funciones
-Las funciones con las que el usario podra tener interaccion en este ambiente virtual se incluye:
+Las funciones con las que el usuario podrá tener interacción en este ambiente virtual incluyen:
 
-- Navegación: El usuario se podra desplazar por la estación como en la vida real, podra cambiar de direccion y simular viaje en metro.
+- Navegación: El usuario podrá desplazarse libremente por el quirófano, observar el espacio desde distintos ángulos y acercarse a cada pieza de equipamiento.
 
-- Interacción con Objetos: Posibilidad de  activar torniquetes, salir de la estacion, simular una recarga de saldo, observar el mamut o hablar con el personal, beber de un bebedero de agua.
+- Interacción con Instrumental: Posibilidad de seleccionar instrumentos quirúrgicos sobre la mesa Mayo para visualizar su nombre, clasificación y uso dentro del procedimiento operatorio.
 
-- Sistema de Información: Visualización de mapa interactivos para el transbordo desde Talismán, mapa interactivo con la red el metro, paneles que muestran la hora actual y la simbologia de la estación junto con anuncios publicitarios.
+- Interacción con Equipamiento: Explorar el funcionamiento de la máquina de anestesia, el monitor de signos vitales, las lámparas cialíticas y el contenedor RPBI, accediendo a información educativa sobre cada uno.
 
-Las funciones de simulación y comportamiento que se implementaran para dar realismo al ambiente virtual son:
+- Protocolo de Conteo de Instrumental: Simulación guiada del conteo de instrumental quirúrgico como protocolo de seguridad, verificando que cada pieza se encuentre presente antes y después de un procedimiento.
 
-- Ciclo de Arribo y Salida: Simular del movimiento de los trenes, saber donde es la apertura y cierre de puertas y tiempo estimado de espera al abordar.
+- Checklist de Seguridad Quirúrgica: Recreación interactiva del checklist de seguridad quirúrgica de la OMS (sign-in, time-out, sign-out), guiando al usuario a través de cada fase de verificación.
 
-- Simulación de   Autoridad: Generación de agentes que cumplen la funcion de ser trabajadores del metro que proporcionen datos interesantes acerca del metro.
+Las funciones de simulación y ambientación que se implementarán para dar realismo al ambiente virtual son:
 
-- Sistema de Audio Ambiental: Activación de sonidos espaciales (el sonido del metro acercándose, ruido del metro cuando esta a punto de cerrar las puertas,ruido de fondo de la calle, ruido de pago con tarjeta de movilidad integrada, entre otros).
+- Iluminación Quirúrgica: Simulación del comportamiento de las lámparas cialíticas, incluyendo la posibilidad de ajustar su posición y dirección.
+
+- Monitoreo de Signos Vitales: Pantalla del monitor mostrando lecturas simuladas de ECG, SpO2 y presión arterial para ambientar el entorno clínico.
+
+- Sistema de Audio Ambiental: Activación de sonidos espaciales propios del quirófano (pitido del monitor de signos vitales, ventilación de la máquina de anestesia, sonido ambiental de la sala).
 
 #pagebreak()
 
 
-= Mapa del escenario y distribución
+= Escenario: Quirófano virtual
 
-#let mapa = image("media/logos/1.jpg", height: 3.5cm)
-#let mapa2 = image("media/logos/2.jpg", height: 3.5cm)
+#let quirofano = image("media/OR.png", height: 8cm)
 
-#align(center)[#mapa]
-#align(center)[#mapa2]
+#align(center)[#quirofano]
 
