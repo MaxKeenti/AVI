@@ -175,15 +175,25 @@
     if (f && !f.src && f.dataset.src) f.src = f.dataset.src;
   }
 
+  // Drive each slide's entrance animation by signalling activity into the frame.
+  function signal(f, type) {
+    try { if (f && f.contentWindow) f.contentWindow.postMessage({ type: type }, '*'); }
+    catch (e) {}
+  }
+
   function show(idx) {
     idx = Math.max(0, Math.min(TOTAL - 1, idx));
-    frames.forEach(function (f) { f.classList.remove('active'); });
+    frames.forEach(function (f) {
+      if (f.classList.contains('active')) { f.classList.remove('active'); signal(f, 'vr-deck-inactive'); }
+    });
     frames[idx].classList.add('active');
     current = idx;
 
     ensureLoaded(idx);
     if (idx - 1 >= 0) ensureLoaded(idx - 1);
     if (idx + 1 < TOTAL) ensureLoaded(idx + 1);
+
+    signal(frames[idx], 'vr-deck-active');
 
     counter.textContent = idx + 1;
     progress.style.width = ((idx + 1) / TOTAL * 100) + '%';
@@ -302,6 +312,13 @@
     const dx = e.changedTouches[0].clientX - touchStartX;
     if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); }
     touchStartX = null;
+  });
+
+  // A freshly-loaded slide announces itself; replay its entrance if it's current.
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'vr-deck-ready') return;
+    var f = frames[current];
+    if (f && f.contentWindow === e.source) signal(f, 'vr-deck-active');
   });
 
   // ---- Boot: respect hash to deep-link to a slide ----

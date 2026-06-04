@@ -107,9 +107,10 @@ body { display: grid; place-items: center; overflow: hidden; }
 /* EKG / heartbeat line running along the bottom edge */
 .ekg {
   position: absolute; left: 70px; right: 70px; bottom: 54px;
-  height: 36px; opacity: 0.5; pointer-events: none;
+  height: 36px; opacity: 1; pointer-events: none;
 }
-.ekg path { fill: none; stroke: var(--teal); stroke-width: 1.6; }
+/* static baseline stays subtle; the travelling pulse below runs at full strength */
+.ekg path { fill: none; stroke: var(--teal); stroke-width: 1.6; opacity: 0.45; }
 
 /* page chrome */
 .kicker {
@@ -224,4 +225,94 @@ h1, h2, h3 { font-family: var(--font-head); }
   letter-spacing: 0.04em;
   color: var(--ink); padding: 12px 26px; border-radius: 999px;
   background: var(--panel); border: 1px solid var(--teal);
+}
+
+/* ============================================================================
+   MOTION — thematic, operating-room animations layered on by anim.js.
+   Nothing here changes the static layout: the cloned EKG pulse, the reveal
+   classes and the scan overlay are all added at runtime, so a slide opened
+   with JS disabled still renders exactly as before.
+   ========================================================================== */
+
+/* ---- vitals monitor: a bright blip sweeps the heartbeat line ----
+   anim.js clones the static <path> as .ekg-pulse and sets the dash metrics
+   (--start / --end) from the real path length. */
+.ekg path.ekg-pulse {
+  stroke: var(--teal);
+  stroke-width: 3.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0;
+  filter:
+    drop-shadow(0 0 3px var(--teal))
+    drop-shadow(0 0 9px var(--glow))
+    drop-shadow(0 0 18px var(--glow))
+    drop-shadow(0 0 30px var(--glow));
+  animation: vr-ekg 3.4s linear infinite;
+}
+/* white-hot core on the dark theme for a true neon read */
+html:not(.light) .ekg path.ekg-pulse { stroke: #8af7ea; }
+@keyframes vr-ekg {
+  0%   { stroke-dashoffset: var(--start, 120); opacity: 0; }
+  6%   { opacity: 1; }
+  88%  { opacity: 1; }
+  100% { stroke-dashoffset: var(--end, -1600); opacity: 0; }
+}
+
+/* ---- breathing glow on the teal accents ---- */
+.title-rule .diamond, .cover-rule .diamond, .feature .dot {
+  animation: vr-pulse 2.8s ease-in-out infinite;
+}
+@keyframes vr-pulse {
+  0%, 100% { box-shadow: 0 0 10px var(--glow); }
+  50%      { box-shadow: 0 0 22px var(--glow), 0 0 5px var(--teal); }
+}
+
+/* ---- staggered entrance reveal (per-element delay set inline by anim.js) ---- */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(20px);
+  filter: blur(3px);
+  transition: opacity 0.62s ease, transform 0.62s cubic-bezier(0.22, 0.61, 0.36, 1),
+              filter 0.62s ease;
+  will-change: opacity, transform;
+}
+.reveal-item.is-in {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* ---- surgical scan sweep on slide entry ---- */
+.slide::after {
+  content: "";
+  position: absolute; left: 0; right: 0; top: 0; height: 150px;
+  background: linear-gradient(180deg,
+              rgba(45, 212, 191, 0.22) 0%,
+              rgba(45, 212, 191, 0.06) 45%,
+              rgba(45, 212, 191, 0) 100%);
+  opacity: 0; transform: translateY(-170px);
+  pointer-events: none; z-index: 3;
+}
+html.light .slide::after {
+  background: linear-gradient(180deg,
+              rgba(15, 118, 110, 0.16) 0%,
+              rgba(15, 118, 110, 0.04) 45%,
+              rgba(15, 118, 110, 0) 100%);
+}
+.slide.scan::after { animation: vr-scan 1.15s ease-out 0.04s 1; }
+@keyframes vr-scan {
+  0%   { opacity: 0;    transform: translateY(-170px); }
+  12%  { opacity: 0.95; }
+  100% { opacity: 0;    transform: translateY(940px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-item {
+    opacity: 1 !important; transform: none !important;
+    filter: none !important; transition: none !important;
+  }
+  .ekg path.ekg-pulse { display: none; }
+  .title-rule .diamond, .cover-rule .diamond, .feature .dot { animation: none; }
+  .slide.scan::after { animation: none; }
 }
