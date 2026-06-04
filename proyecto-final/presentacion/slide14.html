@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VR-Cirugía — Link del AVI (video)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Newsreader:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="deck.css">
+<script src="theme.js"></script>
+<style>
+  .vid { display:grid; grid-template-columns:1.25fr 1fr; gap:54px; align-items:center; margin-top:20px; }
+  .vthumb { position:relative; aspect-ratio:16/9; border-radius:18px; overflow:hidden;
+    border:1px solid var(--panel-line);
+    background:radial-gradient(120% 120% at 50% 30%, var(--bg-2), var(--bg-0));
+    display:flex; align-items:center; justify-content:center; box-shadow:0 18px 50px rgba(0,0,0,.4); }
+  .vthumb .grid { position:absolute; inset:0; opacity:.5;
+    background-image:linear-gradient(rgba(127,160,160,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(127,160,160,.06) 1px,transparent 1px);
+    background-size:48px 48px; }
+  .play { width:104px; height:104px; border-radius:50%; background:var(--guinda);
+    display:flex; align-items:center; justify-content:center; position:relative;
+    box-shadow:0 0 0 12px rgba(196,58,99,.16), 0 10px 30px rgba(0,0,0,.5); }
+  .play::after { content:""; border-style:solid; border-width:21px 0 21px 36px;
+    border-color:transparent transparent transparent #fff; margin-left:8px; }
+  .vcap { position:absolute; left:0; right:0; bottom:0; padding:18px 24px;
+    background:linear-gradient(transparent, rgba(3,7,10,.78)); color:#eef6f5;
+    font-family:var(--font-head); font-weight:600; font-size:19px; }
+  .vcap span { display:block; font-weight:400; font-size:14px; color:#9fb6b6; margin-top:2px; }
+
+  .vmeta { display:grid; gap:22px; }
+  .vmeta .flabel { font-family:var(--font-head); font-weight:700; font-size:14px;
+    letter-spacing:.22em; text-transform:uppercase; color:var(--guinda); margin-bottom:10px; }
+  .linkbox { display:flex; align-items:center; gap:14px; padding:18px 22px;
+    border:2px dashed var(--teal); border-radius:12px; background:var(--panel); }
+  .linkbox .chain { color:var(--teal); font-size:22px; }
+  .linkbox code { font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:18px;
+    color:var(--ink-dim); word-break:break-all; }
+  .qrow { display:flex; align-items:center; gap:24px; }
+  .qr { width:140px; height:140px; flex:none; border-radius:12px; border:2px dashed var(--teal);
+    background:var(--panel); position:relative; display:flex; align-items:center; justify-content:center; }
+  .qr::before, .qr::after, .qr i { content:""; position:absolute; width:30px; height:30px;
+    border:5px solid var(--ink-faint); border-radius:4px; }
+  .qr::before { top:14px; left:14px; }
+  .qr::after { top:14px; right:14px; }
+  .qr i { bottom:14px; left:14px; }
+  .qr b { font-family:var(--font-head); font-weight:700; font-size:13px; letter-spacing:.2em;
+    color:var(--ink-faint); }
+  .qrnote { font-size:16px; line-height:1.5; color:var(--ink-dim); }
+  .qrnote strong { color:var(--ink); }
+  .plat { display:flex; gap:10px; }
+  .plat .badge { font-size:15px; padding:8px 18px; }
+</style>
+</head>
+<body>
+<div class="scaler">
+  <div class="slide">
+    <span class="corner tl"></span><span class="corner tr"></span>
+    <span class="corner bl"></span><span class="corner br"></span>
+    <svg class="ekg" viewBox="0 0 1460 36" preserveAspectRatio="none"><path d="M0 18 H300 l10 -13 7 26 9 -20 10 16 H760 l10 -13 7 26 9 -20 10 16 H1180 l10 -13 7 26 9 -20 10 16 H1460"/></svg>
+    <span class="kicker">09 · Link del AVI</span>
+    <span class="brand-tag">VR-Cirugía</span>
+    <span class="page-tag"><b>15</b> / 17</span>
+    <div class="content">
+      <h2 class="title" style="font-size:50px;">Demostración en video</h2>
+      <div class="title-rule" style="margin:18px 0 6px;"><span class="line"></span><span class="diamond"></span></div>
+      <div class="vid">
+        <div class="vthumb">
+          <div class="grid"></div>
+          <div class="play"></div>
+          <div class="vcap">Recorrido del quirófano virtual<span>Video del AVI · VR-Cirugía</span></div>
+        </div>
+        <div class="vmeta">
+          <div>
+            <p class="flabel">Enlace del video</p>
+            <!-- ▼▼▼  PEGA AQUÍ EL ENLACE DEL VIDEO (reemplaza el texto del <code> y el href)  ▼▼▼ -->
+            <a class="linkbox" href="#" target="_blank" rel="noopener">
+              <span class="chain">🔗</span>
+              <code>https://… (pega aquí el enlace del video)</code>
+            </a>
+            <!-- ▲▲▲  FIN DEL ENLACE DEL VIDEO  ▲▲▲ -->
+          </div>
+          <div class="qrow">
+            <div class="qr"><i></i><b>QR</b></div>
+            <p class="qrnote"><strong>Escanea para ver el video.</strong><br>Genera el código QR con la URL final y reemplaza este recuadro.</p>
+          </div>
+          <div>
+            <p class="flabel" style="margin-bottom:8px;">Plataforma</p>
+            <div class="plat"><span class="badge">YouTube</span><span class="badge">Google Drive</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="slide.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VR-Cirugía — Link de la RA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Newsreader:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="deck.css">
+<script src="theme.js"></script>
+<style>
+  .ra { display:grid; grid-template-columns:1.5fr 1fr; gap:48px; align-items:stretch; margin-top:18px; }
+  .res { display:grid; gap:18px; }
+  .rcard { display:grid; grid-template-columns:auto 1fr; gap:20px; align-items:center;
+    padding:20px 24px; background:var(--panel); border:1px solid var(--panel-line); border-radius:14px; }
+  .rcard::after { content:""; position:absolute; }
+  .ricon { width:52px; height:52px; flex:none; border-radius:12px;
+    background:linear-gradient(150deg,var(--guinda),var(--teal)); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:24px; }
+  .rcard h3 { font-family:var(--font-head); font-size:21px; font-weight:700; color:var(--ink); margin-bottom:3px; }
+  .rcard p { font-size:14.5px; color:var(--ink-dim); margin-bottom:10px; line-height:1.4; }
+  .linkbox { display:inline-flex; align-items:center; gap:10px; padding:10px 16px;
+    border:2px dashed var(--teal); border-radius:10px; background:rgba(45,212,191,.06); }
+  .linkbox .chain { color:var(--teal); font-size:16px; }
+  .linkbox code { font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:14.5px;
+    color:var(--ink-dim); word-break:break-all; }
+  .qrpanel { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+    padding:30px 26px; background:var(--panel); border:1px solid var(--panel-line); border-radius:16px; gap:18px; }
+  .qrpanel .flabel { font-family:var(--font-head); font-weight:700; font-size:14px;
+    letter-spacing:.2em; text-transform:uppercase; color:var(--guinda); }
+  .qr { width:188px; height:188px; border-radius:14px; border:2px dashed var(--teal);
+    background:var(--bg-1); position:relative; display:flex; align-items:center; justify-content:center; }
+  .qr::before, .qr::after, .qr i { content:""; position:absolute; width:40px; height:40px;
+    border:6px solid var(--ink-faint); border-radius:6px; }
+  .qr::before { top:18px; left:18px; }
+  .qr::after { top:18px; right:18px; }
+  .qr i { bottom:18px; left:18px; }
+  .qr b { font-family:var(--font-head); font-weight:700; font-size:15px; letter-spacing:.22em; color:var(--ink-faint); }
+  .qrpanel .note { font-size:15px; color:var(--ink-dim); line-height:1.5; }
+  .qrpanel .note strong { color:var(--ink); }
+</style>
+</head>
+<body>
+<div class="scaler">
+  <div class="slide">
+    <span class="corner tl"></span><span class="corner tr"></span>
+    <span class="corner bl"></span><span class="corner br"></span>
+    <svg class="ekg" viewBox="0 0 1460 36" preserveAspectRatio="none"><path d="M0 18 H300 l10 -13 7 26 9 -20 10 16 H760 l10 -13 7 26 9 -20 10 16 H1180 l10 -13 7 26 9 -20 10 16 H1460"/></svg>
+    <span class="kicker">10 · Link de la RA</span>
+    <span class="brand-tag">VR-Cirugía</span>
+    <span class="page-tag"><b>16</b> / 17</span>
+    <div class="content">
+      <h2 class="title" style="font-size:50px;">Realidad Aumentada</h2>
+      <div class="title-rule" style="margin:18px 0 6px;"><span class="line"></span><span class="diamond"></span></div>
+      <div class="ra">
+        <div class="res">
+          <!-- ▼ MARCADORES — pega el enlace en el <code> y el href ▼ -->
+          <div class="rcard">
+            <div class="ricon">⊞</div>
+            <div>
+              <h3>Marcadores</h3>
+              <p>Imágenes objetivo para imprimir o mostrar en pantalla y disparar la RA.</p>
+              <a class="linkbox" href="#" target="_blank" rel="noopener"><span class="chain">🔗</span><code>https://… (enlace a marcadores)</code></a>
+            </div>
+          </div>
+          <!-- ▼ APK — pega el enlace en el <code> y el href ▼ -->
+          <div class="rcard">
+            <div class="ricon">📱</div>
+            <div>
+              <h3>APK (Android)</h3>
+              <p>Aplicación instalable para ejecutar la experiencia de realidad aumentada.</p>
+              <a class="linkbox" href="#" target="_blank" rel="noopener"><span class="chain">🔗</span><code>https://… (enlace al APK)</code></a>
+            </div>
+          </div>
+          <!-- ▼ IMÁGENES — pega el enlace en el <code> y el href ▼ -->
+          <div class="rcard">
+            <div class="ricon">🖼</div>
+            <div>
+              <h3>Imágenes y recursos</h3>
+              <p>Capturas, texturas y materiales de apoyo de la RA.</p>
+              <a class="linkbox" href="#" target="_blank" rel="noopener"><span class="chain">🔗</span><code>https://… (enlace a imágenes)</code></a>
+            </div>
+          </div>
+        </div>
+        <div class="qrpanel">
+          <p class="flabel">Carpeta completa</p>
+          <div class="qr"><i></i><b>QR</b></div>
+          <p class="note"><strong>Escanea para abrir la carpeta de RA.</strong><br>Genera el QR con el enlace de Drive y reemplaza este recuadro.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="slide.js"></script>
+</body>
+</html>

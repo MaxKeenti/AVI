@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VR-Cirugía — Gracias</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Newsreader:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="deck.css">
+<script src="theme.js"></script>
+<style>
+  .closing { position:absolute; inset:0; z-index:2; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+  .closing .eyebrow { font-family:var(--font-head); font-weight:700; font-size:17px; letter-spacing:.34em; text-transform:uppercase; color:var(--guinda); }
+  .closing h1 { font-family:var(--font-head); font-weight:800; font-size:104px; letter-spacing:-2px; margin:18px 0 0; }
+  .closing h1 .accent { color:var(--teal); }
+  .closing .sub { font-family:var(--font-serif); font-style:italic; font-size:32px; color:var(--ink-dim); margin-top:14px; }
+  .closing .rule { margin:34px 0; display:flex; align-items:center; gap:14px; }
+  .closing .rule .line { height:2px; width:120px; background:linear-gradient(90deg,var(--guinda),var(--teal)); }
+  .closing .rule .diamond { width:13px; height:13px; background:var(--teal); transform:rotate(45deg); box-shadow:0 0 14px var(--glow); }
+  .closing .team { font-family:var(--font-head); font-weight:600; font-size:19px; letter-spacing:.04em; color:var(--ink-faint); }
+</style>
+</head>
+<body>
+<div class="scaler">
+  <div class="slide">
+    <span class="corner tl"></span><span class="corner tr"></span>
+    <span class="corner bl"></span><span class="corner br"></span>
+    <svg class="ekg" viewBox="0 0 1460 36" preserveAspectRatio="none"><path d="M0 18 H300 l10 -13 7 26 9 -20 10 16 H760 l10 -13 7 26 9 -20 10 16 H1180 l10 -13 7 26 9 -20 10 16 H1460"/></svg>
+    <span class="brand-tag"></span>
+    <div class="closing">
+      <span class="eyebrow">Gracias por su atención</span>
+      <h1>VR<span class="accent">-</span>Cirugía</h1>
+      <p class="sub">Quirófano Educativo en Realidad Virtual</p>
+      <div class="rule"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+      <p class="team">Equipo 5 &middot; Ambientes Virtuales Inmersivos &middot; 6NM69 &middot; 2026-2</p>
+    </div>
+  </div>
+</div>
+<script src="slide.js"></script>
+</body>
+</html>

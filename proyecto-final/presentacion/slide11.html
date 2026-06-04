@@ -3,22 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VR-Cirugía — Gracias</title>
+<title>VR-Cirugía — Descripción del AVI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Newsreader:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="deck.css">
 <script src="theme.js"></script>
 <style>
-  .closing { position:absolute; inset:0; z-index:2; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
-  .closing .eyebrow { font-family:var(--font-head); font-weight:700; font-size:17px; letter-spacing:.34em; text-transform:uppercase; color:var(--guinda); }
-  .closing h1 { font-family:var(--font-head); font-weight:800; font-size:104px; letter-spacing:-2px; margin:18px 0 0; }
-  .closing h1 .accent { color:var(--teal); }
-  .closing .sub { font-family:var(--font-serif); font-style:italic; font-size:32px; color:var(--ink-dim); margin-top:14px; }
-  .closing .rule { margin:34px 0; display:flex; align-items:center; gap:14px; }
-  .closing .rule .line { height:2px; width:120px; background:linear-gradient(90deg,var(--guinda),var(--teal)); }
-  .closing .rule .diamond { width:13px; height:13px; background:var(--teal); transform:rotate(45deg); box-shadow:0 0 14px var(--glow); }
-  .closing .team { font-family:var(--font-head); font-weight:600; font-size:19px; letter-spacing:.04em; color:var(--ink-faint); }
+  .desc { display:grid; grid-template-columns:1.32fr 1fr; gap:50px; align-items:center; margin-top:18px; }
+  .shot { position:relative; border-radius:16px; overflow:hidden; border:1px solid var(--panel-line); box-shadow:0 18px 50px rgba(0,0,0,.35); }
+  .shot img { width:100%; display:block; }
+  .pin { position:absolute; width:34px; height:34px; transform:translate(-50%,-50%);
+    border-radius:50%; background:var(--guinda); color:#fff; border:2px solid #fff;
+    font-family:var(--font-head); font-weight:700; font-size:17px;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 0 0 4px rgba(196,58,99,.30), 0 4px 12px rgba(0,0,0,.45); }
+  .legend { list-style:none; display:grid; gap:13px; }
+  .legend li { display:grid; grid-template-columns:auto 1fr; gap:16px; align-items:start; }
+  .legend .b { width:30px; height:30px; flex:none; border-radius:50%;
+    background:var(--teal); color:#04221f; font-family:var(--font-head); font-weight:700;
+    font-size:15px; display:flex; align-items:center; justify-content:center; margin-top:2px; }
+  html.light .legend .b { color:#fff; }
+  .legend h3 { font-family:var(--font-head); font-size:19px; font-weight:700; color:var(--ink); margin-bottom:2px; }
+  .legend p { font-size:15px; line-height:1.45; color:var(--ink-dim); }
 </style>
 </head>
 <body>
@@ -27,13 +34,31 @@
     <span class="corner tl"></span><span class="corner tr"></span>
     <span class="corner bl"></span><span class="corner br"></span>
     <svg class="ekg" viewBox="0 0 1460 36" preserveAspectRatio="none"><path d="M0 18 H300 l10 -13 7 26 9 -20 10 16 H760 l10 -13 7 26 9 -20 10 16 H1180 l10 -13 7 26 9 -20 10 16 H1460"/></svg>
-    <span class="brand-tag"></span>
-    <div class="closing">
-      <span class="eyebrow">Gracias por su atención</span>
-      <h1>VR<span class="accent">-</span>Cirugía</h1>
-      <p class="sub">Quirófano Educativo en Realidad Virtual</p>
-      <div class="rule"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
-      <p class="team">Equipo 5 &middot; Ambientes Virtuales Inmersivos &middot; 6NM69 &middot; 2026-2</p>
+    <span class="kicker">06 · Descripción del AVI</span>
+    <span class="brand-tag">VR-Cirugía</span>
+    <span class="page-tag"><b>12</b> / 17</span>
+    <div class="content">
+      <h2 class="title" style="font-size:50px;">Elementos del entorno</h2>
+      <div class="title-rule" style="margin:18px 0 6px;"><span class="line"></span><span class="diamond"></span></div>
+      <div class="desc">
+        <div class="shot">
+          <img src="media/quirofano.png" alt="Render del quirófano virtual con sus elementos señalados">
+          <span class="pin" style="left:51%;top:11%;">1</span>
+          <span class="pin" style="left:70%;top:30%;">2</span>
+          <span class="pin" style="left:73%;top:56%;">3</span>
+          <span class="pin" style="left:57%;top:55%;">4</span>
+          <span class="pin" style="left:21%;top:62%;">5</span>
+          <span class="pin" style="left:39%;top:40%;">6</span>
+        </div>
+        <ul class="legend">
+          <li><span class="b">1</span><div><h3>Lámparas cialíticas</h3><p>Iluminación quirúrgica suspendida, orientable sobre la zona de operación.</p></div></li>
+          <li><span class="b">2</span><div><h3>Monitor de signos vitales</h3><p>Pantalla en brazo articulado con lecturas simuladas de ECG, SpO₂ y presión.</p></div></li>
+          <li><span class="b">3</span><div><h3>Máquina de anestesia</h3><p>Estación de ventilación y administración de gases junto al campo quirúrgico.</p></div></li>
+          <li><span class="b">4</span><div><h3>Mesa Mayo e instrumental</h3><p>Instrumental quirúrgico dispuesto para identificación y conteo de piezas.</p></div></li>
+          <li><span class="b">5</span><div><h3>Contenedor RPBI</h3><p>Bolsas rojas para residuos peligrosos biológico-infecciosos.</p></div></li>
+          <li><span class="b">6</span><div><h3>Acceso al quirófano</h3><p>Puerta de ingreso a la sala estéril y punto de partida de la navegación.</p></div></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

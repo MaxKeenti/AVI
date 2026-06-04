@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VR-Cirugía — Experiencia de aprendizaje</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Newsreader:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="deck.css">
+<script src="theme.js"></script>
+<style>
+  .cards { grid-template-columns:1fr 1fr; gap:22px 30px; margin-top:6px; }
+  .card p { font-size:17px; }
+  .compe { margin-top:22px; display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+    padding:18px 26px; background:var(--panel); border:1px solid var(--panel-line); border-radius:14px; }
+  .compe .tag { font-family:var(--font-head); font-weight:700; font-size:14px; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--guinda); }
+  .compe .badge { font-size:16px; padding:8px 18px; }
+</style>
+</head>
+<body>
+<div class="scaler">
+  <div class="slide">
+    <span class="corner tl"></span><span class="corner tr"></span>
+    <span class="corner bl"></span><span class="corner br"></span>
+    <svg class="ekg" viewBox="0 0 1460 36" preserveAspectRatio="none"><path d="M0 18 H300 l10 -13 7 26 9 -20 10 16 H760 l10 -13 7 26 9 -20 10 16 H1180 l10 -13 7 26 9 -20 10 16 H1460"/></svg>
+    <span class="kicker">08 · Experiencia de aprendizaje</span>
+    <span class="brand-tag">VR-Cirugía</span>
+    <span class="page-tag"><b>14</b> / 17</span>
+    <div class="content">
+      <h2 class="title" style="font-size:50px;">Experiencia de aprendizaje</h2>
+      <div class="title-rule" style="margin:18px 0 14px;"><span class="line"></span><span class="diamond"></span></div>
+      <p class="lead" style="font-size:22px;max-width:1300px;margin-bottom:8px;">VR-Cirugía propone un aprendizaje <strong style="color:var(--ink);">situado e inmersivo</strong>: el estudiante construye conocimiento explorando y manipulando el quirófano en primera persona, en lugar de memorizar de forma pasiva.</p>
+      <div class="cards">
+        <div class="card"><div class="num">01</div><h3>Inmersión y memoria espacial</h3><p>Estar dentro del quirófano genera presencia: el estudiante asocia cada concepto al lugar y objeto reales donde ocurre, afianzando la retención.</p></div>
+        <div class="card"><div class="num">02</div><h3>Aprendizaje por descubrimiento</h3><p>Al seleccionar instrumental y equipamiento, descubre nombre, función y clasificación a su propio ritmo, con retroalimentación inmediata.</p></div>
+        <div class="card"><div class="num">03</div><h3>Práctica de protocolos</h3><p>El conteo de instrumental y el checklist de la OMS se convierten en una secuencia guiada, repetible y sin riesgo para el paciente.</p></div>
+        <div class="card"><div class="num">04</div><h3>Entorno seguro y accesible</h3><p>Sin restricciones logísticas ni de bioseguridad, se reduce la aprensión al quirófano y se amplía el acceso a un espacio de formación limitado.</p></div>
+      </div>
+      <div class="compe">
+        <span class="tag">Competencias</span>
+        <span class="badge">Identificación de instrumental</span>
+        <span class="badge">Conciencia situacional</span>
+        <span class="badge">Cultura de seguridad del paciente</span>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="slide.js"></script>
+</body>
+</html>
