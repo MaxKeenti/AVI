@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VR-Cirugía — Presentación</title>
+<script src="theme.js"></script>
+<style>
+  html, body {
+    margin: 0; padding: 0; width: 100%; height: 100%;
+    background: #03070a; overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  html.light, html.light body { background: #dde4ec; }
+
+  #stage { position: relative; width: 100vw; height: 100vh; }
+
+  iframe.slide-frame {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    border: 0; background: #03070a;
+    visibility: hidden; pointer-events: none;
+  }
+  html.light iframe.slide-frame { background: #dde4ec; }
+  iframe.slide-frame.active { visibility: visible; pointer-events: auto; }
+
+  /* ---- progress bar ---- */
+  #progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: linear-gradient(90deg, #c43a63, #2dd4bf);
+    width: 0%; transition: width 0.25s ease; z-index: 50;
+    box-shadow: 0 0 8px rgba(45, 212, 191, 0.6);
+  }
+
+  /* ---- floating controls ---- */
+  #controls {
+    position: fixed; bottom: 18px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; align-items: center; gap: 4px;
+    padding: 6px 10px;
+    background: rgba(8, 22, 27, 0.82);
+    border: 1px solid rgba(45, 212, 191, 0.35);
+    border-radius: 999px; color: #fff; font-size: 13px;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+    z-index: 100; opacity: 0; transition: opacity 0.3s ease;
+    user-select: none;
+  }
+  html.light #controls {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(15, 118, 110, 0.35); color: #16202a;
+  }
+  body.show-ui #controls { opacity: 1; }
+
+  #controls button {
+    background: transparent; border: 0; color: inherit;
+    font-size: 18px; line-height: 1; padding: 6px 10px;
+    border-radius: 999px; cursor: pointer; transition: background 0.15s ease;
+  }
+  #controls button:hover { background: rgba(45, 212, 191, 0.22); }
+  #controls button:active { background: rgba(45, 212, 191, 0.4); }
+
+  #counter {
+    font-variant-numeric: tabular-nums; padding: 0 8px;
+    color: #2dd4bf; font-weight: 600; letter-spacing: 0.5px;
+  }
+  html.light #counter { color: #0f766e; }
+  #counter .total { color: #bdc9de; font-weight: 400; }
+  html.light #counter .total { color: #6c7785; }
+
+  .divider {
+    width: 1px; height: 18px; background: rgba(45, 212, 191, 0.3); margin: 0 2px;
+  }
+
+  /* ---- help overlay ---- */
+  #help {
+    position: fixed; inset: 0;
+    background: rgba(3, 7, 10, 0.92); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.2s ease;
+  }
+  html.light #help { background: rgba(221, 228, 236, 0.94); color: #16202a; }
+  #help.visible { opacity: 1; pointer-events: auto; }
+  #help .panel {
+    background: linear-gradient(160deg, rgba(15, 35, 41, 0.96), rgba(8, 22, 27, 0.96));
+    border: 1px solid rgba(45, 212, 191, 0.4);
+    border-radius: 16px; padding: 32px 40px; max-width: 470px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  }
+  html.light #help .panel {
+    background: #ffffff; border-color: rgba(15, 118, 110, 0.4);
+  }
+  #help h2 { margin: 0 0 18px; font-size: 22px; color: #2dd4bf; letter-spacing: 0.5px; }
+  html.light #help h2 { color: #0f766e; }
+  #help .row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 8px 0; border-bottom: 1px solid rgba(150, 170, 175, 0.15); font-size: 14px;
+  }
+  #help .row:last-child { border-bottom: 0; }
+  #help kbd {
+    background: rgba(45, 212, 191, 0.15); border: 1px solid rgba(45, 212, 191, 0.35);
+    color: #2dd4bf; border-radius: 6px; padding: 3px 8px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12px; margin-left: 4px;
+  }
+  html.light #help kbd { color: #0f766e; background: rgba(15,118,110,0.12); border-color: rgba(15,118,110,0.35); }
+  #help .hint { margin-top: 18px; font-size: 12px; color: #8a9b9b; text-align: center; }
+
+  body.idle, body.idle * { cursor: none !important; }
+
+  #stage::before {
+    content: "Cargando…"; position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    color: #4a5660; font-size: 14px; letter-spacing: 0.5px; z-index: -1;
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="stage"></div>
+
+<div id="controls" role="toolbar" aria-label="Controles de presentación">
+  <button id="btn-first" title="Inicio (Home)">⏮</button>
+  <button id="btn-prev" title="Anterior (←)">‹</button>
+  <span id="counter"><span id="current">1</span><span class="total"> / <span id="total">12</span></span></span>
+  <button id="btn-next" title="Siguiente (→)">›</button>
+  <button id="btn-last" title="Final (End)">⏭</button>
+  <span class="divider"></span>
+  <button id="btn-fs" title="Pantalla completa (F)">⛶</button>
+  <button id="btn-theme" title="Tema claro/oscuro (T)" aria-label="Cambiar tema">☀</button>
+  <button id="btn-help" title="Ayuda (?)">?</button>
+</div>
+
+<div id="help" role="dialog" aria-label="Atajos de teclado">
+  <div class="panel">
+    <h2>Atajos de teclado</h2>
+    <div class="row"><span>Siguiente diapositiva</span><span><kbd>→</kbd><kbd>Espacio</kbd><kbd>PgDn</kbd></span></div>
+    <div class="row"><span>Diapositiva anterior</span><span><kbd>←</kbd><kbd>PgUp</kbd></span></div>
+    <div class="row"><span>Primera diapositiva</span><span><kbd>Home</kbd></span></div>
+    <div class="row"><span>Última diapositiva</span><span><kbd>End</kbd></span></div>
+    <div class="row"><span>Pantalla completa</span><span><kbd>F</kbd></span></div>
+    <div class="row"><span>Salir pantalla completa</span><span><kbd>Esc</kbd></span></div>
+    <div class="row"><span>Tema claro / oscuro</span><span><kbd>T</kbd></span></div>
+    <div class="row"><span>Mostrar / ocultar ayuda</span><span><kbd>?</kbd></span></div>
+    <p class="hint">Mueve el cursor para mostrar los controles.</p>
+  </div>
+</div>
+
+<script>
+(function () {
+  const TOTAL = 12;
+  const stage = document.getElementById('stage');
+  const counter = document.getElementById('current');
+  const totalEl = document.getElementById('total');
+  const progress = document.getElementById('progress');
+  const help = document.getElementById('help');
+
+  totalEl.textContent = TOTAL;
+
+  // One iframe per slide; src loaded lazily (current ± 1).
+  const frames = [];
+  for (let i = 0; i < TOTAL; i++) {
+    const f = document.createElement('iframe');
+    f.className = 'slide-frame';
+    f.dataset.src = 'slide' + i + '.html';
+    f.dataset.index = i;
+    f.setAttribute('title', 'Diapositiva ' + (i + 1));
+    stage.appendChild(f);
+    frames.push(f);
+  }
+
+  let current = 0;
+
+  function ensureLoaded(idx) {
+    const f = frames[idx];
+    if (f && !f.src && f.dataset.src) f.src = f.dataset.src;
+  }
+
+  function show(idx) {
+    idx = Math.max(0, Math.min(TOTAL - 1, idx));
+    frames.forEach(function (f) { f.classList.remove('active'); });
+    frames[idx].classList.add('active');
+    current = idx;
+
+    ensureLoaded(idx);
+    if (idx - 1 >= 0) ensureLoaded(idx - 1);
+    if (idx + 1 < TOTAL) ensureLoaded(idx + 1);
+
+    counter.textContent = idx + 1;
+    progress.style.width = ((idx + 1) / TOTAL * 100) + '%';
+
+    if (history.replaceState) history.replaceState(null, '', '#' + (idx + 1));
+    else location.hash = idx + 1;
+  }
+
+  function next() { show(current + 1); }
+  function prev() { show(current - 1); }
+  function first() { show(0); }
+  function last() { show(TOTAL - 1); }
+
+  function toggleFullscreen() {
+    const el = document.documentElement;
+    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+      (el.requestFullscreen || el.webkitRequestFullscreen).call(el);
+    } else {
+      (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+    }
+  }
+
+  function toggleHelp() { help.classList.toggle('visible'); }
+
+  // ---- Keyboard ----
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    switch (e.key) {
+      case 'ArrowRight': case 'PageDown': case ' ':
+        e.preventDefault(); next(); break;
+      case 'ArrowLeft': case 'PageUp':
+        e.preventDefault(); prev(); break;
+      case 'Home': e.preventDefault(); first(); break;
+      case 'End': e.preventDefault(); last(); break;
+      case 'f': case 'F': e.preventDefault(); toggleFullscreen(); break;
+      case 't': case 'T': e.preventDefault(); toggleTheme(); break;
+      case '?': case 'h': case 'H': e.preventDefault(); toggleHelp(); break;
+      case 'Escape':
+        if (help.classList.contains('visible')) { help.classList.remove('visible'); e.preventDefault(); }
+        break;
+    }
+  });
+
+  // Forward keys that land inside an iframe back to the main page.
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () {
+      try {
+        const doc = f.contentDocument;
+        if (!doc) return;
+        doc.addEventListener('keydown', function (e) {
+          if (['ArrowRight','ArrowLeft','PageUp','PageDown','Home','End',' ','f','F','t','T','?','h','H','Escape'].indexOf(e.key) !== -1) {
+            const evt = new KeyboardEvent('keydown', { key: e.key, code: e.code, bubbles: true });
+            window.dispatchEvent(evt); document.dispatchEvent(evt);
+            e.preventDefault();
+          }
+        });
+      } catch (err) { /* cross-origin guard — same-origin in practice */ }
+    });
+  });
+
+  // ---- Buttons ----
+  document.getElementById('btn-first').addEventListener('click', first);
+  document.getElementById('btn-prev').addEventListener('click', prev);
+  document.getElementById('btn-next').addEventListener('click', next);
+  document.getElementById('btn-last').addEventListener('click', last);
+  document.getElementById('btn-fs').addEventListener('click', toggleFullscreen);
+  document.getElementById('btn-help').addEventListener('click', toggleHelp);
+
+  // ---- Theme: drive every iframe from the shared VRDeckTheme API ----
+  const btnTheme = document.getElementById('btn-theme');
+  function updateThemeBtn() {
+    const isLight = window.VRDeckTheme && window.VRDeckTheme.get() === 'light';
+    btnTheme.textContent = isLight ? '☾' : '☀';
+    btnTheme.title = isLight ? 'Cambiar a oscuro (T)' : 'Cambiar a claro (T)';
+  }
+  function broadcastTheme(value) {
+    frames.forEach(function (f) {
+      try { if (f.contentWindow) f.contentWindow.postMessage({ type: 'vr-deck-theme', value: value }, '*'); }
+      catch (e) {}
+    });
+  }
+  function toggleTheme() {
+    if (!window.VRDeckTheme) return;
+    const value = window.VRDeckTheme.get() === 'light' ? 'dark' : 'light';
+    window.VRDeckTheme.set(value);
+    broadcastTheme(value);
+    updateThemeBtn();
+  }
+  document.getElementById('btn-theme').addEventListener('click', toggleTheme);
+  updateThemeBtn();
+  window.addEventListener('storage', function (e) { if (e.key === 'vrDeckTheme') updateThemeBtn(); });
+
+  // ---- Mouse activity: show controls + hide cursor when idle ----
+  let idleTimer;
+  function activity() {
+    document.body.classList.add('show-ui');
+    document.body.classList.remove('idle');
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(function () {
+      document.body.classList.remove('show-ui');
+      if (document.fullscreenElement || document.webkitFullscreenElement) document.body.classList.add('idle');
+    }, 2200);
+  }
+  ['mousemove','mousedown','touchstart'].forEach(function (ev) {
+    document.addEventListener(ev, activity, { passive: true });
+  });
+  activity();
+
+  // ---- Touch swipe ----
+  let touchStartX = null;
+  document.addEventListener('touchstart', function (e) {
+    if (e.touches.length === 1) touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (touchStartX === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); }
+    touchStartX = null;
+  });
+
+  // ---- Boot: respect hash to deep-link to a slide ----
+  const startHash = parseInt(location.hash.replace('#',''), 10);
+  const start = (startHash && startHash >= 1 && startHash <= TOTAL) ? startHash - 1 : 0;
+  show(start);
+})();
+</script>
+</body>
+</html>

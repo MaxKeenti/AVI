@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VR-Cirugía — Contenido</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Newsreader:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="deck.css">
+<script src="theme.js"></script>
+<style>
+  .agenda { list-style:none; margin-top:30px; display:grid; grid-template-columns:1fr 1fr; gap:22px 70px; max-width:1240px; }
+  .agenda li { display:flex; align-items:center; gap:26px; padding:22px 28px; background:var(--panel); border:1px solid var(--panel-line); border-radius:14px; }
+  .agenda .n { font-family:var(--font-serif); font-style:italic; font-weight:600; font-size:42px; color:var(--teal); min-width:60px; }
+  .agenda .t { font-family:var(--font-head); font-weight:700; font-size:27px; color:var(--ink); }
+</style>
+</head>
+<body>
+<div class="scaler">
+  <div class="slide">
+    <span class="corner tl"></span><span class="corner tr"></span>
+    <span class="corner bl"></span><span class="corner br"></span>
+    <svg class="ekg" viewBox="0 0 1460 36" preserveAspectRatio="none"><path d="M0 18 H300 l10 -13 7 26 9 -20 10 16 H760 l10 -13 7 26 9 -20 10 16 H1180 l10 -13 7 26 9 -20 10 16 H1460"/></svg>
+    <span class="kicker">Índice</span>
+    <span class="brand-tag">VR-Cirugía</span>
+    <span class="page-tag"><b>02</b> / 12</span>
+    <div class="content">
+      <h2 class="title">Contenido</h2>
+      <div class="title-rule"><span class="line"></span><span class="diamond"></span></div>
+      <ol class="agenda">
+        <li><span class="n">01</span><span class="t">Nombre del proyecto</span></li>
+        <li><span class="n">02</span><span class="t">Objetivo general</span></li>
+        <li><span class="n">03</span><span class="t">Objetivos específicos</span></li>
+        <li><span class="n">04</span><span class="t">Justificación</span></li>
+        <li><span class="n">05</span><span class="t">Alcance</span></li>
+        <li><span class="n">06</span><span class="t">Escenario</span></li>
+      </ol>
+    </div>
+  </div>
+</div>
+<script src="slide.js"></script>
+</body>
+</html>
