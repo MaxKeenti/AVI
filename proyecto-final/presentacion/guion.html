@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#060f12">
+<title>VR-Cirugía — Guion de presentación</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Newsreader:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#060f12; --bg-1:#0a181d; --bg-2:#0f2329;
+    --panel:rgba(17,38,45,.72); --panel-line:rgba(20,184,166,.22);
+    --ink:#eef6f5; --ink-dim:#9fb6b6; --ink-faint:#6c8484;
+    --guinda:#c43a63; --teal:#2dd4bf; --amber:#e0a64b; --glow:rgba(45,212,191,.45);
+    --font-head:'Montserrat',system-ui,sans-serif;
+    --font-body:'Inter',system-ui,sans-serif;
+    --font-serif:'Newsreader',Georgia,serif;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; font-family:var(--font-body); color:var(--ink);
+    background:
+      radial-gradient(120% 80% at 80% -10%, rgba(45,212,191,.10), transparent 60%),
+      radial-gradient(120% 80% at -10% 110%, rgba(196,58,99,.12), transparent 55%),
+      var(--bg-0);
+    line-height:1.6; padding:0 0 64px;
+    -webkit-text-size-adjust:100%;
+  }
+
+  /* ---- Header ---- */
+  header{
+    position:relative; padding:calc(34px + env(safe-area-inset-top)) 22px 30px;
+    background:linear-gradient(180deg,var(--bg-2),transparent);
+    border-bottom:1px solid var(--panel-line);
+  }
+  .ekg{display:block;width:100%;height:30px;opacity:.55;margin-bottom:20px;}
+  .ekg path{fill:none;stroke:var(--teal);stroke-width:2;}
+  .eyebrow{
+    font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:.28em;
+    text-transform:uppercase;color:var(--guinda);display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--guinda);}
+  h1{
+    font-family:var(--font-head);font-weight:800;font-size:clamp(34px,11vw,56px);
+    line-height:1;letter-spacing:-1px;margin:12px 0 6px;
+  }
+  h1 .accent{color:var(--teal);}
+  .sub{font-family:var(--font-serif);font-style:italic;font-size:clamp(17px,5vw,22px);color:var(--ink-dim);margin:0;}
+  .meta{margin-top:14px;font-family:var(--font-head);font-weight:600;font-size:12.5px;letter-spacing:.04em;color:var(--ink-faint);}
+
+  main{max-width:760px;margin:0 auto;padding:0 16px;}
+
+  /* ---- Division overview ---- */
+  .overview{margin-top:24px;}
+  .overview h2{
+    font-family:var(--font-head);font-weight:700;font-size:14px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--ink-faint);margin:0 0 14px;
+  }
+  .split{display:grid;gap:12px;}
+  .split a{
+    display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;
+    padding:14px 16px;background:var(--panel);border:1px solid var(--panel-line);
+    border-radius:14px;border-left:4px solid var(--pcol);
+  }
+  .split .pn{
+    font-family:var(--font-serif);font-style:italic;font-weight:600;font-size:30px;
+    color:var(--pcol);min-width:34px;text-align:center;line-height:1;
+  }
+  .split .pt{font-family:var(--font-head);font-weight:700;font-size:16px;color:var(--ink);}
+  .split .pr{font-size:13px;color:var(--ink-dim);margin-top:2px;}
+  .note{
+    margin-top:14px;font-size:13.5px;color:var(--ink-dim);
+    background:var(--panel);border:1px solid var(--panel-line);border-radius:12px;padding:12px 14px;
+  }
+  .note b{color:var(--ink);}
+
+  /* ---- Participant section ---- */
+  .part{margin-top:38px;scroll-margin-top:16px;}
+  .part-head{
+    position:sticky;top:0;z-index:5;
+    padding:14px 16px;margin:0 -16px 8px;
+    background:rgba(6,15,18,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--panel-line);
+    display:flex;align-items:baseline;gap:12px;border-left:4px solid var(--pcol);
+  }
+  .part-head .tag{font-family:var(--font-head);font-weight:800;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--pcol);}
+  .part-head .ttl{font-family:var(--font-head);font-weight:700;font-size:15px;color:var(--ink);}
+
+  /* ---- Slide cards ---- */
+  .slide{
+    background:var(--panel);border:1px solid var(--panel-line);border-radius:16px;
+    padding:18px 18px 20px;margin-top:14px;
+  }
+  .slide-tag{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:8px;
+  }
+  .slide-tag .pg{
+    color:var(--ink-faint);font-size:10.5px;border:1px solid var(--panel-line);
+    border-radius:20px;padding:2px 8px;letter-spacing:.1em;
+  }
+  .slide h3{font-family:var(--font-head);font-weight:700;font-size:21px;margin:0 0 10px;color:var(--ink);}
+  .slide p{margin:0 0 12px;font-size:16.5px;}
+  .slide p:last-child{margin-bottom:0;}
+  .slide ul,.slide ol{margin:0 0 4px;padding-left:22px;}
+  .slide li{margin-bottom:8px;font-size:16px;}
+  .slide strong{color:var(--ink);font-weight:700;}
+  .relay{
+    margin-top:14px;display:flex;gap:10px;align-items:flex-start;
+    font-style:italic;font-family:var(--font-serif);font-size:15.5px;color:var(--ink-dim);
+    border-top:1px dashed var(--panel-line);padding-top:12px;
+  }
+  .relay::before{content:"↪";font-style:normal;color:var(--teal);font-size:18px;line-height:1.3;}
+  .pending{
+    margin-top:12px;font-size:13.5px;color:var(--amber);
+    background:rgba(224,166,75,.08);border:1px solid rgba(224,166,75,.3);
+    border-radius:10px;padding:10px 12px;
+  }
+  .pending b{color:var(--amber);}
+
+  /* ---- Rehearsal notes ---- */
+  .closing-notes{
+    margin-top:40px;background:var(--panel);border:1px solid var(--panel-line);
+    border-radius:16px;padding:20px;
+  }
+  .closing-notes h2{font-family:var(--font-head);font-weight:700;font-size:18px;margin:0 0 12px;color:var(--ink);}
+  .closing-notes li{font-size:15px;margin-bottom:9px;color:var(--ink-dim);}
+  .closing-notes b{color:var(--ink);}
+
+  footer{text-align:center;margin-top:40px;font-size:12px;color:var(--ink-faint);font-family:var(--font-head);letter-spacing:.08em;}
+
+  /* ---- Back-to-top ---- */
+  #top{
+    position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));
+    width:46px;height:46px;border-radius:50%;border:1px solid var(--panel-line);
+    background:rgba(17,38,45,.9);color:var(--teal);font-size:20px;
+    display:flex;align-items:center;justify-content:center;text-decoration:none;
+    box-shadow:0 6px 18px rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .25s;
+  }
+  #top.show{opacity:1;pointer-events:auto;}
+
+  .p1{--pcol:var(--guinda);} .p2{--pcol:var(--teal);} .p3{--pcol:var(--amber);}
+</style>
+</head>
+<body>
+
+<header>
+  <svg class="ekg" viewBox="0 0 1460 36" preserveAspectRatio="none"><path d="M0 18 H300 l10 -13 7 26 9 -20 10 16 H760 l10 -13 7 26 9 -20 10 16 H1180 l10 -13 7 26 9 -20 10 16 H1460"/></svg>
+  <span class="eyebrow">Guion de presentación · Equipo 5</span>
+  <h1>VR<span class="accent">-</span>Cirugía</h1>
+  <p class="sub">Quirófano Educativo en Realidad Virtual</p>
+  <p class="meta">6NM69 · Ambientes Virtuales Inmersivos · 2026-2</p>
+</header>
+
+<main>
+  <section class="overview">
+    <h2>División por participantes</h2>
+    <div class="split">
+      <a href="#p1" class="p1"><span class="pn">1</span><span><span class="pt">Introducción y fundamentos</span><br><span class="pr">Portada · slides 02–06</span></span></a>
+      <a href="#p2" class="p2"><span class="pn">2</span><span><span class="pt">Alcance y tecnología</span><br><span class="pr">slides 07–11</span></span></a>
+      <a href="#p3" class="p3"><span class="pn">3</span><span><span class="pt">El AVI, aprendizaje y cierre</span><br><span class="pr">slides 12–17</span></span></a>
+    </div>
+    <p class="note">Asignen los nombres del equipo a cada participante. <b>Integrantes:</b> Alatorre Fuentes Eduardo · Cruz Cruz Guillermo · Flores Roa Jorge Alejandro · Gonzalez Calzada Maximiliano · Neri Mondragón Mónica · Soto Soto Héctor. &nbsp; <b>Duración estimada:</b> ~9–12 min (≈40 s por diapositiva).</p>
+  </section>
+
+  <!-- ============ PARTICIPANTE 1 ============ -->
+  <section class="part p1" id="p1">
+    <div class="part-head"><span class="tag">Participante 1</span><span class="ttl">Introducción y fundamentos</span></div>
+
+    <article class="slide">
+      <span class="slide-tag">slide0 · Portada</span>
+      <h3>Portada</h3>
+      <p>Buenas tardes. Somos el Equipo 5 y les presentamos <strong>VR-Cirugía: Quirófano Educativo en Realidad Virtual</strong>, nuestro proyecto para la unidad de Ambientes Virtuales Inmersivos. La idea central es llevar al usuario al interior de un quirófano usando realidad virtual, para aprender de forma segura cómo funciona esa sala.</p>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">slide1 · Índice <span class="pg">pág. 02</span></span>
+      <h3>Contenido</h3>
+      <p>Este será el recorrido de hoy: empezaremos por el nombre y los objetivos del proyecto, su justificación; luego veremos el alcance y la tecnología; después la descripción del ambiente virtual, su mapa y la experiencia de aprendizaje; y cerraremos con el video de demostración y los recursos de realidad aumentada.</p>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">slide2 · Nombre <span class="pg">pág. 03</span></span>
+      <h3>Nombre del proyecto</h3>
+      <p>El proyecto se llama <strong>VR-Cirugía: Quirófano Educativo en Realidad Virtual</strong>. En pocas palabras, es una experiencia educativa de realidad virtual para explorar tres cosas: los protocolos preoperatorios, el instrumental quirúrgico y el equipamiento médico que hay en una sala de operaciones.</p>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">slide3 · Objetivo general <span class="pg">pág. 04</span></span>
+      <h3>Objetivo general</h3>
+      <p>Nuestro <strong>objetivo general</strong> es desarrollar una experiencia de RV que coloque al usuario dentro de un quirófano y le permita conocer, de forma interactiva, los procedimientos preoperatorios, el instrumental quirúrgico y el equipamiento médico. Con esta inmersión buscamos acercar a los estudiantes de medicina a un entorno crítico de manera accesible, y mostrar cómo la realidad virtual, aumentada y mixta están transformando la práctica quirúrgica actual.</p>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">slide4 · Objetivos específicos <span class="pg">pág. 05</span></span>
+      <h3>Objetivos específicos</h3>
+      <p>Para lograrlo definimos cuatro objetivos específicos:</p>
+      <ol>
+        <li><strong>Modelado del quirófano</strong> — diseñar y texturizar un modelo 3D fiel a una sala de operaciones real, con su instrumental y maquinaria.</li>
+        <li><strong>Interactividad educativa</strong> — puntos de información que expliquen cada elemento, su función y su papel en los protocolos.</li>
+        <li><strong>Protocolos preoperatorios</strong> — recrear procedimientos que no requieren modelos humanos: conteo de instrumental, verificación de anestesia, campo estéril y checklist de la OMS.</li>
+        <li><strong>Optimización del rendimiento</strong> — mantener un FPS estable para evitar el mareo por movimiento y lograr una navegación fluida.</li>
+      </ol>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">slide5 · Justificación <span class="pg">pág. 06</span></span>
+      <h3>Justificación</h3>
+      <p>¿Por qué este proyecto? El quirófano es un entorno de alta complejidad técnica al que los estudiantes tienen acceso muy limitado. La realidad virtual permite familiarizarse con ese espacio sin las restricciones de seguridad, logística y disponibilidad de un quirófano real. Una simulación interactiva ayuda a comprender los protocolos, identificar instrumental y equipamiento, y entender cómo la tecnología inmersiva se está adoptando en hospitales y centros de formación. Además, reduce la aprensión que genera el quirófano y hace accesible un conocimiento que puede salvar vidas.</p>
+      <p class="relay">Con esto cubrimos el porqué del proyecto. Mi compañero/a continúa con el alcance y la tecnología.</p>
+    </article>
+  </section>
+
+  <!-- ============ PARTICIPANTE 2 ============ -->
+  <section class="part p2" id="p2">
+    <div class="part-head"><span class="tag">Participante 2</span><span class="ttl">Alcance y tecnología</span></div>
+
+    <article class="slide">
+      <span class="slide-tag">slide6 · Alcance <span class="pg">pág. 07</span></span>
+      <h3>Alcance</h3>
+      <p>Gracias. El <strong>alcance</strong> del proyecto es desarrollar un ambiente virtual inmersivo que represente de forma interactiva un quirófano equipado con instrumental y maquinaria médica. El usuario podrá explorar la sala, interactuar con los elementos y recibir información educativa sobre su uso y protocolos. Nos enfocamos en procedimientos preoperatorios que <strong>no</strong> involucran modelos humanos: conteo e identificación de instrumental, verificación de anestesia, preparación del campo estéril y el checklist de la OMS. Es decir, <strong>no</strong> simulamos cirugías ni interacción con pacientes; es una simulación con fines educativos y de demostración tecnológica.</p>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">slide7 · Público y tecnologías <span class="pg">pág. 08</span></span>
+      <h3>Público objetivo y tecnologías</h3>
+      <p>Nuestro <strong>público objetivo</strong> son estudiantes de medicina y ciencias de la salud, así como escuelas y facultades de medicina que quieran complementar la formación con herramientas de realidad virtual como apoyo didáctico en el área quirúrgica. En cuanto a la <strong>tecnología</strong>, el ambiente se desarrolla en <strong>Unity</strong>, que nos da el motor 3D, la interactividad y el soporte para realidad virtual y aumentada.</p>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">slide8 · Alcance de funciones <span class="pg">pág. 09</span></span>
+      <h3>Alcance de funciones</h3>
+      <p>Estas son las funciones que ofrece la experiencia:</p>
+      <ul>
+        <li><strong>Navegación</strong> — desplazarse libremente por el quirófano y observarlo desde distintos ángulos.</li>
+        <li><strong>Interacción con instrumental</strong> — seleccionar instrumentos sobre la mesa Mayo para ver su nombre, clasificación y uso.</li>
+        <li><strong>Interacción con equipamiento</strong> — explorar la máquina de anestesia, el monitor de signos vitales, las lámparas cialíticas y el contenedor RPBI, cada uno con información educativa.</li>
+        <li><strong>Protocolo de conteo de instrumental</strong> — simulación guiada que verifica que cada pieza esté presente antes y después del procedimiento.</li>
+        <li><strong>Checklist de seguridad quirúrgica</strong> — recreación interactiva del checklist de la OMS: sign-in, time-out y sign-out.</li>
+      </ul>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">slide9 · Simulación y ambientación <span class="pg">pág. 10</span></span>
+      <h3>Simulación y ambientación</h3>
+      <p>Para que el entorno se sienta real, trabajamos tres aspectos de ambientación: la <strong>iluminación quirúrgica</strong>, simulando el comportamiento de las lámparas cialíticas y permitiendo ajustar su posición; el <strong>monitoreo de signos vitales</strong>, con lecturas simuladas de ECG, SpO₂ y presión arterial en pantalla; y un <strong>sistema de audio ambiental</strong> con sonidos espaciales: el pitido del monitor, la ventilación de la anestesia y el ruido de fondo de la sala.</p>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">slide10 · Quirófano virtual <span class="pg">pág. 11</span></span>
+      <h3>Quirófano virtual</h3>
+      <p>Aquí pueden ver una <strong>representación visual del entorno</strong> que sirve como base del ambiente virtual: la mesa de operaciones, las lámparas cialíticas y el equipamiento médico dispuesto para los protocolos preoperatorios. Este es el escenario que mi compañero/a va a describir en detalle a continuación.</p>
+      <p class="relay">Le paso la palabra para entrar al detalle del ambiente virtual.</p>
+    </article>
+  </section>
+
+  <!-- ============ PARTICIPANTE 3 ============ -->
+  <section class="part p3" id="p3">
+    <div class="part-head"><span class="tag">Participante 3</span><span class="ttl">El AVI, aprendizaje y cierre</span></div>
+
+    <article class="slide">
+      <span class="slide-tag">slide11 · Elementos del entorno <span class="pg">pág. 12</span></span>
+      <h3>Elementos del entorno</h3>
+      <p>Gracias. Veamos los <strong>elementos</strong> que componen el quirófano, señalados en el render:</p>
+      <ol>
+        <li><strong>Lámparas cialíticas</strong> — iluminación suspendida y orientable sobre la zona de operación.</li>
+        <li><strong>Monitor de signos vitales</strong> — en brazo articulado, con lecturas de ECG, SpO₂ y presión.</li>
+        <li><strong>Máquina de anestesia</strong> — estación de ventilación y administración de gases.</li>
+        <li><strong>Mesa Mayo e instrumental</strong> — instrumental dispuesto para identificación y conteo.</li>
+        <li><strong>Contenedor RPBI</strong> — bolsas rojas para residuos peligrosos biológico-infecciosos.</li>
+        <li><strong>Acceso al quirófano</strong> — la puerta de la sala estéril y el punto de partida del recorrido.</li>
+      </ol>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">slide12 · Mapa del AVI <span class="pg">pág. 13</span></span>
+      <h3>Mapa del quirófano</h3>
+      <p>Este es el <strong>plano cenital</strong> del quirófano. En color turquesa están las <strong>zonas interactivas</strong> —mesa de operaciones, mesa Mayo, máquina de anestesia y monitor—, que ofrecen información y acciones. En ámbar, los <strong>elementos de ambientación</strong> —lámparas y contenedor RPBI— que dan realismo clínico. La línea punteada marca la <strong>ruta de navegación</strong> sugerida alrededor del campo quirúrgico, y en guinda está el <strong>acceso</strong>, donde inicia la experiencia.</p>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">slide13 · Experiencia de aprendizaje <span class="pg">pág. 14</span></span>
+      <h3>Experiencia de aprendizaje</h3>
+      <p>VR-Cirugía propone un aprendizaje <strong>situado e inmersivo</strong>: el estudiante construye conocimiento explorando y manipulando el quirófano en primera persona, en vez de memorizar de forma pasiva. Esto se apoya en cuatro ideas: la <strong>inmersión y memoria espacial</strong>, que asocia cada concepto al lugar real donde ocurre; el <strong>aprendizaje por descubrimiento</strong>, con retroalimentación inmediata; la <strong>práctica de protocolos</strong> repetible y sin riesgo para el paciente; y un <strong>entorno seguro y accesible</strong>, sin restricciones de bioseguridad. Con ello se trabajan competencias como la identificación de instrumental, la conciencia situacional y la cultura de seguridad del paciente.</p>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">slide14 · Video del AVI <span class="pg">pág. 15</span></span>
+      <h3>Demostración en video</h3>
+      <p>A continuación les mostramos el <strong>video de demostración</strong>, un recorrido por el quirófano virtual donde se ven en acción la navegación y las interacciones que describimos. <em>(Reproducir el video o mostrar el enlace / QR en pantalla.)</em></p>
+      <p class="pending"><b>Pendiente:</b> pegar el enlace real del video y generar el QR en slide14.</p>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">slide15 · Realidad Aumentada <span class="pg">pág. 16</span></span>
+      <h3>Realidad Aumentada</h3>
+      <p>Como complemento desarrollamos un componente de <strong>Realidad Aumentada</strong>. Aquí compartimos los recursos: los <strong>marcadores</strong> o imágenes objetivo que disparan la RA, el <strong>APK de Android</strong> para ejecutar la experiencia, y las <strong>imágenes y recursos</strong> de apoyo. Todo está reunido en una carpeta que pueden abrir escaneando el código QR.</p>
+      <p class="pending"><b>Pendiente:</b> pegar los enlaces de marcadores, APK y recursos, y generar el QR en slide15.</p>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">slide16 · Cierre <span class="pg">pág. 17</span></span>
+      <h3>Cierre</h3>
+      <p>Y con esto cerramos. <strong>VR-Cirugía</strong> demuestra cómo un ambiente virtual inmersivo puede acercar el quirófano a la formación médica de manera segura, accesible y didáctica. <strong>Gracias por su atención</strong> — quedamos atentos a sus preguntas.</p>
+    </article>
+  </section>
+
+  <section class="closing-notes">
+    <h2>Notas para el ensayo</h2>
+    <ul>
+      <li>Practiquen las dos transiciones de relevo (↪) para que el cambio de presentador sea fluido.</li>
+      <li>Antes de exponer, completen los enlaces y QR pendientes en <b>slide14</b> (video) y <b>slide15</b> (RA).</li>
+      <li>Si el tiempo es corto, las diapositivas más resumibles son <b>slide9</b> (ambientación) y <b>slide11</b> (elementos), ya que repiten conceptos vistos en otras.</li>
+      <li>Control del deck: flechas o barra espaciadora para avanzar; <b>presenter.html</b> para la vista de presentador.</li>
+    </ul>
+  </section>
+
+  <footer>Equipo 5 · VR-Cirugía · 2026-2</footer>
+</main>
+
+<a href="#" id="top" aria-label="Volver arriba">↑</a>
+
+<script>
+  const top=document.getElementById('top');
+  addEventListener('scroll',()=>{top.classList.toggle('show',scrollY>500);},{passive:true});
+</script>
+</body>
+</html>
