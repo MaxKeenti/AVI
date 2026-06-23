@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VR-Cirugía — Mapa del AVI</title>
+<title>Consultorio Seguro — Mapa del AVI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Newsreader:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
@@ -14,12 +14,17 @@
   .plan { width:100%; height:auto; border-radius:16px; border:1px solid var(--panel-line);
     background:var(--panel); box-shadow:0 18px 50px rgba(0,0,0,.3); }
   .plan text { font-family:var(--font-head); fill:var(--ink-dim); }
+  .plan .operating { fill:#38bdf8; fill-opacity:.18; stroke:#38bdf8; stroke-width:4; }
+  .plan .waste { fill:#a855f7; fill-opacity:.22; stroke:#a855f7; stroke-width:4; }
+  .plan .furniture { fill:#fb923c; fill-opacity:.18; stroke:#fb923c; stroke-width:4; }
+  .plan .soft { fill:rgba(255,255,255,.04); stroke:rgba(159,182,182,.35); stroke-width:2; }
   .zlabel { font-size:17px; font-weight:700; fill:var(--ink); }
   .mlegend { list-style:none; display:grid; gap:16px; }
   .mlegend li { display:grid; grid-template-columns:auto 1fr; gap:16px; align-items:start; }
   .mlegend .sw { width:26px; height:26px; flex:none; border-radius:6px; margin-top:2px; }
   .mlegend h3 { font-family:var(--font-head); font-size:19px; font-weight:700; color:var(--ink); margin-bottom:2px; }
   .mlegend p { font-size:15px; line-height:1.45; color:var(--ink-dim); }
+  .map-note { margin-top:8px; padding:18px 20px; border-left:3px solid var(--teal); color:var(--ink-dim); font-size:16px; line-height:1.55; background:rgba(45,212,191,.06); }
 </style>
 </head>
 <body>
@@ -29,67 +34,70 @@
     <span class="corner bl"></span><span class="corner br"></span>
     <svg class="ekg" viewBox="0 0 1460 36" preserveAspectRatio="none"><path d="M0 18 H300 l10 -13 7 26 9 -20 10 16 H760 l10 -13 7 26 9 -20 10 16 H1180 l10 -13 7 26 9 -20 10 16 H1460"/></svg>
     <span class="kicker">07 · Mapa del AVI</span>
-    <span class="brand-tag">VR-Cirugía</span>
-    <span class="page-tag"><b>13</b> / 17</span>
+    <span class="brand-tag">Consultorio Seguro</span>
+    <span class="page-tag"><b>13</b> / 18</span>
     <div class="content">
-      <h2 class="title" style="font-size:50px;">Mapa del quirófano</h2>
+      <h2 class="title" style="font-size:50px;">Mapa del consultorio</h2>
       <div class="title-rule" style="margin:18px 0 6px;"><span class="line"></span><span class="diamond"></span></div>
       <div class="map">
-        <svg class="plan" viewBox="0 0 1000 560" role="img" aria-label="Plano cenital del quirófano virtual con zonas de equipamiento y ruta de navegación">
+        <svg class="plan" viewBox="0 0 1000 560" role="img" aria-label="Mapa de elementos del consultorio dental virtual: objetos operativos en azul, botes de residuos en morado y mobiliario operativo en naranja">
           <defs>
-            <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-              <path d="M0 0 L10 5 L0 10 z" fill="var(--teal)"/>
-            </marker>
+            <pattern id="tile" width="44" height="44" patternUnits="userSpaceOnUse">
+              <path d="M44 0 H0 V44" fill="none" stroke="rgba(159,182,182,.14)" stroke-width="1.5"/>
+            </pattern>
+            <filter id="mapGlow" x="-30%" y="-30%" width="160%" height="160%">
+              <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000" flood-opacity=".35"/>
+            </filter>
           </defs>
-          <!-- room walls -->
-          <rect x="30" y="24" width="940" height="500" rx="10" fill="none" stroke="var(--ink-faint)" stroke-width="3"/>
-          <!-- door / access on bottom wall -->
-          <line x1="430" y1="524" x2="570" y2="524" stroke="var(--guinda)" stroke-width="7" stroke-linecap="round"/>
-          <path d="M430 524 A140 140 0 0 1 470 430" fill="none" stroke="var(--guinda)" stroke-width="1.5" stroke-dasharray="4 5" opacity=".7"/>
-          <text x="500" y="548" text-anchor="middle" font-size="16" font-weight="700" fill="var(--guinda)">ACCESO</text>
+          <rect x="28" y="24" width="944" height="506" rx="14" fill="rgba(6,15,18,.58)" stroke="var(--ink-faint)" stroke-width="3"/>
+          <rect x="58" y="54" width="884" height="446" rx="8" fill="url(#tile)" opacity=".9"/>
+          <path d="M58 54 H942 V500 H58 Z" fill="none" stroke="rgba(159,182,182,.22)" stroke-width="8"/>
+          <text x="74" y="90" font-size="14" font-weight="700" fill="var(--ink-faint)">Vista desde el piso / referencia de Unity</text>
 
-          <!-- circulation route -->
-          <path d="M500 516 V455 H210 V150 H500 H790 V455 H560"
-                fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-dasharray="3 8"
-                stroke-linecap="round" opacity=".85" marker-end="url(#arrow)"/>
+          <!-- operating furniture -->
+          <g filter="url(#mapGlow)">
+            <path class="furniture" d="M782 78 H918 V330 H858 Q846 292 850 246 V122 H782 Z"/>
+            <rect class="furniture" x="644" y="404" width="276" height="72" rx="18"/>
+            <path class="furniture" d="M120 264 Q182 218 274 236 Q302 243 318 264 Q269 292 220 328 Q168 364 118 342 Q90 319 120 264 Z"/>
+            <rect class="furniture" x="122" y="82" width="204" height="52" rx="18"/>
+          </g>
+          <text x="850" y="174" text-anchor="middle" class="zlabel">mobiliario</text>
+          <text x="782" y="450" text-anchor="middle" class="zlabel">carro / mesa</text>
+          <text x="220" y="300" text-anchor="middle" class="zlabel">superficie</text>
 
-          <!-- operating table (center) -->
-          <rect x="410" y="230" width="180" height="120" rx="12" fill="var(--teal)" fill-opacity=".16" stroke="var(--teal)" stroke-width="2.5"/>
-          <text x="500" y="285" text-anchor="middle" class="zlabel">Mesa de</text>
-          <text x="500" y="307" text-anchor="middle" class="zlabel">operaciones</text>
+          <!-- operating objects -->
+          <g filter="url(#mapGlow)">
+            <path class="operating" d="M326 308 Q388 234 500 210 Q622 184 720 232 Q758 252 752 300 Q744 356 660 384 Q520 430 382 382 Q322 361 326 308 Z"/>
+            <path class="operating" d="M196 142 Q248 148 290 120 Q332 92 376 104 Q370 150 326 170 Q260 202 198 182 Z"/>
+            <rect class="operating" x="430" y="248" width="174" height="74" rx="18" transform="rotate(-12 517 285)"/>
+            <circle class="operating" cx="510" cy="122" r="34"/>
+            <circle class="operating" cx="640" cy="120" r="30"/>
+            <rect class="operating" x="664" y="154" width="108" height="44" rx="10" transform="rotate(12 718 176)"/>
+          </g>
+          <text x="540" y="306" text-anchor="middle" class="zlabel">objetos</text>
+          <text x="540" y="328" text-anchor="middle" class="zlabel">operativos</text>
+          <text x="286" y="158" text-anchor="middle" font-size="14" font-weight="700" fill="#38bdf8">equipo suspendido</text>
+          <text x="586" y="88" text-anchor="middle" font-size="14" font-weight="700" fill="#38bdf8">lámparas</text>
 
-          <!-- ceiling lights projected over table -->
-          <circle cx="468" cy="200" r="15" fill="none" stroke="var(--amber)" stroke-width="2" stroke-dasharray="3 4"/>
-          <circle cx="532" cy="200" r="15" fill="none" stroke="var(--amber)" stroke-width="2" stroke-dasharray="3 4"/>
-          <text x="500" y="170" text-anchor="middle" font-size="14.5" font-weight="600" fill="var(--amber)">Lámparas cialíticas</text>
-
-          <!-- Mesa Mayo / instrumental (left) -->
-          <rect x="250" y="270" width="120" height="76" rx="10" fill="var(--teal)" fill-opacity=".10" stroke="var(--teal)" stroke-width="2"/>
-          <text x="310" y="304" text-anchor="middle" font-size="14.5" font-weight="700" fill="var(--ink)">Mesa Mayo</text>
-          <text x="310" y="324" text-anchor="middle" font-size="13" fill="var(--ink-dim)">instrumental</text>
-
-          <!-- anesthesia machine (right) -->
-          <rect x="640" y="260" width="150" height="96" rx="10" fill="var(--teal)" fill-opacity=".10" stroke="var(--teal)" stroke-width="2"/>
-          <text x="715" y="302" text-anchor="middle" font-size="14.5" font-weight="700" fill="var(--ink)">Máquina de</text>
-          <text x="715" y="322" text-anchor="middle" font-size="14.5" font-weight="700" fill="var(--ink)">anestesia</text>
-
-          <!-- vital signs monitor (upper right) -->
-          <rect x="660" y="150" width="120" height="64" rx="10" fill="var(--teal)" fill-opacity=".10" stroke="var(--teal)" stroke-width="2"/>
-          <text x="720" y="180" text-anchor="middle" font-size="13.5" font-weight="700" fill="var(--ink)">Monitor de</text>
-          <text x="720" y="199" text-anchor="middle" font-size="13.5" font-weight="700" fill="var(--ink)">signos vitales</text>
-
-          <!-- RPBI container (lower left) -->
-          <rect x="80" y="410" width="120" height="84" rx="10" fill="var(--amber)" fill-opacity=".14" stroke="var(--amber)" stroke-width="2"/>
-          <text x="140" y="447" text-anchor="middle" font-size="14.5" font-weight="700" fill="var(--ink)">Contenedor</text>
-          <text x="140" y="466" text-anchor="middle" font-size="14.5" font-weight="700" fill="var(--ink)">RPBI</text>
+          <!-- wastebins -->
+          <g filter="url(#mapGlow)">
+            <path class="waste" d="M430 78 H482 Q494 120 472 156 Q454 180 426 158 Q404 132 430 78 Z"/>
+            <path class="waste" d="M304 404 H356 Q374 450 348 484 Q316 502 292 468 Q278 432 304 404 Z"/>
+            <path class="waste" d="M814 330 H866 Q884 374 858 408 Q826 424 802 392 Q788 358 814 330 Z"/>
+          </g>
+          <text x="456" y="124" text-anchor="middle" font-size="14" font-weight="700" fill="#d8b4fe">bote</text>
+          <text x="330" y="452" text-anchor="middle" font-size="14" font-weight="700" fill="#d8b4fe">bote</text>
+          <text x="840" y="378" text-anchor="middle" font-size="14" font-weight="700" fill="#d8b4fe">bote</text>
         </svg>
 
-        <ul class="mlegend">
-          <li><span class="sw" style="background:var(--teal);opacity:.55;"></span><div><h3>Zonas interactivas</h3><p>Mesa de operaciones, mesa Mayo, máquina de anestesia y monitor: ofrecen información y acciones al usuario.</p></div></li>
-          <li><span class="sw" style="background:var(--amber);opacity:.6;"></span><div><h3>Elementos de ambientación</h3><p>Lámparas cialíticas y contenedor RPBI que dan contexto y realismo clínico a la sala.</p></div></li>
-          <li><span class="sw" style="background:transparent;border:2.5px dashed var(--teal);"></span><div><h3>Ruta de navegación</h3><p>Recorrido sugerido alrededor del campo quirúrgico para recorrer cada estación.</p></div></li>
-          <li><span class="sw" style="background:var(--guinda);"></span><div><h3>Acceso</h3><p>Entrada a la sala estéril y punto de partida de la experiencia.</p></div></li>
-        </ul>
+        <div>
+          <ul class="mlegend">
+            <li><span class="sw" style="background:#38bdf8;"></span><div><h3>Objetos operativos</h3><p>Sillón, lámparas, monitores, brazos articulados y equipo que participa directamente en la atención.</p></div></li>
+            <li><span class="sw" style="background:#a855f7;"></span><div><h3>Botes de residuos</h3><p>Contenedores distribuidos en el consultorio para la disposición de desechos.</p></div></li>
+            <li><span class="sw" style="background:#fb923c;"></span><div><h3>Mobiliario operativo</h3><p>Gabinetes, mesas, carros y superficies de soporte para insumos.</p></div></li>
+          </ul>
+          <p class="map-note">El mapa traduce la captura de piso a zonas funcionales para que el usuario identifique que puede operar, dónde depositar residuos y qué mobiliario sirve como apoyo.</p>
+        </div>
       </div>
     </div>
   </div>

@@ -62,61 +62,128 @@
 #set list(indent: 1.5em)
 
 = Nombre del proyecto
-#title("VR-Cirugía: Quirófano Educativo en Realidad Virtual")
+Consultorio Seguro: Simulador de Manejo de RPBI en el Consultorio Dental.
+
+El proyecto consiste en un entorno en 3D, desarrollado en Unity, que recrea un consultorio dental operativo y muestra, mediante señalización dentro de la escena, la correcta disposición de los Residuos Peligrosos Biológico-Infecciosos (RPBI) y los desechos comunes. La experiencia funciona como apoyo visual y educativo para reforzar prácticas de bioseguridad en el manejo de residuos dentro del consultorio.
 
 = Objetivo general
-Desarrollo de una experiencia educativa de realidad virtual que sitúe al usuario dentro de un quirófano, permitiéndole conocer de forma interactiva los procedimientos preoperatorios, el instrumental quirúrgico y el equipamiento médico presente en una sala de operaciones. A través de esta inmersión, se busca acercar a estudiantes de medicina a estos entornos críticos de manera accesible, mostrando además cómo las tecnologías de realidad virtual, aumentada y mixta están transformando la práctica quirúrgica moderna.
+Desarrollar un entorno de simulación interactiva en 3D utilizando el motor gráfico Unity, diseñado para capacitar y evaluar a estudiantes y profesionales de la odontología en la correcta clasificación, manejo y disposición de los Residuos Peligrosos Biológico-Infecciosos (RPBI) y los desechos comunes dentro de un consultorio dental operativo.
+
+Con ello se busca promover el cumplimiento de las normativas de bioseguridad vigentes, en particular la NOM-087-ECOL-SSA1-2002, y reducir los riesgos de contaminación cruzada mediante un espacio de práctica seguro donde el usuario aprende sin exposición a residuos reales.
 
 = Objetivos específicos
-- Modelado del Quirófano: Diseñar y texturizar un modelo 3D de un quirófano equipado con instrumental y maquinaria médica representativa, reflejando fielmente el entorno de una sala de operaciones real dentro del ambiente virtual inmersivo.
+- *Modelado fiel del consultorio:* Diseñar y texturizar en 3D un consultorio dental operativo, con la unidad dental, el instrumental y las estaciones de residuos representativas de un entorno real.
 
-- Interactividad Educativa: Implementar puntos de información interactivos sobre el instrumental y equipamiento del quirófano que permitan al usuario identificar cada elemento, conocer su función y comprender su papel dentro de los protocolos preoperatorios.
+- *Señalización de la disposición:* Colocar letreros en cada contenedor que indiquen, conforme a la NOM-087, qué tipo de residuo corresponde: RPBI rojo, RPBI amarillo, punzocortantes o desechos comunes.
 
-- Protocolos Preoperatorios: Recrear de forma guiada procedimientos que no requieren modelos humanos, tales como el conteo de instrumental quirúrgico, la verificación del equipo de anestesia, la preparación del campo estéril y el checklist de seguridad quirúrgica de la OMS.
+- *Recorrido educativo:* Permitir recorrer y observar el consultorio y sus puntos de disposición correcta como referencia visual de bioseguridad.
 
-- Optimización del Rendimiento: Asegurar que el ambiente virtual mantenga una tasa de cuadros por segundo (FPS) estable para evitar el mareo por movimiento, permitiendo una navegación fluida para los estudiantes.
+- *Optimización y fidelidad visual:* Asegurar un rendimiento estable (FPS) y una representación realista que mantenga la escena fiel a un consultorio dental real.
 
 = Justificación
-El proyecto "VR-Cirugía" surge como una iniciativa para explorar el potencial de los ambientes virtuales inmersivos en la educación médica. El quirófano es un entorno de alta complejidad técnica al que los estudiantes de medicina tienen acceso limitado durante su formación; la realidad virtual ofrece la posibilidad de familiarizarse con este espacio sin las restricciones logísticas, de seguridad y de disponibilidad que implica un quirófano real. Al crear una simulación interactiva de una sala de operaciones, se busca proporcionar a los estudiantes una experiencia educativa que les permita comprender los protocolos preoperatorios, identificar el instrumental y el equipamiento médico, y entender cómo la tecnología inmersiva está siendo adoptada en la práctica quirúrgica contemporánea. En un contexto donde la realidad virtual, aumentada y mixta están siendo incorporadas en hospitales y centros de formación médica para mejorar procedimientos quirúrgicos, este proyecto demuestra de primera mano ese potencial al colocar al usuario dentro del mismo entorno donde estas tecnologías se aplican. Además, contribuye a reducir la aprensión que genera el quirófano tanto en estudiantes como en pacientes, haciendo accesible el conocimiento sobre lo que ocurre en este espacio y cómo cada elemento presente puede salvar vidas.
+El manejo incorrecto de los RPBI en la práctica odontológica representa un riesgo real de contaminación cruzada e infecciones para el personal, los pacientes y el medio ambiente. La NOM-087-ECOL-SSA1-2002 establece cómo clasificar, envasar y disponer estos residuos, pero su cumplimiento depende de una capacitación constante.
+
+Un entorno 3D permite recorrer un consultorio realista y consultar, mediante su señalización, cómo se clasifica y dónde se dispone cada residuo sin exposición a material biológico-infeccioso real ni el costo de los insumos. Además, sirve como referencia visual previa a la práctica clínica y facilita que el usuario relacione cada tipo de residuo con el contenedor correspondiente.
+
+Frente a la capacitación teórica tradicional, "Consultorio Seguro" sitúa al estudiante o profesional dentro del consultorio y le muestra, en su contexto real, dónde corresponde cada residuo. Así refuerza la cultura de bioseguridad y prepara para la operación real del consultorio.
 
 = Alcance
-El presente proyecto tiene como alcance el desarrollo de un ambiente virtual inmersivo que represente de manera interactiva un quirófano equipado con instrumental y maquinaria médica. Este entorno permitirá a los usuarios explorar la sala de operaciones, interactuar con los elementos presentes y recibir información educativa sobre su uso y los protocolos asociados.
-El proyecto se enfocará en la recreación de procedimientos preoperatorios que no involucran modelos humanos, tales como el conteo y la identificación de instrumental quirúrgico, la verificación del equipo de anestesia, la preparación del campo estéril y la aplicación del checklist de seguridad quirúrgica de la OMS. No se pretende simular procedimientos quirúrgicos en sí mismos ni interacciones con pacientes.
-Este proyecto se plantea como una simulación con fines educativos y de demostración tecnológica, dirigida a instituciones y escuelas de medicina que deseen apoyar el aprendizaje de sus alumnos mediante ambientes virtuales, permitiéndoles adentrarse de forma accesible y segura en un entorno de suma importancia clínica.
+El presente proyecto tiene como alcance el desarrollo de un entorno en 3D que represente fielmente un consultorio dental operativo, con sus objetos estáticos y la señalización que indica dónde debe disponerse cada tipo de residuo entre los contenedores de RPBI y de desechos comunes.
+
+La primera versión se centra en la representación realista del consultorio y en la señalización de la disposición correcta conforme a la NOM-087. Las interacciones dinámicas, la evaluación automática y el reporte de desempeño se contemplan como funciones de ampliación del simulador. El proyecto no abarca procedimientos clínicos sobre pacientes ni el tratamiento final de los residuos fuera del consultorio.
+
+Se plantea como una herramienta de apoyo visual para la capacitación, dirigida a escuelas de odontología, clínicas y consultorios dentales que deseen reforzar el cumplimiento de la bioseguridad de forma accesible y segura.
 
 == Público objetivo
-Estudiantes de medicina y ciencias de la salud, así como escuelas y facultades de medicina que busquen complementar la formación de sus alumnos mediante herramientas de realidad virtual como apoyo didáctico en el área quirúrgica.
+Estudiantes y profesionales de la odontología, así como escuelas, clínicas y consultorios dentales que busquen reforzar la capacitación de su personal en el manejo de RPBI y el cumplimiento de la bioseguridad mediante un entorno 3D de referencia.
 
 == Tecnologías a utilizar
 - Unity
 
 == Alcance de funciones
-Las funciones con las que el usuario podrá tener interacción en este ambiente virtual incluyen:
+Las funciones principales contempladas para el entorno de simulación son:
 
-- Navegación: El usuario podrá desplazarse libremente por el quirófano, observar el espacio desde distintos ángulos y acercarse a cada pieza de equipamiento.
+- *Navegación:* Desplazarse libremente por el consultorio dental, observar las estaciones de trabajo y acercarse a cada contenedor de residuos.
 
-- Interacción con Instrumental: Posibilidad de seleccionar instrumentos quirúrgicos sobre la mesa Mayo para visualizar su nombre, clasificación y uso dentro del procedimiento operatorio.
+- *Retroalimentación normativa:* Mostrar retroalimentación inmediata que indique la clasificación correcta y su fundamento en la NOM-087.
 
-- Interacción con Equipamiento: Explorar el funcionamiento de la máquina de anestesia, el monitor de signos vitales, las lámparas cialíticas y el contenedor RPBI, accediendo a información educativa sobre cada uno.
+== Funciones de simulación y ambientación
+Para que el entorno se perciba como un consultorio dental realista, se consideran los siguientes elementos de ambientación:
 
-- Protocolo de Conteo de Instrumental: Simulación guiada del conteo de instrumental quirúrgico como protocolo de seguridad, verificando que cada pieza se encuentre presente antes y después de un procedimiento.
+- *Estaciones de residuos:* Contenedores y bolsas con el código de colores oficial, incluyendo rojo, amarillo, recipiente rígido para punzocortantes y bote de desechos comunes, etiquetados conforme a la norma.
 
-- Checklist de Seguridad Quirúrgica: Recreación interactiva del checklist de seguridad quirúrgica de la OMS (sign-in, time-out, sign-out), guiando al usuario a través de cada fase de verificación.
+- *Señalización y EPP:* Carteles de bioseguridad, símbolo universal de riesgo biológico y equipo de protección personal, como guantes y cubrebocas, para contextualizar la práctica.
 
-Las funciones de simulación y ambientación que se implementarán para dar realismo al ambiente virtual son:
+- *Audio y avisos:* Sonidos de confirmación y alerta, junto con avisos en pantalla que refuercen cada clasificación correcta o incorrecta.
 
-- Iluminación Quirúrgica: Simulación del comportamiento de las lámparas cialíticas, incluyendo la posibilidad de ajustar su posición y dirección.
+= Descripción del AVI
 
-- Monitoreo de Signos Vitales: Pantalla del monitor mostrando lecturas simuladas de ECG, SpO2 y presión arterial para ambientar el entorno clínico.
+== Escenario: consultorio dental virtual
+El escenario principal es un consultorio dental virtual capturado desde Unity. La escena integra el sillón operativo, las lámparas, monitores, superficies de trabajo, contenedores de residuos y mobiliario de apoyo distribuidos dentro del espacio.
 
-- Sistema de Audio Ambiental: Activación de sonidos espaciales propios del quirófano (pitido del monitor de signos vitales, ventilación de la máquina de anestesia, sonido ambiental de la sala).
+#figure(
+  image("media/consultorio-unity.jpg", width: 100%),
+  caption: [Captura real del consultorio dental virtual usado como base del entorno de simulación.],
+)
 
-#pagebreak()
+== Elementos del entorno
+Los elementos principales del consultorio se organizan de la siguiente manera:
 
+- *Sillón operativo:* Zona principal de trabajo dentro de la escena.
 
-= Escenario: Quirófano virtual
+- *Módulo de instrumentos:* Controles, charola y brazo articulado junto al usuario.
 
-#let quirofano = image("media/OR.png", height: 8cm)
+- *Objetos operativos:* Lámparas, monitores y soportes de atención.
 
-#align(center)[#quirofano]
+- *Botes de residuos:* Contenedores ubicados en el consultorio para la disposición de desechos.
 
+- *Mobiliario operativo:* Gabinetes y superficies de apoyo del lado derecho.
+
+- *Carro de insumos:* Área de material y apoyo complementario.
+
+== Mapa del consultorio
+El mapa del AVI traduce la vista del piso a zonas funcionales para que el usuario identifique qué puede operar, dónde debe depositar residuos y qué mobiliario funciona como soporte. La presentación usa tres categorías visuales:
+
+- *Objetos operativos:* Sillón, lámparas, monitores, brazos articulados y equipo que participa directamente en la atención.
+
+- *Botes de residuos:* Contenedores distribuidos en el consultorio para la disposición de desechos.
+
+- *Mobiliario operativo:* Gabinetes, mesas, carros y superficies de soporte para insumos.
+
+= Experiencia de aprendizaje
+Consultorio Seguro propone un aprendizaje situado e inmersivo: el usuario construye conocimiento clasificando y disponiendo los residuos de la práctica dental en primera persona, en lugar de memorizar listas de forma pasiva.
+
+La experiencia se apoya en cuatro principios:
+
+- *Inmersión y memoria espacial:* Estar dentro del consultorio asocia cada tipo de residuo con el contenedor y el lugar donde se desecha, afianzando la retención.
+
+- *Aprendizaje por descubrimiento:* Al clasificar cada residuo, el usuario identifica su categoría, color de contenedor y fundamento normativo a su propio ritmo.
+
+- *Evaluación formativa:* El conteo de aciertos, el puntaje y la retroalimentación inmediata convierten cada error en una oportunidad de aprendizaje sin riesgo real.
+
+- *Entorno seguro y accesible:* La práctica puede repetirse cuantas veces sea necesario sin exposición a material biológico-infeccioso ni costos de insumos.
+
+= Link del AVI (video)
+La presentación contempla una demostración en video del recorrido por el consultorio virtual, donde se mostrarán la navegación, la clasificación de residuos y la evaluación del usuario.
+
+La diapositiva 14 incluye el enlace y el código QR para abrir la demostración en YouTube: #link("https://youtu.be/_EkJtI_x0YQ")[https://youtu.be/_EkJtI_x0YQ].
+
+Como respaldo, el archivo del video también está disponible en Google Drive: #link("https://drive.google.com/file/d/1LpUhhuKyaJJVXR6mcvx2zW7g96GyZExz/view?usp=share_link")[Abrir video en Google Drive].
+
+= Recursos de Realidad Aumentada
+Como complemento del AVI, el proyecto incluye recursos de Realidad Aumentada para apoyar la práctica con marcadores, una aplicación Android y materiales visuales:
+
+- *Marcadores:* Imágenes objetivo, fichas de residuos y contenedores para imprimir o mostrar en pantalla y disparar la RA. #link("https://drive.google.com/drive/folders/1nqiziG4qK4j3Tog_Zz_Rl81YPB6Bvx4U?usp=share_link")[Abrir marcadores].
+
+- *APK de Android:* Aplicación instalable para ejecutar la experiencia de realidad aumentada. #link("https://drive.google.com/drive/folders/1Caovl9w3DpYd4OJhrxzAMj7uMnNNbfKc?usp=share_link")[Abrir APK].
+
+- *Imágenes y recursos:* Capturas, texturas y materiales de apoyo de la RA. #link("https://drive.google.com/drive/folders/1AuYtH9qQYxTZmUDnP651eMoApvZJiv8D?usp=share_link")[Abrir recursos].
+
+- *Carpeta completa:* #link("https://drive.google.com/drive/folders/1ryy2PMGYoQVi6LqJKbDiL4df30f2zy4U?usp=share_link")[Abrir carpeta completa de Realidad Aumentada].
+
+#align(center)[
+  #image("media/ra-folder-qr.svg", width: 4cm)
+]
+
+= Cierre
+Consultorio Seguro demuestra cómo un entorno de simulación 3D puede apoyar la capacitación en el manejo de RPBI en el consultorio dental de manera segura, accesible y didáctica. El proyecto refuerza la bioseguridad, reduce riesgos de contaminación cruzada y ofrece una base para ampliar la experiencia con interacciones, evaluación y recursos de realidad aumentada.

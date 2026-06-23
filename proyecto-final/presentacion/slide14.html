@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VR-Cirugía — Link del AVI (video)</title>
+<title>Consultorio Seguro — Link del AVI (video)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Newsreader:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
@@ -31,6 +31,7 @@
   .vmeta { display:grid; gap:22px; }
   .vmeta .flabel { font-family:var(--font-head); font-weight:700; font-size:14px;
     letter-spacing:.22em; text-transform:uppercase; color:var(--guinda); margin-bottom:10px; }
+  .links { display:grid; gap:12px; }
   .linkbox { display:flex; align-items:center; gap:14px; padding:18px 22px;
     border:2px dashed var(--teal); border-radius:12px; background:var(--panel); }
   .linkbox .chain { color:var(--teal); font-size:22px; }
@@ -38,14 +39,9 @@
     color:var(--ink-dim); word-break:break-all; }
   .qrow { display:flex; align-items:center; gap:24px; }
   .qr { width:140px; height:140px; flex:none; border-radius:12px; border:2px dashed var(--teal);
-    background:var(--panel); position:relative; display:flex; align-items:center; justify-content:center; }
-  .qr::before, .qr::after, .qr i { content:""; position:absolute; width:30px; height:30px;
-    border:5px solid var(--ink-faint); border-radius:4px; }
-  .qr::before { top:14px; left:14px; }
-  .qr::after { top:14px; right:14px; }
-  .qr i { bottom:14px; left:14px; }
-  .qr b { font-family:var(--font-head); font-weight:700; font-size:13px; letter-spacing:.2em;
-    color:var(--ink-faint); }
+    background:rgba(45,212,191,.06); display:flex; align-items:center; justify-content:center;
+    padding:10px; text-decoration:none; }
+  .qr img { width:100%; height:100%; display:block; border-radius:8px; }
   .qrnote { font-size:16px; line-height:1.5; color:var(--ink-dim); }
   .qrnote strong { color:var(--ink); }
   .plat { display:flex; gap:10px; }
@@ -59,8 +55,8 @@
     <span class="corner bl"></span><span class="corner br"></span>
     <svg class="ekg" viewBox="0 0 1460 36" preserveAspectRatio="none"><path d="M0 18 H300 l10 -13 7 26 9 -20 10 16 H760 l10 -13 7 26 9 -20 10 16 H1180 l10 -13 7 26 9 -20 10 16 H1460"/></svg>
     <span class="kicker">09 · Link del AVI</span>
-    <span class="brand-tag">VR-Cirugía</span>
-    <span class="page-tag"><b>15</b> / 17</span>
+    <span class="brand-tag">Consultorio Seguro</span>
+    <span class="page-tag"><b>15</b> / 18</span>
     <div class="content">
       <h2 class="title" style="font-size:50px;">Demostración en video</h2>
       <div class="title-rule" style="margin:18px 0 6px;"><span class="line"></span><span class="diamond"></span></div>
@@ -68,21 +64,27 @@
         <div class="vthumb">
           <div class="grid"></div>
           <div class="play"></div>
-          <div class="vcap">Recorrido del quirófano virtual<span>Video del AVI · VR-Cirugía</span></div>
+          <div class="vcap">Recorrido del consultorio virtual<span>Video del AVI · Consultorio Seguro</span></div>
         </div>
         <div class="vmeta">
           <div>
             <p class="flabel">Enlace del video</p>
-            <!-- ▼▼▼  PEGA AQUÍ EL ENLACE DEL VIDEO (reemplaza el texto del <code> y el href)  ▼▼▼ -->
-            <a class="linkbox" href="#" target="_blank" rel="noopener">
-              <span class="chain">🔗</span>
-              <code>https://… (pega aquí el enlace del video)</code>
-            </a>
-            <!-- ▲▲▲  FIN DEL ENLACE DEL VIDEO  ▲▲▲ -->
+            <div class="links">
+              <a class="linkbox" href="https://youtu.be/_EkJtI_x0YQ" target="_blank" rel="noopener">
+                <span class="chain">🔗</span>
+                <code>https://youtu.be/_EkJtI_x0YQ</code>
+              </a>
+              <a class="linkbox" href="https://drive.google.com/file/d/1LpUhhuKyaJJVXR6mcvx2zW7g96GyZExz/view?usp=share_link" target="_blank" rel="noopener">
+                <span class="chain">🔗</span>
+                <code>https://drive.google.com/file/d/1LpUhhuKyaJJVXR6mcvx2zW7g96GyZExz/view?usp=share_link</code>
+              </a>
+            </div>
           </div>
           <div class="qrow">
-            <div class="qr"><i></i><b>QR</b></div>
-            <p class="qrnote"><strong>Escanea para ver el video.</strong><br>Genera el código QR con la URL final y reemplaza este recuadro.</p>
+            <a class="qr" href="https://youtu.be/_EkJtI_x0YQ" target="_blank" rel="noopener" aria-label="Abrir video del AVI en YouTube">
+              <img src="media/video-avi-qr.svg" alt="QR del video del AVI">
+            </a>
+            <p class="qrnote"><strong>Escanea para ver el video.</strong><br>El QR abre la demostración del AVI en YouTube.</p>
           </div>
           <div>
             <p class="flabel" style="margin-bottom:8px;">Plataforma</p>
