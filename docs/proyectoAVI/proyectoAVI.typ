@@ -170,6 +170,8 @@ La diapositiva 14 incluye el enlace y el código QR para abrir la demostración 
 
 Como respaldo, el archivo del video también está disponible en Google Drive: #link("https://drive.google.com/file/d/1LpUhhuKyaJJVXR6mcvx2zW7g96GyZExz/view?usp=share_link")[Abrir video en Google Drive].
 
+Los archivos del proyecto en Unity se encuentran disponibles en Google Drive: #link("https://drive.google.com/drive/folders/1A4yP2ON-fZ6aioEx9XsllfXR3JVyYcjo?usp=share_link")[Abrir archivos de Unity].
+
 = Recursos de Realidad Aumentada
 Como complemento del AVI, el proyecto incluye recursos de Realidad Aumentada para apoyar la práctica con marcadores, una aplicación Android y materiales visuales:
 
