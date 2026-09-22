@@ -162,6 +162,22 @@ Las funciones principales del prototipo serán:
 
 - Usar recursos de Realidad Aumentada como complemento del simulador.
 
-El proyecto se va a enfocar en clasificar y organizar los residuos dentro del consultorio, no busca simular procedimientos odontológicos completos ni trabajar con pacientes reales, tampoco incluye el transporte, tratamiento o disposición final de los residuos después de que salen del consultorio.
+=== Acciones de simulación
+
+El prototipo se organiza alrededor de cinco acciones, cada una recrea una tarea que se hace en el consultorio y termina con residuos que el usuario debe clasificar:
+
+- *Clasificación por el tipo de desecho:* es la acción central del simulador. El usuario toma un residuo, lo identifica y lo deposita en el recipiente que le corresponde según la *NOM-087-ECOL-SSA1-2002*, el sistema le responde si acertó y por qué.
+
+- *Esterilización de instrumentos de trabajo:* el usuario sigue la ruta del instrumental sucio hasta el área de esterilización, aquí distingue lo que se reutiliza después del proceso de lo que se desecha directamente, como los objetos punzocortantes de un solo uso.
+
+- *Muestra de materiales:* el usuario revisa los materiales y consumibles del consultorio, con esto aprende a reconocer cuáles generan residuos peligrosos y cuáles terminan en la basura común antes de usarlos.
+
+- *Exploración, curación o retiro de piezas dentales:* se representa un procedimiento breve para generar los residuos que le corresponden, por ejemplo, gasas con sangre, piezas dentales extraídas y material de curación. El procedimiento no se simula a detalle clínico, sirve para dar contexto al residuo.
+
+- *Manejo de equipo radiográfico:* el usuario enciende el equipo de rayos X y lo ve prepararse hasta quedar listo para usarse en un paciente, la acción muestra la secuencia de encendido, la colocación del brazo y las barreras de protección que se ponen antes de la toma, estas barreras son las que después se convierten en residuo.
+
+Cada acción funciona como un escenario independiente, así, el usuario puede repetir solo la que le interese y el sistema registra sus aciertos y errores por separado.
+
+El proyecto se va a enfocar en clasificar y organizar los residuos dentro del consultorio, los procedimientos odontológicos se representan solo en la medida necesaria para generar los residuos de cada acción, no se busca reproducirlos con detalle clínico ni trabajar con pacientes reales, tampoco se incluye el transporte, tratamiento o disposición final de los residuos después de que salen del consultorio.
 
 Así, la propuesta quiere servir como una herramienta que ayuda al usuario a aprender y practicar antes de enfrentar una situación real, lo hace en un entorno virtual donde cometer errores no implica ningún riesgo para la salud.
