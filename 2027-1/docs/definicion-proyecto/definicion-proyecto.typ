@@ -43,6 +43,7 @@
   "7NM78", // profesorx
   "Bustamante Tranquilino Rocío", // fecha
   encabezado: ("Plan 2021", "Ingeniería en Informática"),
+  proyecto: "Prototipo de simulador para el manejo de Residuos Peligrosos Biológico-Infecciosos en un consultorio, enfocado a la capacitación en bioseguridad mediante un entorno 3D interactivo",
 )
 
 #pagebreak()

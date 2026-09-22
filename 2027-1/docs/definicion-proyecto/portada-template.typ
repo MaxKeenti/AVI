@@ -15,6 +15,7 @@
   profesorx,
   fecha,
   encabezado: (),
+  proyecto: none,
 ) = [
   #set text(font: "ITC Avant Garde Gothic", size: 12pt)
 
@@ -64,6 +65,10 @@
   #carrera
 
   #titulo_materia: #materia
+
+  #if proyecto != none {
+    block(width: 88%, inset: (y: 0.3cm), text(15pt, weight: "bold", proyecto))
+  }
 
   #practica
 
