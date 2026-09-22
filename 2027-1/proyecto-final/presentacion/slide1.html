@@ -28,23 +28,23 @@
     <div class="content">
       <h2 class="title">Contenido</h2>
       <div class="title-rule"><span class="line"></span><span class="diamond"></span></div>
-      <ol class="agenda">
-        <li><span class="n">01</span><span class="t">Nombre del proyecto</span></li>
-        <li><span class="n">02</span><span class="t">Objetivo general</span></li>
-        <li><span class="n">03</span><span class="t">Objetivos específicos</span></li>
-        <li><span class="n">04</span><span class="t">Justificación</span></li>
-        <li><span class="n">05</span><span class="t">Alcance y tecnología</span></li>
-        <li><span class="n">06</span><span class="t">Descripción del AVI</span></li>
-        <li><span class="n">07</span><span class="t">Mapa del AVI</span></li>
-        <li><span class="n">08</span><span class="t">Experiencia de aprendizaje</span></li>
-        <li><span class="n">09</span><span class="t">Link del AVI (video)</span></li>
-        <li><span class="n">10</span><span class="t">Link de la RA</span></li>
-        <li><span class="n">11</span><span class="t">Recursos de assets</span></li>
-      </ol>
+      <ol class="agenda" id="agenda"></ol>
     </div>
   </div>
 </div>
+<script src="slides.js"></script>
 <script src="slide.js"></script>
+<script>
+  /* El índice se arma con las secciones declaradas en slides.js. */
+  (function () {
+    var ol = document.getElementById('agenda');
+    if (!ol || !window.DECK) return;
+    ol.innerHTML = window.DECK.sections.map(function (nombre, i) {
+      return '<li><span class="n">' + window.DECK.pad(i + 1) + '</span>' +
+             '<span class="t">' + nombre + '</span></li>';
+    }).join('');
+  })();
+</script>
 <script src="anim.js"></script>
 </body>
 </html>
