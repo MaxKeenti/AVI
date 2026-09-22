@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consultorio Seguro — Descripción del AVI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Newsreader:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="deck.css">
+<script src="theme.js"></script>
+<style>
+  .desc { display:grid; grid-template-columns:1.32fr 1fr; gap:50px; align-items:center; margin-top:18px; }
+  .shot { position:relative; border-radius:16px; overflow:hidden; border:1px solid var(--panel-line); box-shadow:0 18px 50px rgba(0,0,0,.35); }
+  .shot img { width:100%; display:block; }
+  .pin { position:absolute; width:34px; height:34px; transform:translate(-50%,-50%);
+    border-radius:50%; background:var(--guinda); color:#fff; border:2px solid #fff;
+    font-family:var(--font-head); font-weight:700; font-size:17px;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 0 0 4px rgba(196,58,99,.30), 0 4px 12px rgba(0,0,0,.45); }
+  .legend { list-style:none; display:grid; gap:13px; }
+  .legend li { display:grid; grid-template-columns:auto 1fr; gap:16px; align-items:start; }
+  .legend .b { width:30px; height:30px; flex:none; border-radius:50%;
+    background:var(--teal); color:#04221f; font-family:var(--font-head); font-weight:700;
+    font-size:15px; display:flex; align-items:center; justify-content:center; margin-top:2px; }
+  html.light .legend .b { color:#fff; }
+  .legend h3 { font-family:var(--font-head); font-size:19px; font-weight:700; color:var(--ink); margin-bottom:2px; }
+  .legend p { font-size:15px; line-height:1.45; color:var(--ink-dim); }
+</style>
+</head>
+<body>
+<div class="scaler">
+  <div class="slide">
+    <span class="corner tl"></span><span class="corner tr"></span>
+    <span class="corner bl"></span><span class="corner br"></span>
+    <svg class="ekg" viewBox="0 0 1460 36" preserveAspectRatio="none"><path d="M0 18 H300 l10 -13 7 26 9 -20 10 16 H760 l10 -13 7 26 9 -20 10 16 H1180 l10 -13 7 26 9 -20 10 16 H1460"/></svg>
+    <span class="kicker">06 · Descripción del AVI</span>
+    <span class="brand-tag">Consultorio Seguro</span>
+    <span class="page-tag"><b>12</b> / 18</span>
+    <div class="content">
+      <h2 class="title" style="font-size:50px;">Elementos del entorno</h2>
+      <div class="title-rule" style="margin:18px 0 6px;"><span class="line"></span><span class="diamond"></span></div>
+      <div class="desc">
+        <div class="shot">
+          <img src="media/consultorio-unity.jpg" alt="Elementos señalados dentro del consultorio dental virtual">
+          <span class="pin" style="left:33%;top:57%;background:#38bdf8;color:#06202a;">1</span>
+          <span class="pin" style="left:57%;top:43%;background:#38bdf8;color:#06202a;">2</span>
+          <span class="pin" style="left:71%;top:24%;background:#38bdf8;color:#06202a;">3</span>
+          <span class="pin" style="left:43%;top:38%;background:#a855f7;">4</span>
+          <span class="pin" style="left:82%;top:45%;background:#fb923c;color:#1f1303;">5</span>
+          <span class="pin" style="left:91%;top:77%;background:#fb923c;color:#1f1303;">6</span>
+        </div>
+        <ul class="legend">
+          <li><span class="b" style="background:#38bdf8;color:#06202a;">1</span><div><h3>Sillón operativo</h3><p>Zona principal de trabajo dentro de la escena.</p></div></li>
+          <li><span class="b" style="background:#38bdf8;color:#06202a;">2</span><div><h3>Módulo de instrumentos</h3><p>Controles, charola y brazo articulado junto al usuario.</p></div></li>
+          <li><span class="b" style="background:#38bdf8;color:#06202a;">3</span><div><h3>Objetos operativos</h3><p>Lámparas, monitores y soportes de atención.</p></div></li>
+          <li><span class="b" style="background:#a855f7;">4</span><div><h3>Botes de residuos</h3><p>Contenedores ubicados en el consultorio para la disposición.</p></div></li>
+          <li><span class="b" style="background:#fb923c;color:#1f1303;">5</span><div><h3>Mobiliario operativo</h3><p>Gabinetes y superficies de apoyo del lado derecho.</p></div></li>
+          <li><span class="b" style="background:#fb923c;color:#1f1303;">6</span><div><h3>Carro de insumos</h3><p>Área de material y apoyo complementario.</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="slide.js"></script>
+<script src="anim.js"></script>
+</body>
+</html>

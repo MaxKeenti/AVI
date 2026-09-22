@@ -3,7 +3,8 @@
 This document describes the conventions followed by the `*.typ` documents in this repository (UPIICSA, *Ambientes Virtuales Inmersivos*, 6NM69). Not every file uses every rule; they describe the broadly established patterns. All AI assistants and contributors should follow them when creating or editing documents.
 
 ## 1. Folder Layout
-- **One folder per deliverable** under `docs/`. Team work: `docs/<deliverable>/`. Individual work: `docs/individuales/<apellidosnombre>/<reto N>/<reto N-M>/`.
+- **Grouped by school period** at the repo root (`2026-1/`, `2026-2/`, …). Each period holds its documents plus any non-Typst work for that period (e.g. the Unity project `2026-2/AVI/`, the HTML presentation `2026-2/proyecto-final/`).
+- **One folder per deliverable** inside the period. Team work: `<periodo>/docs/<deliverable>/`. Individual work: `<periodo>/individuales/<apellidosnombre>/<reto N>/<reto N-M>/`.
 - **Self-contained folders**: each folder holds one main `.typ`, its own copy of `portada-template.typ`, and a `media/` directory. Nothing is imported from outside the folder.
 - **Assets in `media/`**: logos at `media/logos/IPN_Logo.svg` and `media/logos/UPIICSA_Logo.svg`; screenshots, QR codes (`.svg`) and the bibliography (`referencias.bib`) directly in `media/`.
 - **Naming**: folders use kebab-case or camelCase (`exposicion-frameVR`, `proyectoAVI`). A reto's main file is the reto name without spaces (`retoii-1.typ`); other documents get a short descriptive name (`doc-lentes.typ`, `texto-expo.typ`).
@@ -52,9 +53,9 @@ Every main file follows this order:
 ## 6. Anti-patterns (do not repeat)
 These exist in current files but should not be copied into new ones:
 - **Unused imports**: do not import `@preview/cetz` unless drawing with it, and do not set up codly in documents without code blocks.
-- **Diverging template copies**: when copying `portada-template.typ` into a new folder, copy the latest version (currently `docs/proyectoAVI/portada-template.typ`), not an older one.
+- **Diverging template copies**: when copying `portada-template.typ` into a new folder, copy the latest version (currently `2026-2/docs/proyectoAVI/portada-template.typ`), not an older one.
 - **Inconsistent course name**: use the full name "Ambientes Virtuales Inmersivos" on the cover, not "Ambientes Virtuales".
 - **Mixing heading styles**: pick one heading font per document and do not mix Fraunces and body-font headings across related deliverables.
-- **Malformed headings**: never double the marker (`= = Título`, seen in `docs/Lentes-virtuales/doc-lentes.typ`).
+- **Malformed headings**: never double the marker (`= = Título`, seen in `2026-2/docs/Lentes-virtuales/doc-lentes.typ`).
 - **Ad-hoc titles**: use `#title(...)` rather than a hand-styled `#align(center)[#text(22pt, ...)]` block.
 - **Unannotated positional cover calls**: do not pass the 14 `portada` arguments without `// titulo_x` comments; the repurposed slots make them easy to misorder.
