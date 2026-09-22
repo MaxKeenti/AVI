@@ -181,3 +181,92 @@ Cada acción funciona como un escenario independiente, así, el usuario puede re
 El proyecto se va a enfocar en clasificar y organizar los residuos dentro del consultorio, los procedimientos odontológicos se representan solo en la medida necesaria para generar los residuos de cada acción, no se busca reproducirlos con detalle clínico ni trabajar con pacientes reales, tampoco se incluye el transporte, tratamiento o disposición final de los residuos después de que salen del consultorio.
 
 Así, la propuesta quiere servir como una herramienta que ayuda al usuario a aprender y practicar antes de enfrentar una situación real, lo hace en un entorno virtual donde cometer errores no implica ningún riesgo para la salud.
+
+#pagebreak()
+
+= Anexos: avances del prototipo
+
+Las siguientes capturas muestran el estado actual de la escena en `Unity`.
+
+#figure(
+  image("media/PHOTO-2026-09-22-13-26-53.jpg", width: 100%),
+  caption: [Menú principal del simulador, con las opciones de inicio, ubicación, créditos y salida.],
+)
+
+#figure(
+  image("media/PHOTO-2026-09-22-13-26-52 6.jpg", width: 100%),
+  caption: [El mismo menú colocado dentro de la escena, sobre la imagen del consultorio.],
+)
+
+#figure(
+  image("media/PHOTO-2026-09-22-13-26-51.jpg", width: 100%),
+  caption: [Exterior del entorno urbano, con la lona institucional que ubica el acceso al consultorio.],
+)
+
+#figure(
+  image("media/PHOTO-2026-09-22-13-26-52.jpg", width: 100%),
+  caption: [Personaje del usuario frente al aviso de audio que acompaña el recorrido exterior.],
+)
+
+#pagebreak()
+
+#figure(
+  image("media/PHOTO-2026-09-22-13-26-52 2.jpg", width: 100%),
+  caption: [Fachada del consultorio dental con la señalización informativa del área de tratamiento.],
+)
+
+#figure(
+  image("media/PHOTO-2026-09-22-13-26-52 3.jpg", width: 100%),
+  caption: [Acceso lateral del consultorio, con el lavabo y los carteles de bioseguridad.],
+)
+
+#figure(
+  image("media/PHOTO-2026-09-22-13-26-52 5.jpg", width: 100%),
+  caption: [Vista aérea de la escena: el consultorio y su ubicación dentro del entorno urbano.],
+)
+
+#pagebreak()
+
+#figure(
+  image("media/PHOTO-2026-09-22-13-26-52 4.jpg", width: 100%),
+  caption: [Interior del consultorio, con el equipo suspendido, el mobiliario y las estaciones de trabajo.],
+)
+
+#figure(
+  image("media/PHOTO-2026-09-22-13-26-53 2.jpg", width: 100%),
+  caption: [Otra vista del interior, con las lámparas, los monitores y los contenedores de residuos.],
+)
+
+#figure(
+  image("media/PHOTO-2026-09-22-13-26-53 3.jpg", width: 100%),
+  caption: [Detalle del equipo y el instrumental colocados junto a la unidad dental.],
+)
+
+#figure(
+  image("media/PHOTO-2026-09-22-13-26-53 4.jpg", width: 100%),
+  caption: [Charola con instrumental, piezas dentales y material de curación, residuos que el usuario deberá clasificar.],
+)
+
+#pagebreak()
+
+#figure(
+  image("media/PHOTO-2026-09-22-13-29-32 3.jpg", width: 100%),
+  caption: [
+    Mensaje de instrucciones dentro del entorno: explica al usuario que debe
+    clasificar los desechos entre la bolsa roja, el bote de punzocortantes y la
+    basura común.
+  ],
+)
+
+#figure(
+  image("media/PHOTO-2026-09-22-13-29-32 2.jpg", width: 100%),
+  caption: [
+    Área de insumos y superficies de apoyo, con los frascos, el mobiliario y el
+    bote donde se depositan los residuos.
+  ],
+)
+
+#figure(
+  image("media/PHOTO-2026-09-22-13-29-32.jpg", width: 100%),
+  caption: [Mobiliario auxiliar de la sala, junto a los controles del equipo en la pared.],
+)
