@@ -76,7 +76,12 @@
   #titulo_alumno
 
   #if type(alumnos) == array {
-    for alumno in alumnos.sorted() [#alumno \ ]
+    align(center, block(align(left)[
+      #for alumno in alumnos.sorted() {
+        let partes = alumno.split(" - ")
+        if partes.len() == 2 [#partes.at(1) #sym.dash.en #partes.at(0) \ ] else [#alumno \ ]
+      }
+    ]))
   } else {
     alumnos
   }
