@@ -53,7 +53,8 @@
 
 #title("Definición del Proyecto - Equipo 7")
 
-Carpeta del equipo: #link("https://drive.google.com/drive/folders/1Xc2jnpCpinsPkV-dof3KsvBKfH1W1DBe")[*Drive*]
+#show link: set text(fill: blue)
+Carpeta del equipo: #link("https://drive.google.com/drive/folders/1Xc2jnpCpinsPkV-dof3KsvBKfH1W1DBe")[*drive.google.com/drive/folders...*]
 
 #outline(title: "Índice")
 
