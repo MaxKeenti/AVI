@@ -14,98 +14,76 @@
   alumnos,
   profesorx,
   fecha,
+  encabezado: (),
 ) = [
-  #set text(font: "ITC Avant Garde Gothic")
+  #set text(font: "ITC Avant Garde Gothic", size: 12pt)
 
   #set page(
     paper: "us-letter",
     margin: (left: 3cm, top: 2.5cm, right: 2.5cm, bottom: 2.5cm),
   )
   #set align(center)
+  #set par(leading: 0.6em, spacing: 0.9em)
 
-  // === Logos ===
-  #let logo-ipn = image("media/logos/IPN_Logo.svg", height: 3.5cm)
-  #let logo-upiicsa = image("media/logos/UPIICSA_Logo.svg", height: 3.5cm)
-
-  // === Institutos ===
-  #let ipn = "INSTITUTO POLITÉCNICO NACIONAL"
-  #let upiicsa = "UNIDAD PROFESIONAL INTERDISCIPLINARIA DE INGENIERÍA Y CIENCIAS SOCIALES Y ADMINISTRATIVAS"
+  // === Logos (recoloreados con los colores institucionales) ===
+  #let recolor(path, mapa) = {
+    let svg = read(path)
+    for (de, a) in mapa { svg = svg.replace(de, a) }
+    bytes(svg)
+  }
+  #let logo-ipn = image(
+    recolor("media/logos/IPN_Logo.svg", (("#5e5e5e", "#6C1D45"),)),
+    format: "svg",
+    height: 3.2cm,
+  )
+  #let logo-upiicsa = image(
+    recolor(
+      "media/logos/UPIICSA_Logo.svg",
+      (("#5e5e5e", "#0f9647"), ("#adadad", "#fff200")),
+    ),
+    format: "svg",
+    height: 3.2cm,
+  )
 
   // === Header with logos ===
   #grid(
-    columns: (1fr, 1fr),
-    [#align(left)[#logo-ipn]], [#align(right)[#logo-upiicsa]],
+    columns: (auto, 1fr, auto),
+    align: (left + top, center + bottom, right + top),
+    logo-ipn, text(14pt)[Instituto Politécnico Nacional], logo-upiicsa,
   )
+  #v(0.2cm)
+  #text(13pt)[
+    Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas
+  ]
 
-  // === Titles ===
-  #v(1.25cm)
-  #text(18pt, weight: "semibold")[#ipn]
-  #v(0.4cm)
-  #text(17pt, weight: "semibold")[#upiicsa]
+  // === Single column (los 1fr reparten el espacio sobrante) ===
+  #v(1fr)
+  #for linea in encabezado [#linea \ ]
 
-  // Add some space before the columns start
-  #v(1cm)
+  #v(1fr)
+  #carrera
 
-  // === Two Column Grid ===
+  #titulo_materia: #materia
+
+  #practica
+
+  #v(1fr)
+  #titulo_alumno
+
+  #if type(alumnos) == array {
+    for alumno in alumnos.sorted() [#alumno \ ]
+  } else {
+    alumnos
+  }
+
+  #v(1fr)
+  #titulo_fecha: #fecha
+
+  // --- Footer ---
+  #v(1fr)
   #grid(
     columns: (1fr, 1fr),
-    // Two equal columns
-    row-gutter: 0.8cm,
-    // Space between rows
-    column-gutter: 0.5cm,
-    // Space between columns
-
-    // --- Row 1 ---
-    [
-      #text(11pt, stretch: 75%)[#titulo_carrera]
-      #v(0.1cm)
-      #text(12pt, weight: "semibold")[#carrera]
-    ],
-    [
-      #text(11pt, stretch: 75%)[#titulo_materia]
-      #v(0.1cm)
-      #text(12pt, weight: "semibold")[#materia]
-    ],
-
-    // --- Row 2 ---
-    [
-      #text(11pt, stretch: 75%)[#titulo_practica]
-      #v(0.1cm)
-      #text(12pt, weight: "semibold")[#practica]
-    ],
-    [
-      #text(11pt, stretch: 75%)[#titulo_secuencia]
-      #v(0.1cm)
-      #text(12pt, weight: "semibold")[#secuencia]
-    ],
-
-    // --- Row 3 ---
-    [
-      // We keep the list logic here, but now it lives in the left column
-      #text(11pt, stretch: 75%)[#titulo_alumno]
-      #v(0.1cm)
-      #text(12pt, weight: "semibold")[
-        #if type(alumnos) == array {
-          // We align left strictly for the bullets so they look nice
-          align(left, list(..alumnos.sorted()))
-        } else {
-          alumnos
-        }
-      ]
-    ],
-    [
-      #text(11pt, stretch: 75%)[#titulo_profesorx]
-      #v(0.1cm)
-      #text(12pt, weight: "semibold")[#profesorx]
-    ],
-
-    // --- Row 4 ---
-    // Since we have an odd number of items, Fecha takes the last spot on the left.
-    // If you want it centered at the bottom, we would move it out of the grid.
-    [
-      #text(11pt, stretch: 75%)[#titulo_fecha]
-      #v(0.1cm)
-      #text(12pt, weight: "semibold")[#fecha]
-    ],
+    align(left)[#titulo_profesorx: #profesorx],
+    align(right)[#titulo_secuencia #secuencia],
   )
 ]

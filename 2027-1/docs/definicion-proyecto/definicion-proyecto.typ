@@ -29,19 +29,20 @@
 
 #portada(
   "UNIDAD DE APRENDIZAJE", // titulo_carrera
-  "LÍNEA CURRICULAR", // titulo_materia
+  "Línea Curricular", // titulo_materia
   "EQUIPO", // titulo_practica
-  "PERIODO", // titulo_secuencia
-  "INTEGRANTES", // titulo_alumno
-  "SECUENCIA", // titulo_profesorx
-  "PROFESORA", // titulo_fecha
-  "Ambientes Virtuales Inmersivos", // carrera
+  "Periodo", // titulo_secuencia
+  "Integrantes", // titulo_alumno
+  "Secuencia", // titulo_profesorx
+  "Profesora", // titulo_fecha
+  "OPTATIVA III: Simuladores Virtuales", // carrera
   "Simulación de Ambientes Virtuales", // materia
   "Equipo 7", // practica
   "2027 - 1", // secuencia
   integrantes, // alumnos
   "7NM78", // profesorx
   "Bustamante Tranquilino Rocío", // fecha
+  encabezado: ("Plan 2021", "Ingeniería en Informática"),
 )
 
 #pagebreak()
