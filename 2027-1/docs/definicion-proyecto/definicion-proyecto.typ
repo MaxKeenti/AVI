@@ -54,6 +54,7 @@
 #title("Definición del Proyecto - Equipo 7")
 
 #show link: set text(fill: blue)
+#show link: it => underline(text(fill: blue, it))
 Carpeta del equipo: #link("https://drive.google.com/drive/folders/1Xc2jnpCpinsPkV-dof3KsvBKfH1W1DBe")[*drive.google.com/drive/folders...*]
 
 #outline(title: "Índice")
