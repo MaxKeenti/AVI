@@ -172,7 +172,7 @@
     <div class="part-head"><span class="tag">Participante 1</span><span class="ttl">Introducción y fundamentos</span></div>
 
     <article class="slide">
-      <span class="slide-tag" data-slide="slide0.html">slide0 · Portada<span class="pg"></span></span>
+      <span class="slide-tag" data-slide="slide0.html">slide0 · Portada <span class="pg"></span></span>
       <h3>Portada</h3>
       <p>Buenas tardes. Somos el Equipo 7 y les presentamos <strong>Consultorio Seguro: Simulador de Manejo de RPBI en el Consultorio Dental</strong>, nuestro proyecto para la unidad de Ambientes Virtuales Inmersivos. La idea central es llevar al usuario al interior de un consultorio dental, en un entorno 3D hecho en Unity, para practicar de forma segura cómo clasificar y desechar correctamente los residuos.</p>
     </article>
@@ -245,7 +245,7 @@
     </article>
 
     <article class="slide">
-      <span class="slide-tag" data-slide="slide-acciones.html">slide-acciones · Acciones de simulación<span class="pg"></span></span>
+      <span class="slide-tag" data-slide="slide-acciones.html">slide-acciones · Acciones de simulación <span class="pg"></span></span>
       <h3>Acciones de simulación</h3>
       <p>El prototipo se organiza en <strong>cinco acciones</strong>, y cada una termina con residuos que hay que clasificar: la <strong>clasificación por tipo de desecho</strong>, que es la acción central; la <strong>esterilización de instrumentos</strong>, donde se distingue lo que se reutiliza de lo que se desecha; la <strong>muestra de materiales</strong>, para reconocer qué consumibles generan residuos peligrosos; la <strong>exploración, curación o retiro de piezas dentales</strong>, que genera gasas con sangre, piezas extraídas y material de curación; y el <strong>manejo del equipo radiográfico</strong>, donde se enciende el equipo de rayos X y se le ve prepararse hasta quedar listo para usarse.</p>
       <p>Cada acción funciona como un escenario independiente, así que se puede repetir solo la que interese y el sistema registra los aciertos y errores por separado.</p>
@@ -355,8 +355,7 @@
       if (!nums.length) return;
       var destino = document.querySelector('a[href="#' + part.id + '"] .pr');
       if (!destino) return;
-      var prefijo = destino.textContent.indexOf('Portada') === 0 ? 'Portada · ' : '';
-      destino.textContent = prefijo + 'slides ' + window.DECK.pad(Math.min.apply(null, nums)) +
+      destino.textContent = 'slides ' + window.DECK.pad(Math.min.apply(null, nums)) +
         '–' + window.DECK.pad(Math.max.apply(null, nums));
     });
   })();
