@@ -185,6 +185,14 @@ El proyecto se va a enfocar en clasificar y organizar los residuos dentro del co
 
 Así, la propuesta quiere servir como una herramienta que ayuda al usuario a aprender y practicar antes de enfrentar una situación real, lo hace en un entorno virtual donde cometer errores no implica ningún riesgo para la salud.
 
+= Marco Teórico
+
+= Desarrollo Prototipo Simulador
+
+= Conclusiones
+
+= Glosario
+
 #pagebreak()
 
 = Anexos: avances del prototipo
@@ -273,3 +281,5 @@ Las siguientes capturas muestran el estado actual de la escena en `Unity`.
   image("media/PHOTO-2026-09-22-13-29-32.jpg", width: 100%),
   caption: [Mobiliario auxiliar de la sala, junto a los controles del equipo en la pared.],
 )
+
+= Apéndices
