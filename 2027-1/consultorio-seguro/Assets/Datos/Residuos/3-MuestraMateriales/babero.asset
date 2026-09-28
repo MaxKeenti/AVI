@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b763eea616de44b598bde5c142bd68d9, type: 3}
+  m_Name: babero
+  m_EditorClassIdentifier: ConsultorioSeguro::ConsultorioSeguro.DatosResiduo
+  nombre: Babero desechable sin sangre
+  destinoCorrecto: 5
+  explicacion: "Protege la ropa del paciente. Si no se empap\xF3 de sangre no es
+    RPBI y va en la basura com\xFAn."

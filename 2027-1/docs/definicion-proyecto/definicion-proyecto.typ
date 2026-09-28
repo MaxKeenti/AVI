@@ -189,6 +189,49 @@ Así, la propuesta quiere servir como una herramienta que ayuda al usuario a apr
 
 = Desarrollo Prototipo Simulador
 
+== Modelos 3D de terceros y sus fuentes
+
+El prototipo incorpora modelos existentes para sustituir el mobiliario y gran parte de los objetos de práctica. Se conservan los componentes de interacción, los destinos de clasificación y la lógica de las actividades. Fecha de consulta y descarga de los recursos: *28 de septiembre de 2026*.
+
+#table(
+  columns: (1.2fr, 1.8fr),
+  inset: 7pt,
+  align: left,
+  table.header([*Fuente y autor*], [*Modelos utilizados y adaptación*]),
+  [#link("https://kenney.nl/assets/furniture-kit")[Furniture Kit] — Kenney],
+  [Sillas, planta, monitor, lavabo, banca y bote municipal. Escala, orientación y materiales.],
+  [#link("https://kenney.nl/assets/car-kit")[Car Kit] — Kenney],
+  [Sedán para los automóviles de la calle. Ajuste de dimensiones y orientación.],
+  [#link("https://kenney.nl/assets/nature-kit")[Nature Kit] — Kenney],
+  [Roble para el arbolado urbano. Ajuste de altura.],
+  [#link("https://kenney.nl/assets/city-kit-commercial")[City Kit Commercial] — Kenney],
+  [Edificio comercial building-a para los edificios vecinos. Adaptación a sus volúmenes.],
+  [#link("https://3dassets.dev/packs/dental-practice-and-surgery")[Dental Practice and Surgery] — 3D Assets],
+  [Sillón reclinado, lámpara operatoria, brazo de rayos X, gabinetes, tarja, autoclave, mostrador, puerta, recipientes, charola, espejo dental, explorador y algodón. Separación de piezas, escala y adaptación de colores.],
+  [#link("https://3dassets.dev/packs/field-medicine-and-recovery")[Field Medicine and Recovery] — 3D Assets],
+  [Pila de gasas. Escala y color para representar su estado en cada práctica.],
+  [#link("https://3dassets.dev/packs/tattoo-and-piercing-studio")[Tattoo and Piercing Studio] — 3D Assets],
+  [Mesa rodante, sin los objetos decorativos originales; hoja extraída del rollo de barrera para barreras, fundas y láminas desechables.],
+  [#link("https://3dassets.dev/assets/retail-store-fixtures-and-mall-mannequin-seated-05ab1b9a")[Seated mannequin] — 3D Assets],
+  [Maniquí del paciente. Se retira la base de exhibición, se adapta la postura al sillón y se asignan materiales de piel y ropa.],
+  [#link("https://3dassets.dev/assets/art-gallery-and-exhibition-rooms-gloves-and-tools-tray-029ffe6f")[Gloves and tools tray] — 3D Assets],
+  [Guantes extraídos de la bandeja y recoloreados. El modelo original representa guantes de manipulación de arte; su adaptación clínica es esquemática.],
+  [#link("https://3dassets.dev/assets/fast-food-and-drive-thru-drinks-cup-small-185a05b6")[Drinks cup, small] — 3D Assets],
+  [Vaso desechable del paciente. Adaptación de escala.],
+  [#link("https://poly.pizza/m/MURJ8NK4N9")[Syringe] — J-Toastie],
+  [Jeringa y agujas separadas de su malla. Escala y orientación; la jeringa genérica es una aproximación visual, no un modelo exacto de carpule.],
+  [#link("https://poly.pizza/m/66NBoNdhb03")[Tooth] — sugamo],
+  [Pieza dental extraída. Escala y orientación.],
+  [#link("https://poly.pizza/m/9yKgpOpblnf")[Scalpel] — Poly by Google],
+  [Hoja de bisturí separada de la malla original y normalizada a la escala de la práctica.],
+)
+
+*Licencias.* Los paquetes de Kenney y los modelos de 3D Assets están publicados bajo #link("https://creativecommons.org/publicdomain/zero/1.0/")[CC0 1.0 Universal]. Syringe, Tooth y Scalpel se distribuyen bajo #link("https://creativecommons.org/licenses/by/3.0/")[Creative Commons Atribución 3.0]. Se conservan el nombre del autor, el enlace y las modificaciones en los créditos y en los archivos de procedencia del proyecto.
+
+*Procedencia y elaboración.* El proveedor 3D Assets identifica sus recursos como generados mediante inteligencia artificial; los metadatos consultados indican Claude Opus 5. Son modelos publicados por terceros, no modelados originalmente por el equipo. Las adaptaciones OBJ se obtienen con `Tools/preparar_modelos.py`; los originales GLB y sus enlaces individuales se conservan en `Assets/Terceros`, junto con los archivos `FUENTE.md` y `procedencia.json`.
+
+*Alcance de la sustitución.* El brazo importado acompaña la animación del equipo de rayos X. Los residuos importados permanecen dentro de sus objetos interactivos para tomarlos, clasificarlos y reiniciarlos. Se mantienen los colores de los recipientes del simulador. El cubrebocas, los fórceps de extracción, la lima endodóntica y la aguja de sutura aún utilizan representaciones provisionales; no se atribuyen a los paquetes anteriores. También se conservan la arquitectura, señalización didáctica, luces y controles propios. La biblioteca contiene otros modelos descargados para evaluación que todavía no se muestran en la escena.
+
 = Conclusiones
 
 = Glosario

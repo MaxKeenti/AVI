@@ -1,0 +1,274 @@
+{
+  "accessed": "2026-09-28",
+  "assets": [
+    {
+      "id": "34518",
+      "slug": "tattoo-and-piercing-studio-rolling-tray-table-93236166",
+      "title": "Rolling Tray Table (Tattoo and Piercing Studio)",
+      "summary": "A rolling stainless tray table set out for a session: a castored frame under a lipped top with a row of coloured ink caps, a machine cradle, a wipe pack and a lower shelf.",
+      "description": "A rolling stainless tray table set out for a session: a castored frame under a lipped top with a row of coloured ink caps, a machine cradle, a wipe pack and a lower shelf. Overall 0.56 by 0.82 by 0.42 m (X by Y by Z). Metre units, +Y up, the side a client or an artist approaches from toward +Z, resting on y=0. The four castors spin as named nodes; the frame does not, because a trolley crossing a room is the whole model moving. The ink caps are empty cups: there is no liquid anywhere in this pack. Rigid node-transform clips: roll. No skinning. No collision or navigation data.",
+      "status": "published",
+      "url": "https://3dassets.dev/assets/tattoo-and-piercing-studio-rolling-tray-table-93236166",
+      "cdnUrl": "https://cdn.3dassets.dev/assets/34518/v1/model.glb",
+      "downloadUrl": "https://3dassets.dev/download/tattoo-and-piercing-studio-rolling-tray-table-93236166",
+      "thumbnailUrl": "https://cdn.3dassets.dev/assets/34518/v1/thumb.webp",
+      "posterUrl": "https://cdn.3dassets.dev/assets/34518/v1/poster.webp",
+      "blurhash": "UD9j+Ss:00R*_NofDiRkD%j@xuWWM{oft7af",
+      "category": {
+        "slug": "props",
+        "title": "Props & Furniture"
+      },
+      "tags": [
+        {
+          "slug": "modern",
+          "title": "Modern"
+        },
+        {
+          "slug": "realistic",
+          "title": "Realistic"
+        },
+        {
+          "slug": "interior",
+          "title": "Interior"
+        }
+      ],
+      "license": {
+        "slug": "cc0-1.0",
+        "name": "CC0 1.0 Universal",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attributionRequired": false
+      },
+      "contributor": {
+        "username": "3dassets",
+        "name": "3D Assets",
+        "url": "https://3dassets.dev/u/3dassets"
+      },
+      "stats": {
+        "fileSize": 57260,
+        "triangles": 2084,
+        "vertices": 3135,
+        "meshes": 11,
+        "materials": 7,
+        "textures": 0,
+        "animations": [
+          "roll"
+        ],
+        "boundingBox": {
+          "min": [
+            -0.2800008789268549,
+            -2.109063480235096e-06,
+            -0.21001940518917772
+          ],
+          "max": [
+            0.2800008789268549,
+            0.8238595964165193,
+            0.21001940518917772
+          ]
+        },
+        "sizeMeters": [
+          0.56,
+          0.824,
+          0.42
+        ],
+        "hasDraco": false,
+        "hasMeshopt": false,
+        "hasKTX2": false,
+        "extensionsUsed": [
+          "KHR_mesh_quantization"
+        ]
+      },
+      "aiGenerated": true,
+      "aiModel": "Claude Opus 5",
+      "downloads": 5,
+      "publishedAt": "2026-09-11T09:06:07.156Z",
+      "updatedAt": "2026-09-28T06:48:30.468Z",
+      "usage": {
+        "threejs": "import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'\nimport { AnimationMixer } from 'three'\n\nlet mixer\n\nconst loader = new GLTFLoader()\nloader.load('https://cdn.3dassets.dev/assets/34518/v1/model.glb', (gltf) => {\n  scene.add(gltf.scene)\n  mixer = new AnimationMixer(gltf.scene)\n  mixer.clipAction(gltf.animations[0]).play()\n})\n\n// Call from your render loop; deltaSeconds is time since the previous frame.\nfunction updateAssetAnimation(deltaSeconds) {\n  mixer?.update(deltaSeconds)\n}",
+        "r3f": "import { useGLTF, useAnimations } from '@react-three/drei'\nimport { useEffect } from 'react'\n\nexport function RollingTrayTableTattooAndPiercingStudio(props) {\n  const { scene, animations } = useGLTF('https://cdn.3dassets.dev/assets/34518/v1/model.glb')\n  const { actions, names } = useAnimations(animations, scene)\n  useEffect(() => {\n    const action = actions[names[0]]\n    action?.reset().play()\n    return () => { action?.stop() }\n  }, [actions, names])\n  return <primitive object={scene} {...props} />\n}\nuseGLTF.preload('https://cdn.3dassets.dev/assets/34518/v1/model.glb')",
+        "modelViewer": "<model-viewer src=\"https://cdn.3dassets.dev/assets/34518/v1/model.glb\" alt=\"Rolling Tray Table (Tattoo and Piercing Studio)\" camera-controls auto-rotate autoplay></model-viewer>",
+        "blender": "# Blender 4.x: File > Import > glTF 2.0, or from the Python console after downloading the file.\nimport bpy\nbpy.ops.import_scene.gltf(filepath='model.glb')  # from https://cdn.3dassets.dev/assets/34518/v1/model.glb\n# Metres and +Y up are converted to Blender's Z-up scene automatically.\n# Clips arrive as actions; play them from the Dope Sheet > Action Editor.",
+        "godot": "# Godot 4: copy model.glb into res://models/ and the editor imports it as a scene.\nvar packed := load(\"res://models/model.glb\") as PackedScene\nvar model := packed.instantiate()\nadd_child(model)\nvar player := model.find_child(\"AnimationPlayer\", true, false) as AnimationPlayer\nplayer.play(player.get_animation_list()[0])",
+        "unity": "// Unity: import model.glb with glTFast (Package Manager: com.unity.cloud.gltfast) and drag the prefab in,\n// or load it at runtime straight from the CDN:\nusing GLTFast;\nvar gltf = new GltfImport();\nif (await gltf.Load(\"https://cdn.3dassets.dev/assets/34518/v1/model.glb\")) await gltf.InstantiateMainSceneAsync(transform);\n// Clips import as legacy AnimationClips on the root; GetComponent<Animation>().Play() starts the first."
+      },
+      "localFile": "rolling-tray-table.glb"
+    },
+    {
+      "id": "34533",
+      "slug": "tattoo-and-piercing-studio-instrument-tray-set-aebe0da4",
+      "title": "Instrument Tray Set (Tattoo and Piercing Studio)",
+      "summary": "A laid out instrument tray: a stainless tray on a folded blue liner with slotted forceps, a pair of ring handled clamps, a sleeved needle, a marker and a gauze pack.",
+      "description": "A laid out instrument tray: a stainless tray on a folded blue liner with slotted forceps, a pair of ring handled clamps, a sleeved needle, a marker and a gauze pack. Overall 0.34 by 0.19 by 0.24 m (X by Y by Z). Metre units, +Y up, the side a client or an artist approaches from toward +Z, resting on y=0. A bench top model: it rests on y=0 so it sits straight on a tray table or a bench. The forceps are modelled open with real jaws and do not close, since a scissor linkage is two nodes turning about one pin and a rigid transform carries one. Static geometry; no rig, collision or navigation data.",
+      "status": "published",
+      "url": "https://3dassets.dev/assets/tattoo-and-piercing-studio-instrument-tray-set-aebe0da4",
+      "cdnUrl": "https://cdn.3dassets.dev/assets/34533/v1/model.glb",
+      "downloadUrl": "https://3dassets.dev/download/tattoo-and-piercing-studio-instrument-tray-set-aebe0da4",
+      "thumbnailUrl": "https://cdn.3dassets.dev/assets/34533/v1/thumb.webp",
+      "posterUrl": "https://cdn.3dassets.dev/assets/34533/v1/poster.webp",
+      "blurhash": "UBA1IsX74Ti{DOt8o~Rj00en%#g3?^Inrrxu",
+      "category": {
+        "slug": "props",
+        "title": "Props & Furniture"
+      },
+      "tags": [
+        {
+          "slug": "modern",
+          "title": "Modern"
+        },
+        {
+          "slug": "realistic",
+          "title": "Realistic"
+        },
+        {
+          "slug": "interior",
+          "title": "Interior"
+        }
+      ],
+      "license": {
+        "slug": "cc0-1.0",
+        "name": "CC0 1.0 Universal",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attributionRequired": false
+      },
+      "contributor": {
+        "username": "3dassets",
+        "name": "3D Assets",
+        "url": "https://3dassets.dev/u/3dassets"
+      },
+      "stats": {
+        "fileSize": 72112,
+        "triangles": 3128,
+        "vertices": 3048,
+        "meshes": 5,
+        "materials": 5,
+        "textures": 0,
+        "animations": [],
+        "boundingBox": {
+          "min": [
+            -0.17000000178813934,
+            6.13413500664961e-06,
+            -0.12000183237280383
+          ],
+          "max": [
+            0.17000000178813934,
+            0.19400070082208337,
+            0.12000183237280383
+          ]
+        },
+        "sizeMeters": [
+          0.34,
+          0.194,
+          0.24
+        ],
+        "hasDraco": false,
+        "hasMeshopt": false,
+        "hasKTX2": false,
+        "extensionsUsed": [
+          "KHR_mesh_quantization"
+        ]
+      },
+      "aiGenerated": true,
+      "aiModel": "Claude Opus 5",
+      "downloads": 4,
+      "publishedAt": "2026-09-11T09:06:14.264Z",
+      "updatedAt": "2026-09-28T06:05:11.036Z",
+      "usage": {
+        "threejs": "import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'\n\nconst loader = new GLTFLoader()\nloader.load('https://cdn.3dassets.dev/assets/34533/v1/model.glb', (gltf) => {\n  scene.add(gltf.scene)\n})",
+        "r3f": "import { useGLTF } from '@react-three/drei'\n\nexport function InstrumentTraySetTattooAndPiercingStudio(props) {\n  const { scene } = useGLTF('https://cdn.3dassets.dev/assets/34533/v1/model.glb')\n  return <primitive object={scene} {...props} />\n}\nuseGLTF.preload('https://cdn.3dassets.dev/assets/34533/v1/model.glb')",
+        "modelViewer": "<model-viewer src=\"https://cdn.3dassets.dev/assets/34533/v1/model.glb\" alt=\"Instrument Tray Set (Tattoo and Piercing Studio)\" camera-controls auto-rotate></model-viewer>",
+        "blender": "# Blender 4.x: File > Import > glTF 2.0, or from the Python console after downloading the file.\nimport bpy\nbpy.ops.import_scene.gltf(filepath='model.glb')  # from https://cdn.3dassets.dev/assets/34533/v1/model.glb\n# Metres and +Y up are converted to Blender's Z-up scene automatically.",
+        "godot": "# Godot 4: copy model.glb into res://models/ and the editor imports it as a scene.\nvar packed := load(\"res://models/model.glb\") as PackedScene\nvar model := packed.instantiate()\nadd_child(model)",
+        "unity": "// Unity: import model.glb with glTFast (Package Manager: com.unity.cloud.gltfast) and drag the prefab in,\n// or load it at runtime straight from the CDN:\nusing GLTFast;\nvar gltf = new GltfImport();\nif (await gltf.Load(\"https://cdn.3dassets.dev/assets/34533/v1/model.glb\")) await gltf.InstantiateMainSceneAsync(transform);"
+      },
+      "localFile": "instrument-tray-set.glb"
+    },
+    {
+      "id": "34545",
+      "slug": "tattoo-and-piercing-studio-barrier-film-roll-34c18eb0",
+      "title": "Barrier Film Roll (Tattoo and Piercing Studio)",
+      "summary": "A barrier film dispenser: a roll of blue protective film on a steel spindle in a wall bracket, with a torn leading sheet and a serrated cutter bar.",
+      "description": "A barrier film dispenser: a roll of blue protective film on a steel spindle in a wall bracket, with a torn leading sheet and a serrated cutter bar. Overall 0.36 by 0.29 by 0.17 m (X by Y by Z). Metre units, +Y up, the side a client or an artist approaches from toward +Z, resting on y=0. A wall piece resting on y=0, so a scene raises it above a bench. The roll does not turn: film unwinding is the sheet changing shape, which needs skinning and this library has none. Static geometry; no rig, collision or navigation data.",
+      "status": "published",
+      "url": "https://3dassets.dev/assets/tattoo-and-piercing-studio-barrier-film-roll-34c18eb0",
+      "cdnUrl": "https://cdn.3dassets.dev/assets/34545/v1/model.glb",
+      "downloadUrl": "https://3dassets.dev/download/tattoo-and-piercing-studio-barrier-film-roll-34c18eb0",
+      "thumbnailUrl": "https://cdn.3dassets.dev/assets/34545/v1/thumb.webp",
+      "posterUrl": "https://cdn.3dassets.dev/assets/34545/v1/poster.webp",
+      "blurhash": "UD98}B*JD4MJyDxuV@M{D4n4o}M{rDo}cYM{",
+      "category": {
+        "slug": "props",
+        "title": "Props & Furniture"
+      },
+      "tags": [
+        {
+          "slug": "modern",
+          "title": "Modern"
+        },
+        {
+          "slug": "realistic",
+          "title": "Realistic"
+        },
+        {
+          "slug": "interior",
+          "title": "Interior"
+        }
+      ],
+      "license": {
+        "slug": "cc0-1.0",
+        "name": "CC0 1.0 Universal",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attributionRequired": false
+      },
+      "contributor": {
+        "username": "3dassets",
+        "name": "3D Assets",
+        "url": "https://3dassets.dev/u/3dassets"
+      },
+      "stats": {
+        "fileSize": 23788,
+        "triangles": 732,
+        "vertices": 1032,
+        "meshes": 3,
+        "materials": 3,
+        "textures": 0,
+        "animations": [],
+        "boundingBox": {
+          "min": [
+            -0.18000000715255737,
+            -8.55052257558997e-06,
+            -0.07499251391444309
+          ],
+          "max": [
+            0.18000000715255737,
+            0.29000213757476456,
+            0.09799250837121112
+          ]
+        },
+        "sizeMeters": [
+          0.36,
+          0.29,
+          0.173
+        ],
+        "hasDraco": false,
+        "hasMeshopt": false,
+        "hasKTX2": false,
+        "extensionsUsed": [
+          "KHR_mesh_quantization"
+        ]
+      },
+      "aiGenerated": true,
+      "aiModel": "Claude Opus 5",
+      "downloads": 5,
+      "publishedAt": "2026-09-11T09:06:20.772Z",
+      "updatedAt": "2026-09-25T04:15:30.732Z",
+      "usage": {
+        "threejs": "import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'\n\nconst loader = new GLTFLoader()\nloader.load('https://cdn.3dassets.dev/assets/34545/v1/model.glb', (gltf) => {\n  scene.add(gltf.scene)\n})",
+        "r3f": "import { useGLTF } from '@react-three/drei'\n\nexport function BarrierFilmRollTattooAndPiercingStudio(props) {\n  const { scene } = useGLTF('https://cdn.3dassets.dev/assets/34545/v1/model.glb')\n  return <primitive object={scene} {...props} />\n}\nuseGLTF.preload('https://cdn.3dassets.dev/assets/34545/v1/model.glb')",
+        "modelViewer": "<model-viewer src=\"https://cdn.3dassets.dev/assets/34545/v1/model.glb\" alt=\"Barrier Film Roll (Tattoo and Piercing Studio)\" camera-controls auto-rotate></model-viewer>",
+        "blender": "# Blender 4.x: File > Import > glTF 2.0, or from the Python console after downloading the file.\nimport bpy\nbpy.ops.import_scene.gltf(filepath='model.glb')  # from https://cdn.3dassets.dev/assets/34545/v1/model.glb\n# Metres and +Y up are converted to Blender's Z-up scene automatically.",
+        "godot": "# Godot 4: copy model.glb into res://models/ and the editor imports it as a scene.\nvar packed := load(\"res://models/model.glb\") as PackedScene\nvar model := packed.instantiate()\nadd_child(model)",
+        "unity": "// Unity: import model.glb with glTFast (Package Manager: com.unity.cloud.gltfast) and drag the prefab in,\n// or load it at runtime straight from the CDN:\nusing GLTFast;\nvar gltf = new GltfImport();\nif (await gltf.Load(\"https://cdn.3dassets.dev/assets/34545/v1/model.glb\")) await gltf.InstantiateMainSceneAsync(transform);"
+      },
+      "localFile": "barrier-film-roll.glb"
+    }
+  ]
+}
