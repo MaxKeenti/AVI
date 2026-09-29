@@ -213,6 +213,18 @@ La clínica se amplía hacia la parte posterior mediante un ala de 15 por 19.5 m
 
 Cada actividad se activa al entrar en su sala. Los residuos desechables se clasifican en los recipientes locales; el instrumental reutilizable se lleva al área de esterilización. Se conservan las secuencias, la puntuación y el reinicio de las cinco prácticas. Los muebles y equipos reutilizan los modelos externos ya registrados; la distribución arquitectónica y los letreros son elaboración del equipo. Los árboles, vehículos y demás modelos exteriores se mantienen.
 
+=== Acabados e iluminación interior
+
+Las salas incorporan paneles de iluminación distribuidos, difusores emisivos,
+zoclos sanitarios, marcos de puerta y rejillas de ventilación. Se añaden
+muebles con lavabo, almacenamiento estéril y dispensadores de guantes y
+cubrebocas de la colección Dental Practice and Surgery, cuya fuente y licencia
+se indican a continuación. Estos elementos complementan la ambientación;
+las actividades conservan sus estaciones y recorridos. La iluminación combina
+sombras en tiempo real con luces de relleno para mejorar la lectura del espacio.
+Los modelos mantienen una geometría simplificada: la escena no pretende ser
+una reproducción fotográfica ni una especificación constructiva de una clínica.
+
 == Modelos 3D de terceros y sus fuentes
 
 El prototipo incorpora modelos existentes para sustituir el mobiliario y gran parte de los objetos de práctica. Se conservan los componentes de interacción, los destinos de clasificación y la lógica de las actividades. Fecha de consulta y descarga de los recursos: *28 de septiembre de 2026*.

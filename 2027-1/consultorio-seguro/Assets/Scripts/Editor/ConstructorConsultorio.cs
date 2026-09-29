@@ -188,6 +188,7 @@ namespace ConsultorioSeguro.Editor
             AplicarAcabados();
             AplicarModelos();
             DistribuirSalas();
+            AfinarInterior();
             AsegurarCarpeta(Path.GetDirectoryName(RutaEscena));
             EditorSceneManager.SaveScene(escena, RutaEscena);
             EditorBuildSettings.scenes = new[] { new EditorBuildSettingsScene(RutaEscena, true) };
