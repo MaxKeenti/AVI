@@ -15,8 +15,7 @@ namespace ConsultorioSeguro.Editor
         public static void ActualizarModelos()
         {
             if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
-            EditorSceneManager.OpenScene(RutaEscena);
-            AplicarModelos();
+            Construir();
             HerramientasAtribucion.ActualizarCatalogo();
             HerramientasAtribucion.Exportar();
             EditorSceneManager.SaveScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene());

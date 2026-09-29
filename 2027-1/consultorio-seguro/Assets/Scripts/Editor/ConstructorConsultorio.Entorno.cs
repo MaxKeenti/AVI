@@ -1,3 +1,5 @@
+using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Rendering;
 using Object = UnityEngine.Object;
@@ -18,7 +20,7 @@ namespace ConsultorioSeguro.Editor
         const float ZOrillaCalle = -10f;
         const float ZOrillaEnfrente = -17f;
         const float ZFachadasEnfrente = -19.8f;
-        const float LimiteX = 28.5f;
+        const float LimiteX = 44.5f;
 
         static readonly Color ColorFachada = new(0.87f, 0.8f, 0.68f);
         static readonly Color ColorCornisa = new(0.18f, 0.45f, 0.5f);
@@ -176,20 +178,31 @@ namespace ConsultorioSeguro.Editor
 
         // === Calle ===
 
+        [MenuItem("Consultorio Seguro/Actualizar entorno urbano")]
+        public static void ActualizarEntornoUrbano()
+        {
+            if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
+            Construir();
+            HerramientasAtribucion.Exportar();
+            EditorSceneManager.SaveScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene());
+            AssetDatabase.SaveAssets();
+            CapturarAcabados();
+        }
+
         static void ConstruirEntornoUrbano(Transform raiz)
         {
             Material asfalto = Mat(new Color(0.22f, 0.22f, 0.24f), 0, 0.2f);
             Material banqueta = Mat(new Color(0.68f, 0.68f, 0.66f));
             Material pintura = Mat(new Color(0.92f, 0.92f, 0.9f));
 
-            CajaEntre("Terreno", raiz, new Vector3(-45, -0.35f, -40), new Vector3(45, -0.25f, 20), Mat(new Color(0.45f, 0.5f, 0.42f)));
+            CajaEntre("Terreno", raiz, new Vector3(-65, -0.35f, -50), new Vector3(65, -0.25f, 25), Mat(new Color(0.45f, 0.5f, 0.42f)));
             CajaEntre("Calle", raiz, new Vector3(-LimiteX, -0.25f, ZOrillaEnfrente), new Vector3(LimiteX, -0.15f, ZOrillaCalle), asfalto);
             CajaEntre("Banqueta", raiz, new Vector3(-LimiteX, -0.25f, ZOrillaCalle), new Vector3(LimiteX, 0, ZFachada), banqueta);
             CajaEntre("Banqueta de enfrente", raiz, new Vector3(-LimiteX, -0.25f, ZFachadasEnfrente), new Vector3(LimiteX, 0, ZOrillaEnfrente), banqueta);
 
             Transform senalamiento = Grupo("Señalamiento", raiz, Vector3.zero);
             const float zCentro = (ZOrillaCalle + ZOrillaEnfrente) / 2;
-            for (float x = -26; x <= 26; x += 4)
+            for (float x = -42; x <= 42; x += 4)
                 if (Mathf.Abs(x) > 3)
                     SinColision(CajaEntre("Línea", senalamiento, new Vector3(x - 1, -0.15f, zCentro - 0.06f), new Vector3(x + 1, -0.145f, zCentro + 0.06f), pintura));
             for (float z = ZOrillaEnfrente + 0.4f; z < ZOrillaCalle; z += 0.9f)
@@ -199,21 +212,29 @@ namespace ConsultorioSeguro.Editor
             Transform vecinos = Grupo("Edificios vecinos", raiz, Vector3.zero);
             (float xMin, float xMax, float altura, Color color)[] deEsteLado =
             {
-                (-28, -19.2f, 6, new Color(0.78f, 0.62f, 0.52f)),
-                (-19, -11.2f, 10, new Color(0.62f, 0.66f, 0.72f)),
-                (-11, -3.7f, 7, new Color(0.85f, 0.78f, 0.55f)),
-                (3.7f, 12, 9, new Color(0.7f, 0.55f, 0.55f)),
-                (12.2f, 20, 6.5f, new Color(0.6f, 0.72f, 0.64f)),
-                (20.2f, 28, 11, new Color(0.8f, 0.8f, 0.78f)),
+                (-44, -36.2f, 24, new Color(0.62f, 0.66f, 0.72f)),
+                (-36, -28.2f, 18, new Color(0.78f, 0.72f, 0.63f)),
+                (-28, -19.2f, 22, new Color(0.78f, 0.62f, 0.52f)),
+                (-19, -11.2f, 28, new Color(0.62f, 0.66f, 0.72f)),
+                (-11, -3.7f, 18, new Color(0.85f, 0.78f, 0.55f)),
+                (3.7f, 12, 24, new Color(0.7f, 0.55f, 0.55f)),
+                (12.2f, 20, 20, new Color(0.6f, 0.72f, 0.64f)),
+                (28.2f, 36, 26, new Color(0.66f, 0.7f, 0.73f)),
+                (36.2f, 44, 20, new Color(0.76f, 0.73f, 0.65f)),
+                (20.2f, 28, 32, new Color(0.8f, 0.8f, 0.78f)),
             };
             (float xMin, float xMax, float altura, Color color)[] deEnfrente =
             {
-                (-28, -17, 5, new Color(0.72f, 0.7f, 0.62f)),
-                (-16.8f, -8, 12, new Color(0.58f, 0.6f, 0.66f)),
-                (-7.8f, 1, 8, new Color(0.82f, 0.68f, 0.5f)),
-                (1.2f, 10, 6, new Color(0.66f, 0.74f, 0.8f)),
-                (10.2f, 19, 10, new Color(0.76f, 0.6f, 0.62f)),
-                (19.2f, 28, 7, new Color(0.7f, 0.74f, 0.6f)),
+                (-44, -36.2f, 22, new Color(0.62f, 0.66f, 0.72f)),
+                (-36, -28.2f, 30, new Color(0.78f, 0.72f, 0.63f)),
+                (-28, -17, 18, new Color(0.72f, 0.7f, 0.62f)),
+                (-16.8f, -8, 26, new Color(0.58f, 0.6f, 0.66f)),
+                (-7.8f, 1, 16, new Color(0.82f, 0.68f, 0.5f)),
+                (1.2f, 10, 22, new Color(0.66f, 0.74f, 0.8f)),
+                (10.2f, 19, 28, new Color(0.76f, 0.6f, 0.62f)),
+                (28.2f, 36, 20, new Color(0.66f, 0.7f, 0.73f)),
+                (36.2f, 44, 26, new Color(0.76f, 0.73f, 0.65f)),
+                (19.2f, 28, 24, new Color(0.7f, 0.74f, 0.6f)),
             };
             for (int i = 0; i < deEsteLado.Length; i++)
                 EdificioVecino(vecinos, i, deEsteLado[i].xMin, deEsteLado[i].xMax, ZFachada, 4, deEsteLado[i].altura, deEsteLado[i].color);
@@ -221,13 +242,13 @@ namespace ConsultorioSeguro.Editor
                 EdificioVecino(vecinos, i + deEsteLado.Length, deEnfrente[i].xMin, deEnfrente[i].xMax, ZFachadasEnfrente, -30, deEnfrente[i].altura, deEnfrente[i].color);
 
             Transform mobiliario = Grupo("Mobiliario urbano", raiz, Vector3.zero);
-            foreach (float x in new[] { -22f, -14f, -6f, 6f, 14f, 22f })
+            foreach (float x in new[] { -38f, -30f, -22f, -14f, -6f, 6f, 14f, 22f, 30f, 38f })
                 Arbol(mobiliario, new Vector3(x, 0, -9.5f));
-            foreach (float x in new[] { -20f, -8f, 4f, 16f })
+            foreach (float x in new[] { -36f, -28f, -20f, -8f, 4f, 16f, 28f, 36f })
                 Arbol(mobiliario, new Vector3(x, 0, -17.5f));
-            foreach (float x in new[] { -18f, -10f, 10f, 18f })
+            foreach (float x in new[] { -34f, -26f, -18f, -10f, 10f, 18f, 26f, 34f })
                 Farol(mobiliario, new Vector3(x, 0, -9.7f), -1);
-            foreach (float x in new[] { -14f, -2f, 10f, 22f })
+            foreach (float x in new[] { -38f, -26f, -14f, -2f, 10f, 22f, 34f, 42f })
                 Farol(mobiliario, new Vector3(x, 0, -17.3f), 1);
 
             Auto(mobiliario, new Vector3(-9, -0.15f, -11), new Color(0.7f, 0.12f, 0.12f), 0);
@@ -248,6 +269,10 @@ namespace ConsultorioSeguro.Editor
                 "Aquí solo va basura común. Los RPBI nunca se tiran en la calle ni con la basura municipal: " +
                 "los recoge una empresa autorizada.");
 
+            Auto(mobiliario, new Vector3(-33, -.15f, -11), new Color(.22f,.32f,.38f), 0);
+            Auto(mobiliario, new Vector3(33, -.15f, -16), new Color(.66f,.55f,.4f), 180);
+            Limite("Límite norte", raiz, new Vector3(-LimiteX,-1,4.5f), new Vector3(LimiteX,8,5));
+            Limite("Límite sur", raiz, new Vector3(-LimiteX,-1,-31), new Vector3(LimiteX,8,-30.5f));
             // Límites invisibles en los extremos de la calle.
             Limite("Límite oeste", raiz, new Vector3(-LimiteX - 0.5f, -1, -31), new Vector3(-LimiteX, 8, 5));
             Limite("Límite este", raiz, new Vector3(LimiteX, -1, -31), new Vector3(LimiteX + 0.5f, 8, 5));

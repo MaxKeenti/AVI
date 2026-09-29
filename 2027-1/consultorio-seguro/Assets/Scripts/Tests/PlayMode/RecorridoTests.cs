@@ -145,6 +145,61 @@ namespace ConsultorioSeguro.Tests
                 CollectionAssert.Contains(informados, zona.Titulo, $"Al pasar por {zona.name} se muestra su mensaje.");
         }
 
+        [UnityTest]
+        public IEnumerator LaAvenidaAmpliadaEsTransitable()
+        {
+            Object.FindAnyObjectByType<GestorSimulacion>().Entrar();
+            var controlador = Object.FindAnyObjectByType<ControladorPrimeraPersona>().GetComponent<CharacterController>();
+            controlador.enabled = false;
+            controlador.transform.position = new Vector3(-40, .05f, -8.3f);
+            controlador.enabled = true;
+            foreach (var punto in new[] { new Vector3(40,0,-8.3f), new Vector3(0,0,-8.3f), new Vector3(0,0,-6.2f) })
+            {
+                float limite = Time.time + 12;
+                while (DistanciaPlana(controlador.transform.position,punto) > .15f && Time.time < limite)
+                {
+                    Vector3 direccion = punto - controlador.transform.position;
+                    direccion.y = 0;
+                    controlador.Move(Vector3.ClampMagnitude(direccion,10 * Time.deltaTime));
+                    yield return null;
+                }
+                Assert.Less(DistanciaPlana(controlador.transform.position,punto),.15f,"La banqueta o la entrada están bloqueadas.");
+                Assert.Greater(controlador.transform.position.y,-.5f,"Falta suelo transitable.");
+            }
+            Assert.Greater(GameObject.Find("Modelos de terceros/Torre sobre la clínica").GetComponentsInChildren<Renderer>().Max(r=>r.bounds.max.y),20);
+        }
+
+        [UnityTest]
+        public IEnumerator SeAccedeACadaSalaDesdeElPasillo()
+        {
+            var gestor=Object.FindAnyObjectByType<GestorSimulacion>();
+            gestor.Entrar();
+            var jugador=Object.FindAnyObjectByType<ControladorPrimeraPersona>();
+            var controlador=jugador.GetComponent<CharacterController>();
+            controlador.enabled=false;
+            jugador.transform.position=new Vector3(0,.05f,-2);
+            controlador.enabled=true;
+            var acciones=new[]{AccionSimulacion.Clasificacion,AccionSimulacion.Esterilizacion,AccionSimulacion.MuestraMateriales,AccionSimulacion.Procedimiento,AccionSimulacion.Radiografia};
+            for(int i=0;i<acciones.Length;i++)
+            {
+                float z=6.8f+(i/2)*6.5f;
+                float lado=i%2==0 ? -1:1;
+                foreach(var destino in new[]{new Vector3(0,0,jugador.transform.position.z),new Vector3(0,0,z),new Vector3(lado*3,0,z)})
+                {
+                    float limite=Time.time+10;
+                    while(DistanciaPlana(jugador.transform.position,destino)>.15f && Time.time<limite)
+                    {
+                        Vector3 direccion=destino-jugador.transform.position; direccion.y=0;
+                        controlador.Move(Vector3.ClampMagnitude(direccion,5*Time.deltaTime));
+                        yield return null;
+                    }
+                    Assert.Less(DistanciaPlana(jugador.transform.position,destino),.15f,"Acceso bloqueado a "+acciones[i]);
+                }
+                yield return null;
+                Assert.AreEqual(acciones[i],gestor.EscenarioEnFoco.Datos.accion,"El pasillo activa una sala equivocada.");
+            }
+        }
+
         static float DistanciaPlana(Vector3 a, Vector3 b) => Vector2.Distance(new Vector2(a.x, a.z), new Vector2(b.x, b.z));
 
         static IEnumerator CompletarPasos(SecuenciaPasos secuencia)

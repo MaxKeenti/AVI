@@ -189,6 +189,30 @@ Así, la propuesta quiere servir como una herramienta que ayuda al usuario a apr
 
 = Desarrollo Prototipo Simulador
 
+== Entorno urbano del consultorio
+
+El consultorio se ubica en la planta baja de una torre de aproximadamente 21 metros, dentro de una avenida de 89 metros de longitud. Las dos aceras conectan el acceso con edificios vecinos de entre 16 y 32 metros, arbolado, luminarias y automóviles. Se conserva el paso peatonal frente a la clínica para orientar el recorrido desde el punto de inicio.
+
+La ampliación permite recorrer una calle más extensa sin cambiar las cinco actividades del consultorio. Los pisos superiores y los edificios vecinos forman parte del escenario exterior y no incluyen interiores visitables.
+
+=== Distribución interior por salas
+
+La clínica se amplía hacia la parte posterior mediante un ala de 15 por 19.5 metros, conectada a la recepción y al vestíbulo original. Un pasillo central de 2.5 metros comunica cinco salas de práctica y una sala de descanso. Las puertas numeradas y el directorio del vestíbulo permiten reconocer el recorrido.
+
+#table(
+  columns: (auto, 1fr, 1.6fr),
+  inset: 6pt,
+  align: left,
+  table.header([*Sala*], [*Actividad*], [*Equipamiento principal*]),
+  [01], [Clasificación], [Carrito de curación y recipientes para clasificar los residuos.],
+  [02], [Esterilización], [Mostrador, tarja, charola de instrumental sucio y autoclave.],
+  [03], [Materiales], [Estante y consumibles para identificar su destino después del uso.],
+  [04], [Procedimientos], [Unidad dental, maniquí, lámpara operatoria y mesa de instrumental.],
+  [05], [Radiografía], [Sillón independiente, maniquí, equipo de rayos X y mesa para barreras.],
+)
+
+Cada actividad se activa al entrar en su sala. Los residuos desechables se clasifican en los recipientes locales; el instrumental reutilizable se lleva al área de esterilización. Se conservan las secuencias, la puntuación y el reinicio de las cinco prácticas. Los muebles y equipos reutilizan los modelos externos ya registrados; la distribución arquitectónica y los letreros son elaboración del equipo. Los árboles, vehículos y demás modelos exteriores se mantienen.
+
 == Modelos 3D de terceros y sus fuentes
 
 El prototipo incorpora modelos existentes para sustituir el mobiliario y gran parte de los objetos de práctica. Se conservan los componentes de interacción, los destinos de clasificación y la lógica de las actividades. Fecha de consulta y descarga de los recursos: *28 de septiembre de 2026*.
@@ -205,7 +229,7 @@ El prototipo incorpora modelos existentes para sustituir el mobiliario y gran pa
   [#link("https://kenney.nl/assets/nature-kit")[Nature Kit] — Kenney],
   [Roble para el arbolado urbano. Ajuste de altura.],
   [#link("https://kenney.nl/assets/city-kit-commercial")[City Kit Commercial] — Kenney],
-  [Edificio comercial building-a para los edificios vecinos. Adaptación a sus volúmenes.],
+  [Edificios comerciales building-a, building-b y building-c para los vecinos y la torre sobre la clínica. Adaptación de dimensiones y orientación; repetición de plantas intermedias en building-b y building-c para conservar las proporciones de ventanas y cornisas.],
   [#link("https://3dassets.dev/packs/dental-practice-and-surgery")[Dental Practice and Surgery] — 3D Assets],
   [Sillón reclinado, lámpara operatoria, brazo de rayos X, gabinetes, tarja, autoclave, mostrador, puerta, recipientes, charola, espejo dental, explorador y algodón. Separación de piezas, escala y adaptación de colores.],
   [#link("https://3dassets.dev/packs/field-medicine-and-recovery")[Field Medicine and Recovery] — 3D Assets],

@@ -5,7 +5,7 @@ Archivo generado desde Unity con *Consultorio Seguro > Atribuciones > Exportar c
 | Recurso | Autor | Licencia | Fuente | Consultado | Modificaciones |
 | --- | --- | --- | --- | --- | --- |
 | Car Kit | Kenney | CC0 1.0 Universal | <https://kenney.nl/assets/car-kit> | 2026-09-28 | Escala, orientación y adaptación de materiales. |
-| City Kit Commercial | Kenney | CC0 1.0 Universal | <https://kenney.nl/assets/city-kit-commercial> | 2026-09-28 | Escala, orientación y adaptación de materiales. |
+| City Kit Commercial | Kenney | CC0 1.0 Universal | <https://kenney.nl/assets/city-kit-commercial> | 2026-09-28 | Escala, orientación y adaptación de materiales. Repetición de plantas intermedias en building-b y building-c para crear edificios altos, conservando UV y materiales originales. |
 | Dental Practice and Surgery | 3D Assets | CC0 1.0 Universal | <https://3dassets.dev/packs/dental-practice-and-surgery> | 2026-09-28 | Escala, orientación y adaptación de materiales. Separación de piezas de las mallas originales mediante Tools/preparar_modelos.py. El proveedor declara generación mediante IA. Se conservan sus metadatos en procedencia.json. |
 | Drinks cup, small | 3D Assets | CC0 1.0 Universal | <https://3dassets.dev/assets/fast-food-and-drive-thru-drinks-cup-small-185a05b6> | 2026-09-28 | Escala, orientación y adaptación de materiales. El proveedor declara generación mediante IA. Se conservan sus metadatos en procedencia.json. |
 | Field Medicine and Recovery | 3D Assets | CC0 1.0 Universal | <https://3dassets.dev/packs/field-medicine-and-recovery> | 2026-09-28 | Escala, orientación y adaptación de materiales. El proveedor declara generación mediante IA. Se conservan sus metadatos en procedencia.json. |

@@ -17,4 +17,6 @@ MonoBehaviour:
   url: https://kenney.nl/assets/city-kit-commercial
   licencia: CC0 1.0 Universal
   fechaConsulta: 2026-09-28
-  modificaciones: "Escala, orientaci\xF3n y adaptaci\xF3n de materiales."
+  modificaciones: "Escala, orientaci\xF3n y adaptaci\xF3n de materiales. Repetici\xF3n
+    de plantas intermedias en building-b y building-c para crear edificios altos,
+    conservando UV y materiales originales."

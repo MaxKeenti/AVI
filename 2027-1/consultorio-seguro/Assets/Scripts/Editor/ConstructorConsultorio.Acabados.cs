@@ -1,4 +1,5 @@
 using System.IO;
+using System.Linq;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -10,13 +11,12 @@ namespace ConsultorioSeguro.Editor
     {
         const string CarpetaAcabados = "Assets/Materiales/Acabados";
 
-        // Se aplica también sobre la escena existente, sin reconstruir sus interacciones.
+        // Regenera la escena desde el constructor, incluidos los desplazamientos de las salas.
         [MenuItem("Consultorio Seguro/Actualizar acabados visuales")]
         public static void ActualizarAcabados()
         {
             if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
-            EditorSceneManager.OpenScene(RutaEscena);
-            AplicarAcabados();
+            Construir();
             EditorSceneManager.SaveScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene());
             AssetDatabase.SaveAssets();
         }
@@ -186,16 +186,30 @@ namespace ConsultorioSeguro.Editor
             camara.nearClipPlane = 0.05f;
             camara.fieldOfView = 68;
             Directory.CreateDirectory("Capturas");
+            Capturar(camara, "barrio", new Vector3(-48, 40, -13.5f), new Vector3(0, 8, -13.5f));
+            Capturar(camara, "avenida", new Vector3(-37, 1.7f, -13.5f), new Vector3(0, 9, -7));
+            Capturar(camara, "torre-clinica", new Vector3(0, 2, -19), new Vector3(0, 8, -4));
             Capturar(camara, "fachada", new Vector3(0, 1.7f, -13), new Vector3(0, 1.6f, -7));
             Capturar(camara, "recepcion", new Vector3(0, 1.65f, -6.8f), new Vector3(1.2f, 1.2f, -4.4f));
             Capturar(camara, "sala-espera", new Vector3(-0.8f, 1.65f, -6.6f), new Vector3(-3.1f, 1f, -4.9f));
-            Capturar(camara, "consultorio", new Vector3(-0.2f, 1.7f, -2.7f), new Vector3(0, 1.1f, 1));
+            Capturar(camara,"radiografia",new Vector3(-2.8f,1.65f,19.2f),new Vector3(-6.2f,1.2f,22.7f));
+            Capturar(camara,"pasillo",new Vector3(0,1.65f,2),new Vector3(0,1.6f,20));
+            Capturar(camara,"esterilizacion",new Vector3(3,1.65f,6),new Vector3(7,1,7.2f));
+            Capturar(camara, "consultorio", new Vector3(3.1f, 1.7f, 11.9f), new Vector3(4.2f, 1.1f, 15.3f));
+            var ocultos=Object.FindObjectsByType<Renderer>(FindObjectsSortMode.None).Where(r=>r.enabled && (r.bounds.max.y>3 || r.name.StartsWith("Techo") || r.name=="Lámpara de techo")).ToArray();
+            foreach(var r in ocultos) r.enabled=false;
+            camara.orthographic=true; camara.orthographicSize=10.5f;
+            Capturar(camara,"distribucion",new Vector3(0,35,8.5f),new Vector3(0,0,8.5f));
+            foreach(var r in ocultos) r.enabled=true;
+            if(interfaz!=null) interfaz.SetActive(true);
+            Object.DestroyImmediate(camara.gameObject);
         }
 
         static void Capturar(Camera camara, string nombre, Vector3 posicion, Vector3 objetivo)
         {
             camara.transform.position = posicion;
             camara.transform.LookAt(objetivo);
+            if(nombre=="distribucion") camara.transform.rotation=Quaternion.Euler(90,0,-90);
             RenderTexture destino = new(1600, 1000, 24) { antiAliasing = 4 };
             camara.targetTexture = destino;
             bool compilacionAsincrona = ShaderUtil.allowAsyncCompilation;

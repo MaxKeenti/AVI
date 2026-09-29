@@ -18,6 +18,8 @@ namespace ConsultorioSeguro.Editor
             var pivote = new GameObject("Modelo importado").transform;
             pivote.SetParent(padre, false);
             var instancia = (GameObject)PrefabUtility.InstantiatePrefab(asset, pivote);
+            if (ruta.StartsWith("kenney-city-kit/") && !ruta.EndsWith("building-a.glb"))
+                RepetirPisos(instancia, ruta, Mathf.Clamp(Mathf.RoundToInt(dimensiones.y / (dimensiones.x / .95f * .4f)), 3, 10));
             var renderers = instancia.GetComponentsInChildren<Renderer>();
             Bounds limites = renderers[0].bounds;
             foreach (var r in renderers.Skip(1)) limites.Encapsulate(r.bounds);
@@ -28,6 +30,63 @@ namespace ConsultorioSeguro.Editor
             pivote.localPosition = posicion;
             pivote.localRotation = Quaternion.Euler(0, giro, 0);
             return pivote;
+        }
+
+        static void RepetirPisos(GameObject edificio, string ruta, int pisos)
+        {
+            // Se reutiliza la planta intermedia del modelo Kenney, manteniendo UV y normales.
+            AsegurarCarpeta("Assets/ModelosGenerados");
+            float techo = ruta.EndsWith("building-b.glb") ? 1.2f : .8f;
+            int indice = 0;
+            foreach (var filtro in edificio.GetComponentsInChildren<MeshFilter>())
+            {
+                Mesh original = filtro.sharedMesh;
+                Vector3[] vertices = original.vertices;
+                Vector3[] normales = original.normals;
+                Vector2[] uv = original.uv;
+                var nuevos = new List<Vector3>();
+                var normalesNuevas = new List<Vector3>();
+                var uvNuevas = new List<Vector2>();
+                var submallas = new List<int[]>();
+                for (int sub = 0; sub < original.subMeshCount; sub++)
+                {
+                    var indices = new List<int>();
+                    int[] triangulos = original.GetTriangles(sub);
+                    for (int t = 0; t < triangulos.Length; t += 3)
+                    {
+                        float y = 0;
+                        for (int k = 0; k < 3; k++) y += filtro.transform.TransformPoint(vertices[triangulos[t+k]]).y / 3;
+                        bool intermedio = y >= .3999f && y < .7999f;
+                        bool azotea = y >= techo - .0001f;
+                        if (y >= .3999f && !intermedio && !azotea) continue;
+                        int copias = intermedio && !azotea ? pisos - 1 : 1;
+                        for (int copia = 0; copia < copias; copia++)
+                        {
+                            float desplazamiento = azotea ? pisos * .4f - techo : intermedio ? copia * .4f : 0;
+                            Vector3 delta = filtro.transform.InverseTransformVector(Vector3.up * desplazamiento);
+                            for (int k = 0; k < 3; k++)
+                            {
+                                int v = triangulos[t+k];
+                                indices.Add(nuevos.Count);
+                                nuevos.Add(vertices[v] + delta);
+                                normalesNuevas.Add(normales.Length == vertices.Length ? normales[v] : Vector3.up);
+                                uvNuevas.Add(uv.Length == vertices.Length ? uv[v] : Vector2.zero);
+                            }
+                        }
+                    }
+                    submallas.Add(indices.ToArray());
+                }
+                Mesh malla = new Mesh { name = "Edificio " + pisos + " plantas", indexFormat = UnityEngine.Rendering.IndexFormat.UInt32 };
+                malla.SetVertices(nuevos); malla.SetNormals(normalesNuevas); malla.SetUVs(0,uvNuevas);
+                malla.subMeshCount = submallas.Count;
+                for (int sub = 0; sub < submallas.Count; sub++) malla.SetTriangles(submallas[sub],sub);
+                malla.RecalculateBounds();
+                string destino = $"Assets/ModelosGenerados/{Path.GetFileNameWithoutExtension(ruta)}-{pisos}-{indice++}.asset";
+                Mesh guardada = AssetDatabase.LoadAssetAtPath<Mesh>(destino);
+                if (guardada == null) { AssetDatabase.CreateAsset(malla,destino); guardada=malla; }
+                else { EditorUtility.CopySerialized(malla,guardada); Object.DestroyImmediate(malla); EditorUtility.SetDirty(guardada); }
+                filtro.sharedMesh = guardada;
+            }
         }
 
         static void Sustituir(Transform raiz, string original, string modelo, Vector3 posicion, Vector3 dimensiones, float giro = 0)
@@ -66,8 +125,11 @@ namespace ConsultorioSeguro.Editor
                 if (volumen == null) continue;
                 Bounds b = volumen.bounds;
                 OcultarMallas(objeto.gameObject);
-                ModeloExterno(raiz, "kenney-city-kit/building-a.glb", new Vector3(b.center.x,b.min.y,b.center.z),b.size);
+                string variante = objeto.GetSiblingIndex() % 3 == 0 ? "b" : objeto.GetSiblingIndex() % 3 == 1 ? "a" : "c";
+                ModeloExterno(raiz, $"kenney-city-kit/building-{variante}.glb", new Vector3(b.center.x,b.min.y,b.center.z),b.size, b.center.z < -10 ? 180 : 0);
             }
+            // El consultorio ocupa la planta baja; la torre no invade el interior transitable.
+            ModeloExterno(raiz,"kenney-city-kit/building-b.glb",new Vector3(0,AltoEdificio,-2.1f),new Vector3(7.2f,18,10.2f)).name="Torre sobre la clínica";
             Sustituir(raiz, "Mobiliario/Equipo de rayos X/Mesita del equipo de rayos X", "tattoo-studio/carrito-vacio.obj", new Vector3(2.75f,0,2.5f),new Vector3(.5f,.8f,.4f));
             Sustituir(raiz, "Mobiliario/Mostrador de esterilización/Charola de instrumental sucio", "dental-practice/charola.obj", new Vector3(3.15f,.94f,-.1f),new Vector3(.4f,.025f,.6f));
             var tarja = GameObject.Find("Mobiliario/Mostrador de esterilización/Tarja");
@@ -174,6 +236,7 @@ namespace ConsultorioSeguro.Editor
                 credito.modificaciones="Escala, orientación y adaptación de materiales.";
                 if (Directory.GetFiles("Assets/Terceros/"+f[0],"*.obj").Length > 0)
                     credito.modificaciones += " Separación de piezas de las mallas originales mediante Tools/preparar_modelos.py.";
+                if (f[0] == "kenney-city-kit") credito.modificaciones += " Repetición de plantas intermedias en building-b y building-c para crear edificios altos, conservando UV y materiales originales.";
                 if (f[0] == "display-mannequin") credito.modificaciones += " Retiro de la base y adaptación de la postura al sillón.";
                 if (f[0] == "gallery-gloves") credito.modificaciones += " Guantes de manipulación de arte recoloreados como representación clínica esquemática.";
                 if (f[0] == "syringe-jtoastie") credito.modificaciones += " Aproximación visual de la jeringa carpule a partir de una jeringa genérica.";
