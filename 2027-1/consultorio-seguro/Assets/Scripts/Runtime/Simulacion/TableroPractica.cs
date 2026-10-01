@@ -10,6 +10,7 @@ namespace ConsultorioSeguro
     {
         [SerializeField] Escenario escenario;
         [SerializeField] TMP_Text texto;
+        [SerializeField] TMP_Text textoReverso;
 
         void OnEnable()
         {
@@ -74,6 +75,7 @@ namespace ConsultorioSeguro
                 $"Aciertos: {puntuacion.Aciertos}   Errores: {puntuacion.Errores}   Puntos: {puntuacion.Puntos}\n" +
                 $"Mejor puntuación: {mejor}</size>\n" +
                 $"<size=45%><i>{accion}</i></size>";
+            if (textoReverso != null) textoReverso.text = texto.text;
         }
     }
 }

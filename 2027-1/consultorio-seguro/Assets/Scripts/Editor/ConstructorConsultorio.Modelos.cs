@@ -76,7 +76,7 @@ namespace ConsultorioSeguro.Editor
             foreach (Renderer renderer in objeto.GetComponentsInChildren<Renderer>()) renderer.enabled = false;
         }
 
-        static void ColocarModelo(Transform raiz, string nombre, Vector3 posicion, float alto, float giro)
+        static Transform ColocarModelo(Transform raiz, string nombre, Vector3 posicion, float alto, float giro)
         {
             GameObject asset = AssetDatabase.LoadAssetAtPath<GameObject>($"{CarpetaKenney}/{nombre}.obj");
             if (asset == null) throw new InvalidOperationException($"Falta el modelo {nombre}.");
@@ -92,6 +92,7 @@ namespace ConsultorioSeguro.Editor
                 renderer.sharedMaterials = renderer.sharedMaterials.Select(MaterialKenney).ToArray();
             pivote.localPosition = posicion;
             pivote.localRotation = Quaternion.Euler(0, giro, 0);
+            return pivote;
         }
 
         static Material MaterialKenney(Material original)

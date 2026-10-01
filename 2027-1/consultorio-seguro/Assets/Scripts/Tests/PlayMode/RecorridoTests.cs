@@ -20,6 +20,45 @@ namespace ConsultorioSeguro.Tests
         {
             yield return SceneManager.LoadSceneAsync("Consultorio");
             yield return null;
+            foreach(var tablero in Object.FindObjectsByType<TableroPractica>(FindObjectsSortMode.None))
+            {
+                var reverso=tablero.transform.Find("Texto reverso");
+                if(reverso==null) continue;
+                var frente=tablero.transform.Find("Texto").GetComponent<TMPro.TMP_Text>();
+                Assert.IsNotEmpty(frente.text);
+                Assert.AreEqual(frente.text,reverso.GetComponent<TMPro.TMP_Text>().text);
+            }
+        }
+
+        [UnityTest]
+        public IEnumerator ManualYCreditosPermitenVolver()
+        {
+            var interfaz=Object.FindFirstObjectByType<InterfazSimulador>();
+            var gestor=GestorSimulacion.Instancia;
+            var raiz=interfaz.transform;
+            foreach(var resolucion in new[]{new Vector2Int(1280,720),new Vector2Int(1920,1080)})
+            {
+                Screen.SetResolution(resolucion.x,resolucion.y,false);
+                interfaz.AbrirCreditos();
+                yield return null;
+                Canvas.ForceUpdateCanvases();
+                var boton=raiz.Find("PanelCreditos/BotonVolver").GetComponent<UnityEngine.UI.Button>();
+                var esquinas=new Vector3[4];
+                boton.GetComponent<RectTransform>().GetWorldCorners(esquinas);
+                Assert.GreaterOrEqual(esquinas[0].y,0);
+                Assert.LessOrEqual(esquinas[2].y,Screen.height);
+                Assert.IsFalse(raiz.Find("PanelCreditos/Desplazamiento/Ventana/TextoCreditos").GetComponent<TMPro.TMP_Text>().text.Contains("Todavía no"));
+                boton.onClick.Invoke();
+                Assert.IsTrue(raiz.Find("PanelMenu").gameObject.activeSelf);
+            }
+            interfaz.AbrirManual();
+            Assert.IsTrue(interfaz.PanelAuxiliarAbierto);
+            interfaz.CerrarPanelAuxiliar();
+            Assert.AreEqual(EstadoSimulacion.Menu,gestor.Estado);
+            gestor.Entrar(); gestor.Pausar();
+            interfaz.AbrirManual(); interfaz.CerrarPanelAuxiliar();
+            Assert.IsTrue(raiz.Find("PanelPausa").gameObject.activeSelf);
+            Assert.AreEqual(EstadoSimulacion.Pausa,gestor.Estado);
         }
 
         [UnityTest]

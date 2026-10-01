@@ -78,6 +78,12 @@ namespace ConsultorioSeguro
             if (!accionPausa.WasPressedThisFrame())
                 return;
 
+            var interfaz = FindFirstObjectByType<InterfazSimulador>();
+            if (interfaz != null && interfaz.PanelAuxiliarAbierto)
+            {
+                interfaz.CerrarPanelAuxiliar();
+                return;
+            }
             if (Estado == EstadoSimulacion.Jugando)
                 Pausar();
             else if (Estado == EstadoSimulacion.Pausa)

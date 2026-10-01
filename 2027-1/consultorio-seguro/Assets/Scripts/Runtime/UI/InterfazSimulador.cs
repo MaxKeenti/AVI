@@ -42,6 +42,8 @@ namespace ConsultorioSeguro
         [SerializeField] GameObject panelPausa;
         [SerializeField] Button botonReiniciarPractica;
         [SerializeField] GameObject panelCreditos;
+        [SerializeField] GameObject panelManual;
+        public bool PanelAuxiliarAbierto => panelCreditos.activeSelf || (panelManual != null && panelManual.activeSelf);
         [SerializeField] TMP_Text textoCreditos;
 
         Coroutine ocultarMensaje;
@@ -86,14 +88,26 @@ namespace ConsultorioSeguro
             panelCreditos.SetActive(true);
         }
 
-        public void CerrarCreditos()
+        public void AbrirManual()
+        {
+            panelMenu.SetActive(false);
+            panelPausa.SetActive(false);
+            panelManual.SetActive(true);
+        }
+
+        public void CerrarPanelAuxiliar()
         {
             panelCreditos.SetActive(false);
+            if (panelManual != null) panelManual.SetActive(false);
             panelMenu.SetActive(gestor.Estado == EstadoSimulacion.Menu);
+            panelPausa.SetActive(gestor.Estado == EstadoSimulacion.Pausa);
         }
+
+        public void CerrarCreditos() => CerrarPanelAuxiliar();
 
         void AlCambiarEstado(EstadoSimulacion estado)
         {
+            if (panelManual != null) panelManual.SetActive(false);
             panelMenu.SetActive(estado == EstadoSimulacion.Menu);
             panelCreditos.SetActive(false);
             panelPausa.SetActive(estado == EstadoSimulacion.Pausa);

@@ -154,7 +154,8 @@ namespace ConsultorioSeguro.Editor
                 Asignar(grupo.gameObject.AddComponent<Contenedor>(),"destino",destino);
                 var modelo=ModeloExterno(raiz,"dental-practice/"+(aguja?"sharps-bin.glb":"pedal-waste-bin.glb"),p,aguja?new Vector3(.24f,.31f,.2f):new Vector3(.42f,.65f,.42f));
                 foreach(var r in modelo.GetComponentsInChildren<Renderer>()) r.sharedMaterials=r.sharedMaterials.Select(m=>m.name.Contains("yellow") || m.name.Contains("steel")?Acabado("Recipiente_"+destino,destino.Color(),.35f):m).ToArray();
-                var etiqueta=Placa(raiz,"Etiqueta "+destino,new Vector3(p.x,p.y+(aguja?.16f:.38f),p.z-.23f),0,destino.Color(),new Vector2(.38f,.18f));
+                float hacia = Mathf.Abs(p.x)<3 ? 1 : -Mathf.Sign(p.x);
+                var etiqueta=Placa(raiz,"Etiqueta "+destino,new Vector3(p.x+hacia*.24f,p.y+(aguja?.16f:.38f),p.z),hacia>0?-90:90,destino.Color(),new Vector2(.48f,.22f));
                 etiqueta.texto.text=destino.Nombre();
             }
         }

@@ -213,6 +213,19 @@ La clínica se amplía hacia la parte posterior mediante un ala de 15 por 19.5 m
 
 Cada actividad se activa al entrar en su sala. Los residuos desechables se clasifican en los recipientes locales; el instrumental reutilizable se lleva al área de esterilización. Se conservan las secuencias, la puntuación y el reinicio de las cinco prácticas. Los muebles y equipos reutilizan los modelos externos ya registrados; la distribución arquitectónica y los letreros son elaboración del equipo. Los árboles, vehículos y demás modelos exteriores se mantienen.
 
+=== Recepción y orientación del usuario
+
+La recepción se integra con el vestíbulo al retirar el tabique interior,
+conservando libre el acceso central hacia las salas. La espera incorpora
+asientos, mesas auxiliares, vegetación y acabados cálidos. El directorio se
+ubica en el muro frontal junto al inicio del pasillo.
+
+El menú inicial y el menú de pausa ofrecen un manual de controles e
+interacción, con un botón permanente para volver. Cada sala cuenta con una
+guía mural: desplazarse con WASD o flechas, mirar con el ratón, acercarse y
+apuntar al objeto para interactuar con E. Los rótulos de los recipientes se
+orientan hacia el espacio de circulación y permanecen libres de obstáculos.
+
 === Acabados e iluminación interior
 
 Las salas incorporan paneles de iluminación distribuidos, difusores emisivos,

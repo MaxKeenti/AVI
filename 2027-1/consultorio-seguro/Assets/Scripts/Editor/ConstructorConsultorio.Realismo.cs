@@ -38,7 +38,7 @@ namespace ConsultorioSeguro.Editor
                     relleno.transform.position=new Vector3(x,1.9f,inicio+3.25f);
                     relleno.type=LightType.Point; relleno.range=4.5f; relleno.intensity=.85f;
                     relleno.color=new Color(1,.98f,.94f);
-                    relleno.shadows=LightShadows.Soft;
+                    relleno.shadows=LightShadows.None;
                     relleno.shadowBias=.015f; relleno.shadowNormalBias=.1f;
                     // Rejilla de retorno de aire, sin invadir los accesos.
                     SinColision(Caja("Marco ventilación",raiz,new Vector3(x,2.76f,inicio+3.25f),new Vector3(.62f,.035f,.35f),marco));
@@ -52,7 +52,7 @@ namespace ConsultorioSeguro.Editor
             MuebleInterior(raiz,"sterile-store-cabinet",new Vector3(6.9f,0,9.8f),new Vector3(.85f,1.95f,.5f),-90);
             MuebleInterior(raiz,"cabinet-run-module",new Vector3(-4.5f,0,23.6f),new Vector3(1.8f,.9f,.55f),0);
             MuebleInterior(raiz,"cabinet-run-sink-module",new Vector3(-6.9f,0,9.5f),new Vector3(1.8f,.9f,.6f),90);
-            foreach(var puesto in new[]{new Vector3(7.43f,1.25f,15.8f),new Vector3(7.43f,1.25f,5.25f),new Vector3(-7.43f,1.25f,9.5f)})
+            foreach(var puesto in new[]{new Vector3(7.43f,1.25f,15.8f),new Vector3(7.43f,1.25f,5.25f),new Vector3(-7.43f,1.25f,5.3f)})
                 ModeloExterno(raiz,"dental-practice/glove-and-mask-dispenser.glb",puesto,new Vector3(.55f,.42f,.16f),puesto.x>0?-90:90);
             ColocarModelo(raiz,"sideTable",new Vector3(5.6f,0,22.9f),.55f,0);
         }

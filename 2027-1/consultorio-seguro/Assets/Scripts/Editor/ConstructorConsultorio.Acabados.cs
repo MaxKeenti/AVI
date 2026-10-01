@@ -190,9 +190,11 @@ namespace ConsultorioSeguro.Editor
             Capturar(camara, "avenida", new Vector3(-37, 1.7f, -13.5f), new Vector3(0, 9, -7));
             Capturar(camara, "torre-clinica", new Vector3(0, 2, -19), new Vector3(0, 8, -4));
             Capturar(camara, "fachada", new Vector3(0, 1.7f, -13), new Vector3(0, 1.6f, -7));
-            Capturar(camara, "recepcion", new Vector3(0, 1.65f, -6.8f), new Vector3(1.2f, 1.2f, -4.4f));
+            Capturar(camara, "recepcion", new Vector3(0, 1.65f, -6.8f), new Vector3(-.3f, 1.3f, .5f));
             Capturar(camara, "sala-espera", new Vector3(-0.8f, 1.65f, -6.6f), new Vector3(-3.1f, 1f, -4.9f));
             Capturar(camara,"radiografia",new Vector3(-2.8f,1.65f,19.2f),new Vector3(-6.2f,1.2f,22.7f));
+            Capturar(camara,"clasificacion",new Vector3(-2.6f,1.65f,6.8f),new Vector3(-4.8f,1.45f,7.55f));
+            Capturar(camara,"materiales",new Vector3(-4.4f,1.65f,15.1f),new Vector3(-4.6f,1.75f,17.49f));
             Capturar(camara,"pasillo",new Vector3(0,1.65f,2),new Vector3(0,1.6f,20));
             Capturar(camara,"esterilizacion",new Vector3(3,1.65f,6),new Vector3(7,1,7.2f));
             Capturar(camara, "consultorio", new Vector3(3.1f, 1.7f, 11.9f), new Vector3(4.2f, 1.1f, 15.3f));

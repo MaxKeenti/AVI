@@ -19,6 +19,43 @@ namespace ConsultorioSeguro.Tests
                 .ToArray();
 
         [Test]
+        public void LasPlacasMiranHaciaLasZonasDeLectura()
+        {
+            EditorSceneManager.OpenScene(RutaEscena,OpenSceneMode.Single);
+            foreach(var tablero in Object.FindObjectsByType<TableroPractica>(FindObjectsSortMode.None))
+            {
+                var accion=tablero.GetComponentInParent<Escenario>().Datos.accion;
+                var t=tablero.transform;
+                Vector3 lectura;
+                if(accion==AccionSimulacion.Clasificacion || accion==AccionSimulacion.Procedimiento)
+                {
+                    lectura=accion==AccionSimulacion.Clasificacion?new Vector3(-1.25f,t.position.y,6.8f):new Vector3(1.25f,t.position.y,13.3f);
+                    Assert.NotNull(t.Find("Texto reverso"));
+                    Assert.Less(Vector3.Dot(t.Find("Texto").forward,t.Find("Texto reverso").forward),-.99f);
+                }
+                else
+                {
+                    var normal=accion==AccionSimulacion.Esterilizacion?Vector3.left:Vector3.back;
+                    lectura=t.position+normal*2;
+                }
+                Assert.Greater(Vector3.Dot(-t.forward,(lectura-t.position).normalized),.99f,accion.ToString());
+                Physics.SyncTransforms();
+                Assert.IsTrue(Physics.Raycast(t.position-t.forward,t.forward,out RaycastHit impacto,1.2f,~0,QueryTriggerInteraction.Ignore));
+                Assert.AreSame(tablero,impacto.collider.GetComponentInParent<TableroPractica>(),"Placa tapada: "+accion);
+            }
+            foreach(var t in Object.FindObjectsByType<Transform>(FindObjectsSortMode.None))
+            {
+                if(t.name=="Manual de sala") Assert.Greater(Vector3.Dot(-t.forward,Vector3.forward),.99f);
+                if(t.name.StartsWith("Etiqueta "))
+                {
+                    float x=t.position.x;
+                    Vector3 hacia=Mathf.Abs(x)<3?Vector3.right:x<0?Vector3.right:Vector3.left;
+                    Assert.Greater(Vector3.Dot(-t.forward,hacia),.99f,t.name);
+                }
+            }
+        }
+
+        [Test]
         public void LosResiduosTienenNombreYExplicacion()
         {
             DatosResiduo[] residuos = Cargar<DatosResiduo>();

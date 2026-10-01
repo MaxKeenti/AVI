@@ -189,6 +189,8 @@ namespace ConsultorioSeguro.Editor
             AplicarModelos();
             DistribuirSalas();
             AfinarInterior();
+            MejorarRecepcionYGuias();
+            Asignar(Object.FindFirstObjectByType<InterfazSimulador>(), "catalogo", HerramientasAtribucion.ActualizarCatalogo());
             AsegurarCarpeta(Path.GetDirectoryName(RutaEscena));
             EditorSceneManager.SaveScene(escena, RutaEscena);
             EditorBuildSettings.scenes = new[] { new EditorBuildSettingsScene(RutaEscena, true) };
@@ -662,6 +664,7 @@ namespace ConsultorioSeguro.Editor
             }
 
             (Transform grupo, TextMeshPro texto) = Placa(padre, "Hoja de práctica", posicion, area.rotacionTablero, FondoTablero);
+            texto.text = $"<b>{escenario.Datos.nombre}</b>\n\nAcércate y pulsa E para ver las instrucciones.";
             TableroPractica tablero = grupo.gameObject.AddComponent<TableroPractica>();
             Asignar(tablero, "escenario", escenario);
             Asignar(tablero, "texto", texto);
@@ -810,6 +813,7 @@ namespace ConsultorioSeguro.Editor
                 26, TextAlignmentOptions.Left);
             Texto("Controles", menu, "WASD: caminar · Ratón: mirar · Shift: correr · E: tomar, depositar o interactuar · Esc: pausa",
                 22, TextAlignmentOptions.Center, FontStyles.Normal, TextoSecundario);
+            Boton("BotonManual", menu, "Manual de controles e interacción", 64, interfaz.AbrirManual);
             Boton("BotonEntrar", menu, "Entrar al consultorio", 76, gestor.Entrar);
             RectTransform filaMenu = Fila("BotonesMenu", menu);
             Boton("BotonCreditos", filaMenu, "Créditos", 64, interfaz.AbrirCreditos);
@@ -820,16 +824,14 @@ namespace ConsultorioSeguro.Editor
             Texto("Titulo", pausa, "Pausa", 48, TextAlignmentOptions.Center, FontStyles.Bold);
             Boton("BotonReanudar", pausa, "Reanudar", 68, gestor.Reanudar);
             Button reiniciarPractica = Boton("BotonReiniciarPractica", pausa, "Reiniciar la práctica actual", 68, gestor.ReiniciarEnFoco);
+            Boton("BotonManual", pausa, "Manual de controles e interacción", 68, interfaz.AbrirManual);
             Boton("BotonMenu", pausa, "Menú principal", 68, gestor.IrAlMenu);
 
             // --- Créditos ---
-            RectTransform creditos = Rect("PanelCreditos", raiz);
-            Imagen(creditos, spriteRedondeado, FondoPanel);
-            Anclar(creditos, new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(1100, 900));
-            Columna(creditos, 18, 40);
-            Texto("Titulo", creditos, "Créditos", 48, TextAlignmentOptions.Center, FontStyles.Bold);
-            TMP_Text textoCreditos = ListaDesplazable(creditos);
-            Boton("BotonCerrar", creditos, "Cerrar", 68, interfaz.CerrarCreditos);
+            RectTransform creditos = PaginaAyuda("PanelCreditos", raiz, "Créditos", interfaz.CerrarCreditos, out TMP_Text textoCreditos);
+            RectTransform manual = PaginaAyuda("PanelManual", raiz, "Controles e interacción", interfaz.CerrarPanelAuxiliar, out TMP_Text textoManual);
+            textoManual.text = ManualControles.Texto;
+            Asignar(interfaz, "panelManual", manual.gameObject);
 
             Asignar(interfaz, "gestor", gestor);
             Asignar(interfaz, "interactor", interactor);
@@ -852,8 +854,32 @@ namespace ConsultorioSeguro.Editor
             Asignar(interfaz, "textoCreditos", textoCreditos);
 
             // Estado inicial en el editor: solo el menú visible.
-            foreach (RectTransform panel in new[] { hud, mensaje, pausa, creditos })
+            foreach (RectTransform panel in new[] { hud, mensaje, pausa, creditos, manual })
                 panel.gameObject.SetActive(false);
+        }
+
+        static RectTransform PaginaAyuda(string nombre, Transform raiz, string titulo, UnityAction volver, out TMP_Text contenido)
+        {
+            var panel = Rect(nombre, raiz);
+            Imagen(panel, spriteRedondeado, FondoPanel);
+            panel.anchorMin = new Vector2(.14f,.07f);
+            panel.anchorMax = new Vector2(.86f,.93f);
+            panel.offsetMin = panel.offsetMax = Vector2.zero;
+            var cabecera = Texto("Titulo", panel, titulo, 42, TextAlignmentOptions.Center, FontStyles.Bold);
+            cabecera.rectTransform.anchorMin = new Vector2(0,1);
+            cabecera.rectTransform.anchorMax = new Vector2(1,1);
+            cabecera.rectTransform.pivot = new Vector2(.5f,1);
+            cabecera.rectTransform.anchoredPosition = new Vector2(0,-20);
+            cabecera.rectTransform.sizeDelta = new Vector2(-48,64);
+            contenido = ListaDesplazable(panel);
+            var area = contenido.transform.parent.parent.GetComponent<RectTransform>();
+            area.anchorMin = Vector2.zero; area.anchorMax = Vector2.one;
+            area.offsetMin = new Vector2(32,110); area.offsetMax = new Vector2(-32,-96);
+            var boton = Boton("BotonVolver",panel,"← Volver",64,volver).GetComponent<RectTransform>();
+            boton.anchorMin = new Vector2(0,0); boton.anchorMax = new Vector2(1,0);
+            boton.pivot = new Vector2(.5f,0); boton.anchoredPosition = new Vector2(0,24);
+            boton.sizeDelta = new Vector2(-64,64);
+            return panel;
         }
 
         static RectTransform Rect(string nombre, Transform padre)
