@@ -25,13 +25,13 @@ namespace ConsultorioSeguro.Editor
                 {
                     float x=lado*4.375f;
                     // Juntas de encuentro, zoclo y marcos a escala de construcción.
-                    foreach(float z in new[]{inicio+.09f,inicio+6.41f})
+                    foreach(float z in new[]{inicio+.09f,fila==2?23.98f:inicio+6.41f})
                         SinColision(Caja("Zoclo transversal",raiz,new Vector3(x,.065f,z),new Vector3(6.1f,.13f,.035f),zoclo));
                     SinColision(Caja("Zoclo exterior",raiz,new Vector3(lado*7.48f,.065f,inicio+3.25f),new Vector3(.035f,.13f,6.3f),zoclo));
                     foreach(float z in new[]{inicio+1.44f,inicio+3.16f})
                         SinColision(Caja("Jamba de puerta",raiz,new Vector3(lado*1.25f,1.11f,z),new Vector3(.23f,2.22f,.07f),marco));
                     SinColision(Caja("Marco superior",raiz,new Vector3(lado*1.25f,2.2f,inicio+2.3f),new Vector3(.23f,.07f,1.79f),marco));
-                    foreach(float z in new[]{inicio+1.65f,inicio+4.85f})
+                    foreach(float z in new[]{inicio+1.5f,inicio+4.5f})
                         PanelInterior(raiz,new Vector3(x,2.73f,z));
                     var relleno=new GameObject("Luz ambiente de sala").AddComponent<Light>();
                     relleno.transform.SetParent(raiz,false);

@@ -31,7 +31,7 @@ namespace ConsultorioSeguro.Editor
             ColocarModelo(raiz,"pottedPlant",new Vector3(-2.9f,0,2.65f),1.3f,0);
             ColocarModelo(raiz,"pottedPlant",new Vector3(3,0,2.65f),1.3f,0);
             var bienvenida=Placa(raiz,"Bienvenida recepción",new Vector3(3.46f,1.7f,-.4f),90,new Color(.15f,.27f,.25f),new Vector2(3,1.1f));
-            bienvenida.texto.text="<b>BIENVENIDO A LA CLÍNICA</b>\nRegístrate en recepción y toma asiento.\nLas salas de práctica están al fondo.\nEsc · Manual de controles";
+            bienvenida.texto.text="<b>BIENVENIDO A LA CLÍNICA</b>\nRegístrate y toma asiento.\nLas salas de práctica están al fondo.\nEsc · Manual de controles";
             var directorio=GameObject.Find("Salas de la clínica/Directorio de salas");
             directorio.transform.position=new Vector3(-2.4f,1.6f,4.39f);
             directorio.transform.rotation=Quaternion.identity;

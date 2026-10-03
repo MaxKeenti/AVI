@@ -19,7 +19,7 @@ La escena usa **geometría sencilla con acabados arquitectónicos** (cubos, cili
 
 Los mensajes de bienvenida salen de componentes `ZonaMensaje` y se muestran una sola vez por sesión.
 
-No hay que elegir la acción en un menú: el menú principal solo tiene *Entrar al consultorio*, *Créditos* y *Salir*. Cada acción ocurre en su propia área y todo está en su lugar desde el inicio:
+No hay que elegir la acción en un menú: el menú principal ofrece *Manual de controles e interacción*, *Entrar al consultorio*, *Créditos* y *Salir*. Cada acción ocurre en su propia área y todo está en su lugar desde el inicio:
 
 | Acción | Área | Qué hace el usuario |
 | --- | --- | --- |
@@ -54,8 +54,10 @@ La escena incluye piso de porcelanato con juntas, muros cálidos, acentos verde 
 - Los materiales están en `Assets/Materiales/Acabados/`. Las texturas se generan de forma determinista en el proyecto; no requieren recursos de terceros.
 - **Consultorio Seguro → Actualizar acabados visuales** regenera la escena desde el constructor y aplica acabados, modelos y distribución por salas. Guarda la escena; los datos existentes de las prácticas se conservan. Los cambios manuales a objetos de la escena se reemplazan.
 - **Construir consultorio** también incluye estos acabados. Su implementación está en `ConstructorConsultorio.Acabados.cs`.
-- `CapturarAcabados` genera vistas de revisión interiores, exteriores y una planta de distribución en `Capturas/` (fachada, recepción, sala de espera y consultorio). Son capturas del editor: los tableros de práctica se llenan al iniciar el juego.
+- `CapturarAcabados` genera vistas del editor y una planta en `Capturas/`. Para revisar el aspecto durante el juego, `RevisionVisualTests` captura los tableros con su contenido real y espera a que terminen los reflejos. Las capturas interiores de la revisión actual proceden de esta prueba; las vistas exteriores y la planta proceden del constructor.
 - Las sombras interiores deben evaluarse en el dispositivo objetivo antes de exportar a Android; esta revisión se verificó en el editor de escritorio.
+
+Los objetos pequeños cercanos de la misma sala tienen un **contorno blanco**; el objetivo apuntado cambia a **dorado**. La silueta se ve sobre la charola, conserva el tamaño real del instrumento y no revela la clasificación correcta. Se oculta en menús, en pausa y al sostener o clasificar el objeto. El efecto usa una máscara y un halo de dos píxeles en URP, registrados en los perfiles PC y Mobile; la comprobación visual se realiza en PC.
 
 ## Cambiar las primitivas por modelos
 
@@ -67,7 +69,7 @@ La escena incluye piso de porcelanato con juntas, muros cálidos, acentos verde 
 
 ## Recursos de terceros y atribuciones
 
-Ya se utilizan cuatro modelos de **Furniture Kit, de Kenney**: `chairModernFrameCushion` (tres sillas de espera), `pottedPlant`, `computerScreen` y `bathroomSink`. Fuente: https://kenney.nl/assets/furniture-kit; licencia CC0 1.0. Los archivos originales, la licencia y el registro de procedencia están en `Assets/Terceros/kenney-furniture-kit/`. La sección «Modelos 3D de terceros y sus fuentes» de `2027-1/docs/definicion-proyecto/definicion-proyecto.typ` documenta su uso.
+Se utilizan modelos de **Furniture Kit, de Kenney**: `chairModernFrameCushion` (asientos de espera, recepción y descanso), `pottedPlant`, `computerScreen`, `bathroomSink`, `bench`, `trashcan` y `sideTable`. Fuente: https://kenney.nl/assets/furniture-kit; licencia CC0 1.0. Los archivos originales, la licencia y el registro de procedencia están en `Assets/Terceros/kenney-furniture-kit/`. La sección «Modelos 3D de terceros y sus fuentes» de `2027-1/docs/definicion-proyecto/definicion-proyecto.typ` documenta su uso.
 
 **Consultorio Seguro → Actualizar modelos de terceros** regenera y guarda la escena, sustituye las representaciones visuales, distribuye las cinco salas y actualiza los créditos. Recrea sus colisionadores e interacciones a partir del constructor. La reconstrucción completa también incorpora estos modelos. Los materiales adaptados a URP están en `Assets/Materiales/Acabados/Modelo_*.mat`.
 
@@ -108,7 +110,15 @@ $UNITY -batchmode -projectPath . -runTests -testPlatform EditMode -testResults e
 $UNITY -batchmode -projectPath . -runTests -testPlatform PlayMode -testResults playmode.xml
 ```
 
-También desde *Window → General → Test Runner*. Hay dos pruebas de PlayMode. Una camina con el jugador real desde el punto de inicio, cruzando la calle y la recepción, hasta el consultorio: falla si algo bloquea el camino o si no aparecen los mensajes de bienvenida. La otra recorre las cinco áreas: lleva al jugador a cada zona, comprueba que aparezcan las instrucciones, completa los pasos, se equivoca una vez, clasifica todo y repite la práctica desde su hoja.
+También desde *Window → General → Test Runner*. Las nueve pruebas de PlayMode cubren menús y regreso, modelos interactivos, las cinco actividades, recorridos por la calle y todas las salas, el acceso al mostrador y la guía de bienvenida. La prueba del contorno compara imágenes con y sin halo, comprueba el borde dorado y verifica que se oculta al pausar, sostener o clasificar objetos y al cambiar a una sala contigua dentro del alcance. También simula una pulsación de E para tomar un instrumento y comprueba que solo se resalta el paso disponible. La prueba visual comprueba la cobertura de reflejos en el espejo y el piso, la continuidad del mapeo tonal al entrar, los números al ras del muro y la ausencia de desbordamiento en los textos de actividad.
+
+Para guardar capturas de PlayMode y tiempos orientativos del Editor, define `AVI_CAPTURAS_REVISION` con una carpeta de salida y ejecuta las pruebas de PlayMode con gráficos habilitados:
+
+```sh
+AVI_CAPTURAS_REVISION="$PWD/Capturas" "$UNITY" -projectPath . -runTests -testPlatform PlayMode -testResults visual.xml
+```
+
+Los reflejos en tiempo real están habilitados en el perfil PC. Los tiempos de la prueba se miden tras calentar cada vista, a 1600 × 1000; no sustituyen la medición de una compilación en el equipo de destino. Véase `Capturas/REVISION.md`.
 
 ## Pendiente
 

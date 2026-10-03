@@ -80,7 +80,9 @@ namespace ConsultorioSeguro.Editor
 
         static void Detalle(Transform padre, string nombre, Vector3 posicion, Vector3 escala, Material material)
         {
-            SinColision(Caja(nombre, padre, posicion, escala, material));
+            var detalle=Caja(nombre,padre,posicion,escala,material);
+            SinColision(detalle);
+            detalle.GetComponent<Renderer>().shadowCastingMode=ShadowCastingMode.Off;
         }
 
         static void AplicarAcabados()
@@ -104,9 +106,12 @@ namespace ConsultorioSeguro.Editor
             Revestir("Recepción/Mostrador de recepción/Cubierta", blanco);
             foreach (float x in new[] { -3.48f, 3.48f })
             {
-                Detalle(raiz, "Zoclo lateral", new Vector3(x, 0.065f, -2), new Vector3(0.025f, 0.13f, 10), oscuro);
-                Detalle(raiz, "Protector sanitario", new Vector3(x, 0.96f, 0), new Vector3(0.026f, 0.15f, 6), verde);
-                Detalle(raiz, "Cornisa interior", new Vector3(x, 2.69f, -2), new Vector3(0.08f, 0.12f, 10), blanco);
+                Detalle(raiz, "Zoclo lateral", new Vector3(x, 0.065f, -1.25f), new Vector3(0.025f, 0.13f, 11.5f), oscuro);
+                // A la derecha protege toda la espera; a la izquierda comienza tras el panel de madera.
+                float inicioProtector = x > 0 ? -7f : 2.15f;
+                Detalle(raiz, "Protector sanitario", new Vector3(x, 0.96f, (inicioProtector + 4.5f) * .5f),
+                    new Vector3(0.026f, 0.15f, 4.5f - inicioProtector), verde);
+                Detalle(raiz, "Cornisa interior", new Vector3(x, 2.69f, -1.25f), new Vector3(0.08f, 0.12f, 11.5f), blanco);
             }
             Detalle(raiz, "Zoclo posterior", new Vector3(0, 0.065f, 2.98f), new Vector3(7, 0.13f, 0.025f), oscuro);
             Detalle(raiz, "Friso posterior", new Vector3(0, 0.96f, 2.98f), new Vector3(7, 0.15f, 0.025f), verde);
@@ -183,6 +188,7 @@ namespace ConsultorioSeguro.Editor
             GameObject interfaz = GameObject.Find("Interfaz");
             if (interfaz != null) interfaz.SetActive(false);
             Camera camara = new GameObject("Cámara de revisión").AddComponent<Camera>();
+            ConfigurarCamaraInterior(camara);
             camara.nearClipPlane = 0.05f;
             camara.fieldOfView = 68;
             Directory.CreateDirectory("Capturas");

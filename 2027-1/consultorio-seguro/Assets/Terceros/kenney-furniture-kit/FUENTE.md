@@ -6,5 +6,5 @@ Autor: Kenney (https://kenney.nl/)
 Licencia: CC0 1.0 Universal (véase License.txt).
 Consulta: 2026-09-28.
 
-Archivos utilizados: chairModernFrameCushion.obj, pottedPlant.obj, computerScreen.obj y bathroomSink.obj, con sus MTL originales.
+Archivos utilizados: chairModernFrameCushion.obj, pottedPlant.obj, computerScreen.obj, bathroomSink.obj, bench.obj, trashcan.obj y sideTable.obj, con sus MTL originales.
 Modificaciones: escala, orientación y posición; materiales adaptados a URP y a la paleta del consultorio. Geometría OBJ original sin modificar.

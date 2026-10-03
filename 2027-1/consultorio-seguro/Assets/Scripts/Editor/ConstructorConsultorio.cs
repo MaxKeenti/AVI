@@ -190,6 +190,7 @@ namespace ConsultorioSeguro.Editor
             DistribuirSalas();
             AfinarInterior();
             MejorarRecepcionYGuias();
+            AplicarDisenoVisual();
             Asignar(Object.FindFirstObjectByType<InterfazSimulador>(), "catalogo", HerramientasAtribucion.ActualizarCatalogo());
             AsegurarCarpeta(Path.GetDirectoryName(RutaEscena));
             EditorSceneManager.SaveScene(escena, RutaEscena);
@@ -579,6 +580,8 @@ namespace ConsultorioSeguro.Editor
         static (ControladorPrimeraPersona, Interactor) ConstruirJugador()
         {
             GameObject jugador = new("Jugador");
+            // El cuerpo colisiona con el mundo, pero no intercepta la mirada al mirar hacia abajo.
+            jugador.layer = LayerMask.NameToLayer("Ignore Raycast");
             jugador.transform.SetPositionAndRotation(PosicionInicio, Quaternion.Euler(0, RotacionInicio, 0));
 
             CharacterController controlador = jugador.AddComponent<CharacterController>();

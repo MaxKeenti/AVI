@@ -11,12 +11,13 @@ namespace ConsultorioSeguro
         [SerializeField] Camera camara;
         [SerializeField] Transform puntoSujecion;
         [SerializeField, Min(0.5f)] float alcance = 2.5f;
-        [SerializeField] LayerMask capas = ~0;
+        [SerializeField] LayerMask capas = Physics.DefaultRaycastLayers;
 
         InputAction accionInteractuar;
         string tecla;
 
         public Residuo Sostenido { get; private set; }
+        public IInteractuable Objetivo { get; private set; }
         public string Indicacion { get; private set; } = string.Empty;
 
         public event Action<string> IndicacionCambiada;
@@ -27,7 +28,11 @@ namespace ConsultorioSeguro
             tecla = accionInteractuar.GetBindingDisplayString(InputBinding.MaskByGroup("Keyboard&Mouse"));
         }
 
-        void OnDisable() => CambiarIndicacion(string.Empty);
+        void OnDisable()
+        {
+            Objetivo = null;
+            CambiarIndicacion(string.Empty);
+        }
 
         void Update()
         {
@@ -36,6 +41,7 @@ namespace ConsultorioSeguro
             if (string.IsNullOrEmpty(texto))
                 objetivo = null;
 
+            Objetivo = objetivo;
             bool puede = objetivo != null && objetivo.PuedeInteractuar(this);
 
             if (objetivo != null)

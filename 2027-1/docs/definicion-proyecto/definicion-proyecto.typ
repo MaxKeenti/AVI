@@ -228,13 +228,33 @@ orientan hacia el espacio de circulación y permanecen libres de obstáculos.
 
 === Acabados e iluminación interior
 
-Las salas incorporan paneles de iluminación distribuidos, difusores emisivos,
+Las salas incorporan paneles de iluminación de la colección Dental Practice and Surgery, distribuidos en el techo, difusores emisivos propios,
 zoclos sanitarios, marcos de puerta y rejillas de ventilación. Se añaden
 muebles con lavabo, almacenamiento estéril y dispensadores de guantes y
 cubrebocas de la colección Dental Practice and Surgery, cuya fuente y licencia
 se indican a continuación. Estos elementos complementan la ambientación;
 las actividades conservan sus estaciones y recorridos. La iluminación combina
 sombras en tiempo real con luces de relleno para mejorar la lectura del espacio.
+El acabado visual incorpora texturas procedurales propias para el piso satinado
+(mapas de color, normales y suavidad) y la veta de madera; no se añadieron
+fuentes externas para estas texturas. Los paños verdes, el cielo raso con
+juntas, los remates del pasillo y la señalética marfil unifican el interior.
+La corrección de exposición se limita a volúmenes dentro de la clínica y
+el mapeo tonal se mantiene uniforme dentro y fuera para evitar saltos al entrar;
+las cámaras suavizan los bordes con SMAA. El mostrador se sitúa al fondo de la
+recepción, en el lado derecho junto al acceso al pasillo, manteniendo libre
+el recorrido central. La bienvenida con controles y el rótulo de registro
+son carteles independientes. Se reutilizan sillas, mesa auxiliar y planta
+de Furniture Kit para completar la espera junto a la entrada; el paso
+central permanece despejado. Los números se montan al ras del muro,
+junto a cada vano y a la altura de la vista, separados del nombre de la sala.
+
+Los instrumentos pequeños incorporan un contorno blanco de ayuda visual
+y cambian a dorado al apuntarlos. El efecto se limita a objetos cercanos
+en la misma sala, se oculta durante la pausa y al tomar o clasificar
+el residuo; no indica el recipiente correcto. Es un sombreado propio
+del proyecto, sin recursos externos adicionales.
+
 Los modelos mantienen una geometría simplificada: la escena no pretende ser
 una reproducción fotográfica ni una especificación constructiva de una clínica.
 
@@ -248,7 +268,7 @@ El prototipo incorpora modelos existentes para sustituir el mobiliario y gran pa
   align: left,
   table.header([*Fuente y autor*], [*Modelos utilizados y adaptación*]),
   [#link("https://kenney.nl/assets/furniture-kit")[Furniture Kit] — Kenney],
-  [Sillas, planta, monitor, lavabo, banca y bote municipal. Escala, orientación y materiales.],
+  [Sillas, planta, monitor, lavabo, banca, bote municipal y mesa auxiliar. Escala, orientación y materiales.],
   [#link("https://kenney.nl/assets/car-kit")[Car Kit] — Kenney],
   [Sedán para los automóviles de la calle. Ajuste de dimensiones y orientación.],
   [#link("https://kenney.nl/assets/nature-kit")[Nature Kit] — Kenney],
@@ -256,7 +276,7 @@ El prototipo incorpora modelos existentes para sustituir el mobiliario y gran pa
   [#link("https://kenney.nl/assets/city-kit-commercial")[City Kit Commercial] — Kenney],
   [Edificios comerciales building-a, building-b y building-c para los vecinos y la torre sobre la clínica. Adaptación de dimensiones y orientación; repetición de plantas intermedias en building-b y building-c para conservar las proporciones de ventanas y cornisas.],
   [#link("https://3dassets.dev/packs/dental-practice-and-surgery")[Dental Practice and Surgery] — 3D Assets],
-  [Sillón reclinado, lámpara operatoria, brazo de rayos X, gabinetes, tarja, autoclave, mostrador, puerta, recipientes, charola, espejo dental, explorador y algodón. Separación de piezas, escala y adaptación de colores.],
+  [Sillón reclinado, lámpara operatoria, brazo de rayos X, gabinetes, tarja, autoclave, mostrador, puerta, recipientes, charola, espejo dental, explorador, algodón, panel de iluminación de techo, dispensador de guantes y cubrebocas, y gabinete de almacenamiento estéril. Separación de piezas, escala y adaptación de colores.],
   [#link("https://3dassets.dev/packs/field-medicine-and-recovery")[Field Medicine and Recovery] — 3D Assets],
   [Pila de gasas. Escala y color para representar su estado en cada práctica.],
   [#link("https://3dassets.dev/packs/tattoo-and-piercing-studio")[Tattoo and Piercing Studio] — 3D Assets],

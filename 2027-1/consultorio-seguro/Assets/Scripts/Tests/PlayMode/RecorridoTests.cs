@@ -239,6 +239,52 @@ namespace ConsultorioSeguro.Tests
             }
         }
 
+        [UnityTest]
+        public IEnumerator LaRecepcionConservaLaGuiaYSePuedeConsultar()
+        {
+            var bienvenida=GameObject.Find("Recepción ampliada y guías/Bienvenida recepción");
+            StringAssert.Contains("Manual de controles",bienvenida.GetComponentInChildren<TMPro.TMP_Text>().text);
+            var registro=GameObject.Find("Diseño interior/Registro de pacientes");
+            Assert.AreNotSame(bienvenida,registro);
+            var limites=registro.transform.Find("Placa").GetComponent<Renderer>().bounds;
+            Assert.Greater(limites.min.x,1.25f+.04f,"El rótulo invade el pasillo.");
+            Assert.Less(limites.max.x,3.5f-.04f,"El rótulo se incrusta en la pared lateral.");
+            var gestor=GestorSimulacion.Instancia;
+            gestor.Entrar();
+            var jugador=Object.FindAnyObjectByType<ControladorPrimeraPersona>();
+            var controlador=jugador.GetComponent<CharacterController>();
+            controlador.enabled=false;
+            jugador.transform.position=new Vector3(0,.05f,-6.2f);
+            controlador.enabled=true;
+            foreach(var punto in new[]{new Vector3(0,0,.55f),new Vector3(2.4f,0,.55f),new Vector3(0,0,.55f),new Vector3(0,0,5)})
+            {
+                float limite=Time.time+10;
+                while(DistanciaPlana(jugador.transform.position,punto)>.15f && Time.time<limite)
+                {
+                    Vector3 direccion=punto-jugador.transform.position; direccion.y=0;
+                    controlador.Move(Vector3.ClampMagnitude(direccion,4*Time.deltaTime));
+                    yield return null;
+                }
+                Assert.Less(DistanciaPlana(jugador.transform.position,punto),.15f,"Acceso a recepción bloqueado.");
+                if(punto.x>2)
+                {
+                    var ojo=jugador.GetComponentInChildren<Camera>().transform.position;
+                    var direccion=new Vector3(2.4f,.65f,1.5f)-ojo;
+                    Assert.IsTrue(Physics.Raycast(ojo,direccion,out RaycastHit impacto,2.5f,Physics.DefaultRaycastLayers,QueryTriggerInteraction.Ignore));
+                    var info=impacto.collider.GetComponentInParent<ObjetoInformativo>();
+                    Assert.NotNull(info,$"El rayo desde {ojo} golpeó {impacto.collider.name} ({impacto.collider.transform.parent?.name}) en {impacto.point}, sin interacción de recepción.");
+                    jugador.Habilitado=false;
+                    jugador.GetComponentInChildren<Camera>().transform.rotation=Quaternion.LookRotation(direccion);
+                    yield return null;
+                    StringAssert.Contains("Recepción",Object.FindAnyObjectByType<Interactor>().Indicacion);
+                    string titulo=null;
+                    gestor.InformacionSolicitada+=(t,_)=>titulo=t;
+                    info.Interactuar(Object.FindAnyObjectByType<Interactor>());
+                    Assert.AreEqual("Recepción",titulo);
+                }
+            }
+        }
+
         static float DistanciaPlana(Vector3 a, Vector3 b) => Vector2.Distance(new Vector2(a.x, a.z), new Vector2(b.x, b.z));
 
         static IEnumerator CompletarPasos(SecuenciaPasos secuencia)

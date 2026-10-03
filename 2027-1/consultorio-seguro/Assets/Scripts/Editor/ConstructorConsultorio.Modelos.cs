@@ -45,7 +45,7 @@ namespace ConsultorioSeguro.Editor
             credito.url = "https://kenney.nl/assets/furniture-kit";
             credito.licencia = "CC0 1.0 Universal";
             credito.fechaConsulta = "2026-09-28";
-            credito.modificaciones = "Selección de chairModernFrameCushion, pottedPlant, computerScreen, bathroomSink, bench y trashcan. Escala, orientación y posición; materiales adaptados a URP y a la paleta del consultorio. Geometría original sin modificar.";
+            credito.modificaciones = "Selección de chairModernFrameCushion, pottedPlant, computerScreen, bathroomSink, bench, trashcan y sideTable. Escala, orientación y posición; materiales adaptados a URP y a la paleta del consultorio. Geometría original sin modificar.";
             EditorUtility.SetDirty(credito);
 
             GameObject anterior = GameObject.Find("Modelos de terceros");
@@ -64,7 +64,7 @@ namespace ConsultorioSeguro.Editor
             ColocarModelo(raiz, "computerScreen", new Vector3(2.7f, 0.9f, -5.1f), 0.34f, 0);
             OcultarMallas(GameObject.Find("Recepción/Lavabo/Pedestal"));
             OcultarMallas(GameObject.Find("Recepción/Lavabo/Tarja"));
-            ColocarModelo(raiz, "bathroomSink", new Vector3(-3.22f, 0, -3.7f), 0.95f, 90);
+            ColocarModelo(raiz, "bathroomSink", new Vector3(-3.22f, 0, -3.7f), 0.95f, -90);
             AplicarModelosClinicos(raiz);
             HerramientasAtribucion.ActualizarCatalogo();
         }

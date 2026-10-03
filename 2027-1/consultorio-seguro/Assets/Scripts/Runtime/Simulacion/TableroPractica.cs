@@ -54,7 +54,7 @@ namespace ConsultorioSeguro
 
             string estado;
             if (escenario.Completado)
-                estado = "<color=#7CE38B>Práctica completada</color>";
+                estado = "<color=#215B39>Práctica completada</color>";
             else if (escenario.PasosPendientes)
                 estado = escenario.Secuencia.Esperando
                     ? "Espera un momento..."
@@ -67,14 +67,14 @@ namespace ConsultorioSeguro
             if (escenario.Completado)
                 mejor = Mathf.Max(mejor, puntuacion.Puntos);
 
-            string accion = escenario.Completado ? "Interactúa para repetir" : "Interactúa para ver las instrucciones";
+            string accion = escenario.Completado ? "E · Repetir práctica" : "E · Ver instrucciones";
 
             texto.text =
                 $"<b>{escenario.Datos.nombre}</b>\n" +
-                $"<size=60%>{estado}\n" +
+                $"<size=75%>{estado}\n" +
                 $"Aciertos: {puntuacion.Aciertos}   Errores: {puntuacion.Errores}   Puntos: {puntuacion.Puntos}\n" +
                 $"Mejor puntuación: {mejor}</size>\n" +
-                $"<size=45%><i>{accion}</i></size>";
+                $"<size=75%><i>{accion}</i></size>";
             if (textoReverso != null) textoReverso.text = texto.text;
         }
     }
