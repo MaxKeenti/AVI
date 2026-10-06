@@ -89,7 +89,8 @@
         "godot": "# Godot 4: copy model.glb into res://models/ and the editor imports it as a scene.\nvar packed := load(\"res://models/model.glb\") as PackedScene\nvar model := packed.instantiate()\nadd_child(model)",
         "unity": "// Unity: import model.glb with glTFast (Package Manager: com.unity.cloud.gltfast) and drag the prefab in,\n// or load it at runtime straight from the CDN:\nusing GLTFast;\nvar gltf = new GltfImport();\nif (await gltf.Load(\"https://cdn.3dassets.dev/assets/34372/v1/model.glb\")) await gltf.InstantiateMainSceneAsync(transform);"
       },
-      "localFile": "dental-chair-reclined.glb"
+      "localFile": "dental-chair-reclined.glb",
+      "modificaciones_en_escena": "En la escena se ocultan los cojines planos originales y se añaden asiento, respaldo, apoyo de piernas y reposacabezas contorneados, costuras, apoyabrazos, collarines hidráulicos y pedal con cable de elaboración propia. El vinilo salvia incorpora un mapa normal procedural propio. Se conserva el bastidor importado y su colisión; el GLB original no se modifica."
     },
     {
       "id": "34374",
@@ -181,7 +182,8 @@
         "godot": "# Godot 4: copy model.glb into res://models/ and the editor imports it as a scene.\nvar packed := load(\"res://models/model.glb\") as PackedScene\nvar model := packed.instantiate()\nadd_child(model)\nvar player := model.find_child(\"AnimationPlayer\", true, false) as AnimationPlayer\nplayer.play(player.get_animation_list()[0])",
         "unity": "// Unity: import model.glb with glTFast (Package Manager: com.unity.cloud.gltfast) and drag the prefab in,\n// or load it at runtime straight from the CDN:\nusing GLTFast;\nvar gltf = new GltfImport();\nif (await gltf.Load(\"https://cdn.3dassets.dev/assets/34374/v1/model.glb\")) await gltf.InstantiateMainSceneAsync(transform);\n// Clips import as legacy AnimationClips on the root; GetComponent<Animation>().Play() starts the first."
       },
-      "localFile": "operating-light.glb"
+      "localFile": "operating-light.glb",
+      "modificaciones_en_escena": "Se añaden seis reflectores ópticos y lentes LED de elaboración propia bajo el cabezal. El GLB original, sus articulaciones y su geometría se conservan."
     },
     {
       "id": "34376",
@@ -272,7 +274,8 @@
         "godot": "# Godot 4: copy model.glb into res://models/ and the editor imports it as a scene.\nvar packed := load(\"res://models/model.glb\") as PackedScene\nvar model := packed.instantiate()\nadd_child(model)\nvar player := model.find_child(\"AnimationPlayer\", true, false) as AnimationPlayer\nplayer.play(player.get_animation_list()[0])",
         "unity": "// Unity: import model.glb with glTFast (Package Manager: com.unity.cloud.gltfast) and drag the prefab in,\n// or load it at runtime straight from the CDN:\nusing GLTFast;\nvar gltf = new GltfImport();\nif (await gltf.Load(\"https://cdn.3dassets.dev/assets/34376/v1/model.glb\")) await gltf.InstantiateMainSceneAsync(transform);\n// Clips import as legacy AnimationClips on the root; GetComponent<Animation>().Play() starts the first."
       },
-      "localFile": "intraoral-xray-arm.glb"
+      "localFile": "intraoral-xray-arm.glb",
+      "modificaciones_en_escena": "Se añade un aro de colimador y una abertura interior de elaboración propia al cabezal. El GLB original se conserva; el equipo sigue siendo una representación educativa simplificada."
     },
     {
       "id": "34381",

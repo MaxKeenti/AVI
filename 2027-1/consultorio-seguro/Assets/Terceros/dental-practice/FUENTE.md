@@ -25,3 +25,11 @@ Se conservan originales GLB y sus metadatos. Las piezas OBJ conservadas son adap
 - Glove And Mask Dispenser (Dental Practice and Surgery): https://3dassets.dev/assets/dental-practice-and-surgery-glove-and-mask-dispenser-64ec22b4
 - Clinical Floor Tile (Dental Practice and Surgery): https://3dassets.dev/assets/dental-practice-and-surgery-clinical-floor-tile-e09b593c
 - Corridor Wall Module (Dental Practice and Surgery): https://3dassets.dev/assets/dental-practice-and-surgery-corridor-wall-module-6478e914
+
+## Adaptaciones visuales del 5 de octubre de 2026
+
+- `dental-chair-reclined.glb`: En la escena se ocultan los cojines planos originales y se añaden asiento, respaldo, apoyo de piernas y reposacabezas contorneados, costuras, apoyabrazos, collarines hidráulicos y pedal con cable de elaboración propia. El vinilo salvia incorpora un mapa normal procedural propio. Se conserva el bastidor importado y su colisión; el GLB original no se modifica.
+- `operating-light.glb`: Se añaden seis reflectores ópticos y lentes LED de elaboración propia bajo el cabezal. El GLB original, sus articulaciones y su geometría se conservan.
+- `intraoral-xray-arm.glb`: Se añade un aro de colimador y una abertura interior de elaboración propia al cabezal. El GLB original se conserva; el equipo sigue siendo una representación educativa simplificada.
+
+La unidad de agua e instrumental, sus mangueras y escupidera, y los taburetes regulables son complementos de geometría propia, no recursos descargados de este proveedor. Se generan en `ClinicBuilder.DentalDetail.cs`.

@@ -1,28 +1,28 @@
 {
-  "fecha": "2026-10-04",
+  "fecha": "2026-10-05",
   "imagenes": [
     {
       "origen": "2027-1/consultorio-seguro/Capturas/01-exterior.png",
       "copia": "unity-01-exterior.png",
-      "sha256": "2eacabd64a59c9ce3dcda7a3a3a52534aedf0a2cc1451cf326fc14964e26d315",
+      "sha256": "0563383179abbf49372d434a0ecc4528c11d7d4b129e8ae848ca87406765b228",
       "sin_modificaciones": true
     },
     {
       "origen": "2027-1/consultorio-seguro/Capturas/03-recepcion.png",
       "copia": "unity-03-recepcion.png",
-      "sha256": "640efefc78c1d290899d5b015cc3d893dbf8a1db5442551daa5820175d233f9f",
+      "sha256": "4141be5ecbe25a730ce817b6bd6093212b2f0a28c6ca8e105a07a6fe2997b7ab",
       "sin_modificaciones": true
     },
     {
       "origen": "2027-1/consultorio-seguro/Capturas/09-procedimientos.png",
       "copia": "unity-09-procedimientos.png",
-      "sha256": "1599d91f1d320385d5e05e74df3a7200832d29b384f614e4622fbf572317e6a8",
+      "sha256": "115293c9b729993348b30bef0c923f4e4616d5d307bc4df98e39eb6be16f33b7",
       "sin_modificaciones": true
     },
     {
       "origen": "2027-1/consultorio-seguro/Capturas/12-corte-superior.png",
       "copia": "unity-12-corte-superior.png",
-      "sha256": "41ec429c966649ab621e950a5b4c5fc0f93f87f91048662a1449639e5e7a8734",
+      "sha256": "b9aaa87d52549ff98e97f8c4ae7036a19f74fbba6cef0a2adac43e5239ac83a1",
       "sin_modificaciones": true
     }
   ]

@@ -13,3 +13,5 @@ Modificaciones: Descarga de glTF y mapas PBR de 2K. Conversión a OBJ con normal
 Los archivos originales, URL de descarga y sumas SHA-256 se conservan en `procedencia.json`.
 
 Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB.
+
+Refinamiento del 5 de octubre de 2026: en el material de los cojines se sustituye la asignación del mapa de color oscuro por un albedo uniforme cálido y neutro; se conservan los mapas de normales, rugosidad y oclusión procedentes del recurso. La geometría, el mapa de color original y los demás archivos importados permanecen sin cambios.

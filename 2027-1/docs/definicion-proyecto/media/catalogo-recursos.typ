@@ -8,7 +8,7 @@
   #link("https://3dassets.dev/assets/dental-practice-and-surgery-autoclave-bench-open-9242233f")[Abrir fuente original]. Consulta: 2026-09-28.\
   Carpeta: #text(size: 8pt, "Assets/Terceros/dental-practice").\
   Archivos: #text(size: 8pt, "autoclave-bench-open.glb, autoclave.obj").\
-  Cambios: #text("Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, sin atribuirles una autoría nueva.")
+  Cambios: #text("Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, con atribución al autor del recurso.")
 ]
 
 #block(breakable: false)[
@@ -62,7 +62,7 @@
   #link("https://3dassets.dev/assets/dental-practice-and-surgery-dental-chair-reclined-98149de1")[Abrir fuente original]. Consulta: 2026-09-28.\
   Carpeta: #text(size: 8pt, "Assets/Terceros/dental-practice").\
   Archivos: #text(size: 8pt, "dental-chair-reclined.glb").\
-  Cambios: #text("Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.")
+  Cambios: #text("Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. En la escena se ocultan los cojines planos originales y se añaden asiento, respaldo, apoyo de piernas y reposacabezas contorneados, costuras, apoyabrazos, collarines hidráulicos y pedal con cable de elaboración propia. El vinilo salvia incorpora un mapa normal procedural propio. Se conserva el bastidor importado y su colisión; el GLB original no se modifica.")
 ]
 
 #block(breakable: false)[
@@ -80,7 +80,7 @@
   #link("https://3dassets.dev/assets/dental-practice-and-surgery-instrument-tray-33b4d81c")[Abrir fuente original]. Consulta: 2026-09-28.\
   Carpeta: #text(size: 8pt, "Assets/Terceros/dental-practice").\
   Archivos: #text(size: 8pt, "instrument-tray.glb, espejo.obj, explorador.obj, algodon.obj, charola.obj").\
-  Cambios: #text("Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, sin atribuirles una autoría nueva.")
+  Cambios: #text("Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, con atribución al autor del recurso.")
 ]
 
 #block(breakable: false)[
@@ -89,7 +89,7 @@
   #link("https://3dassets.dev/assets/dental-practice-and-surgery-intraoral-xray-arm-7ea56888")[Abrir fuente original]. Consulta: 2026-09-28.\
   Carpeta: #text(size: 8pt, "Assets/Terceros/dental-practice").\
   Archivos: #text(size: 8pt, "intraoral-xray-arm.glb, soporte-rayos.obj, brazo-rayos.obj").\
-  Cambios: #text("Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, sin atribuirles una autoría nueva.")
+  Cambios: #text("Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, con atribución al autor del recurso. Se añade un aro de colimador y una abertura interior de elaboración propia al cabezal. El GLB original se conserva; el equipo sigue siendo una representación educativa simplificada.")
 ]
 
 #block(breakable: false)[
@@ -98,7 +98,7 @@
   #link("https://3dassets.dev/assets/dental-practice-and-surgery-operating-light-e636b996")[Abrir fuente original]. Consulta: 2026-09-28.\
   Carpeta: #text(size: 8pt, "Assets/Terceros/dental-practice").\
   Archivos: #text(size: 8pt, "operating-light.glb").\
-  Cambios: #text("Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.")
+  Cambios: #text("Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Se añaden seis reflectores ópticos y lentes LED de elaboración propia bajo el cabezal. El GLB original, sus articulaciones y su geometría se conservan.")
 ]
 
 #block(breakable: false)[
@@ -125,7 +125,7 @@
   #link("https://3dassets.dev/assets/dental-practice-and-surgery-reception-desk-ad8b99c5")[Abrir fuente original]. Consulta: 2026-09-28.\
   Carpeta: #text(size: 8pt, "Assets/Terceros/dental-practice").\
   Archivos: #text(size: 8pt, "reception-desk.glb, mostrador.obj").\
-  Cambios: #text("Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, sin atribuirles una autoría nueva.")
+  Cambios: #text("Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, con atribución al autor del recurso.")
 ]
 
 #block(breakable: false)[
@@ -152,7 +152,7 @@
   #link("https://3dassets.dev/assets/dental-practice-and-surgery-surgery-door-module-open-e59a6ba3")[Abrir fuente original]. Consulta: 2026-09-28.\
   Carpeta: #text(size: 8pt, "Assets/Terceros/dental-practice").\
   Archivos: #text(size: 8pt, "surgery-door-module-open.glb, puerta.obj").\
-  Cambios: #text("Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, sin atribuirles una autoría nueva.")
+  Cambios: #text("Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, con atribución al autor del recurso.")
 ]
 
 #block(breakable: false)[
@@ -377,7 +377,7 @@
   #link("https://polyhaven.com/a/beige_wall_001")[Abrir fuente original]. Consulta: 2026-10-02.\
   Carpeta: #text(size: 8pt, "Assets/Terceros/polyhaven-beige-wall-001").\
   Archivos: #text(size: 8pt, "beige_wall_001_ao_2k.jpg, beige_wall_001_diff_2k.jpg, beige_wall_001_metallic_gloss_2k.png, beige_wall_001_nor_gl_2k.jpg, beige_wall_001_occlusion_2k.png, beige_wall_001_rough_2k.jpg").\
-  Cambios: #text("Selección de mapas de color base, normal OpenGL y rugosidad a 2K; repetición, intensidad y tinte configurados en Unity. Sin modificación de los originales. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB.")
+  Cambios: #text("Selección de mapas de color base, normal OpenGL y rugosidad a 2K; repetición, intensidad y tinte configurados en Unity. Sin modificación de los originales. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB. El material de yeso interior utiliza color uniforme y el mapa normal con intensidad reducida; no asigna la fotografía de color, el mapa de oclusión ni el mapa empaquetado de metalicidad y suavidad al material del muro. Los archivos fuente se conservan sin cambios.")
 ]
 
 #block(breakable: false)[
@@ -386,7 +386,7 @@
   #link("https://polyhaven.com/a/modern_arm_chair_01")[Abrir fuente original]. Consulta: 2026-10-02.\
   Carpeta: #text(size: 8pt, "Assets/Terceros/polyhaven-modern-arm-chair-01").\
   Archivos: #text(size: 8pt, "modern_arm_chair_01.bin, modern_arm_chair_01.obj, modern_arm_chair_01_2k.gltf, textures/modern_arm_chair_01_legs_arm_2k.jpg, textures/modern_arm_chair_01_legs_diff_2k.jpg, textures/modern_arm_chair_01_legs_metallic_gloss_2k.png, textures/modern_arm_chair_01_legs_nor_gl_2k.jpg, textures/modern_arm_chair_01_legs_occlusion_2k.png, textures/modern_arm_chair_01_pillow_arm_2k.jpg, textures/modern_arm_chair_01_pillow_diff_2k.jpg, textures/modern_arm_chair_01_pillow_metallic_gloss_2k.png, textures/modern_arm_chair_01_pillow_nor_gl_2k.jpg, textures/modern_arm_chair_01_pillow_occlusion_2k.png").\
-  Cambios: #text("Descarga de glTF y mapas PBR de 2K. Conversión a OBJ con normales, UV, grupos de materiales y traslaciones originales; inversión de V para Wavefront. Sin simplificación de malla. Escala y materiales finales configurados en Unity. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB.")
+  Cambios: #text("Descarga de glTF y mapas PBR de 2K. Conversión a OBJ con normales, UV, grupos de materiales y traslaciones originales; inversión de V para Wavefront. Sin simplificación de malla. Escala y materiales finales configurados en Unity. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB. El material de los cojines utiliza un albedo uniforme cálido y neutro, con los mapas de normales, rugosidad y oclusión procedentes del recurso. El mapa de color del recurso no está asignado al material de los cojines. La geometría, el mapa de color original y los demás archivos importados permanecen sin cambios.")
 ]
 
 #block(breakable: false)[
@@ -395,7 +395,7 @@
   #link("https://polyhaven.com/a/oak_veneer_01")[Abrir fuente original]. Consulta: 2026-10-02.\
   Carpeta: #text(size: 8pt, "Assets/Terceros/polyhaven-oak-veneer-01").\
   Archivos: #text(size: 8pt, "oak_veneer_01_ao_2k.jpg, oak_veneer_01_diff_2k.jpg, oak_veneer_01_metallic_gloss_2k.png, oak_veneer_01_nor_gl_2k.jpg, oak_veneer_01_occlusion_2k.png, oak_veneer_01_rough_2k.jpg").\
-  Cambios: #text("Selección de mapas de color base, normal OpenGL y rugosidad a 2K; repetición, intensidad y tinte configurados en Unity. Sin modificación de los originales. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB.")
+  Cambios: #text("Selección de mapas de color base, normal OpenGL y rugosidad a 2K; repetición, intensidad y tinte configurados en Unity. Sin modificación de los originales. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB. Variantes de material con repetición UV independiente por superficie para el revestimiento, la marquesina y los detalles de madera; ajustes de intensidad de normal, suavidad y oclusión en Unity. Los mapas originales y derivados se conservan sin cambios.")
 ]
 
 #block(breakable: false)[
@@ -431,7 +431,7 @@
   #link("https://3dassets.dev/assets/tattoo-and-piercing-studio-barrier-film-roll-34c18eb0")[Abrir fuente original]. Consulta: 2026-09-28.\
   Carpeta: #text(size: 8pt, "Assets/Terceros/tattoo-studio").\
   Archivos: #text(size: 8pt, "barrier-film-roll.glb, hoja-barrera.obj").\
-  Cambios: #text("Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, sin atribuirles una autoría nueva.")
+  Cambios: #text("Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, con atribución al autor del recurso.")
 ]
 
 #block(breakable: false)[
@@ -449,7 +449,7 @@
   #link("https://3dassets.dev/assets/tattoo-and-piercing-studio-rolling-tray-table-93236166")[Abrir fuente original]. Consulta: 2026-09-28.\
   Carpeta: #text(size: 8pt, "Assets/Terceros/tattoo-studio").\
   Archivos: #text(size: 8pt, "rolling-tray-table.glb, carrito-vacio.obj").\
-  Cambios: #text("Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, sin atribuirles una autoría nueva.")
+  Cambios: #text("Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, con atribución al autor del recurso.")
 ]
 
 #block(breakable: false)[

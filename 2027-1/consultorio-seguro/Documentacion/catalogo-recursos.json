@@ -94,7 +94,7 @@
     "archivos": [
       "dental-chair-reclined.glb"
     ],
-    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.",
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. En la escena se ocultan los cojines planos originales y se añaden asiento, respaldo, apoyo de piernas y reposacabezas contorneados, costuras, apoyabrazos, collarines hidráulicos y pedal con cable de elaboración propia. El vinilo salvia incorpora un mapa normal procedural propio. Se conserva el bastidor importado y su colisión; el GLB original no se modifica.",
     "consulta": "2026-09-28",
     "ia_declarada": true
   },
@@ -142,7 +142,7 @@
       "soporte-rayos.obj",
       "brazo-rayos.obj"
     ],
-    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, sin atribuirles una autoría nueva.",
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, sin atribuirles una autoría nueva. Se añade un aro de colimador y una abertura interior de elaboración propia al cabezal. El GLB original se conserva; el equipo sigue siendo una representación educativa simplificada.",
     "consulta": "2026-09-28",
     "ia_declarada": true
   },
@@ -156,7 +156,7 @@
     "archivos": [
       "operating-light.glb"
     ],
-    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.",
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Se añaden seis reflectores ópticos y lentes LED de elaboración propia bajo el cabezal. El GLB original, sus articulaciones y su geometría se conservan.",
     "consulta": "2026-09-28",
     "ia_declarada": true
   },
@@ -610,7 +610,7 @@
       "beige_wall_001_occlusion_2k.png",
       "beige_wall_001_rough_2k.jpg"
     ],
-    "modificaciones": "Selección de mapas de color base, normal OpenGL y rugosidad a 2K; repetición, intensidad y tinte configurados en Unity. Sin modificación de los originales. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB.",
+    "modificaciones": "Selección de mapas de color base, normal OpenGL y rugosidad a 2K; repetición, intensidad y tinte configurados en Unity. Sin modificación de los originales. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB. Refinamiento del 5 de octubre de 2026: el yeso interior utiliza color uniforme y el mapa normal con intensidad reducida; no asigna la fotografía de color, el mapa de oclusión ni el mapa empaquetado de metalicidad y suavidad al material del muro. Los archivos fuente se conservan sin cambios.",
     "consulta": "2026-10-02",
     "ia_declarada": false
   },
@@ -636,7 +636,7 @@
       "textures/modern_arm_chair_01_pillow_nor_gl_2k.jpg",
       "textures/modern_arm_chair_01_pillow_occlusion_2k.png"
     ],
-    "modificaciones": "Descarga de glTF y mapas PBR de 2K. Conversión a OBJ con normales, UV, grupos de materiales y traslaciones originales; inversión de V para Wavefront. Sin simplificación de malla. Escala y materiales finales configurados en Unity. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB.",
+    "modificaciones": "Descarga de glTF y mapas PBR de 2K. Conversión a OBJ con normales, UV, grupos de materiales y traslaciones originales; inversión de V para Wavefront. Sin simplificación de malla. Escala y materiales finales configurados en Unity. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB. Refinamiento del 5 de octubre de 2026: en el material de los cojines se sustituye la asignación del mapa de color oscuro por un albedo uniforme cálido y neutro; se conservan los mapas de normales, rugosidad y oclusión procedentes del recurso. La geometría, el mapa de color original y los demás archivos importados permanecen sin cambios.",
     "consulta": "2026-10-02",
     "ia_declarada": false
   },
@@ -655,7 +655,7 @@
       "oak_veneer_01_occlusion_2k.png",
       "oak_veneer_01_rough_2k.jpg"
     ],
-    "modificaciones": "Selección de mapas de color base, normal OpenGL y rugosidad a 2K; repetición, intensidad y tinte configurados en Unity. Sin modificación de los originales. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB.",
+    "modificaciones": "Selección de mapas de color base, normal OpenGL y rugosidad a 2K; repetición, intensidad y tinte configurados en Unity. Sin modificación de los originales. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB. Refinamiento del 5 de octubre de 2026: variantes de material con repetición UV independiente por superficie para el revestimiento, la marquesina y los detalles de madera; ajustes de intensidad de normal, suavidad y oclusión en Unity. Los mapas originales y los mapas derivados existentes se conservan sin cambios.",
     "consulta": "2026-10-02",
     "ia_declarada": false
   },

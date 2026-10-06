@@ -1,6 +1,6 @@
 # Créditos y procedencia de recursos externos
 
-Registro de la nueva construcción de **Consultorio Seguro**, actualizado el 3 de octubre de 2026. Cada entrada identifica el recurso original y sus derivados. La biblioteca incluye archivos conservados para evaluación: su presencia en este registro no significa que todos estén colocados en la escena.
+Registro de la nueva construcción de **Consultorio Seguro**, actualizado el 5 de octubre de 2026. Cada entrada identifica el recurso original y sus derivados. La biblioteca incluye archivos conservados para evaluación: su presencia en este registro no significa que todos estén colocados en la escena.
 
 Las carpetas `Assets/Terceros/*` conservan los originales, `FUENTE.md` y, cuando existe, `procedencia.json` con los metadatos del proveedor. Los cuatro recursos de Poly Haven incluyen las URL de descarga y sumas SHA-256. `Documentacion/catalogo-recursos.json` es la versión estructurada de este catálogo; la definición Typst contiene una copia autónoma.
 
@@ -9,6 +9,8 @@ Las carpetas `Assets/Terceros/*` conservan los originales, `FUENTE.md` y, cuando
 - [SIL Open Font License 1.1](https://github.com/notofonts/noto-fonts/blob/main/LICENSE): Noto Sans Regular, The Noto Project Authors. El texto de licencia y el aviso de derechos se conservan en `Assets/Terceros/noto-sans/OFL.txt`.
 - Los modelos de 3D Assets se publican como generados mediante inteligencia artificial. Esto es una declaración del proveedor; no son modelos creados originalmente por el equipo ni una validación de exactitud anatómica.
 - Arquitectura, señalización, código, disposición de muebles y texturas procedurales propias: elaboración de Consultorio Seguro. Los nombres originales de los recursos se conservan para que sean localizables.
+
+Mostrador redondeado, emblema dental, motivos botánicos, tapicería contorneada, unidad dental, taburetes y detalles de equipos: geometría propia de Consultorio Seguro; las bases y materiales externos mantienen sus atribuciones individuales.
 
 ## Autoclave Bench Open (Dental Practice and Surgery)
 
@@ -71,7 +73,7 @@ Las carpetas `Assets/Terceros/*` conservan los originales, `FUENTE.md` y, cuando
 - **Licencia:** [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/).
 - **Consulta original:** 2026-09-28.
 - **Archivos:** `Assets/Terceros/dental-practice/`: `dental-chair-reclined.glb`.
-- **Modificaciones:** Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.
+- **Modificaciones:** Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. En la escena se ocultan los cojines planos originales y se añaden asiento, respaldo, apoyo de piernas y reposacabezas contorneados, costuras, apoyabrazos, collarines hidráulicos y pedal con cable de elaboración propia. El vinilo salvia incorpora un mapa normal procedural propio. Se conserva el bastidor importado y su colisión; el GLB original no se modifica.
 
 ## Glove And Mask Dispenser (Dental Practice and Surgery)
 
@@ -98,7 +100,7 @@ Las carpetas `Assets/Terceros/*` conservan los originales, `FUENTE.md` y, cuando
 - **Licencia:** [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/).
 - **Consulta original:** 2026-09-28.
 - **Archivos:** `Assets/Terceros/dental-practice/`: `intraoral-xray-arm.glb`, `soporte-rayos.obj`, `brazo-rayos.obj`.
-- **Modificaciones:** Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, sin atribuirles una autoría nueva.
+- **Modificaciones:** Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, sin atribuirles una autoría nueva. Se añade un aro de colimador y una abertura interior de elaboración propia al cabezal. El GLB original se conserva; el equipo sigue siendo una representación educativa simplificada.
 
 ## Operating Light (Dental Practice and Surgery)
 
@@ -107,7 +109,7 @@ Las carpetas `Assets/Terceros/*` conservan los originales, `FUENTE.md` y, cuando
 - **Licencia:** [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/).
 - **Consulta original:** 2026-09-28.
 - **Archivos:** `Assets/Terceros/dental-practice/`: `operating-light.glb`.
-- **Modificaciones:** Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.
+- **Modificaciones:** Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Se añaden seis reflectores ópticos y lentes LED de elaboración propia bajo el cabezal. El GLB original, sus articulaciones y su geometría se conservan.
 
 ## Pedal Waste Bin (Dental Practice and Surgery)
 
@@ -386,7 +388,7 @@ Las carpetas `Assets/Terceros/*` conservan los originales, `FUENTE.md` y, cuando
 - **Licencia:** [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/).
 - **Consulta original:** 2026-10-02.
 - **Archivos:** `Assets/Terceros/polyhaven-beige-wall-001/`: `beige_wall_001_ao_2k.jpg`, `beige_wall_001_diff_2k.jpg`, `beige_wall_001_metallic_gloss_2k.png`, `beige_wall_001_nor_gl_2k.jpg`, `beige_wall_001_occlusion_2k.png`, `beige_wall_001_rough_2k.jpg`.
-- **Modificaciones:** Selección de mapas de color base, normal OpenGL y rugosidad a 2K; repetición, intensidad y tinte configurados en Unity. Sin modificación de los originales. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB.
+- **Modificaciones:** Selección de mapas de color base, normal OpenGL y rugosidad a 2K; repetición, intensidad y tinte configurados en Unity. Sin modificación de los originales. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB. Refinamiento del 5 de octubre de 2026: el yeso interior utiliza color uniforme y el mapa normal con intensidad reducida; no asigna la fotografía de color, el mapa de oclusión ni el mapa empaquetado de metalicidad y suavidad al material del muro. Los archivos fuente se conservan sin cambios.
 
 ## Modern Arm Chair 01
 
@@ -395,7 +397,7 @@ Las carpetas `Assets/Terceros/*` conservan los originales, `FUENTE.md` y, cuando
 - **Licencia:** [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/).
 - **Consulta original:** 2026-10-02.
 - **Archivos:** `Assets/Terceros/polyhaven-modern-arm-chair-01/`: `modern_arm_chair_01.bin`, `modern_arm_chair_01.obj`, `modern_arm_chair_01_2k.gltf`, `textures/modern_arm_chair_01_legs_arm_2k.jpg`, `textures/modern_arm_chair_01_legs_diff_2k.jpg`, `textures/modern_arm_chair_01_legs_metallic_gloss_2k.png`, `textures/modern_arm_chair_01_legs_nor_gl_2k.jpg`, `textures/modern_arm_chair_01_legs_occlusion_2k.png`, `textures/modern_arm_chair_01_pillow_arm_2k.jpg`, `textures/modern_arm_chair_01_pillow_diff_2k.jpg`, `textures/modern_arm_chair_01_pillow_metallic_gloss_2k.png`, `textures/modern_arm_chair_01_pillow_nor_gl_2k.jpg`, `textures/modern_arm_chair_01_pillow_occlusion_2k.png`.
-- **Modificaciones:** Descarga de glTF y mapas PBR de 2K. Conversión a OBJ con normales, UV, grupos de materiales y traslaciones originales; inversión de V para Wavefront. Sin simplificación de malla. Escala y materiales finales configurados en Unity. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB.
+- **Modificaciones:** Descarga de glTF y mapas PBR de 2K. Conversión a OBJ con normales, UV, grupos de materiales y traslaciones originales; inversión de V para Wavefront. Sin simplificación de malla. Escala y materiales finales configurados en Unity. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB. Refinamiento del 5 de octubre de 2026: en el material de los cojines se sustituye la asignación del mapa de color oscuro por un albedo uniforme cálido y neutro; se conservan los mapas de normales, rugosidad y oclusión procedentes del recurso. La geometría, el mapa de color original y los demás archivos importados permanecen sin cambios.
 
 ## Oak Veneer 01
 
@@ -404,7 +406,7 @@ Las carpetas `Assets/Terceros/*` conservan los originales, `FUENTE.md` y, cuando
 - **Licencia:** [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/).
 - **Consulta original:** 2026-10-02.
 - **Archivos:** `Assets/Terceros/polyhaven-oak-veneer-01/`: `oak_veneer_01_ao_2k.jpg`, `oak_veneer_01_diff_2k.jpg`, `oak_veneer_01_metallic_gloss_2k.png`, `oak_veneer_01_nor_gl_2k.jpg`, `oak_veneer_01_occlusion_2k.png`, `oak_veneer_01_rough_2k.jpg`.
-- **Modificaciones:** Selección de mapas de color base, normal OpenGL y rugosidad a 2K; repetición, intensidad y tinte configurados en Unity. Sin modificación de los originales. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB.
+- **Modificaciones:** Selección de mapas de color base, normal OpenGL y rugosidad a 2K; repetición, intensidad y tinte configurados en Unity. Sin modificación de los originales. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB. Refinamiento del 5 de octubre de 2026: variantes de material con repetición UV independiente por superficie para el revestimiento, la marquesina y los detalles de madera; ajustes de intensidad de normal, suavidad y oclusión en Unity. Los mapas originales y los mapas derivados existentes se conservan sin cambios.
 
 ## Potted Plant 02
 

@@ -1,6 +1,6 @@
 # Entrega y validación de Consultorio Seguro
 
-Nueva construcción, verificación actualizada el 4 de octubre de 2026. Este documento diferencia comprobaciones documentales, pruebas de ejecución e inspección visual. No hereda resultados de la versión anterior.
+Nueva construcción, verificación actualizada el 5 de octubre de 2026. Este documento diferencia comprobaciones documentales, pruebas de ejecución e inspección visual. No hereda resultados de la versión anterior.
 
 ## Comprobado documentalmente
 
@@ -33,7 +33,19 @@ Nueva construcción, verificación actualizada el 4 de octubre de 2026. Este doc
 
 Se inspeccionaron las capturas a altura normal de ojos, el corte superior y la recepción dentro del editor. Mediante clics, rueda y teclado en la interfaz del editor se verificaron inicio, manual desde inicio y pausa, desplazamiento del manual, créditos, Volver, Escape, Reanudar y atajo M. La interfaz se comprobó en Full HD (1920 × 1080); Unity quedó abierto en recepción fuera de Play. **No se completó una caminata manual con teclado y ratón por todas las salas**: el recorrido íntegro y las interacciones fueron automatizados. No se equipara una imagen de cámara con una prueba de entrada física.
 
-La escena usa iluminación directa, rellenos y ocho sondas de reflexión guardadas. No contiene una iluminación global horneada. Unity ajusta automáticamente la resolución de sombras adicionales para caber en su atlas; las imágenes entregadas incluyen ese ajuste. Parte del instrumental y del equipo dental conserva geometría simplificada; esta entrega no debe describirse como una visualización fotorrealista terminada.
+La escena usa iluminación directa, rellenos y ocho sondas de reflexión guardadas. No contiene una iluminación global horneada. El refinamiento usa Forward+, sombras suaves, oclusión de contacto y mezcla de sondas con proyección de caja. No aparecen avisos de reducción del atlas en la última generación de las capturas. Parte del instrumental y del equipo dental conserva geometría simplificada; esta entrega no debe describirse como una visualización fotorrealista terminada.
+
+El 5 de octubre se volvió a abrir la escena guardada desde Unity Hub y se inspeccionaron recepción, procedimientos y radiografía con las vistas del editor, sin entrar en Play. Los nuevos muebles, cojines y materiales son visibles en la escena editable. Unity quedó en la vista de recepción.
+
+## Refinamiento visual del 5 de octubre
+
+- Recepción con mostrador redondeado, fondo claro, listones a escala, archivo posterior y emblema dental propio.
+- Tapicería clara en espera, directorio compacto, láminas botánicas y protección mural del pasillo.
+- Sillones con cojines contorneados, costuras y detalles hidráulicos; unidad dental con mangueras y escupidera, taburetes de cinco ruedas y detalles ópticos.
+- Ajustes de yeso, roble, porcelanato, exposición, reflejos y vidrio; eliminación de brillos artificiales causados por luces puntuales junto a los asientos.
+- Corrección del espacio detrás de recepción y de la posición del taburete para mantener acceso al manual de procedimientos. Los registros fallidos previos permanecen en `Verificacion/Diagnosticos`.
+
+Las adaptaciones se describen en `Documentacion/MEJORAS-VISUALES.md`, los metadatos de cada fuente, el catálogo, los créditos y la definición Typst. Los recursos importados mantienen sus atribuciones; no se incorporaron descargas nuevas.
 
 ## Procedimiento de aceptación
 

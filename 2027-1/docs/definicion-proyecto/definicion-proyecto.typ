@@ -145,7 +145,7 @@ El proyecto está pensado sobre todo para estudiantes y personas que trabajan en
 
 === Tecnología
 
-La construcción se realiza con `Unity`, con recursos de modelado y texturizado 3D para representar el consultorio y sus interacciones. Esta entrega tiene como objetivo el escritorio con teclado y ratón. La realidad aumentada para dispositivos `Android` se conserva como una ampliación propuesta; no forma parte de la implementación comprobada aquí.
+La construcción se realiza con `Unity`, con recursos de modelado y texturizado 3D para representar el consultorio y sus interacciones. Esta entrega tiene como objetivo el escritorio con teclado y ratón. La realidad aumentada para dispositivos `Android` se plantea como una ampliación; no forma parte de la implementación comprobada aquí.
 
 === Funcionalidad
 
@@ -207,17 +207,21 @@ El instrumental reutilizable sigue una ruta diferente: limpieza, secado, inspecc
 
 = Desarrollo de Consultorio Seguro
 
-== Nueva construcción y alcance
+== Diseño y alcance
 
-La nueva versión se inicia desde una escena y una implementación nuevas. Se conservan recursos externos cuya procedencia está documentada; no se trasladan las pruebas aprobadas ni las capturas de la implementación anterior como evidencia de esta entrega.
+Consultorio Seguro se desarrolla en Unity como una clínica odontológica interactiva con cinco salas de práctica. La arquitectura, el equipamiento y las actividades forman una escena editable; los recursos externos cuentan con documentación de procedencia, licencia y adaptaciones.
 
-El objetivo visual es un interior contemporáneo con proporciones reales, mobiliario utilizable, materiales físicamente basados y luz natural combinada con iluminación clínica. La recepción y la sala de procedimientos constituyen la referencia para extender los mismos acabados a las demás áreas. El estado comprobado de la implementación se registra por separado en la sección de verificación.
+El diseño visual plantea un interior contemporáneo con proporciones reales, mobiliario utilizable, materiales físicamente basados y luz natural combinada con iluminación clínica. La recepción, la sala de procedimientos y las demás áreas comparten una paleta y criterios de acabado. El estado comprobado de la implementación se registra en la sección de verificación.
+
+La recepción cuenta con un mostrador de planta redondeada, carpintería de archivo, listones de roble a escala y un fondo claro con emblema dental propio. La espera utiliza tapicería cálida, directorio compacto y motivos botánicos originales; el pasillo dispone de protección mural continua. La distribución mantiene libres las rutas de pacientes y personal.
+
+En procedimientos y radiografía, los sillones dentales cuentan con cojines contorneados, costuras, grano fino de vinilo, fuelle y pedal. Las salas disponen de taburetes regulables y, en procedimientos, de una unidad de agua e instrumental con mangueras y escupidera. Estos complementos son geometría propia; las adaptaciones de cada modelo externo se describen en el catálogo y los créditos.
 
 == Programa arquitectónico
 
 La clínica se sitúa en la planta baja de un edificio alto, con acceso identificable desde la banqueta. El entorno incluye edificios vecinos, calle y mobiliario urbano. Los pisos superiores son contexto exterior; la actividad educativa se desarrolla en la clínica.
 
-La distribución prevista consta de una recepción con mostrador reconocible desde la entrada, espacio de atención al paciente y espacio de trabajo del personal. Una sala de espera con sillones, mesas auxiliares, plantas e información para pacientes deja libre la ruta hacia el pasillo central. Las cinco salas de práctica se organizan a ambos lados del pasillo, junto con una sala de personal y almacenamiento.
+La distribución consta de una recepción con mostrador reconocible desde la entrada, espacio de atención al paciente y espacio de trabajo del personal. Una sala de espera con sillones, mesas auxiliares, plantas e información para pacientes deja libre la ruta hacia el pasillo central. Las cinco salas de práctica se organizan a ambos lados del pasillo, junto con una sala de personal y almacenamiento.
 
 #block(breakable: false)[
 #table(
@@ -239,13 +243,13 @@ Los nombres y números se colocan a altura de lectura y se orientan para guiar e
 
 La paleta emplea blancos cálidos, verde salvia, madera clara y tapicería neutra. Los acabados distinguen porcelanato satinado, yeso pintado, madera, acero, cerámica, vidrio y plásticos médicos. Las texturas externas de madera y muro incluyen color, normal y rugosidad; su fuente está en el catálogo. La iluminación y las reflexiones deben evaluarse desde la altura de los ojos, especialmente al cruzar del exterior a la recepción y de esta a las salas.
 
-Los nuevos modelos de espera y vegetación proceden de Poly Haven: Modern Arm Chair 01 de Vibrant Nordic y Potted Plant 02 de Rico Cilliers. Las texturas Oak Veneer 01 y Beige Wall 001 proporcionan variación superficial. Se conservan además modelos odontológicos y objetos de biblioteca previamente descargados, con sus fuentes y adaptaciones individuales.
+Los modelos de espera y vegetación proceden de Poly Haven: Modern Arm Chair 01 de Vibrant Nordic y Potted Plant 02 de Rico Cilliers. Las texturas Oak Veneer 01 y Beige Wall 001 proporcionan variación superficial. El equipamiento odontológico y los objetos de la biblioteca se documentan con sus fuentes y adaptaciones individuales.
 
-Una licencia válida no garantiza fidelidad clínica. Parte del equipo de 3D Assets tiene geometría simplificada y el proveedor declara generación mediante inteligencia artificial. El modelo de jeringa es genérico. La biblioteca conserva un maniquí de exhibición para evaluación, pero la escena nueva no lo utiliza como paciente. Estas limitaciones se mantienen explícitas; el objetivo de representación arquitectónica no constituye una afirmación de fotorrealismo ya verificado.
+Una licencia válida no garantiza fidelidad clínica. Parte del equipo de 3D Assets tiene geometría simplificada y el proveedor declara generación mediante inteligencia artificial. El modelo de jeringa es genérico. La biblioteca incluye un maniquí de exhibición para evaluación que no forma parte de la escena. Estas limitaciones se mantienen explícitas; el objetivo de representación arquitectónica no constituye una afirmación de fotorrealismo ya verificado.
 
 == Interacción y accesibilidad
 
-El recorrido es en primera persona. Los controles usan teclado y ratón, con avisos de interacción en español. El manual debe estar disponible desde el inicio, la pausa y cada sala, con regreso claro al contexto anterior. La puntuación ofrece retroalimentación sobre la decisión, y cada práctica puede repetirse.
+El recorrido es en primera persona. Los controles usan teclado y ratón, con avisos de interacción en español. El manual está disponible desde el inicio, la pausa y cada sala, con regreso claro al contexto de origen. La puntuación ofrece retroalimentación sobre la decisión, y cada práctica puede repetirse.
 
 La asistencia visual de instrumentos utiliza un contorno blanco discreto y un contorno dorado al apuntar. Se limita a objetos cercanos de la sala actual, desaparece durante la pausa y al sostener o completar el objeto y no codifica el recipiente correcto. Su comportamiento y legibilidad se comprueban en Unity, no por la mera presencia del código.
 
@@ -275,7 +279,7 @@ El menú *Consultorio Seguro → Vistas* ofrece exterior, recepción, espera, pa
 
 == Registro exhaustivo de recursos externos
 
-El siguiente catálogo registra 51 recursos originales en 18 carpetas, de `Assets/Terceros`, incluidos archivos de evaluación que pueden no aparecer en la escena. Las dependencias de software y los recursos esenciales de TextMesh Pro se describen a continuación y no forman parte de ese recuento. Cada entrada incluye fuente, autor, licencia, archivos y modificaciones. Se conservan los nombres originales para identificar las páginas de descarga. La consulta original es la fecha del registro de procedencia; no se cambia al reutilizar un archivo.
+El siguiente catálogo registra 51 recursos originales en 18 carpetas, de `Assets/Terceros`, incluidos archivos de evaluación que pueden no aparecer en la escena. Las dependencias de software y los recursos esenciales de TextMesh Pro se describen a continuación y no forman parte de ese recuento. Cada entrada incluye fuente, autor, licencia, archivos y modificaciones. Se conservan los nombres originales para identificar las páginas de descarga. La fecha de consulta corresponde al registro de procedencia de cada recurso.
 
 La biblioteca registra originales y derivados, mientras que los créditos de la aplicación y `CREDITOS.md` reproducen estas atribuciones. Los recursos CC0 permiten adaptación; los tres recursos CC BY 3.0 mantienen autor, fuente, licencia y declaración de cambios. Noto Sans Regular se conserva bajo SIL Open Font License 1.1 con su aviso de derechos y licencia íntegra. Los metadatos de 3D Assets especifican diferentes modelos de IA: no se atribuye un único modelo generador a toda la biblioteca.
 
@@ -293,23 +297,23 @@ El proyecto declara Unity 6000.4.6f1, Universal Render Pipeline 17.4.0, Input Sy
 
 *Unity glTFast 6.20.0.* Autor: Unity Technologies y autores de Unity glTFast. Fuente: #link("https://docs.unity3d.com/Packages/com.unity.cloud.gltfast@6.20/manual/index.html")[documentación oficial]. Licencia: #link("https://www.apache.org/licenses/LICENSE-2.0")[Apache License 2.0]. Paquete de importación conservado sin cambios.
 
-`Documentacion/DEPENDENCIAS.md` y `procedencia-dependencias.json` del proyecto enumeran la procedencia de los recursos distribuidos con Unity, sus archivos y comprobaciones. El catálogo anterior conserva la atribución individual de Noto Sans y de los modelos y texturas externos.
+`Documentacion/DEPENDENCIAS.md` y `procedencia-dependencias.json` del proyecto enumeran la procedencia de los recursos distribuidos con Unity, sus archivos y comprobaciones. El catálogo de recursos externos contiene la atribución individual de Noto Sans y de los modelos y texturas.
 
 #pagebreak()
 
-= Verificación y evidencias de la nueva versión
+= Verificación y evidencias
 
-*Verificación al 4 de octubre de 2026:* Unity 6000.4.6f1 abre y compila la escena; las siete pruebas de PlayMode terminan aprobadas, sin fallos. La escena nueva contiene 10 pasos y 13 objetos entre las cinco prácticas. El informe XML acompaña al proyecto.
+*Verificación al 5 de octubre de 2026:* Unity 6000.4.6f1 abre y compila la escena; las siete pruebas de PlayMode terminan aprobadas, sin fallos. La escena contiene 10 pasos y 13 objetos entre las cinco prácticas. El informe XML acompaña al proyecto; la ejecución documentada termina a las 22:08:56 de Ciudad de México (6 de octubre, 04:08:56 UTC).
 
 La prueba de integración desplaza el CharacterController real desde la banqueta hasta recepción, recorre el frente y la parte posterior del registro, la espera, el pasillo, las cinco salas y el área de personal, y vuelve a salir. La interacción se comprueba mediante rayos desde la cámara a altura de ojos y los colliders de la escena. Se verifican manuales, pasos, recogida, consulta de recipientes, depósito, puntuación y regreso a los menús. Pruebas adicionales cubren errores, restitución de objetos, orden, reinicio, atajo M y restricciones del contorno.
 
-Se inspeccionaron 18 imágenes reales de Unity: 12 vistas arquitectónicas y seis de ejecución. Las últimas utilizan temporalmente el Canvas en modo ScreenSpaceCamera para que Camera.Render incluya la interfaz real. Los archivos de origen y sus sumas SHA-256 permiten identificar cada imagen. No son imágenes conceptuales ni resultados de generación de imágenes.
+Se inspeccionaron 18 imágenes capturadas en Unity: 12 vistas arquitectónicas y seis de ejecución. Las capturas de ejecución utilizan temporalmente el Canvas en modo ScreenSpaceCamera para que Camera.Render incluya la interfaz real. Los archivos de origen y sus sumas SHA-256 permiten identificar cada imagen.
 
-También se abrió el proyecto desde Unity Hub y se comprobó la recepción en Scene View antes de Play. Mediante clics y teclado en la interfaz del editor se verificaron inicio, manual, desplazamiento de lectura, créditos, Volver, pausa, Reanudar y atajo M. Unity quedó abierto en recepción, fuera de Play. No se completó una caminata manual con teclado y ratón por todas las salas; el recorrido íntegro documentado es automático. Tampoco se evaluaron rendimiento en otros equipos, accesibilidad con dispositivos alternativos ni todos los ángulos de oclusión del contorno.
+El proyecto se abrió desde Unity Hub y se inspeccionaron recepción, procedimientos y radiografía mediante las vistas del editor, con la escena guardada y visible sin entrar en Play. Mediante clics y teclado en la interfaz del editor se verificaron inicio, manual, desplazamiento de lectura, créditos, Volver, pausa, Reanudar y atajo M. No se completó una caminata manual con teclado y ratón por todas las salas; el recorrido íntegro documentado es automático. Tampoco se evaluaron rendimiento en otros equipos, accesibilidad con dispositivos alternativos ni todos los ángulos de oclusión del contorno.
 
-La iluminación combina luz directa, rellenos y ocho sondas de reflexión guardadas; no se horneó iluminación global. Unity reduce la resolución de algunas sombras para ajustarlas al atlas. Parte del equipo dental conserva geometría simplificada. Las imágenes muestran el nivel visual obtenido, sin afirmar que se haya alcanzado fotorrealismo.
+La iluminación combina luz directa, rellenos y ocho sondas de reflexión guardadas; no se horneó iluminación global. El renderizado Forward+ usa sombras suaves y mezcla de sondas con proyección de caja. Los vidrios transparentes no proyectan sombras opacas. Parte del equipo dental presenta geometría simplificada. Las imágenes muestran el nivel visual obtenido, sin afirmar que se haya alcanzado fotorrealismo.
 
-Los registros `Capturas/REVISION.md`, `ENTREGA.md` y `Verificacion/pruebas-playmode.xml` detallan la evidencia. Las cuatro figuras siguientes son copias íntegras de las capturas; `media/origen-capturas-unity.json` conserva sus sumas. Las imágenes históricas de septiembre no se usan como prueba de esta construcción.
+Los registros `Capturas/REVISION.md`, `ENTREGA.md` y `Verificacion/pruebas-playmode.xml` detallan la evidencia. Las cuatro figuras siguientes son copias íntegras de las capturas; `media/origen-capturas-unity.json` conserva sus sumas.
 
 #include "media/evidencias-unity.typ"
 
@@ -317,7 +321,7 @@ Los registros `Capturas/REVISION.md`, `ENTREGA.md` y `Verificacion/pruebas-playm
 
 La aplicación representa decisiones de separación y manejo inicial; no reproduce una extracción, una esterilización validada o un estudio radiográfico real. Quedan fuera de alcance la certificación de instalaciones, dosimetría, transporte y disposición final. El contenido debe ser revisado por el profesional de referencia antes de utilizarse como capacitación clínica formal.
 
-La versión de escritorio es el objetivo de esta construcción. La exportación a Android y la realidad aumentada requieren su propia implementación y verificación; no se declaran completas.
+El simulador está orientado al escritorio. La exportación a Android y la realidad aumentada requieren su propia implementación y verificación; no se declaran completas.
 
 #pagebreak()
 

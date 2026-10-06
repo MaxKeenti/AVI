@@ -1,5 +1,5 @@
 Capturas renderizadas por Unity 6000.4.6f1 desde la escena guardada.
-Fecha UTC: 2026-10-04T15:52:04.2429050Z
+Fecha UTC: 2026-10-06T04:08:17.4894650Z
 Resolución: 1800 × 1125. Altura de cámara interior: 1.65 m.
 El exterior utiliza altura de ojos; el corte superior utiliza una cámara elevada. Posiciones en ClinicBuilder.Views.cs.
 Estas imágenes no sustituyen las pruebas de interacción.

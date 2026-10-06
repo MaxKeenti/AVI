@@ -19,12 +19,12 @@ MonoBehaviour:
     AfterOpaque: 0
     Source: 1
     NormalSamples: 1
-    Intensity: 0.7
-    DirectLightingStrength: 0.25
-    Radius: 0.18
-    Samples: 1
+    Intensity: 0.48
+    DirectLightingStrength: 0.12
+    Radius: 0.085
+    Samples: 0
     BlurQuality: 0
-    Falloff: 100
+    Falloff: 32
     SampleCount: -1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -74,7 +74,7 @@ MonoBehaviour:
     failOperation: 0
     zFailOperation: 0
   m_ShadowTransparentReceive: 1
-  m_RenderingMode: 0
+  m_RenderingMode: 2
   m_DepthPrimingMode: 0
   m_CopyDepthMode: 1
   m_DepthAttachmentFormat: 0

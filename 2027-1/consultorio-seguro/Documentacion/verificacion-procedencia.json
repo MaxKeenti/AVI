@@ -1,5 +1,5 @@
 {
-  "fecha": "2026-10-03",
+  "fecha": "2026-10-05",
   "metodo": "Comparación de catálogo, archivos físicos y sumas SHA-256; no ejecuta Unity.",
   "recursos_originales": 51,
   "carpetas": 18,
@@ -82,30 +82,6 @@
       "coincide_sha256": true
     },
     {
-      "archivo": "polyhaven-oak-veneer-01/oak_veneer_01_diff_2k.jpg",
-      "coincide_sha256": true
-    },
-    {
-      "archivo": "polyhaven-oak-veneer-01/oak_veneer_01_nor_gl_2k.jpg",
-      "coincide_sha256": true
-    },
-    {
-      "archivo": "polyhaven-oak-veneer-01/oak_veneer_01_rough_2k.jpg",
-      "coincide_sha256": true
-    },
-    {
-      "archivo": "polyhaven-oak-veneer-01/oak_veneer_01_ao_2k.jpg",
-      "coincide_sha256": true
-    },
-    {
-      "archivo": "polyhaven-oak-veneer-01/oak_veneer_01_metallic_gloss_2k.png",
-      "coincide_sha256": true
-    },
-    {
-      "archivo": "polyhaven-oak-veneer-01/oak_veneer_01_occlusion_2k.png",
-      "coincide_sha256": true
-    },
-    {
       "archivo": "polyhaven-potted-plant-02/potted_plant_02_2k.gltf",
       "coincide_sha256": true
     },
@@ -175,6 +151,30 @@
     },
     {
       "archivo": "noto-sans/OFL.txt",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-oak-veneer-01/oak_veneer_01_diff_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-oak-veneer-01/oak_veneer_01_nor_gl_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-oak-veneer-01/oak_veneer_01_rough_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-oak-veneer-01/oak_veneer_01_ao_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-oak-veneer-01/oak_veneer_01_metallic_gloss_2k.png",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-oak-veneer-01/oak_veneer_01_occlusion_2k.png",
       "coincide_sha256": true
     }
   ],

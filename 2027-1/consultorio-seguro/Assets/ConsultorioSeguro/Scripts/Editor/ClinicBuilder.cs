@@ -35,7 +35,7 @@ namespace ConsultorioSeguroNuevo.Editor
             SetupFont();
             architecture = Group("01 · Arquitectura"); roof = Group("02 · Techos y torre");
             furniture = Group("03 · Mobiliario y equipamiento"); city = Group("04 · Entorno urbano"); lighting = Group("05 · Iluminación");
-            MakeArchitecture(); MakeReception(); MakeRooms(); MakeCity(); MakeLighting(); MakePlayer(); MakeViews();
+            MakeArchitecture(); MakeReception(); MakeRooms(); RefineDentalEquipment(); MakeInteriorDetails(); MakeCity(); MakeLighting(); MakePlayer(); MakeViews();
             EditorSceneManager.SaveScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene(), ScenePath);
             EditorBuildSettings.scenes = new[]{new EditorBuildSettingsScene(ScenePath,true)};
             PlayerSettings.companyName="Equipo 7 · UPIICSA"; PlayerSettings.productName="Consultorio Seguro";
@@ -127,7 +127,12 @@ namespace ConsultorioSeguroNuevo.Editor
                 string dir=path.Split('/')[0];m.SetColor("_BaseColor",Color.white);Pbr(m,dir,n,.65f);
                 m.SetFloat("_Cull",0);
                 if(n.Contains("leaves")){m.SetTexture("_BaseMap",Texture("Assets/Terceros/"+dir+"/textures/"+n+"_base_alpha_2k.png"));m.SetFloat("_AlphaClip",1);m.SetFloat("_Cutoff",.5f);m.EnableKeyword("_ALPHATEST_ON");m.renderQueue=2450;}
-                if(n.Contains("pillow"))m.SetFloat("_Smoothness",.25f);
+                if(n.Contains("pillow"))
+                {
+                    // Tapicería clara; conserva el relieve, la rugosidad y la oclusión del modelo original.
+                    m.SetTexture("_BaseMap",null);m.SetColor("_BaseColor",new Color(.73f,.69f,.61f));
+                    m.SetFloat("_Smoothness",.22f);m.SetFloat("_BumpScale",.38f);m.SetFloat("_OcclusionStrength",.45f);
+                }
             }
             else
             {

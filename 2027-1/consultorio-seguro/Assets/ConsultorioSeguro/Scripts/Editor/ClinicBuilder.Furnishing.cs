@@ -16,20 +16,10 @@ namespace ConsultorioSeguroNuevo.Editor
         static void MakeReception()
         {
             var root=Group("Recepción · registro y espera",furniture);
-            Box("Fondo de roble",root,new Vector3(4.5f,1.5f,2.88f),new Vector3(5.6f,2.94f,.04f),wood,false);
-            for(int i=0;i<20;i++)Box("Junta del revestimiento",root,new Vector3(1.83f+i*.28f,1.5f,2.849f),new Vector3(.008f,2.94f,.004f),dark,false);
-            Text(root,"CONSULTORIO SEGURO",new Vector3(4.5f,2.05f,2.815f),4,.5f,.32f,Ink);
-            Text(root,"RECEPCIÓN  /  REGISTRO",new Vector3(4.5f,1.67f,2.815f),4,.3f,.11f,Ink);
-            Box("Mostrador · cuerpo",root,new Vector3(4.45f,.54f,-.15f),new Vector3(4.1f,1.08f,.91f),sage,true,.055f);
-            Box("Mostrador · encimera",root,new Vector3(4.45f,1.10f,-.15f),new Vector3(4.20f,.07f,1.0f),white,true,.022f);
-            Box("Mostrador · zócalo retranqueado",root,new Vector3(4.45f,.075f,-.11f),new Vector3(3.95f,.15f,.82f),dark,false);
-            for(int i=0;i<31;i++)Box("Estría de roble",root,new Vector3(2.50f+i*.13f,.57f,-.618f),new Vector3(.036f,.88f,.025f),wood,false,.007f);
-            Box("Registro accesible · cubierta",root,new Vector3(1.82f,.76f,-.15f),new Vector3(1.13f,.055f,1.02f),white,true,.017f);
-            Box("Registro accesible · lateral",root,new Vector3(1.30f,.36f,-.15f),new Vector3(.06f,.72f,.90f),wood);
-            Text(root,"REGISTRO",new Vector3(4.45f,.79f,-.65f),3,.3f,.12f,new Color(.96f,.93f,.83f));
+            ReceptionJoinery(root);
             Monitor(root,new Vector3(4.0f,1.135f,.07f),180);
             Box("Teclado",root,new Vector3(4.0f,1.149f,.21f),new Vector3(.38f,.024f,.14f),dark,false,.01f);
-            Model(Chair,root,new Vector3(4.0f,0,1.36f),1.02f,180);
+            Model(Chair,root,new Vector3(4.0f,0,1.02f),1.02f,180);
             Model(Plant,root,new Vector3(6.70f,0,2.0f),1.35f);
             // Dos grupos de conversación dejan un recorrido frontal de más de dos metros.
             foreach(float z in new[]{-4.7f,-2.5f})
@@ -43,11 +33,7 @@ namespace ConsultorioSeguroNuevo.Editor
             Model(Plant,root,new Vector3(-6.85f,0,2.25f),1.55f);
             Model(Plant,root,new Vector3(-6.75f,0,-6.1f),1.15f);
             Model(Plant,root,new Vector3(6.65f,0,-5.95f),1.15f);
-            Sign(root,"BIENVENIDOS","Aprender a cuidar, en un entorno seguro.",new Vector3(-5.4f,1.9f,2.90f),new Vector2(2.8f,.75f));
-            Sign(root,"SALAS DE PRÁCTICA","01 Clasificación    02 Esterilización\n03 Materiales       04 Procedimientos\n05 Radiografía",new Vector3(-2.65f,1.67f,2.90f),new Vector2(2.2f,1.13f));
-            Sign(root,"HIGIENE DE MANOS","Antes y después de atender a cada paciente.",new Vector3(7.38f,1.65f,-3.3f),new Vector2(2.0f,.65f),90);
-            Dispenser(root,new Vector3(7.29f,1.16f,-3.30f),90);
-            Sign(root,"INFORMACIÓN AL PACIENTE","Atención con cita · Recepción al fondo\nTu seguridad forma parte de cada procedimiento.",new Vector3(-7.38f,1.7f,-3.5f),new Vector2(2.4f,.85f),-90);
+            ReceptionInformation(root);
             foreach(float x in new[]{-6.9f,6.9f})Outlet(root,new Vector3(x,.32f,-1.5f),x<0?-90:90);
             // Luminarias decorativas suspendidas sobre el mostrador, sin invadir la circulación.
             foreach(float x in new[]{3.3f,4.55f,5.8f})
