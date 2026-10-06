@@ -1,0 +1,260 @@
+{
+  "accessed": "2026-09-28",
+  "assets": [
+    {
+      "id": "3039",
+      "slug": "field-medicine-and-recovery-gauze-stack-34e2ed66",
+      "title": "Gauze Stack (Field Medicine and Recovery)",
+      "summary": "Gauze Stack, an original survival prop measuring 0.08 \u00d7 0.03 \u00d7 0.08 m.",
+      "description": "Gauze Stack. Purpose-built medical equipment with constructed hardware and material separation. Dimensions 0.08 \u00d7 0.03 \u00d7 0.08 m (X \u00d7 Y \u00d7 Z). Metre units, +Y up, +Z front; origin on the ground at the footprint centre unless stated. Weathered survival palette. Static geometry; no rig, animation, collision or navigation data. Movable named parts are separate static nodes; consumer supplies interaction. No functional medical, electrical or food-safety simulation.",
+      "status": "published",
+      "url": "https://3dassets.dev/assets/field-medicine-and-recovery-gauze-stack-34e2ed66",
+      "cdnUrl": "https://cdn.3dassets.dev/assets/3039/v1/model.glb",
+      "downloadUrl": "https://3dassets.dev/download/field-medicine-and-recovery-gauze-stack-34e2ed66",
+      "thumbnailUrl": "https://cdn.3dassets.dev/assets/3039/v1/thumb.webp",
+      "posterUrl": "https://cdn.3dassets.dev/assets/3039/v1/poster.webp",
+      "blurhash": "U7G+R7_300Rj~pWBD*oz00D%xuM|4nt7WEM{",
+      "category": {
+        "slug": "props",
+        "title": "Props & Furniture"
+      },
+      "tags": [
+        {
+          "slug": "post-apocalyptic",
+          "title": "Post-apocalyptic"
+        },
+        {
+          "slug": "low-poly",
+          "title": "Low Poly"
+        }
+      ],
+      "license": {
+        "slug": "cc0-1.0",
+        "name": "CC0 1.0 Universal",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attributionRequired": false
+      },
+      "contributor": {
+        "username": "3dassets",
+        "name": "3D Assets",
+        "url": "https://3dassets.dev/u/3dassets"
+      },
+      "stats": {
+        "fileSize": 42536,
+        "triangles": 864,
+        "vertices": 2592,
+        "meshes": 1,
+        "materials": 1,
+        "textures": 0,
+        "animations": [],
+        "boundingBox": {
+          "min": [
+            -0.03999999910593033,
+            2.5949393774732377e-07,
+            -0.03999999910593033
+          ],
+          "max": [
+            0.03999999910593033,
+            0.030999739986384254,
+            0.03999999910593033
+          ]
+        },
+        "sizeMeters": [
+          0.08,
+          0.031,
+          0.08
+        ],
+        "hasDraco": false,
+        "hasMeshopt": false,
+        "hasKTX2": false,
+        "extensionsUsed": [
+          "KHR_mesh_quantization"
+        ]
+      },
+      "aiGenerated": true,
+      "aiModel": "GPT-6 via Codex",
+      "downloads": 4,
+      "publishedAt": "2026-09-06T05:05:55.899Z",
+      "updatedAt": "2026-09-24T15:01:51.289Z",
+      "usage": {
+        "threejs": "import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'\n\nconst loader = new GLTFLoader()\nloader.load('https://cdn.3dassets.dev/assets/3039/v1/model.glb', (gltf) => {\n  scene.add(gltf.scene)\n})",
+        "r3f": "import { useGLTF } from '@react-three/drei'\n\nexport function GauzeStackFieldMedicineAndRecovery(props) {\n  const { scene } = useGLTF('https://cdn.3dassets.dev/assets/3039/v1/model.glb')\n  return <primitive object={scene} {...props} />\n}\nuseGLTF.preload('https://cdn.3dassets.dev/assets/3039/v1/model.glb')",
+        "modelViewer": "<model-viewer src=\"https://cdn.3dassets.dev/assets/3039/v1/model.glb\" alt=\"Gauze Stack (Field Medicine and Recovery)\" camera-controls auto-rotate></model-viewer>",
+        "blender": "# Blender 4.x: File > Import > glTF 2.0, or from the Python console after downloading the file.\nimport bpy\nbpy.ops.import_scene.gltf(filepath='model.glb')  # from https://cdn.3dassets.dev/assets/3039/v1/model.glb\n# Metres and +Y up are converted to Blender's Z-up scene automatically.",
+        "godot": "# Godot 4: copy model.glb into res://models/ and the editor imports it as a scene.\nvar packed := load(\"res://models/model.glb\") as PackedScene\nvar model := packed.instantiate()\nadd_child(model)",
+        "unity": "// Unity: import model.glb with glTFast (Package Manager: com.unity.cloud.gltfast) and drag the prefab in,\n// or load it at runtime straight from the CDN:\nusing GLTFast;\nvar gltf = new GltfImport();\nif (await gltf.Load(\"https://cdn.3dassets.dev/assets/3039/v1/model.glb\")) await gltf.InstantiateMainSceneAsync(transform);"
+      },
+      "localFile": "gauze-stack.glb"
+    },
+    {
+      "id": "3058",
+      "slug": "field-medicine-and-recovery-forceps-ebdbd954",
+      "title": "Forceps (Field Medicine and Recovery)",
+      "summary": "Forceps, an original survival prop measuring 0.06 \u00d7 0.01 \u00d7 0.20 m.",
+      "description": "Forceps. Purpose-built medical equipment with constructed hardware and material separation. Dimensions 0.06 \u00d7 0.01 \u00d7 0.20 m (X \u00d7 Y \u00d7 Z). Metre units, +Y up, +Z front; origin on the ground at the footprint centre unless stated. Weathered survival palette. Static geometry; no rig, animation, collision or navigation data. Movable named parts are separate static nodes; consumer supplies interaction. No functional medical, electrical or food-safety simulation.",
+      "status": "published",
+      "url": "https://3dassets.dev/assets/field-medicine-and-recovery-forceps-ebdbd954",
+      "cdnUrl": "https://cdn.3dassets.dev/assets/3058/v1/model.glb",
+      "downloadUrl": "https://3dassets.dev/download/field-medicine-and-recovery-forceps-ebdbd954",
+      "thumbnailUrl": "https://cdn.3dassets.dev/assets/3058/v1/thumb.webp",
+      "posterUrl": "https://cdn.3dassets.dev/assets/3058/v1/poster.webp",
+      "blurhash": "U57BJ@oI4nWBx]DiRj%M00M{?cx[IA_Nxu9F",
+      "category": {
+        "slug": "props",
+        "title": "Props & Furniture"
+      },
+      "tags": [
+        {
+          "slug": "post-apocalyptic",
+          "title": "Post-apocalyptic"
+        },
+        {
+          "slug": "low-poly",
+          "title": "Low Poly"
+        }
+      ],
+      "license": {
+        "slug": "cc0-1.0",
+        "name": "CC0 1.0 Universal",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attributionRequired": false
+      },
+      "contributor": {
+        "username": "3dassets",
+        "name": "3D Assets",
+        "url": "https://3dassets.dev/u/3dassets"
+      },
+      "stats": {
+        "fileSize": 37916,
+        "triangles": 768,
+        "vertices": 2304,
+        "meshes": 1,
+        "materials": 1,
+        "textures": 0,
+        "animations": [],
+        "boundingBox": {
+          "min": [
+            -0.0310053221253137,
+            -2.5638991862078284e-06,
+            -0.09943734854459763
+          ],
+          "max": [
+            0.0310053221253137,
+            0.009222862278845861,
+            0.09943734854459763
+          ]
+        },
+        "sizeMeters": [
+          0.062,
+          0.009,
+          0.199
+        ],
+        "hasDraco": false,
+        "hasMeshopt": false,
+        "hasKTX2": false,
+        "extensionsUsed": [
+          "KHR_mesh_quantization"
+        ]
+      },
+      "aiGenerated": true,
+      "aiModel": "GPT-6 via Codex",
+      "downloads": 3,
+      "publishedAt": "2026-09-06T05:06:11.906Z",
+      "updatedAt": "2026-09-24T16:30:53.099Z",
+      "usage": {
+        "threejs": "import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'\n\nconst loader = new GLTFLoader()\nloader.load('https://cdn.3dassets.dev/assets/3058/v1/model.glb', (gltf) => {\n  scene.add(gltf.scene)\n})",
+        "r3f": "import { useGLTF } from '@react-three/drei'\n\nexport function ForcepsFieldMedicineAndRecovery(props) {\n  const { scene } = useGLTF('https://cdn.3dassets.dev/assets/3058/v1/model.glb')\n  return <primitive object={scene} {...props} />\n}\nuseGLTF.preload('https://cdn.3dassets.dev/assets/3058/v1/model.glb')",
+        "modelViewer": "<model-viewer src=\"https://cdn.3dassets.dev/assets/3058/v1/model.glb\" alt=\"Forceps (Field Medicine and Recovery)\" camera-controls auto-rotate></model-viewer>",
+        "blender": "# Blender 4.x: File > Import > glTF 2.0, or from the Python console after downloading the file.\nimport bpy\nbpy.ops.import_scene.gltf(filepath='model.glb')  # from https://cdn.3dassets.dev/assets/3058/v1/model.glb\n# Metres and +Y up are converted to Blender's Z-up scene automatically.",
+        "godot": "# Godot 4: copy model.glb into res://models/ and the editor imports it as a scene.\nvar packed := load(\"res://models/model.glb\") as PackedScene\nvar model := packed.instantiate()\nadd_child(model)",
+        "unity": "// Unity: import model.glb with glTFast (Package Manager: com.unity.cloud.gltfast) and drag the prefab in,\n// or load it at runtime straight from the CDN:\nusing GLTFast;\nvar gltf = new GltfImport();\nif (await gltf.Load(\"https://cdn.3dassets.dev/assets/3058/v1/model.glb\")) await gltf.InstantiateMainSceneAsync(transform);"
+      },
+      "localFile": "forceps.glb"
+    },
+    {
+      "id": "3038",
+      "slug": "field-medicine-and-recovery-triangular-bandage-53b41b4f",
+      "title": "Triangular Bandage (Field Medicine and Recovery)",
+      "summary": "Triangular Bandage, an original survival prop measuring 0.40 \u00d7 0.01 \u00d7 0.30 m.",
+      "description": "Triangular Bandage. Purpose-built medical equipment with constructed hardware and material separation. Dimensions 0.40 \u00d7 0.01 \u00d7 0.30 m (X \u00d7 Y \u00d7 Z). Metre units, +Y up, +Z front; origin on the ground at the footprint centre unless stated. Weathered survival palette. Static geometry; no rig, animation, collision or navigation data. Movable named parts are separate static nodes; consumer supplies interaction. No functional medical, electrical or food-safety simulation.",
+      "status": "published",
+      "url": "https://3dassets.dev/assets/field-medicine-and-recovery-triangular-bandage-53b41b4f",
+      "cdnUrl": "https://cdn.3dassets.dev/assets/3038/v1/model.glb",
+      "downloadUrl": "https://3dassets.dev/download/field-medicine-and-recovery-triangular-bandage-53b41b4f",
+      "thumbnailUrl": "https://cdn.3dassets.dev/assets/3038/v1/thumb.webp",
+      "posterUrl": "https://cdn.3dassets.dev/assets/3038/v1/poster.webp",
+      "blurhash": "UCAd4T?a00M|bHt6t7WB00D%~qxuRjM|M{s:",
+      "category": {
+        "slug": "props",
+        "title": "Props & Furniture"
+      },
+      "tags": [
+        {
+          "slug": "post-apocalyptic",
+          "title": "Post-apocalyptic"
+        },
+        {
+          "slug": "low-poly",
+          "title": "Low Poly"
+        }
+      ],
+      "license": {
+        "slug": "cc0-1.0",
+        "name": "CC0 1.0 Universal",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attributionRequired": false
+      },
+      "contributor": {
+        "username": "3dassets",
+        "name": "3D Assets",
+        "url": "https://3dassets.dev/u/3dassets"
+      },
+      "stats": {
+        "fileSize": 6652,
+        "triangles": 116,
+        "vertices": 348,
+        "meshes": 1,
+        "materials": 1,
+        "textures": 0,
+        "animations": [],
+        "boundingBox": {
+          "min": [
+            -0.20000000298023224,
+            -5.035740403089989e-06,
+            -0.1499923726076915
+          ],
+          "max": [
+            0.20000000298023224,
+            0.010005035516885672,
+            0.1499923726076915
+          ]
+        },
+        "sizeMeters": [
+          0.4,
+          0.01,
+          0.3
+        ],
+        "hasDraco": false,
+        "hasMeshopt": false,
+        "hasKTX2": false,
+        "extensionsUsed": [
+          "KHR_mesh_quantization"
+        ]
+      },
+      "aiGenerated": true,
+      "aiModel": "GPT-6 via Codex",
+      "downloads": 5,
+      "publishedAt": "2026-09-06T05:05:55.932Z",
+      "updatedAt": "2026-09-24T21:23:10.120Z",
+      "usage": {
+        "threejs": "import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'\n\nconst loader = new GLTFLoader()\nloader.load('https://cdn.3dassets.dev/assets/3038/v1/model.glb', (gltf) => {\n  scene.add(gltf.scene)\n})",
+        "r3f": "import { useGLTF } from '@react-three/drei'\n\nexport function TriangularBandageFieldMedicineAndRecovery(props) {\n  const { scene } = useGLTF('https://cdn.3dassets.dev/assets/3038/v1/model.glb')\n  return <primitive object={scene} {...props} />\n}\nuseGLTF.preload('https://cdn.3dassets.dev/assets/3038/v1/model.glb')",
+        "modelViewer": "<model-viewer src=\"https://cdn.3dassets.dev/assets/3038/v1/model.glb\" alt=\"Triangular Bandage (Field Medicine and Recovery)\" camera-controls auto-rotate></model-viewer>",
+        "blender": "# Blender 4.x: File > Import > glTF 2.0, or from the Python console after downloading the file.\nimport bpy\nbpy.ops.import_scene.gltf(filepath='model.glb')  # from https://cdn.3dassets.dev/assets/3038/v1/model.glb\n# Metres and +Y up are converted to Blender's Z-up scene automatically.",
+        "godot": "# Godot 4: copy model.glb into res://models/ and the editor imports it as a scene.\nvar packed := load(\"res://models/model.glb\") as PackedScene\nvar model := packed.instantiate()\nadd_child(model)",
+        "unity": "// Unity: import model.glb with glTFast (Package Manager: com.unity.cloud.gltfast) and drag the prefab in,\n// or load it at runtime straight from the CDN:\nusing GLTFast;\nvar gltf = new GltfImport();\nif (await gltf.Load(\"https://cdn.3dassets.dev/assets/3038/v1/model.glb\")) await gltf.InstantiateMainSceneAsync(transform);"
+      },
+      "localFile": "triangular-bandage.glb"
+    }
+  ]
+}

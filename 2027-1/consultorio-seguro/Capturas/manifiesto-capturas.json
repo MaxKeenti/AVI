@@ -1,0 +1,134 @@
+{
+  "fecha": "2026-10-04",
+  "motor": "Unity 6000.4.6f1",
+  "resolucion": [
+    1800,
+    1125
+  ],
+  "archivos": [
+    {
+      "archivo": "01-exterior.png",
+      "sha256": "2eacabd64a59c9ce3dcda7a3a3a52534aedf0a2cc1451cf326fc14964e26d315",
+      "tipo": "arquitectura",
+      "ancho": 1800,
+      "alto": 1125,
+      "copia_typst": "unity-01-exterior.png",
+      "copia_identica": true
+    },
+    {
+      "archivo": "02-acceso.png",
+      "sha256": "09bed8671c1f0716d656ecfa14053f85bb238bc00145d6a7b36af715adcba13f",
+      "tipo": "arquitectura",
+      "ancho": 1800,
+      "alto": 1125
+    },
+    {
+      "archivo": "03-recepcion.png",
+      "sha256": "640efefc78c1d290899d5b015cc3d893dbf8a1db5442551daa5820175d233f9f",
+      "tipo": "arquitectura",
+      "ancho": 1800,
+      "alto": 1125,
+      "copia_typst": "unity-03-recepcion.png",
+      "copia_identica": true
+    },
+    {
+      "archivo": "04-espera.png",
+      "sha256": "b4b827d6b8d9f1c8e9e8a170f193a3b16dcd06161abe2b5204aa926fbb0a1f74",
+      "tipo": "arquitectura",
+      "ancho": 1800,
+      "alto": 1125
+    },
+    {
+      "archivo": "05-pasillo.png",
+      "sha256": "7078885ced94102f43113015998e9d9538ed7eb08493da94c2cc7efaed7e71df",
+      "tipo": "arquitectura",
+      "ancho": 1800,
+      "alto": 1125
+    },
+    {
+      "archivo": "06-clasificacion.png",
+      "sha256": "c22e8fbf90b592cebb9763782509cb44b94e6f401526b924e218b50b7f66d947",
+      "tipo": "arquitectura",
+      "ancho": 1800,
+      "alto": 1125
+    },
+    {
+      "archivo": "07-esterilizacion.png",
+      "sha256": "ee861129eaa48d37a1213fd123255220938f4ceec54ccad7f8d3bef34d1bc0ea",
+      "tipo": "arquitectura",
+      "ancho": 1800,
+      "alto": 1125
+    },
+    {
+      "archivo": "08-materiales.png",
+      "sha256": "a7a8b077e308b7798ec72f28fdde40f883a00d75f5bc73c87d70baf4b2deef3a",
+      "tipo": "arquitectura",
+      "ancho": 1800,
+      "alto": 1125
+    },
+    {
+      "archivo": "09-procedimientos.png",
+      "sha256": "1599d91f1d320385d5e05e74df3a7200832d29b384f614e4622fbf572317e6a8",
+      "tipo": "arquitectura",
+      "ancho": 1800,
+      "alto": 1125,
+      "copia_typst": "unity-09-procedimientos.png",
+      "copia_identica": true
+    },
+    {
+      "archivo": "10-radiografia.png",
+      "sha256": "bdc24611f7eedc5877d7801e59bd91a99748174231f2fc2db962714d8c5521ea",
+      "tipo": "arquitectura",
+      "ancho": 1800,
+      "alto": 1125
+    },
+    {
+      "archivo": "11-personal.png",
+      "sha256": "821278b4696111a94d5115703f35c02fb560057665596ba392dc4341371285b2",
+      "tipo": "arquitectura",
+      "ancho": 1800,
+      "alto": 1125
+    },
+    {
+      "archivo": "12-corte-superior.png",
+      "sha256": "41ec429c966649ab621e950a5b4c5fc0f93f87f91048662a1449639e5e7a8734",
+      "tipo": "arquitectura",
+      "ancho": 1800,
+      "alto": 1125,
+      "copia_typst": "unity-12-corte-superior.png",
+      "copia_identica": true
+    },
+    {
+      "archivo": "13-inicio.png",
+      "sha256": "d52d5396bdd4662b2597ab372942301af6474a3c2eba7acb4c9bb9fbbd1875d4",
+      "tipo": "ejecucion"
+    },
+    {
+      "archivo": "14-manual.png",
+      "sha256": "0ee80a3c7ce509cff1d06e11195d2fe8763f243dc636a852907c78003f3881f8",
+      "tipo": "ejecucion"
+    },
+    {
+      "archivo": "15-pausa.png",
+      "sha256": "c8728682ed4234bbf6ee6dafccada1e7fef8b01184057a2ee7050bc94e692ecc",
+      "tipo": "ejecucion"
+    },
+    {
+      "archivo": "16-silueta-dorada.png",
+      "sha256": "28531f7977e10c6d0006cc87e02a7b957ff69ff03b679750b99debd20b227e7a",
+      "tipo": "ejecucion"
+    },
+    {
+      "archivo": "17-material-en-mano.png",
+      "sha256": "3a51b009fdf6cc08b6bd16ef7fa01cb456ccfe67f7bc7ecd298374aa419799ef",
+      "tipo": "ejecucion"
+    },
+    {
+      "archivo": "18-cinco-practicas-completadas.png",
+      "sha256": "1a35afd71316b1a4f472ea95aa8d6c5e0c038bcb0be16c14bd4cea67f1db0b81",
+      "tipo": "ejecucion"
+    }
+  ],
+  "origen_arquitectura": "Capturas renderizadas por Unity 6000.4.6f1 desde la escena guardada.\nFecha UTC: 2026-10-04T15:52:04.2429050Z\nResolución: 1800 × 1125. Altura de cámara interior: 1.65 m.\nEl exterior utiliza altura de ojos; el corte superior utiliza una cámara elevada. Posiciones en ClinicBuilder.Views.cs.\nEstas imágenes no sustituyen las pruebas de interacción.\n",
+  "origen_ejecucion": "Capturas reales del modo de ejecución de Unity 6000.4.6f1.\nEscena: Assets/ConsultorioSeguro/Escenas/ConsultorioSeguro.unity.\nCámara del visitante, altura local de ojos 1,65 m. Resolución: 1800 × 1125.\nGeneradas durante ClinicSceneIntegrationTests mediante Camera.Render y la interfaz real, cambiada temporalmente de ScreenSpaceOverlay a ScreenSpaceCamera para capturarla.\nEl recorrido y las interacciones de la prueba son automatizados con CharacterController.Move y raycasts sobre los colliders reales; no equivalen a una revisión manual.\n13-inicio.png · UTC 2026-10-04T16:06:18.8322570Z · cámara (0.00, 1.70, -9.00) · pantalla Menu\n14-manual.png · UTC 2026-10-04T16:06:18.9553330Z · cámara (0.00, 1.70, -9.00) · pantalla Manual\n15-pausa.png · UTC 2026-10-04T16:06:19.0865530Z · cámara (-3.75, 1.68, 6.75) · pantalla Pause\n16-silueta-dorada.png · UTC 2026-10-04T16:06:19.1812100Z · cámara (-3.75, 1.68, 6.75) · pantalla Playing\n17-material-en-mano.png · UTC 2026-10-04T16:06:19.2751150Z · cámara (-3.75, 1.68, 6.75) · pantalla Playing\n18-cinco-practicas-completadas.png · UTC 2026-10-04T16:06:22.9666000Z · cámara (0.00, 1.68, -9.00) · pantalla Pause\n"
+}

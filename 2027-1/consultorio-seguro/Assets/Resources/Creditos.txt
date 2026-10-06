@@ -1,0 +1,335 @@
+CONSULTORIO SEGURO — CRÉDITOS
+Arquitectura, señalización, programación y montaje: Consultorio Seguro.
+
+Biblioteca de recursos externos, incluidos originales y derivados conservados.
+CC0: https://creativecommons.org/publicdomain/zero/1.0/
+CC BY 3.0: https://creativecommons.org/licenses/by/3.0/
+SIL OFL 1.1: https://github.com/notofonts/noto-fonts/blob/main/LICENSE
+Noto Sans: Copyright 2018 The Noto Project Authors (github.com/googlei18n/noto-fonts). Licencia íntegra incluida en Assets/Terceros/noto-sans/OFL.txt.
+Los recursos de 3D Assets declaran generación mediante IA.
+Los nombres originales identifican las páginas de descarga.
+
+Autoclave Bench Open (Dental Practice and Surgery)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/dental-practice-and-surgery-autoclave-bench-open-9242233f
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, sin atribuirles una autoría nueva.
+
+Cabinet Run Module (Dental Practice and Surgery)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/dental-practice-and-surgery-cabinet-run-module-2856164b
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.
+
+Cabinet Run Sink Module (Dental Practice and Surgery)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/dental-practice-and-surgery-cabinet-run-sink-module-42493004
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.
+
+Ceiling Light Panel (Dental Practice and Surgery)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/dental-practice-and-surgery-ceiling-light-panel-5fd450a0
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.
+
+Clinical Floor Tile (Dental Practice and Surgery)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/dental-practice-and-surgery-clinical-floor-tile-e09b593c
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.
+
+Corridor Wall Module (Dental Practice and Surgery)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/dental-practice-and-surgery-corridor-wall-module-6478e914
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.
+
+Dental Chair Reclined (Dental Practice and Surgery)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/dental-practice-and-surgery-dental-chair-reclined-98149de1
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.
+
+Glove And Mask Dispenser (Dental Practice and Surgery)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/dental-practice-and-surgery-glove-and-mask-dispenser-64ec22b4
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.
+
+Instrument Tray (Dental Practice and Surgery)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/dental-practice-and-surgery-instrument-tray-33b4d81c
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, sin atribuirles una autoría nueva.
+
+Intraoral Xray Arm (Dental Practice and Surgery)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/dental-practice-and-surgery-intraoral-xray-arm-7ea56888
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, sin atribuirles una autoría nueva.
+
+Operating Light (Dental Practice and Surgery)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/dental-practice-and-surgery-operating-light-e636b996
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.
+
+Pedal Waste Bin (Dental Practice and Surgery)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/dental-practice-and-surgery-pedal-waste-bin-5ba4c7fc
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.
+
+Plaster Model On Stand (Dental Practice and Surgery)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/dental-practice-and-surgery-plaster-model-on-stand-d0c45662
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.
+
+Reception Desk (Dental Practice and Surgery)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/dental-practice-and-surgery-reception-desk-ad8b99c5
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, sin atribuirles una autoría nueva.
+
+Sharps Bin (Dental Practice and Surgery)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/dental-practice-and-surgery-sharps-bin-fe796f33
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.
+
+Sterile Store Cabinet (Dental Practice and Surgery)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/dental-practice-and-surgery-sterile-store-cabinet-ac44fdc4
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.
+
+Surgery Door Module Open (Dental Practice and Surgery)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/dental-practice-and-surgery-surgery-door-module-open-e59a6ba3
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, sin atribuirles una autoría nueva.
+
+Xray Sensor Tray (Dental Practice and Surgery)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/dental-practice-and-surgery-xray-sensor-tray-cdf20eb4
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.
+
+Seated display mannequin (Retail Store Fixtures and Mall)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/retail-store-fixtures-and-mall-mannequin-seated-05ab1b9a
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Derivados con base retirada y postura adaptada; representa un maniquí de exhibición, no anatomía clínica.
+
+Forceps (Field Medicine and Recovery)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/field-medicine-and-recovery-forceps-ebdbd954
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.
+
+Gauze Stack (Field Medicine and Recovery)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/field-medicine-and-recovery-gauze-stack-34e2ed66
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.
+
+Triangular Bandage (Field Medicine and Recovery)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/field-medicine-and-recovery-triangular-bandage-53b41b4f
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.
+
+Gloves And Tools Tray (Art Gallery and Exhibition Rooms)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/art-gallery-and-exhibition-rooms-gloves-and-tools-tray-029ffe6f
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Guantes extraídos de la bandeja; el original representa guantes de manipulación de arte, no un guante clínico certificado.
+
+Car Kit · hatchback-sports
+Autor: Kenney
+Licencia: CC0 1.0 Universal
+https://kenney.nl/assets/car-kit
+Cambios: Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios. Incluye la textura colormap.png compartida por los modelos del paquete, conservada sin cambios.
+
+Car Kit · sedan
+Autor: Kenney
+Licencia: CC0 1.0 Universal
+https://kenney.nl/assets/car-kit
+Cambios: Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.
+
+City Kit Commercial · building-a
+Autor: Kenney
+Licencia: CC0 1.0 Universal
+https://kenney.nl/assets/city-kit-commercial
+Cambios: Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios. Incluye la textura colormap.png compartida por los modelos del paquete, conservada sin cambios.
+
+City Kit Commercial · building-b
+Autor: Kenney
+Licencia: CC0 1.0 Universal
+https://kenney.nl/assets/city-kit-commercial
+Cambios: Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.
+
+City Kit Commercial · building-c
+Autor: Kenney
+Licencia: CC0 1.0 Universal
+https://kenney.nl/assets/city-kit-commercial
+Cambios: Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.
+
+Furniture Kit · bathroomMirror
+Autor: Kenney
+Licencia: CC0 1.0 Universal
+https://kenney.nl/assets/furniture-kit
+Cambios: Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.
+
+Furniture Kit · bathroomSink
+Autor: Kenney
+Licencia: CC0 1.0 Universal
+https://kenney.nl/assets/furniture-kit
+Cambios: Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.
+
+Furniture Kit · bench
+Autor: Kenney
+Licencia: CC0 1.0 Universal
+https://kenney.nl/assets/furniture-kit
+Cambios: Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.
+
+Furniture Kit · chairModernFrameCushion
+Autor: Kenney
+Licencia: CC0 1.0 Universal
+https://kenney.nl/assets/furniture-kit
+Cambios: Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.
+
+Furniture Kit · computerScreen
+Autor: Kenney
+Licencia: CC0 1.0 Universal
+https://kenney.nl/assets/furniture-kit
+Cambios: Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.
+
+Furniture Kit · lampRoundFloor
+Autor: Kenney
+Licencia: CC0 1.0 Universal
+https://kenney.nl/assets/furniture-kit
+Cambios: Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.
+
+Furniture Kit · pottedPlant
+Autor: Kenney
+Licencia: CC0 1.0 Universal
+https://kenney.nl/assets/furniture-kit
+Cambios: Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.
+
+Furniture Kit · sideTable
+Autor: Kenney
+Licencia: CC0 1.0 Universal
+https://kenney.nl/assets/furniture-kit
+Cambios: Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.
+
+Furniture Kit · trashcan
+Autor: Kenney
+Licencia: CC0 1.0 Universal
+https://kenney.nl/assets/furniture-kit
+Cambios: Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.
+
+Nature Kit · tree_detailed
+Autor: Kenney
+Licencia: CC0 1.0 Universal
+https://kenney.nl/assets/nature-kit
+Cambios: Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.
+
+Nature Kit · tree_oak
+Autor: Kenney
+Licencia: CC0 1.0 Universal
+https://kenney.nl/assets/nature-kit
+Cambios: Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.
+
+Noto Sans Regular
+Autor: The Noto Project Authors
+Licencia: SIL Open Font License 1.1
+https://github.com/notofonts/noto-fonts/blob/main/hinted/ttf/NotoSans/NotoSans-Regular.ttf
+Cambios: Fuente TrueType original conservada sin modificación. Unity genera un atlas SDF y material de TextMesh Pro para los rótulos de la clínica; el derivado conserva la licencia OFL. Ajustes de tamaño, espaciado y color en la escena.
+
+Drinks cup, small (Fast Food Counter and Drive-Thru)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/fast-food-and-drive-thru-drinks-cup-small-185a05b6
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.
+
+Beige Wall 001
+Autor: Dimitrios Savva; Rico Cilliers
+Licencia: CC0 1.0 Universal
+https://polyhaven.com/a/beige_wall_001
+Cambios: Selección de mapas de color base, normal OpenGL y rugosidad a 2K; repetición, intensidad y tinte configurados en Unity. Sin modificación de los originales. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB.
+
+Modern Arm Chair 01
+Autor: Vibrant Nordic
+Licencia: CC0 1.0 Universal
+https://polyhaven.com/a/modern_arm_chair_01
+Cambios: Descarga de glTF y mapas PBR de 2K. Conversión a OBJ con normales, UV, grupos de materiales y traslaciones originales; inversión de V para Wavefront. Sin simplificación de malla. Escala y materiales finales configurados en Unity. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB.
+
+Oak Veneer 01
+Autor: Jenelle van Heerden
+Licencia: CC0 1.0 Universal
+https://polyhaven.com/a/oak_veneer_01
+Cambios: Selección de mapas de color base, normal OpenGL y rugosidad a 2K; repetición, intensidad y tinte configurados en Unity. Sin modificación de los originales. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB.
+
+Potted Plant 02
+Autor: Rico Cilliers
+Licencia: CC0 1.0 Universal
+https://polyhaven.com/a/potted_plant_02
+Cambios: Descarga de glTF y mapas PBR de 2K. Conversión a OBJ con normales, UV, grupos de materiales y traslaciones originales; inversión de V para Wavefront. Sin simplificación de malla. Escala y materiales finales configurados en Unity. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB. Combinación de color y máscara alfa original del follaje en PNG RGBA, sin modificar las fuentes.
+
+Scalpel
+Autor: Poly by Google
+Licencia: CC BY 3.0
+https://poly.pizza/m/9yKgpOpblnf
+Cambios: Separación de la hoja, normalización de coordenadas y adaptación de escala y orientación.
+
+Syringe
+Autor: J-Toastie
+Licencia: CC BY 3.0
+https://poly.pizza/m/MURJ8NK4N9
+Cambios: Cambio de ejes, separación de aguja y adaptación de escala y materiales. Jeringa genérica: no reproduce con exactitud una carpule.
+
+Barrier Film Roll (Tattoo and Piercing Studio)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/tattoo-and-piercing-studio-barrier-film-roll-34c18eb0
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, sin atribuirles una autoría nueva.
+
+Instrument Tray Set (Tattoo and Piercing Studio)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/tattoo-and-piercing-studio-instrument-tray-set-aebe0da4
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.
+
+Rolling Tray Table (Tattoo and Piercing Studio)
+Autor: 3D Assets
+Licencia: CC0 1.0 Universal
+https://3dassets.dev/assets/tattoo-and-piercing-studio-rolling-tray-table-93236166
+Cambios: Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, sin atribuirles una autoría nueva.
+
+Tooth
+Autor: sugamo
+Licencia: CC BY 3.0
+https://poly.pizza/m/66NBoNdhb03
+Cambios: Original conservado; escala, posición y orientación ajustadas en la instancia de la escena.
+
+
+DEPENDENCIAS DISTRIBUIDAS
+TextMesh Pro / uGUI 2.0.0 — Unity Technologies ApS.
+Fuente: https://docs.unity3d.com/Packages/com.unity.ugui@2.0/manual/index.html
+Licencia: Unity Companion License — https://unity.com/legal/licenses/unity-companion-license
+Cambios: importación de 33 recursos esenciales sin modificar los originales.
+
+Liberation Sans — datos digitalizados © 2010 Google Corporation; © 2012 Red Hat, Inc.
+Fuente: https://github.com/liberationfonts/liberation-fonts
+Licencia: SIL OFL 1.1 — https://github.com/liberationfonts/liberation-fonts/blob/main/LICENSE
+Cambios: ninguno; TTF y atlas de respaldo distribuidos por Unity. La señalización usa Noto Sans.
+
+Unity glTFast 6.20.0 — Unity Technologies y autores de Unity glTFast.
+Fuente: https://docs.unity3d.com/Packages/com.unity.cloud.gltfast@6.20/manual/index.html
+Licencia: Apache 2.0 — https://www.apache.org/licenses/LICENSE-2.0
+Cambios: ninguno en el paquete de importación.
+
+Versiones y demás dependencias: Documentacion/DEPENDENCIAS.md del proyecto.

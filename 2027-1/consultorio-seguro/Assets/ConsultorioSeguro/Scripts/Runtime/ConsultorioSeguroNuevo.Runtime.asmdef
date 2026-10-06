@@ -1,0 +1,6 @@
+{
+  "name": "ConsultorioSeguroNuevo.Runtime",
+  "rootNamespace": "ConsultorioSeguroNuevo",
+  "references": ["Unity.InputSystem", "UnityEngine.UI"],
+  "autoReferenced": true
+}

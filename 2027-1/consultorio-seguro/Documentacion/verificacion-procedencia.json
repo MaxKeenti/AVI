@@ -1,0 +1,182 @@
+{
+  "fecha": "2026-10-03",
+  "metodo": "Comparación de catálogo, archivos físicos y sumas SHA-256; no ejecuta Unity.",
+  "recursos_originales": 51,
+  "carpetas": 18,
+  "archivos_modelo": 74,
+  "texturas": 38,
+  "fuentes": 1,
+  "sin_entrada_catalogo": [],
+  "archivos_listados_ausentes": [],
+  "verificacion_sha256": [
+    {
+      "archivo": "polyhaven-beige-wall-001/beige_wall_001_diff_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-beige-wall-001/beige_wall_001_nor_gl_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-beige-wall-001/beige_wall_001_rough_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-beige-wall-001/beige_wall_001_ao_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-beige-wall-001/beige_wall_001_metallic_gloss_2k.png",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-beige-wall-001/beige_wall_001_occlusion_2k.png",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-modern-arm-chair-01/modern_arm_chair_01_2k.gltf",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-modern-arm-chair-01/modern_arm_chair_01.bin",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-modern-arm-chair-01/textures/modern_arm_chair_01_legs_nor_gl_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-modern-arm-chair-01/textures/modern_arm_chair_01_legs_diff_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-modern-arm-chair-01/textures/modern_arm_chair_01_legs_arm_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-modern-arm-chair-01/textures/modern_arm_chair_01_pillow_nor_gl_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-modern-arm-chair-01/textures/modern_arm_chair_01_pillow_diff_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-modern-arm-chair-01/textures/modern_arm_chair_01_pillow_arm_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-modern-arm-chair-01/textures/modern_arm_chair_01_legs_metallic_gloss_2k.png",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-modern-arm-chair-01/textures/modern_arm_chair_01_legs_occlusion_2k.png",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-modern-arm-chair-01/textures/modern_arm_chair_01_pillow_metallic_gloss_2k.png",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-modern-arm-chair-01/textures/modern_arm_chair_01_pillow_occlusion_2k.png",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-oak-veneer-01/oak_veneer_01_diff_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-oak-veneer-01/oak_veneer_01_nor_gl_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-oak-veneer-01/oak_veneer_01_rough_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-oak-veneer-01/oak_veneer_01_ao_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-oak-veneer-01/oak_veneer_01_metallic_gloss_2k.png",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-oak-veneer-01/oak_veneer_01_occlusion_2k.png",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/potted_plant_02_2k.gltf",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/potted_plant_02.bin",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_pot_nor_gl_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_pot_diff_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_pot_rough_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_leaves_nor_gl_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_leaves_diff_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_leaves_rough_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_leaves_alpha_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_leaves_ao_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_pot_ao_2k.jpg",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_pot_metallic_gloss_2k.png",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_pot_occlusion_2k.png",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_leaves_metallic_gloss_2k.png",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_leaves_occlusion_2k.png",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_leaves_base_alpha_2k.png",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "noto-sans/NotoSans-Regular.ttf",
+      "coincide_sha256": true
+    },
+    {
+      "archivo": "noto-sans/OFL.txt",
+      "coincide_sha256": true
+    }
+  ],
+  "errores_sha256": []
+}

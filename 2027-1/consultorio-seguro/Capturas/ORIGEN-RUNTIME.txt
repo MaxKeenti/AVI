@@ -1,0 +1,11 @@
+Capturas reales del modo de ejecución de Unity 6000.4.6f1.
+Escena: Assets/ConsultorioSeguro/Escenas/ConsultorioSeguro.unity.
+Cámara del visitante, altura local de ojos 1,65 m. Resolución: 1800 × 1125.
+Generadas durante ClinicSceneIntegrationTests mediante Camera.Render y la interfaz real, cambiada temporalmente de ScreenSpaceOverlay a ScreenSpaceCamera para capturarla.
+El recorrido y las interacciones de la prueba son automatizados con CharacterController.Move y raycasts sobre los colliders reales; no equivalen a una revisión manual.
+13-inicio.png · UTC 2026-10-04T16:06:18.8322570Z · cámara (0.00, 1.70, -9.00) · pantalla Menu
+14-manual.png · UTC 2026-10-04T16:06:18.9553330Z · cámara (0.00, 1.70, -9.00) · pantalla Manual
+15-pausa.png · UTC 2026-10-04T16:06:19.0865530Z · cámara (-3.75, 1.68, 6.75) · pantalla Pause
+16-silueta-dorada.png · UTC 2026-10-04T16:06:19.1812100Z · cámara (-3.75, 1.68, 6.75) · pantalla Playing
+17-material-en-mano.png · UTC 2026-10-04T16:06:19.2751150Z · cámara (-3.75, 1.68, 6.75) · pantalla Playing
+18-cinco-practicas-completadas.png · UTC 2026-10-04T16:06:22.9666000Z · cámara (0.00, 1.68, -9.00) · pantalla Pause

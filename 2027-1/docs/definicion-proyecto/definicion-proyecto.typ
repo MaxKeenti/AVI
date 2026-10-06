@@ -35,7 +35,7 @@
   "Integrantes", // titulo_alumno
   "Secuencia", // titulo_profesorx
   "Profesora", // titulo_fecha
-  "OPTATIVA III: Simuladores Virtuales", // carrera
+  "Ambientes Virtuales Inmersivos", // carrera
   "Simulación de Ambientes Virtuales", // materia
   "Equipo 7", // practica
   "2027 - 1", // secuencia
@@ -53,11 +53,15 @@
 
 #title("Definición del Proyecto - Equipo 7")
 
-#show link: set text(fill: blue)
-#show link: it => underline(text(fill: blue, it))
+#show link: set text(fill: rgb("#336B75"))
+#show link: it => underline(text(fill: rgb("#336B75"), it))
 Carpeta del equipo: #link("https://drive.google.com/drive/folders/1Xc2jnpCpinsPkV-dof3KsvBKfH1W1DBe")[*drive.google.com/drive/folders...*]
 
-#outline(title: "Índice")
+#block[
+  #set text(size: 9pt)
+  #set par(leading: .65em)
+  #outline(title: "Índice", depth: 2)
+]
 
 #pagebreak()
 
@@ -141,7 +145,7 @@ El proyecto está pensado sobre todo para estudiantes y personas que trabajan en
 
 === Tecnología
 
-El simulador se va a hacer sobre todo con `Unity`, esta herramienta permite crear el consultorio y programar las interacciones, también se van a usar recursos de modelado y texturizado 3D para que se parezca más a un consultorio real. Además, se piensa usar Realidad Aumentada por medio de una aplicación para dispositivos `Android`.
+La construcción se realiza con `Unity`, con recursos de modelado y texturizado 3D para representar el consultorio y sus interacciones. Esta entrega tiene como objetivo el escritorio con teclado y ratón. La realidad aumentada para dispositivos `Android` se conserva como una ampliación propuesta; no forma parte de la implementación comprobada aquí.
 
 === Funcionalidad
 
@@ -161,9 +165,9 @@ Las funciones principales del prototipo serán:
 
 - Obtener una puntuación según las decisiones que se tomen.
 
-- Usar sonidos y avisos para que la interacción sea más clara.
+- Usar avisos en español para que la interacción sea clara.
 
-- Usar recursos de Realidad Aumentada como complemento del simulador.
+- Considerar la Realidad Aumentada como ampliación futura del simulador de escritorio.
 
 === Acciones de simulación
 
@@ -177,7 +181,7 @@ El prototipo se organiza alrededor de cinco acciones, cada una recrea una tarea 
 
 - *Exploración, curación o retiro de piezas dentales:* se representa un procedimiento breve para generar los residuos que le corresponden, por ejemplo, gasas con sangre, piezas dentales extraídas y material de curación. El procedimiento no se simula a detalle clínico, sirve para dar contexto al residuo.
 
-- *Manejo de equipo radiográfico:* el usuario enciende el equipo de rayos X y lo ve prepararse hasta quedar listo para usarse en un paciente, la acción muestra la secuencia de encendido, la colocación del brazo y las barreras de protección que se ponen antes de la toma, estas barreras son las que después se convierten en residuo.
+- *Manejo de equipo radiográfico:* la práctica representa una secuencia de radiografía digital: preparar sensor y barrera, representar la toma y retirar barreras. El usuario activa estaciones con mensajes y un tiempo abreviado; el brazo del equipo permanece estático y no se genera radiación. Los residuos del caso son barrera y guantes sin sangre visible, sin químicos de revelado.
 
 Cada acción funciona como un escenario independiente, así, el usuario puede repetir solo la que le interese y el sistema registra sus aciertos y errores por separado.
 
@@ -185,213 +189,136 @@ El proyecto se va a enfocar en clasificar y organizar los residuos dentro del co
 
 Así, la propuesta quiere servir como una herramienta que ayuda al usuario a aprender y practicar antes de enfrentar una situación real, lo hace en un entorno virtual donde cometer errores no implica ningún riesgo para la salud.
 
-= Marco Teórico
+= Fundamento del contenido educativo
 
-= Desarrollo Prototipo Simulador
+El ejercicio aplica casos concretos y no equipara todo material usado con un RPBI. La referencia es la NOM-087-SEMARNAT-SSA1-2002, publicada con la denominación ECOL; el catálogo oficial consultado la identifica como vigente @economia2003rpbi.
 
-== Entorno urbano del consultorio
+- Gasas y algodón saturados de sangre: residuos no anatómicos, bolsa roja.
 
-El consultorio se ubica en la planta baja de una torre de aproximadamente 21 metros, dentro de una avenida de 89 metros de longitud. Las dos aceras conectan el acceso con edificios vecinos de entre 16 y 32 metros, arbolado, luminarias y automóviles. Se conserva el paso peatonal frente a la clínica para orientar el recorrido desde el punto de inicio.
+- Agujas y hojas de bisturí usadas: recipiente rígido rojo para punzocortantes.
 
-La ampliación permite recorrer una calle más extensa sin cambiar las cinco actividades del consultorio. Los pisos superiores y los edificios vecinos forman parte del escenario exterior y no incluyen interiores visitables.
+- Pieza extraída sin conservador ni amalgama en el caso simulado: patológico sólido, bolsa amarilla. Esta aplicación del apartado 4.3.1 requiere revisión del especialista del proyecto.
 
-=== Distribución interior por salas
+- Envolturas limpias y barreras con saliva sin sangre: destino común solamente bajo las condiciones descritas por cada caso; se excluyen los supuestos infecciosos especiales y los riesgos químicos.
 
-La clínica se amplía hacia la parte posterior mediante un ala de 15 por 19.5 metros, conectada a la recepción y al vestíbulo original. Un pasillo central de 2.5 metros comunica cinco salas de práctica y una sala de descanso. Las puertas numeradas y el directorio del vestíbulo permiten reconocer el recorrido.
+La separación y el envasado se basan en los apartados 4 y 6.2 y la tabla 2 de la norma @semarnat2003clasificacion.
 
+El instrumental reutilizable sigue una ruta diferente: limpieza, secado, inspección, empaque y esterilización validada de acuerdo con el fabricante. La NOM-013-SSA2-2015 sustenta esta secuencia; llevar un objeto a una estación virtual no representa un ciclo real ni certifica que esté estéril @salud2016bucales.
+
+= Desarrollo de Consultorio Seguro
+
+== Nueva construcción y alcance
+
+La nueva versión se inicia desde una escena y una implementación nuevas. Se conservan recursos externos cuya procedencia está documentada; no se trasladan las pruebas aprobadas ni las capturas de la implementación anterior como evidencia de esta entrega.
+
+El objetivo visual es un interior contemporáneo con proporciones reales, mobiliario utilizable, materiales físicamente basados y luz natural combinada con iluminación clínica. La recepción y la sala de procedimientos constituyen la referencia para extender los mismos acabados a las demás áreas. El estado comprobado de la implementación se registra por separado en la sección de verificación.
+
+== Programa arquitectónico
+
+La clínica se sitúa en la planta baja de un edificio alto, con acceso identificable desde la banqueta. El entorno incluye edificios vecinos, calle y mobiliario urbano. Los pisos superiores son contexto exterior; la actividad educativa se desarrolla en la clínica.
+
+La distribución prevista consta de una recepción con mostrador reconocible desde la entrada, espacio de atención al paciente y espacio de trabajo del personal. Una sala de espera con sillones, mesas auxiliares, plantas e información para pacientes deja libre la ruta hacia el pasillo central. Las cinco salas de práctica se organizan a ambos lados del pasillo, junto con una sala de personal y almacenamiento.
+
+#block(breakable: false)[
 #table(
   columns: (auto, 1fr, 1.6fr),
-  inset: 6pt,
-  align: left,
-  table.header([*Sala*], [*Actividad*], [*Equipamiento principal*]),
-  [01], [Clasificación], [Carrito de curación y recipientes para clasificar los residuos.],
-  [02], [Esterilización], [Mostrador, tarja, charola de instrumental sucio y autoclave.],
-  [03], [Materiales], [Estante y consumibles para identificar su destino después del uso.],
-  [04], [Procedimientos], [Unidad dental, maniquí, lámpara operatoria y mesa de instrumental.],
-  [05], [Radiografía], [Sillón independiente, maniquí, equipo de rayos X y mesa para barreras.],
-)
-
-Cada actividad se activa al entrar en su sala. Los residuos desechables se clasifican en los recipientes locales; el instrumental reutilizable se lleva al área de esterilización. Se conservan las secuencias, la puntuación y el reinicio de las cinco prácticas. Los muebles y equipos reutilizan los modelos externos ya registrados; la distribución arquitectónica y los letreros son elaboración del equipo. Los árboles, vehículos y demás modelos exteriores se mantienen.
-
-=== Recepción y orientación del usuario
-
-La recepción se integra con el vestíbulo al retirar el tabique interior,
-conservando libre el acceso central hacia las salas. La espera incorpora
-asientos, mesas auxiliares, vegetación y acabados cálidos. El directorio se
-ubica en el muro frontal junto al inicio del pasillo.
-
-El menú inicial y el menú de pausa ofrecen un manual de controles e
-interacción, con un botón permanente para volver. Cada sala cuenta con una
-guía mural: desplazarse con WASD o flechas, mirar con el ratón, acercarse y
-apuntar al objeto para interactuar con E. Los rótulos de los recipientes se
-orientan hacia el espacio de circulación y permanecen libres de obstáculos.
-
-=== Acabados e iluminación interior
-
-Las salas incorporan paneles de iluminación de la colección Dental Practice and Surgery, distribuidos en el techo, difusores emisivos propios,
-zoclos sanitarios, marcos de puerta y rejillas de ventilación. Se añaden
-muebles con lavabo, almacenamiento estéril y dispensadores de guantes y
-cubrebocas de la colección Dental Practice and Surgery, cuya fuente y licencia
-se indican a continuación. Estos elementos complementan la ambientación;
-las actividades conservan sus estaciones y recorridos. La iluminación combina
-sombras en tiempo real con luces de relleno para mejorar la lectura del espacio.
-El acabado visual incorpora texturas procedurales propias para el piso satinado
-(mapas de color, normales y suavidad) y la veta de madera; no se añadieron
-fuentes externas para estas texturas. Los paños verdes, el cielo raso con
-juntas, los remates del pasillo y la señalética marfil unifican el interior.
-La corrección de exposición se limita a volúmenes dentro de la clínica y
-el mapeo tonal se mantiene uniforme dentro y fuera para evitar saltos al entrar;
-las cámaras suavizan los bordes con SMAA. El mostrador se sitúa al fondo de la
-recepción, en el lado derecho junto al acceso al pasillo, manteniendo libre
-el recorrido central. La bienvenida con controles y el rótulo de registro
-son carteles independientes. Se reutilizan sillas, mesa auxiliar y planta
-de Furniture Kit para completar la espera junto a la entrada; el paso
-central permanece despejado. Los números se montan al ras del muro,
-junto a cada vano y a la altura de la vista, separados del nombre de la sala.
-
-Los instrumentos pequeños incorporan un contorno blanco de ayuda visual
-y cambian a dorado al apuntarlos. El efecto se limita a objetos cercanos
-en la misma sala, se oculta durante la pausa y al tomar o clasificar
-el residuo; no indica el recipiente correcto. Es un sombreado propio
-del proyecto, sin recursos externos adicionales.
-
-Los modelos mantienen una geometría simplificada: la escena no pretende ser
-una reproducción fotográfica ni una especificación constructiva de una clínica.
-
-== Modelos 3D de terceros y sus fuentes
-
-El prototipo incorpora modelos existentes para sustituir el mobiliario y gran parte de los objetos de práctica. Se conservan los componentes de interacción, los destinos de clasificación y la lógica de las actividades. Fecha de consulta y descarga de los recursos: *28 de septiembre de 2026*.
-
-#table(
-  columns: (1.2fr, 1.8fr),
   inset: 7pt,
   align: left,
-  table.header([*Fuente y autor*], [*Modelos utilizados y adaptación*]),
-  [#link("https://kenney.nl/assets/furniture-kit")[Furniture Kit] — Kenney],
-  [Sillas, planta, monitor, lavabo, banca, bote municipal y mesa auxiliar. Escala, orientación y materiales.],
-  [#link("https://kenney.nl/assets/car-kit")[Car Kit] — Kenney],
-  [Sedán para los automóviles de la calle. Ajuste de dimensiones y orientación.],
-  [#link("https://kenney.nl/assets/nature-kit")[Nature Kit] — Kenney],
-  [Roble para el arbolado urbano. Ajuste de altura.],
-  [#link("https://kenney.nl/assets/city-kit-commercial")[City Kit Commercial] — Kenney],
-  [Edificios comerciales building-a, building-b y building-c para los vecinos y la torre sobre la clínica. Adaptación de dimensiones y orientación; repetición de plantas intermedias en building-b y building-c para conservar las proporciones de ventanas y cornisas.],
-  [#link("https://3dassets.dev/packs/dental-practice-and-surgery")[Dental Practice and Surgery] — 3D Assets],
-  [Sillón reclinado, lámpara operatoria, brazo de rayos X, gabinetes, tarja, autoclave, mostrador, puerta, recipientes, charola, espejo dental, explorador, algodón, panel de iluminación de techo, dispensador de guantes y cubrebocas, y gabinete de almacenamiento estéril. Separación de piezas, escala y adaptación de colores.],
-  [#link("https://3dassets.dev/packs/field-medicine-and-recovery")[Field Medicine and Recovery] — 3D Assets],
-  [Pila de gasas. Escala y color para representar su estado en cada práctica.],
-  [#link("https://3dassets.dev/packs/tattoo-and-piercing-studio")[Tattoo and Piercing Studio] — 3D Assets],
-  [Mesa rodante, sin los objetos decorativos originales; hoja extraída del rollo de barrera para barreras, fundas y láminas desechables.],
-  [#link("https://3dassets.dev/assets/retail-store-fixtures-and-mall-mannequin-seated-05ab1b9a")[Seated mannequin] — 3D Assets],
-  [Maniquí del paciente. Se retira la base de exhibición, se adapta la postura al sillón y se asignan materiales de piel y ropa.],
-  [#link("https://3dassets.dev/assets/art-gallery-and-exhibition-rooms-gloves-and-tools-tray-029ffe6f")[Gloves and tools tray] — 3D Assets],
-  [Guantes extraídos de la bandeja y recoloreados. El modelo original representa guantes de manipulación de arte; su adaptación clínica es esquemática.],
-  [#link("https://3dassets.dev/assets/fast-food-and-drive-thru-drinks-cup-small-185a05b6")[Drinks cup, small] — 3D Assets],
-  [Vaso desechable del paciente. Adaptación de escala.],
-  [#link("https://poly.pizza/m/MURJ8NK4N9")[Syringe] — J-Toastie],
-  [Jeringa y agujas separadas de su malla. Escala y orientación; la jeringa genérica es una aproximación visual, no un modelo exacto de carpule.],
-  [#link("https://poly.pizza/m/66NBoNdhb03")[Tooth] — sugamo],
-  [Pieza dental extraída. Escala y orientación.],
-  [#link("https://poly.pizza/m/9yKgpOpblnf")[Scalpel] — Poly by Google],
-  [Hoja de bisturí separada de la malla original y normalizada a la escala de la práctica.],
+  table.header([*Sala*], [*Actividad*], [*Organización funcional*]),
+  [01], [Clasificación], [Charola de residuos y destinos de separación accesibles.],
+  [02], [Esterilización], [Recepción de instrumental usado, limpieza y preparación para reprocesamiento.],
+  [03], [Materiales], [Almacenamiento ordenado y reconocimiento de consumibles.],
+  [04], [Procedimientos], [Unidad dental, iluminación operatoria y charola al alcance del usuario.],
+  [05], [Radiografía], [Equipo y barreras de protección; clasificación de desechables del caso simulado.],
+)
+]
+
+Los nombres y números se colocan a altura de lectura y se orientan para guiar en ambos sentidos. Las instrucciones y el manual de cada práctica deben permanecer visibles desde el espacio de uso, sin atravesar muebles para consultarlos.
+
+== Materiales, iluminación y modelos
+
+La paleta emplea blancos cálidos, verde salvia, madera clara y tapicería neutra. Los acabados distinguen porcelanato satinado, yeso pintado, madera, acero, cerámica, vidrio y plásticos médicos. Las texturas externas de madera y muro incluyen color, normal y rugosidad; su fuente está en el catálogo. La iluminación y las reflexiones deben evaluarse desde la altura de los ojos, especialmente al cruzar del exterior a la recepción y de esta a las salas.
+
+Los nuevos modelos de espera y vegetación proceden de Poly Haven: Modern Arm Chair 01 de Vibrant Nordic y Potted Plant 02 de Rico Cilliers. Las texturas Oak Veneer 01 y Beige Wall 001 proporcionan variación superficial. Se conservan además modelos odontológicos y objetos de biblioteca previamente descargados, con sus fuentes y adaptaciones individuales.
+
+Una licencia válida no garantiza fidelidad clínica. Parte del equipo de 3D Assets tiene geometría simplificada y el proveedor declara generación mediante inteligencia artificial. El modelo de jeringa es genérico. La biblioteca conserva un maniquí de exhibición para evaluación, pero la escena nueva no lo utiliza como paciente. Estas limitaciones se mantienen explícitas; el objetivo de representación arquitectónica no constituye una afirmación de fotorrealismo ya verificado.
+
+== Interacción y accesibilidad
+
+El recorrido es en primera persona. Los controles usan teclado y ratón, con avisos de interacción en español. El manual debe estar disponible desde el inicio, la pausa y cada sala, con regreso claro al contexto anterior. La puntuación ofrece retroalimentación sobre la decisión, y cada práctica puede repetirse.
+
+La asistencia visual de instrumentos utiliza un contorno blanco discreto y un contorno dorado al apuntar. Se limita a objetos cercanos de la sala actual, desaparece durante la pausa y al sostener o completar el objeto y no codifica el recipiente correcto. Su comportamiento y legibilidad se comprueban en Unity, no por la mera presencia del código.
+
+Los controles definidos son WASD o flechas para caminar, ratón para mirar, Mayús izquierda para aumentar la velocidad y E para interactuar a menos de 2,6 m. R devuelve el objeto sostenido. M abre el manual y Esc gestiona pausa y regreso. Cada acierto suma 10 puntos y cada error resta 5, con un mínimo de cero; el reinicio de la práctica está en el menú de pausa.
+
+La distribución definida en el constructor contiene 13 objetos y 10 pasos previos:
+
+#table(
+  columns: (2fr, 1fr, 1fr),
+  inset: 6pt,
+  table.header([*Práctica*], [*Pasos*], [*Objetos*]),
+  [Clasificación], [0], [3],
+  [Esterilización], [3], [2],
+  [Materiales], [1], [3],
+  [Procedimientos], [3], [3],
+  [Radiografía digital], [3], [2],
 )
 
-*Licencias.* Los paquetes de Kenney y los modelos de 3D Assets están publicados bajo #link("https://creativecommons.org/publicdomain/zero/1.0/")[CC0 1.0 Universal]. Syringe, Tooth y Scalpel se distribuyen bajo #link("https://creativecommons.org/licenses/by/3.0/")[Creative Commons Atribución 3.0]. Se conservan el nombre del autor, el enlace y las modificaciones en los créditos y en los archivos de procedencia del proyecto.
+Estos recuentos describen la escena; la aprobación de sus recorridos e interacciones se registra por separado.
 
-*Procedencia y elaboración.* El proveedor 3D Assets identifica sus recursos como generados mediante inteligencia artificial; los metadatos consultados indican Claude Opus 5. Son modelos publicados por terceros, no modelados originalmente por el equipo. Las adaptaciones OBJ se obtienen con `Tools/preparar_modelos.py`; los originales GLB y sus enlaces individuales se conservan en `Assets/Terceros`, junto con los archivos `FUENTE.md` y `procedencia.json`.
+== Escena editable y vistas
 
-*Alcance de la sustitución.* El brazo importado acompaña la animación del equipo de rayos X. Los residuos importados permanecen dentro de sus objetos interactivos para tomarlos, clasificarlos y reiniciarlos. Se mantienen los colores de los recipientes del simulador. El cubrebocas, los fórceps de extracción, la lima endodóntica y la aguja de sutura aún utilizan representaciones provisionales; no se atribuyen a los paquetes anteriores. También se conservan la arquitectura, señalización didáctica, luces y controles propios. La biblioteca contiene otros modelos descargados para evaluación que todavía no se muestran en la escena.
+La escena principal se guarda en `Assets/ConsultorioSeguro/Escenas/ConsultorioSeguro.unity`. La jerarquía organiza arquitectura, techos y torre, equipamiento, entorno urbano, iluminación, interacción y vistas. Los objetos se inspeccionan y editan antes de iniciar Play.
 
-= Conclusiones
+El menú *Consultorio Seguro → Vistas* ofrece exterior, recepción, espera, pasillo, las cinco salas, personal y corte superior. El corte oculta techos y torre únicamente para la inspección del editor. La herramienta de captura utiliza cámaras de Unity a 1,65 m para los interiores; la cámara exterior también se sitúa a 1,65 m y dirige la mirada hacia la torre; únicamente el corte utiliza una posición elevada. Los menús y el comportamiento durante el recorrido requieren una comprobación separada en ejecución.
 
-= Glosario
+
+== Registro exhaustivo de recursos externos
+
+El siguiente catálogo registra 51 recursos originales en 18 carpetas, de `Assets/Terceros`, incluidos archivos de evaluación que pueden no aparecer en la escena. Las dependencias de software y los recursos esenciales de TextMesh Pro se describen a continuación y no forman parte de ese recuento. Cada entrada incluye fuente, autor, licencia, archivos y modificaciones. Se conservan los nombres originales para identificar las páginas de descarga. La consulta original es la fecha del registro de procedencia; no se cambia al reutilizar un archivo.
+
+La biblioteca registra originales y derivados, mientras que los créditos de la aplicación y `CREDITOS.md` reproducen estas atribuciones. Los recursos CC0 permiten adaptación; los tres recursos CC BY 3.0 mantienen autor, fuente, licencia y declaración de cambios. Noto Sans Regular se conserva bajo SIL Open Font License 1.1 con su aviso de derechos y licencia íntegra. Los metadatos de 3D Assets especifican diferentes modelos de IA: no se atribuye un único modelo generador a toda la biblioteca.
+
+#block[
+  #include "media/catalogo-recursos.typ"
+]
+
+== Dependencias y recursos esenciales de Unity
+
+El proyecto declara Unity 6000.4.6f1, Universal Render Pipeline 17.4.0, Input System 1.19.0, uGUI 2.0.0, Unity glTFast 6.20.0 y Unity Test Framework 1.6.0. Los paquetes se conservan sin modificaciones; sus versiones están en `Packages/manifest.json` y sus dependencias transitivas en `Packages/packages-lock.json`.
+
+*TextMesh Pro / uGUI 2.0.0.* Autor y distribuidor: Unity Technologies ApS. Fuente: #link("https://docs.unity3d.com/Packages/com.unity.ugui@2.0/manual/index.html")[documentación oficial de uGUI]. Licencia: #link("https://unity.com/legal/licenses/unity-companion-license")[Unity Companion License]. Se importaron 33 recursos esenciales de shaders, ajustes, estilos y fuentes de respaldo del archivo `TMP Essential Resources.unitypackage` del paquete instalado. Los 33 coinciden con el original mediante SHA-256; no se modificaron. El aviso de licencia se conserva en `Assets/TextMesh Pro/LICENSE-Unity.md`.
+
+*Liberation Sans.* Recurso de respaldo incluido en el paquete de Unity. Avisos de autoría: datos digitalizados © 2010 Google Corporation; © 2012 Red Hat, Inc. Fuente: #link("https://github.com/liberationfonts/liberation-fonts")[Liberation Fonts]. Licencia: #link("https://github.com/liberationfonts/liberation-fonts/blob/main/LICENSE")[SIL Open Font License 1.1]. La fuente TTF, sus atlas SDF y materiales se importaron sin cambios; la licencia íntegra acompaña al archivo. Los rótulos de la clínica usan Noto Sans y los menús usan la fuente integrada `LegacyRuntime.ttf` de Unity.
+
+*Unity glTFast 6.20.0.* Autor: Unity Technologies y autores de Unity glTFast. Fuente: #link("https://docs.unity3d.com/Packages/com.unity.cloud.gltfast@6.20/manual/index.html")[documentación oficial]. Licencia: #link("https://www.apache.org/licenses/LICENSE-2.0")[Apache License 2.0]. Paquete de importación conservado sin cambios.
+
+`Documentacion/DEPENDENCIAS.md` y `procedencia-dependencias.json` del proyecto enumeran la procedencia de los recursos distribuidos con Unity, sus archivos y comprobaciones. El catálogo anterior conserva la atribución individual de Noto Sans y de los modelos y texturas externos.
 
 #pagebreak()
 
-= Anexos: avances del prototipo
+= Verificación y evidencias de la nueva versión
 
-Las siguientes capturas muestran el estado actual de la escena en `Unity`.
+*Verificación al 4 de octubre de 2026:* Unity 6000.4.6f1 abre y compila la escena; las siete pruebas de PlayMode terminan aprobadas, sin fallos. La escena nueva contiene 10 pasos y 13 objetos entre las cinco prácticas. El informe XML acompaña al proyecto.
 
-#figure(
-  image("media/PHOTO-2026-09-22-13-26-53.jpg", width: 100%),
-  caption: [Menú principal del simulador, con las opciones de inicio, ubicación, créditos y salida.],
-)
+La prueba de integración desplaza el CharacterController real desde la banqueta hasta recepción, recorre el frente y la parte posterior del registro, la espera, el pasillo, las cinco salas y el área de personal, y vuelve a salir. La interacción se comprueba mediante rayos desde la cámara a altura de ojos y los colliders de la escena. Se verifican manuales, pasos, recogida, consulta de recipientes, depósito, puntuación y regreso a los menús. Pruebas adicionales cubren errores, restitución de objetos, orden, reinicio, atajo M y restricciones del contorno.
 
-#figure(
-  image("media/PHOTO-2026-09-22-13-26-52 6.jpg", width: 100%),
-  caption: [El mismo menú colocado dentro de la escena, sobre la imagen del consultorio.],
-)
+Se inspeccionaron 18 imágenes reales de Unity: 12 vistas arquitectónicas y seis de ejecución. Las últimas utilizan temporalmente el Canvas en modo ScreenSpaceCamera para que Camera.Render incluya la interfaz real. Los archivos de origen y sus sumas SHA-256 permiten identificar cada imagen. No son imágenes conceptuales ni resultados de generación de imágenes.
 
-#figure(
-  image("media/PHOTO-2026-09-22-13-26-51.jpg", width: 100%),
-  caption: [Exterior del entorno urbano, con la lona institucional que ubica el acceso al consultorio.],
-)
+También se abrió el proyecto desde Unity Hub y se comprobó la recepción en Scene View antes de Play. Mediante clics y teclado en la interfaz del editor se verificaron inicio, manual, desplazamiento de lectura, créditos, Volver, pausa, Reanudar y atajo M. Unity quedó abierto en recepción, fuera de Play. No se completó una caminata manual con teclado y ratón por todas las salas; el recorrido íntegro documentado es automático. Tampoco se evaluaron rendimiento en otros equipos, accesibilidad con dispositivos alternativos ni todos los ángulos de oclusión del contorno.
 
-#figure(
-  image("media/PHOTO-2026-09-22-13-26-52.jpg", width: 100%),
-  caption: [Personaje del usuario frente al aviso de audio que acompaña el recorrido exterior.],
-)
+La iluminación combina luz directa, rellenos y ocho sondas de reflexión guardadas; no se horneó iluminación global. Unity reduce la resolución de algunas sombras para ajustarlas al atlas. Parte del equipo dental conserva geometría simplificada. Las imágenes muestran el nivel visual obtenido, sin afirmar que se haya alcanzado fotorrealismo.
+
+Los registros `Capturas/REVISION.md`, `ENTREGA.md` y `Verificacion/pruebas-playmode.xml` detallan la evidencia. Las cuatro figuras siguientes son copias íntegras de las capturas; `media/origen-capturas-unity.json` conserva sus sumas. Las imágenes históricas de septiembre no se usan como prueba de esta construcción.
+
+#include "media/evidencias-unity.typ"
+
+= Límites del simulador
+
+La aplicación representa decisiones de separación y manejo inicial; no reproduce una extracción, una esterilización validada o un estudio radiográfico real. Quedan fuera de alcance la certificación de instalaciones, dosimetría, transporte y disposición final. El contenido debe ser revisado por el profesional de referencia antes de utilizarse como capacitación clínica formal.
+
+La versión de escritorio es el objetivo de esta construcción. La exportación a Android y la realidad aumentada requieren su propia implementación y verificación; no se declaran completas.
 
 #pagebreak()
 
-#figure(
-  image("media/PHOTO-2026-09-22-13-26-52 2.jpg", width: 100%),
-  caption: [Fachada del consultorio dental con la señalización informativa del área de tratamiento.],
-)
-
-#figure(
-  image("media/PHOTO-2026-09-22-13-26-52 3.jpg", width: 100%),
-  caption: [Acceso lateral del consultorio, con el lavabo y los carteles de bioseguridad.],
-)
-
-#figure(
-  image("media/PHOTO-2026-09-22-13-26-52 5.jpg", width: 100%),
-  caption: [Vista aérea de la escena: el consultorio y su ubicación dentro del entorno urbano.],
-)
-
-#pagebreak()
-
-#figure(
-  image("media/PHOTO-2026-09-22-13-26-52 4.jpg", width: 100%),
-  caption: [Interior del consultorio, con el equipo suspendido, el mobiliario y las estaciones de trabajo.],
-)
-
-#figure(
-  image("media/PHOTO-2026-09-22-13-26-53 2.jpg", width: 100%),
-  caption: [Otra vista del interior, con las lámparas, los monitores y los contenedores de residuos.],
-)
-
-#figure(
-  image("media/PHOTO-2026-09-22-13-26-53 3.jpg", width: 100%),
-  caption: [Detalle del equipo y el instrumental colocados junto a la unidad dental.],
-)
-
-#figure(
-  image("media/PHOTO-2026-09-22-13-26-53 4.jpg", width: 100%),
-  caption: [Charola con instrumental, piezas dentales y material de curación, residuos que el usuario deberá clasificar.],
-)
-
-#pagebreak()
-
-#figure(
-  image("media/PHOTO-2026-09-22-13-29-32 3.jpg", width: 100%),
-  caption: [
-    Mensaje de instrucciones dentro del entorno: explica al usuario que debe
-    clasificar los desechos entre la bolsa roja, el bote de punzocortantes y la
-    basura común.
-  ],
-)
-
-#figure(
-  image("media/PHOTO-2026-09-22-13-29-32 2.jpg", width: 100%),
-  caption: [
-    Área de insumos y superficies de apoyo, con los frascos, el mobiliario y el
-    bote donde se depositan los residuos.
-  ],
-)
-
-#figure(
-  image("media/PHOTO-2026-09-22-13-29-32.jpg", width: 100%),
-  caption: [Mobiliario auxiliar de la sala, junto a los controles del equipo en la pared.],
-)
-
-= Apéndices
+#bibliography("media/referencias.bib", style: "apa")

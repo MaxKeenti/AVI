@@ -1,0 +1,781 @@
+[
+  {
+    "carpeta": "dental-practice",
+    "titulo": "Autoclave Bench Open (Dental Practice and Surgery)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/dental-practice-and-surgery-autoclave-bench-open-9242233f",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "autoclave-bench-open.glb",
+      "autoclave.obj"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, sin atribuirles una autoría nueva.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "dental-practice",
+    "titulo": "Cabinet Run Module (Dental Practice and Surgery)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/dental-practice-and-surgery-cabinet-run-module-2856164b",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "cabinet-run-module.glb"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "dental-practice",
+    "titulo": "Cabinet Run Sink Module (Dental Practice and Surgery)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/dental-practice-and-surgery-cabinet-run-sink-module-42493004",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "cabinet-run-sink-module.glb"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "dental-practice",
+    "titulo": "Ceiling Light Panel (Dental Practice and Surgery)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/dental-practice-and-surgery-ceiling-light-panel-5fd450a0",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "ceiling-light-panel.glb"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "dental-practice",
+    "titulo": "Clinical Floor Tile (Dental Practice and Surgery)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/dental-practice-and-surgery-clinical-floor-tile-e09b593c",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "clinical-floor-tile.glb"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "dental-practice",
+    "titulo": "Corridor Wall Module (Dental Practice and Surgery)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/dental-practice-and-surgery-corridor-wall-module-6478e914",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "corridor-wall-module.glb"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "dental-practice",
+    "titulo": "Dental Chair Reclined (Dental Practice and Surgery)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/dental-practice-and-surgery-dental-chair-reclined-98149de1",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "dental-chair-reclined.glb"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "dental-practice",
+    "titulo": "Glove And Mask Dispenser (Dental Practice and Surgery)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/dental-practice-and-surgery-glove-and-mask-dispenser-64ec22b4",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "glove-and-mask-dispenser.glb"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "dental-practice",
+    "titulo": "Instrument Tray (Dental Practice and Surgery)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/dental-practice-and-surgery-instrument-tray-33b4d81c",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "instrument-tray.glb",
+      "espejo.obj",
+      "explorador.obj",
+      "algodon.obj",
+      "charola.obj"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, sin atribuirles una autoría nueva.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "dental-practice",
+    "titulo": "Intraoral Xray Arm (Dental Practice and Surgery)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/dental-practice-and-surgery-intraoral-xray-arm-7ea56888",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "intraoral-xray-arm.glb",
+      "soporte-rayos.obj",
+      "brazo-rayos.obj"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, sin atribuirles una autoría nueva.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "dental-practice",
+    "titulo": "Operating Light (Dental Practice and Surgery)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/dental-practice-and-surgery-operating-light-e636b996",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "operating-light.glb"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "dental-practice",
+    "titulo": "Pedal Waste Bin (Dental Practice and Surgery)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/dental-practice-and-surgery-pedal-waste-bin-5ba4c7fc",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "pedal-waste-bin.glb"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "dental-practice",
+    "titulo": "Plaster Model On Stand (Dental Practice and Surgery)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/dental-practice-and-surgery-plaster-model-on-stand-d0c45662",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "plaster-model-on-stand.glb"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "dental-practice",
+    "titulo": "Reception Desk (Dental Practice and Surgery)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/dental-practice-and-surgery-reception-desk-ad8b99c5",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "reception-desk.glb",
+      "mostrador.obj"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, sin atribuirles una autoría nueva.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "dental-practice",
+    "titulo": "Sharps Bin (Dental Practice and Surgery)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/dental-practice-and-surgery-sharps-bin-fe796f33",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "sharps-bin.glb"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "dental-practice",
+    "titulo": "Sterile Store Cabinet (Dental Practice and Surgery)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/dental-practice-and-surgery-sterile-store-cabinet-ac44fdc4",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "sterile-store-cabinet.glb"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "dental-practice",
+    "titulo": "Surgery Door Module Open (Dental Practice and Surgery)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/dental-practice-and-surgery-surgery-door-module-open-e59a6ba3",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "surgery-door-module-open.glb",
+      "puerta.obj"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, sin atribuirles una autoría nueva.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "dental-practice",
+    "titulo": "Xray Sensor Tray (Dental Practice and Surgery)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/dental-practice-and-surgery-xray-sensor-tray-cdf20eb4",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "xray-sensor-tray.glb"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "display-mannequin",
+    "titulo": "Seated display mannequin (Retail Store Fixtures and Mall)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/retail-store-fixtures-and-mall-mannequin-seated-05ab1b9a",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "mannequin.glb",
+      "paciente-0.obj",
+      "paciente-1.obj",
+      "paciente-2.obj",
+      "paciente-3.obj",
+      "paciente-4.obj",
+      "paciente-5.obj",
+      "paciente-6.obj",
+      "paciente-7.obj",
+      "paciente-8.obj"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Derivados con base retirada y postura adaptada; representa un maniquí de exhibición, no anatomía clínica.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "field-medicine",
+    "titulo": "Forceps (Field Medicine and Recovery)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/field-medicine-and-recovery-forceps-ebdbd954",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "forceps.glb"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "field-medicine",
+    "titulo": "Gauze Stack (Field Medicine and Recovery)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/field-medicine-and-recovery-gauze-stack-34e2ed66",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "gauze-stack.glb"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "field-medicine",
+    "titulo": "Triangular Bandage (Field Medicine and Recovery)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/field-medicine-and-recovery-triangular-bandage-53b41b4f",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "triangular-bandage.glb"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "gallery-gloves",
+    "titulo": "Gloves And Tools Tray (Art Gallery and Exhibition Rooms)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/art-gallery-and-exhibition-rooms-gloves-and-tools-tray-029ffe6f",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "gloves.glb",
+      "guantes.obj"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Guantes extraídos de la bandeja; el original representa guantes de manipulación de arte, no un guante clínico certificado.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "kenney-car-kit",
+    "titulo": "Car Kit · hatchback-sports",
+    "autor": "Kenney",
+    "url": "https://kenney.nl/assets/car-kit",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "hatchback-sports.glb",
+      "Textures/colormap.png"
+    ],
+    "modificaciones": "Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios. Incluye la textura colormap.png compartida por los modelos del paquete, conservada sin cambios.",
+    "consulta": "2026-09-28",
+    "ia_declarada": false
+  },
+  {
+    "carpeta": "kenney-car-kit",
+    "titulo": "Car Kit · sedan",
+    "autor": "Kenney",
+    "url": "https://kenney.nl/assets/car-kit",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "sedan.glb"
+    ],
+    "modificaciones": "Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.",
+    "consulta": "2026-09-28",
+    "ia_declarada": false
+  },
+  {
+    "carpeta": "kenney-city-kit",
+    "titulo": "City Kit Commercial · building-a",
+    "autor": "Kenney",
+    "url": "https://kenney.nl/assets/city-kit-commercial",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "building-a.glb",
+      "Textures/colormap.png"
+    ],
+    "modificaciones": "Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios. Incluye la textura colormap.png compartida por los modelos del paquete, conservada sin cambios.",
+    "consulta": "2026-09-28",
+    "ia_declarada": false
+  },
+  {
+    "carpeta": "kenney-city-kit",
+    "titulo": "City Kit Commercial · building-b",
+    "autor": "Kenney",
+    "url": "https://kenney.nl/assets/city-kit-commercial",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "building-b.glb"
+    ],
+    "modificaciones": "Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.",
+    "consulta": "2026-09-28",
+    "ia_declarada": false
+  },
+  {
+    "carpeta": "kenney-city-kit",
+    "titulo": "City Kit Commercial · building-c",
+    "autor": "Kenney",
+    "url": "https://kenney.nl/assets/city-kit-commercial",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "building-c.glb"
+    ],
+    "modificaciones": "Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.",
+    "consulta": "2026-09-28",
+    "ia_declarada": false
+  },
+  {
+    "carpeta": "kenney-furniture-kit",
+    "titulo": "Furniture Kit · bathroomMirror",
+    "autor": "Kenney",
+    "url": "https://kenney.nl/assets/furniture-kit",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "bathroomMirror.obj"
+    ],
+    "modificaciones": "Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.",
+    "consulta": "2026-09-28",
+    "ia_declarada": false
+  },
+  {
+    "carpeta": "kenney-furniture-kit",
+    "titulo": "Furniture Kit · bathroomSink",
+    "autor": "Kenney",
+    "url": "https://kenney.nl/assets/furniture-kit",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "bathroomSink.obj"
+    ],
+    "modificaciones": "Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.",
+    "consulta": "2026-09-28",
+    "ia_declarada": false
+  },
+  {
+    "carpeta": "kenney-furniture-kit",
+    "titulo": "Furniture Kit · bench",
+    "autor": "Kenney",
+    "url": "https://kenney.nl/assets/furniture-kit",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "bench.obj"
+    ],
+    "modificaciones": "Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.",
+    "consulta": "2026-09-28",
+    "ia_declarada": false
+  },
+  {
+    "carpeta": "kenney-furniture-kit",
+    "titulo": "Furniture Kit · chairModernFrameCushion",
+    "autor": "Kenney",
+    "url": "https://kenney.nl/assets/furniture-kit",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "chairModernFrameCushion.obj"
+    ],
+    "modificaciones": "Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.",
+    "consulta": "2026-09-28",
+    "ia_declarada": false
+  },
+  {
+    "carpeta": "kenney-furniture-kit",
+    "titulo": "Furniture Kit · computerScreen",
+    "autor": "Kenney",
+    "url": "https://kenney.nl/assets/furniture-kit",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "computerScreen.obj"
+    ],
+    "modificaciones": "Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.",
+    "consulta": "2026-09-28",
+    "ia_declarada": false
+  },
+  {
+    "carpeta": "kenney-furniture-kit",
+    "titulo": "Furniture Kit · lampRoundFloor",
+    "autor": "Kenney",
+    "url": "https://kenney.nl/assets/furniture-kit",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "lampRoundFloor.obj"
+    ],
+    "modificaciones": "Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.",
+    "consulta": "2026-09-28",
+    "ia_declarada": false
+  },
+  {
+    "carpeta": "kenney-furniture-kit",
+    "titulo": "Furniture Kit · pottedPlant",
+    "autor": "Kenney",
+    "url": "https://kenney.nl/assets/furniture-kit",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "pottedPlant.obj"
+    ],
+    "modificaciones": "Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.",
+    "consulta": "2026-09-28",
+    "ia_declarada": false
+  },
+  {
+    "carpeta": "kenney-furniture-kit",
+    "titulo": "Furniture Kit · sideTable",
+    "autor": "Kenney",
+    "url": "https://kenney.nl/assets/furniture-kit",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "sideTable.obj"
+    ],
+    "modificaciones": "Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.",
+    "consulta": "2026-09-28",
+    "ia_declarada": false
+  },
+  {
+    "carpeta": "kenney-furniture-kit",
+    "titulo": "Furniture Kit · trashcan",
+    "autor": "Kenney",
+    "url": "https://kenney.nl/assets/furniture-kit",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "trashcan.obj"
+    ],
+    "modificaciones": "Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.",
+    "consulta": "2026-09-28",
+    "ia_declarada": false
+  },
+  {
+    "carpeta": "kenney-nature-kit",
+    "titulo": "Nature Kit · tree_detailed",
+    "autor": "Kenney",
+    "url": "https://kenney.nl/assets/nature-kit",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "tree_detailed.glb"
+    ],
+    "modificaciones": "Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.",
+    "consulta": "2026-09-28",
+    "ia_declarada": false
+  },
+  {
+    "carpeta": "kenney-nature-kit",
+    "titulo": "Nature Kit · tree_oak",
+    "autor": "Kenney",
+    "url": "https://kenney.nl/assets/nature-kit",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "tree_oak.glb"
+    ],
+    "modificaciones": "Malla original conservada; posición, orientación, escala y materiales ajustados en las instancias utilizadas. Los recursos no utilizados se conservan sin cambios.",
+    "consulta": "2026-09-28",
+    "ia_declarada": false
+  },
+  {
+    "carpeta": "noto-sans",
+    "titulo": "Noto Sans Regular",
+    "autor": "The Noto Project Authors",
+    "url": "https://github.com/notofonts/noto-fonts/blob/main/hinted/ttf/NotoSans/NotoSans-Regular.ttf",
+    "licencia": "SIL Open Font License 1.1",
+    "licencia_url": "https://github.com/notofonts/noto-fonts/blob/main/LICENSE",
+    "archivos": [
+      "NotoSans-Regular.ttf",
+      "OFL.txt"
+    ],
+    "modificaciones": "Fuente TrueType original conservada sin modificación. Unity genera un atlas SDF y material de TextMesh Pro para los rótulos de la clínica; el derivado conserva la licencia OFL. Ajustes de tamaño, espaciado y color en la escena.",
+    "consulta": "2026-10-03",
+    "ia_declarada": false
+  },
+  {
+    "carpeta": "paper-cup",
+    "titulo": "Drinks cup, small (Fast Food Counter and Drive-Thru)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/fast-food-and-drive-thru-drinks-cup-small-185a05b6",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "cup.glb"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "polyhaven-beige-wall-001",
+    "titulo": "Beige Wall 001",
+    "autor": "Dimitrios Savva; Rico Cilliers",
+    "url": "https://polyhaven.com/a/beige_wall_001",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "beige_wall_001_ao_2k.jpg",
+      "beige_wall_001_diff_2k.jpg",
+      "beige_wall_001_metallic_gloss_2k.png",
+      "beige_wall_001_nor_gl_2k.jpg",
+      "beige_wall_001_occlusion_2k.png",
+      "beige_wall_001_rough_2k.jpg"
+    ],
+    "modificaciones": "Selección de mapas de color base, normal OpenGL y rugosidad a 2K; repetición, intensidad y tinte configurados en Unity. Sin modificación de los originales. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB.",
+    "consulta": "2026-10-02",
+    "ia_declarada": false
+  },
+  {
+    "carpeta": "polyhaven-modern-arm-chair-01",
+    "titulo": "Modern Arm Chair 01",
+    "autor": "Vibrant Nordic",
+    "url": "https://polyhaven.com/a/modern_arm_chair_01",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "modern_arm_chair_01.bin",
+      "modern_arm_chair_01.obj",
+      "modern_arm_chair_01_2k.gltf",
+      "textures/modern_arm_chair_01_legs_arm_2k.jpg",
+      "textures/modern_arm_chair_01_legs_diff_2k.jpg",
+      "textures/modern_arm_chair_01_legs_metallic_gloss_2k.png",
+      "textures/modern_arm_chair_01_legs_nor_gl_2k.jpg",
+      "textures/modern_arm_chair_01_legs_occlusion_2k.png",
+      "textures/modern_arm_chair_01_pillow_arm_2k.jpg",
+      "textures/modern_arm_chair_01_pillow_diff_2k.jpg",
+      "textures/modern_arm_chair_01_pillow_metallic_gloss_2k.png",
+      "textures/modern_arm_chair_01_pillow_nor_gl_2k.jpg",
+      "textures/modern_arm_chair_01_pillow_occlusion_2k.png"
+    ],
+    "modificaciones": "Descarga de glTF y mapas PBR de 2K. Conversión a OBJ con normales, UV, grupos de materiales y traslaciones originales; inversión de V para Wavefront. Sin simplificación de malla. Escala y materiales finales configurados en Unity. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB.",
+    "consulta": "2026-10-02",
+    "ia_declarada": false
+  },
+  {
+    "carpeta": "polyhaven-oak-veneer-01",
+    "titulo": "Oak Veneer 01",
+    "autor": "Jenelle van Heerden",
+    "url": "https://polyhaven.com/a/oak_veneer_01",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "oak_veneer_01_ao_2k.jpg",
+      "oak_veneer_01_diff_2k.jpg",
+      "oak_veneer_01_metallic_gloss_2k.png",
+      "oak_veneer_01_nor_gl_2k.jpg",
+      "oak_veneer_01_occlusion_2k.png",
+      "oak_veneer_01_rough_2k.jpg"
+    ],
+    "modificaciones": "Selección de mapas de color base, normal OpenGL y rugosidad a 2K; repetición, intensidad y tinte configurados en Unity. Sin modificación de los originales. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB.",
+    "consulta": "2026-10-02",
+    "ia_declarada": false
+  },
+  {
+    "carpeta": "polyhaven-potted-plant-02",
+    "titulo": "Potted Plant 02",
+    "autor": "Rico Cilliers",
+    "url": "https://polyhaven.com/a/potted_plant_02",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "potted_plant_02.bin",
+      "potted_plant_02.obj",
+      "potted_plant_02_2k.gltf",
+      "textures/potted_plant_02_leaves_alpha_2k.jpg",
+      "textures/potted_plant_02_leaves_ao_2k.jpg",
+      "textures/potted_plant_02_leaves_base_alpha_2k.png",
+      "textures/potted_plant_02_leaves_diff_2k.jpg",
+      "textures/potted_plant_02_leaves_metallic_gloss_2k.png",
+      "textures/potted_plant_02_leaves_nor_gl_2k.jpg",
+      "textures/potted_plant_02_leaves_occlusion_2k.png",
+      "textures/potted_plant_02_leaves_rough_2k.jpg",
+      "textures/potted_plant_02_pot_ao_2k.jpg",
+      "textures/potted_plant_02_pot_diff_2k.jpg",
+      "textures/potted_plant_02_pot_metallic_gloss_2k.png",
+      "textures/potted_plant_02_pot_nor_gl_2k.jpg",
+      "textures/potted_plant_02_pot_occlusion_2k.png",
+      "textures/potted_plant_02_pot_rough_2k.jpg"
+    ],
+    "modificaciones": "Descarga de glTF y mapas PBR de 2K. Conversión a OBJ con normales, UV, grupos de materiales y traslaciones originales; inversión de V para Wavefront. Sin simplificación de malla. Escala y materiales finales configurados en Unity. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB. Combinación de color y máscara alfa original del follaje en PNG RGBA, sin modificar las fuentes.",
+    "consulta": "2026-10-02",
+    "ia_declarada": false
+  },
+  {
+    "carpeta": "scalpel-google",
+    "titulo": "Scalpel",
+    "autor": "Poly by Google",
+    "url": "https://poly.pizza/m/9yKgpOpblnf",
+    "licencia": "CC BY 3.0",
+    "licencia_url": "https://creativecommons.org/licenses/by/3.0/",
+    "archivos": [
+      "scalpel.glb",
+      "hoja.obj"
+    ],
+    "modificaciones": "Separación de la hoja, normalización de coordenadas y adaptación de escala y orientación.",
+    "consulta": "2026-09-28",
+    "ia_declarada": false
+  },
+  {
+    "carpeta": "syringe-jtoastie",
+    "titulo": "Syringe",
+    "autor": "J-Toastie",
+    "url": "https://poly.pizza/m/MURJ8NK4N9",
+    "licencia": "CC BY 3.0",
+    "licencia_url": "https://creativecommons.org/licenses/by/3.0/",
+    "archivos": [
+      "syringe.glb",
+      "jeringa.obj",
+      "aguja.obj"
+    ],
+    "modificaciones": "Cambio de ejes, separación de aguja y adaptación de escala y materiales. Jeringa genérica: no reproduce con exactitud una carpule.",
+    "consulta": "2026-09-28",
+    "ia_declarada": false
+  },
+  {
+    "carpeta": "tattoo-studio",
+    "titulo": "Barrier Film Roll (Tattoo and Piercing Studio)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/tattoo-and-piercing-studio-barrier-film-roll-34c18eb0",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "barrier-film-roll.glb",
+      "hoja-barrera.obj"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, sin atribuirles una autoría nueva.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "tattoo-studio",
+    "titulo": "Instrument Tray Set (Tattoo and Piercing Studio)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/tattoo-and-piercing-studio-instrument-tray-set-aebe0da4",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "instrument-tray-set.glb"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "tattoo-studio",
+    "titulo": "Rolling Tray Table (Tattoo and Piercing Studio)",
+    "autor": "3D Assets",
+    "url": "https://3dassets.dev/assets/tattoo-and-piercing-studio-rolling-tray-table-93236166",
+    "licencia": "CC0 1.0 Universal",
+    "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivos": [
+      "rolling-tray-table.glb",
+      "carrito-vacio.obj"
+    ],
+    "modificaciones": "Original GLB conservado; en los recursos incorporados a la escena se ajustaron escala, posición, orientación y materiales. Los originales no utilizados permanecen en la biblioteca. Separación de piezas existentes en los OBJ indicados, sin atribuirles una autoría nueva.",
+    "consulta": "2026-09-28",
+    "ia_declarada": true
+  },
+  {
+    "carpeta": "tooth-sugamo",
+    "titulo": "Tooth",
+    "autor": "sugamo",
+    "url": "https://poly.pizza/m/66NBoNdhb03",
+    "licencia": "CC BY 3.0",
+    "licencia_url": "https://creativecommons.org/licenses/by/3.0/",
+    "archivos": [
+      "tooth.glb"
+    ],
+    "modificaciones": "Original conservado; escala, posición y orientación ajustadas en la instancia de la escena.",
+    "consulta": "2026-09-28",
+    "ia_declarada": false
+  }
+]

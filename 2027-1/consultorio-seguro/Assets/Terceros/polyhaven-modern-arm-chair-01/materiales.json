@@ -1,0 +1,36 @@
+[
+  {
+    "nombre": "modern_arm_chair_01_legs",
+    "base_color": "textures/modern_arm_chair_01_legs_diff_2k.jpg",
+    "normal_gl": "textures/modern_arm_chair_01_legs_nor_gl_2k.jpg",
+    "roughness_o_arm": "textures/modern_arm_chair_01_legs_arm_2k.jpg",
+    "metallic": 1,
+    "doble_cara": true,
+    "alpha_mode": "OPAQUE",
+    "metallic_gloss": "textures/modern_arm_chair_01_legs_metallic_gloss_2k.png",
+    "occlusion": "textures/modern_arm_chair_01_legs_occlusion_2k.png",
+    "metallic_gloss_srgb": false,
+    "occlusion_srgb": false,
+    "normal_import_type": "NormalMap",
+    "normal_encoding": "OpenGL",
+    "smoothness_texture_channel": "alfa",
+    "occlusion_texture_channel": "verde"
+  },
+  {
+    "nombre": "modern_arm_chair_01_pillow",
+    "base_color": "textures/modern_arm_chair_01_pillow_diff_2k.jpg",
+    "normal_gl": "textures/modern_arm_chair_01_pillow_nor_gl_2k.jpg",
+    "roughness_o_arm": "textures/modern_arm_chair_01_pillow_arm_2k.jpg",
+    "metallic": 1,
+    "doble_cara": true,
+    "alpha_mode": "OPAQUE",
+    "metallic_gloss": "textures/modern_arm_chair_01_pillow_metallic_gloss_2k.png",
+    "occlusion": "textures/modern_arm_chair_01_pillow_occlusion_2k.png",
+    "metallic_gloss_srgb": false,
+    "occlusion_srgb": false,
+    "normal_import_type": "NormalMap",
+    "normal_encoding": "OpenGL",
+    "smoothness_texture_channel": "alfa",
+    "occlusion_texture_channel": "verde"
+  }
+]

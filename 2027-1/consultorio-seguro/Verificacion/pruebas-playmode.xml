@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="7" result="Passed" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-04 16:06:16Z" end-time="2026-10-04 16:06:24Z" duration="7.053052">
+  <test-suite type="TestSuite" id="1016" name="Consultorio Seguro" fullname="Consultorio Seguro" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-10-04 16:06:16Z" end-time="2026-10-04 16:06:24Z" duration="7.053052" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1010" name="ConsultorioSeguroNuevo.Tests.dll" fullname="/Users/moonstone/Source/UPIICSA/Plan 2021/2026 2/6NM69 Ambientes virtuales inmersivos/AVI/2027-1/consultorio-seguro/Library/ScriptAssemblies/ConsultorioSeguroNuevo.Tests.dll" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-10-04 16:06:16Z" end-time="2026-10-04 16:06:24Z" duration="7.049251" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="13669" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1011" name="ConsultorioSeguroNuevo" fullname="ConsultorioSeguroNuevo" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-10-04 16:06:16Z" end-time="2026-10-04 16:06:24Z" duration="7.048905" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1012" name="Tests" fullname="ConsultorioSeguroNuevo.Tests" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-10-04 16:06:16Z" end-time="2026-10-04 16:06:24Z" duration="7.048716" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1001" name="ClinicSceneIntegrationTests" fullname="ConsultorioSeguroNuevo.Tests.ClinicSceneIntegrationTests" classname="ConsultorioSeguroNuevo.Tests.ClinicSceneIntegrationTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-04 16:06:16Z" end-time="2026-10-04 16:06:22Z" duration="6.008281" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1002" name="WalkEveryRouteAndCompleteEveryPracticeThroughVisibleTargets" fullname="ConsultorioSeguroNuevo.Tests.ClinicSceneIntegrationTests.WalkEveryRouteAndCompleteEveryPracticeThroughVisibleTargets" methodname="WalkEveryRouteAndCompleteEveryPracticeThroughVisibleTargets" classname="ConsultorioSeguroNuevo.Tests.ClinicSceneIntegrationTests" runstate="Runnable" seed="252492540" result="Passed" start-time="2026-10-04 16:06:16Z" end-time="2026-10-04 16:06:22Z" duration="6.002862" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="Timeout" value="240000" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Reduced additional punctual light shadows resolution by 2 to make 18 shadow maps fit in the 4096x4096 shadow atlas. To avoid this, increase shadow atlas size, decrease big shadow resolutions, or reduce the number of shadow maps active in the same frame
+]]></output>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1003" name="RuntimeInteractionTests" fullname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests" classname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-10-04 16:06:22Z" end-time="2026-10-04 16:06:24Z" duration="1.039892" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1004" name="AssistanceHidesForEveryItemWhileHoldingOrPaused" fullname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests.AssistanceHidesForEveryItemWhileHoldingOrPaused" methodname="AssistanceHidesForEveryItemWhileHoldingOrPaused" classname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests" runstate="Runnable" seed="1784980420" result="Passed" start-time="2026-10-04 16:06:22Z" end-time="2026-10-04 16:06:23Z" duration="0.027512" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1006" name="ManualAndCreditsPreserveTheirReturnRouteAndPauseSimulation" fullname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests.ManualAndCreditsPreserveTheirReturnRouteAndPauseSimulation" methodname="ManualAndCreditsPreserveTheirReturnRouteAndPauseSimulation" classname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests" runstate="Runnable" seed="791679240" result="Passed" start-time="2026-10-04 16:06:23Z" end-time="2026-10-04 16:06:23Z" duration="0.021954" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1008" name="ManualShortcutWorksAtStartDuringVisitAndWhilePaused" fullname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests.ManualShortcutWorksAtStartDuringVisitAndWhilePaused" methodname="ManualShortcutWorksAtStartDuringVisitAndWhilePaused" classname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests" runstate="Runnable" seed="2077284033" result="Passed" start-time="2026-10-04 16:06:23Z" end-time="2026-10-04 16:06:23Z" duration="0.026586" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1007" name="OrderedStepsCannotBeSkippedAndResetCancelsAnActiveProcess" fullname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests.OrderedStepsCannotBeSkippedAndResetCancelsAnActiveProcess" methodname="OrderedStepsCannotBeSkippedAndResetCancelsAnActiveProcess" classname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests" runstate="Runnable" seed="2014204460" result="Passed" start-time="2026-10-04 16:06:23Z" end-time="2026-10-04 16:06:23Z" duration="0.921820" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1009" name="RotatedRoomUsesItsActualVolumeAndAssistanceHasADistanceLimit" fullname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests.RotatedRoomUsesItsActualVolumeAndAssistanceHasADistanceLimit" methodname="RotatedRoomUsesItsActualVolumeAndAssistanceHasADistanceLimit" classname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests" runstate="Runnable" seed="593370038" result="Passed" start-time="2026-10-04 16:06:23Z" end-time="2026-10-04 16:06:24Z" duration="0.020099" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1005" name="WrongAnswerRestoresPoseAndCorrectAnswerCompletesOnce" fullname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests.WrongAnswerRestoresPoseAndCorrectAnswerCompletesOnce" methodname="WrongAnswerRestoresPoseAndCorrectAnswerCompletesOnce" classname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests" runstate="Runnable" seed="602889542" result="Passed" start-time="2026-10-04 16:06:24Z" end-time="2026-10-04 16:06:24Z" duration="0.019643" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: /Users/moonstone/Library/Application Support/Equipo 7 · UPIICSA/Consultorio Seguro/TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
