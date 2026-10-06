@@ -11,7 +11,7 @@ namespace ConsultorioSeguroNuevo
     {
         public const string ManualText =
             "<b>RECORRIDO</b>\nW, A, S, D o flechas: caminar.\nRatón: mirar alrededor. Mayús: caminar más rápido.\nEsc: pausar; vuelve a pulsarlo para reanudar.\nM: abrir el manual de controles.\n\n" +
-            "<b>INTERACCIÓN</b>\nAcércate a menos de 2,6 metros y apunta con el punto central. Pulsa E cuando aparezca la indicación. Los instrumentos cercanos de la sala actual muestran una silueta blanca; el objeto apuntado cambia a dorado. El color solo indica dónde puedes interactuar.\n\n" +
+            "<b>INTERACCIÓN</b>\nAcércate a menos de 2,6 metros y apunta con la cruz central. Pulsa E cuando aparezca la indicación. Los instrumentos cercanos de la sala actual muestran una silueta blanca; el objeto apuntado cambia a dorado. El color solo indica dónde puedes interactuar.\n\n" +
             "<b>LAS CINCO PRÁCTICAS</b>\n1. Clasificación de residuos.\n2. Reprocesamiento de instrumentos.\n3. Manejo de materiales.\n4. Procedimiento odontológico.\n5. Radiografía digital.\nPuedes visitarlas en cualquier orden. En cada sala, lee el objetivo de la esquina superior izquierda y realiza sus pasos. Después clasifica sus residuos.\n\n" +
             "<b>TOMAR, CLASIFICAR Y DEVOLVER</b>\nApunta al material y pulsa E para tomarlo. Lee las condiciones del caso. Apunta al recipiente elegido y pulsa E para depositarlo. Pulsa R en cualquier momento del recorrido para devolver el objeto a su lugar. La ayuda de contorno se oculta mientras llevas un objeto.\n\n" +
             "<b>RESULTADOS Y REPETICIÓN</b>\nCada acierto suma 10 puntos y cada error resta 5, sin puntuaciones negativas. Si te equivocas, lee la explicación: el objeto vuelve a su lugar para intentarlo de nuevo. Al terminar, puedes repetir con Esc → Reiniciar esta práctica.\n\n" +
@@ -176,8 +176,7 @@ namespace ConsultorioSeguroNuevo
             Position(roomTitle.rectTransform, new Vector2(0, 1), new Vector2(245, -40), new Vector2(450, 53));
             objective = MakeText(status, "Objetivo", "", 19, Color.white, TextAnchor.UpperLeft);
             Position(objective.rectTransform, new Vector2(0, 1), new Vector2(245, -115), new Vector2(450, 94));
-            var dot = MakeText(hudRoot, "Punto de mira", "·", 46, Color.white, TextAnchor.MiddleCenter);
-            Position(dot.rectTransform, new Vector2(.5f, .5f), Vector2.zero, new Vector2(32, 48));
+            BuildCrosshair(hudRoot);
             prompt = MakeText(hudRoot, "Interacción", "", 25, Color.white, TextAnchor.MiddleCenter);
             Position(prompt.rectTransform, new Vector2(.5f, 0), new Vector2(0, 111), new Vector2(1280, 84));
             AddShadow(prompt);
@@ -193,6 +192,26 @@ namespace ConsultorioSeguroNuevo
             Position(toastBody.rectTransform, new Vector2(.5f, 1), new Vector2(0, -222), new Vector2(470, 270));
             toastBody.resizeTextForBestFit = true; toastBody.resizeTextMinSize = 16; toastBody.resizeTextMaxSize = 19;
             toast.SetActive(false);
+        }
+
+        void BuildCrosshair(Transform parent)
+        {
+            var cross = new GameObject("Cruz de mira", typeof(RectTransform)).GetComponent<RectTransform>();
+            cross.SetParent(parent, false);
+            Position(cross, new Vector2(.5f, .5f), Vector2.zero, new Vector2(28, 28));
+            // El borde oscuro mantiene la cruz legible sobre muros claros y zonas en sombra.
+            var border = new Color(.04f, .05f, .05f, .95f);
+            CrosshairBar(cross, "Borde horizontal", new Vector2(28, 5), border);
+            CrosshairBar(cross, "Borde vertical", new Vector2(5, 28), border);
+            CrosshairBar(cross, "Trazo horizontal", new Vector2(26, 3), Color.white);
+            CrosshairBar(cross, "Trazo vertical", new Vector2(3, 26), Color.white);
+        }
+
+        void CrosshairBar(Transform parent, string name, Vector2 size, Color color)
+        {
+            var bar = Panel(name, parent, color);
+            Position(bar, new Vector2(.5f, .5f), Vector2.zero, size);
+            bar.GetComponent<Image>().raycastTarget = false;
         }
 
         public void ShowScreen(ClinicScreen screen)
