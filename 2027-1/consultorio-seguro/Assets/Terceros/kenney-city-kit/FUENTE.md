@@ -6,4 +6,4 @@ Consulta: 2026-09-28.
 Archivos: building-a, building-b, building-c.
 Modificaciones: escala, orientación y posición.
 
-Adaptación urbana: se reutilizan las plantas intermedias de building-b y building-c para formar edificios altos. Se conservan UV, normales y materiales; las mallas derivadas se guardan en Assets/ModelosGenerados y se regeneran desde ConstructorConsultorio.ModelosClinicos.cs.
+En la implementación anterior se ensayó una repetición de plantas intermedias. La nueva construcción conserva aquí los originales; los edificios del entorno nuevo se documentan en la escena y no dependen del constructor anterior.

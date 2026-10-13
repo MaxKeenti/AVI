@@ -1,0 +1,16 @@
+{
+  "min": [
+    -0.4068087339401245,
+    0.0003815953677985817,
+    -0.5754517316818237
+  ],
+  "max": [
+    0.4135356843471527,
+    1.0232336521148682,
+    0.41110995411872864
+  ],
+  "triangulos": 8916,
+  "unidad": "metro",
+  "eje_vertical": "+Y",
+  "notas": "OBJ conserva coordenadas glTF; UV V invertida para Wavefront. Comprobar orientación frontal en Unity."
+}

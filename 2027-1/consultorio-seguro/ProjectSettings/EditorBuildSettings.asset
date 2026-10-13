@@ -6,7 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Escenas/Consultorio.unity
-    guid: 62e3ad44745f34e0ea66149cf676201f
-  m_configObjects:
-    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    path: Assets/ConsultorioSeguro/Escenas/ConsultorioSeguro.unity
+    guid: 5163714bd430f42ffadecc533602018a
+  m_configObjects: {}

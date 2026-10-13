@@ -1,0 +1,12 @@
+newmtl modern_arm_chair_01_legs
+Kd 1 1 1
+Ks 0.04 0.04 0.04
+Ns 40
+map_Kd textures/modern_arm_chair_01_legs_diff_2k.jpg
+map_Bump textures/modern_arm_chair_01_legs_nor_gl_2k.jpg
+newmtl modern_arm_chair_01_pillow
+Kd 1 1 1
+Ks 0.04 0.04 0.04
+Ns 40
+map_Kd textures/modern_arm_chair_01_pillow_diff_2k.jpg
+map_Bump textures/modern_arm_chair_01_pillow_nor_gl_2k.jpg

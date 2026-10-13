@@ -1,0 +1,28 @@
+{
+  "carpeta": "noto-sans",
+  "titulo": "Noto Sans Regular",
+  "autor": "The Noto Project Authors",
+  "url": "https://github.com/notofonts/noto-fonts/blob/main/hinted/ttf/NotoSans/NotoSans-Regular.ttf",
+  "licencia": "SIL Open Font License 1.1",
+  "licencia_url": "https://github.com/notofonts/noto-fonts/blob/main/LICENSE",
+  "archivos": [
+    "NotoSans-Regular.ttf",
+    "OFL.txt"
+  ],
+  "modificaciones": "Fuente TrueType original conservada sin modificación. Unity genera un atlas SDF y material de TextMesh Pro para los rótulos de la clínica; el derivado conserva la licencia OFL. Ajustes de tamaño, espaciado y color en la escena.",
+  "consulta": "2026-10-03",
+  "ia_declarada": false,
+  "copyright": "Copyright 2018 The Noto Project Authors (github.com/googlei18n/noto-fonts)",
+  "descargas": [
+    {
+      "archivo": "noto-sans/NotoSans-Regular.ttf",
+      "url": "https://raw.githubusercontent.com/notofonts/noto-fonts/main/hinted/ttf/NotoSans/NotoSans-Regular.ttf",
+      "sha256": "b85c38ecea8a7cfb39c24e395a4007474fa5a4fc864f6ee33309eb4948d232d5"
+    },
+    {
+      "archivo": "noto-sans/OFL.txt",
+      "url": "https://raw.githubusercontent.com/notofonts/noto-fonts/main/LICENSE",
+      "sha256": "0dab92d0544f7b233403f14b84a663bdbfa746982eda629e7f4f9ffe1b036feb"
+    }
+  ]
+}

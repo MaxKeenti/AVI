@@ -1,0 +1,8 @@
+{
+  "name": "ConsultorioSeguroNuevo.Tests",
+  "rootNamespace": "ConsultorioSeguroNuevo.Tests",
+  "references": ["ConsultorioSeguroNuevo.Runtime", "Unity.InputSystem", "UnityEngine.UI"],
+  "optionalUnityReferences": ["TestAssemblies"],
+  "autoReferenced": false,
+  "defineConstraints": ["UNITY_INCLUDE_TESTS"]
+}

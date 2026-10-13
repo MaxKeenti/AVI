@@ -1,0 +1,19 @@
+[
+  {
+    "nombre": "beige_wall_001",
+    "base_color": "beige_wall_001_diff_2k.jpg",
+    "normal_gl": "beige_wall_001_nor_gl_2k.jpg",
+    "roughness_o_arm": "beige_wall_001_rough_2k.jpg",
+    "metallic": 0,
+    "doble_cara": false,
+    "alpha_mode": "OPAQUE",
+    "metallic_gloss": "beige_wall_001_metallic_gloss_2k.png",
+    "occlusion": "beige_wall_001_occlusion_2k.png",
+    "metallic_gloss_srgb": false,
+    "occlusion_srgb": false,
+    "normal_import_type": "NormalMap",
+    "normal_encoding": "OpenGL",
+    "smoothness_texture_channel": "alfa",
+    "occlusion_texture_channel": "verde"
+  }
+]

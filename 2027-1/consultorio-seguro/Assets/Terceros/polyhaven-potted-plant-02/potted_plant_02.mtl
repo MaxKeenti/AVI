@@ -1,0 +1,12 @@
+newmtl potted_plant_02_pot
+Kd 1 1 1
+Ks 0.04 0.04 0.04
+Ns 40
+map_Kd textures/potted_plant_02_pot_diff_2k.jpg
+map_Bump textures/potted_plant_02_pot_nor_gl_2k.jpg
+newmtl potted_plant_02_leaves
+Kd 1 1 1
+Ks 0.04 0.04 0.04
+Ns 40
+map_Kd textures/potted_plant_02_leaves_diff_2k.jpg
+map_Bump textures/potted_plant_02_leaves_nor_gl_2k.jpg

@@ -1,19 +1,28 @@
-# Revisión visual en Unity — 2 de octubre de 2026
+# Revisión de capturas · 5 de octubre de 2026
 
-Unity 6.4 (6000.4.6f1), macOS, Metal, perfil PC.
+18 imágenes de 1800 × 1125 producidas por Unity 6000.4.6f1. Ninguna es una imagen conceptual. Los archivos ORIGEN.txt y ORIGEN-RUNTIME.txt identifican el método; manifiesto-capturas.json conserva SHA-256.
 
-- 12 pruebas EditMode aprobadas y 9 pruebas PlayMode aprobadas. La prueba visual se repitió tras el último ajuste del espejo y también aprobó.
-- Se conserva la revisión de recepción, guía de bienvenida, continuidad del mapeo tonal, recorridos, actividades y regreso desde los menús.
-- Lavabo orientado hacia el espacio de uso, con la grifería junto al muro. Las sondas cubren por completo el espejo y el piso; el espejo refleja el interior sin el disco de las luces de relleno.
-- Espera de entrada amueblada con tres sillas, mesa auxiliar y planta del paquete Furniture Kit ya acreditado. El paso central permanece libre. El protector sanitario recorre la pared derecha, se elimina el tramo aislado junto al lavabo y la pintura de la entrada coincide con los laterales.
-- Seis números al ras del muro, junto a cada puerta y a la altura de la vista. No sobresalen sobre los nombres ni obstruyen el pasillo. Se revisaron capturas desde ambos sentidos.
-- Contorno blanco en objetos pequeños cercanos de la misma sala y dorado al apuntarlos. La prueba compara los píxeles con y sin efecto; verifica que el halo desaparece en menús, pausa, al sostener o clasificar y al entrar a una sala contigua dentro del alcance. También comprueba los pasos de jeringa y gasas.
-- El aviso muestra una pulsación de E, sin «Hold». Una entrada de teclado simulada comprueba la recogida del instrumento. En el ejecutor sin ventana enfocada, la prueba permite entrada sintética y después restaura los ajustes de foco.
-- El efecto descarta el pase anterior al recrearse y no encola trabajo adicional cuando no hay instrumentos que resaltar.
-- Escena regenerada sin errores de compilación, de shaders ni avisos de reducción del atlas de sombras. La definición Typst compila.
+Las vistas 01–11 usan cámara a 1,65 m; 12 es un corte elevado. Las vistas 13–18 usan la cámara del visitante durante la prueba automática, a 1,65 m sobre su origen (aproximadamente 1,68 m sobre piso por el controlador). El Canvas real se convierte temporalmente a ScreenSpaceCamera para capturarlo y se restablece después.
 
-Claude realizó una segunda revisión de código y capturas. Se corrigieron sus hallazgos confirmados sobre señalética, cobertura de reflejos, comprobación de salas y ciclo de vida del efecto; además se ajustaron los detalles de recepción. Su revisión fue de lectura: la ejecución y las capturas de comprobación se realizaron después en Unity.
+- [01 exterior](01-exterior.png)
+- [02 acceso](02-acceso.png)
+- [03 recepcion](03-recepcion.png)
+- [04 espera](04-espera.png)
+- [05 pasillo](05-pasillo.png)
+- [06 clasificacion](06-clasificacion.png)
+- [07 esterilizacion](07-esterilizacion.png)
+- [08 materiales](08-materiales.png)
+- [09 procedimientos](09-procedimientos.png)
+- [10 radiografia](10-radiografia.png)
+- [11 personal](11-personal.png)
+- [12 corte superior](12-corte-superior.png)
+- [13 inicio](13-inicio.png)
+- [14 manual](14-manual.png)
+- [15 pausa](15-pausa.png)
+- [16 silueta dorada](16-silueta-dorada.png)
+- [17 material en mano](17-material-en-mano.png)
+- [18 cinco practicas completadas](18-cinco-practicas-completadas.png)
 
-Las capturas interiores se obtuvieron en PlayMode con la interfaz oculta. `lavabo.png`, `espera-entrada.png` y `rotulos-salas.png` muestran las correcciones de distribución. `pasillo.png` y `pasillo-regreso.png` comprueban los nombres desde el eje del pasillo. `instrumentos-contorno.png` e `instrumentos-sin-contorno.png` comparan la misma cámara con y sin el efecto. Las vistas exteriores y la planta proceden del constructor en el Editor.
+Inspección: recepción identificable desde acceso, rutas despejadas, materiales coherentes, equipo orientado, instrucciones sobre muros libres, contorno blanco/dorado y menús en español. La captura 18 registra cinco prácticas completadas. El refinamiento incorpora mostrador redondeado, carpintería y emblema, tapicería clara, detalles de pasillo, sillones contorneados y complementos dentales. Se corrigieron brillos artificiales y la posición del mobiliario que impedía el recorrido.
 
-En catorce vistas a 1600 × 1000, después del calentamiento, la mediana del tiempo entre fotogramas fue de 2.8 a 7.5 ms y el percentil 95 de 3.7 a 8.0 ms en este Editor. Se tomaron 60 muestras por vista. Esto no mide el arranque de las sondas, no separa CPU/GPU y no garantiza el rendimiento de otros equipos o de Android. Quedan sin medir el coste del halo en dispositivos móviles y su legibilidad en 4K; el radio actual se conserva en dos píxeles.
+Límites: equipo dental de geometría simplificada, iluminación global sin hornear y entorno urbano de contexto. El análisis de estas imágenes y las 7 pruebas aprobadas no equivalen a una caminata manual exhaustiva, un ensayo clínico o una medición de rendimiento.

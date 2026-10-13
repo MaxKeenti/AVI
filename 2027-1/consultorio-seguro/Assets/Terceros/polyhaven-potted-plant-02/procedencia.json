@@ -1,0 +1,94 @@
+{
+  "titulo": "Potted Plant 02",
+  "autor": "Rico Cilliers",
+  "url": "https://polyhaven.com/a/potted_plant_02",
+  "licencia": "CC0 1.0 Universal",
+  "licencia_url": "https://polyhaven.com/license",
+  "licencia_texto": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "consulta": "2026-10-02",
+  "modificaciones": "Descarga de glTF y mapas PBR de 2K. Conversión a OBJ con normales, UV, grupos de materiales y traslaciones originales; inversión de V para Wavefront. Sin simplificación de malla. Escala y materiales finales configurados en Unity. Derivación técnica de mapas URP: metalicidad en rojo, suavidad (1-rugosidad) en alfa y oclusión ambiental en verde; originales preservados. Importar mapas derivados sin sRGB. Combinación de color y máscara alfa original del follaje en PNG RGBA, sin modificar las fuentes.",
+  "descargas": [
+    {
+      "archivo": "polyhaven-potted-plant-02/potted_plant_02_2k.gltf",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/2k/potted_plant_02/potted_plant_02_2k.gltf",
+      "sha256": "80ab49cb61737244f50b805ddde3dd64e461b2a244817f8882e95a97c916d158"
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/potted_plant_02.bin",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/2k/potted_plant_02/potted_plant_02.bin",
+      "sha256": "9c9812482c78a59789ed32fa842b4cbd9365e09c900c31ebb998e5efe627fe97"
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_pot_nor_gl_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_02/potted_plant_02_pot_nor_gl_2k.jpg",
+      "sha256": "8e8c2e96de90e793712a9db8a6cea7a38f7fd5ec489b8134b586a42ebbbfcb11"
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_pot_diff_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_02/potted_plant_02_pot_diff_2k.jpg",
+      "sha256": "21672040b5de49e7dae07452431b4fe5cf401494f5ab5157b5f54a146cc68383"
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_pot_rough_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_02/potted_plant_02_pot_rough_2k.jpg",
+      "sha256": "c1f341bfa5e610dab2fd31aad4068fa20cf957b098912da5949bca996d7649bf"
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_leaves_nor_gl_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_02/potted_plant_02_leaves_nor_gl_2k.jpg",
+      "sha256": "2ae648b12ea457fb720f9adc6f8dc9feb8d5409e43f3b9f2ce7f089b3eef12f6"
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_leaves_diff_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_02/potted_plant_02_leaves_diff_2k.jpg",
+      "sha256": "f70de9a4b735b740e79d4e7720a47eae5e2bb4a289880cdae5905d156223bd7d"
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_leaves_rough_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_02/potted_plant_02_leaves_rough_2k.jpg",
+      "sha256": "399e61a82069b3e344cece76c128f84a664dd44719331450877b671906e01e27"
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_leaves_alpha_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_02/potted_plant_02_leaves_alpha_2k.jpg",
+      "sha256": "51d7d81cf2303e519d2075d660f3613c582044c7c3b7e246e04b55f410ba6e38"
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_leaves_ao_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_02/potted_plant_02_leaves_ao_2k.jpg",
+      "sha256": "3560dff9aa9df0f1791547739ec69003e36a8ebf0238dc67e96b4fde5e08beda"
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_pot_ao_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_02/potted_plant_02_pot_ao_2k.jpg",
+      "sha256": "d5500e14b18a6e0e221c36dee6aeed654b3d317dc9197b8c3cc8a52144bb1c67"
+    }
+  ],
+  "derivados": [
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_pot_metallic_gloss_2k.png",
+      "sha256": "85feca8aad0fa134373446d82e9cfe614f42bf7f1141d068faac2a551d6a94ad",
+      "tipo": "derivado_urp"
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_pot_occlusion_2k.png",
+      "sha256": "15702a8a59f9327535e6678c40cb658640a51d24f8b40cc3fa04d2a01d795df3",
+      "tipo": "derivado_urp"
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_leaves_metallic_gloss_2k.png",
+      "sha256": "c4cf83694c82e8edb55d76ed0bf37f43dc4932f511da08fec6fb21ae266155cb",
+      "tipo": "derivado_urp"
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_leaves_occlusion_2k.png",
+      "sha256": "c21f22d5e7f6b93000731a10b59f092478f68c9e0cda1e33d576f9bd8e772d1b",
+      "tipo": "derivado_urp"
+    },
+    {
+      "archivo": "polyhaven-potted-plant-02/textures/potted_plant_02_leaves_base_alpha_2k.png",
+      "sha256": "eca55d93f8ab338a5feb87297b2a93cd859bf4116583db01656605c400a9b90e",
+      "tipo": "derivado_urp"
+    }
+  ]
+}

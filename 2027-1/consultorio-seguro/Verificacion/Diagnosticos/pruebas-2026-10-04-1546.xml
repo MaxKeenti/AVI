@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Failed(Child)" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-04 15:46:51Z" end-time="2026-10-04 15:46:53Z" duration="2.2295281">
+  <test-suite type="TestSuite" id="1016" name="Consultorio Seguro" fullname="Consultorio Seguro" runstate="Runnable" testcasecount="7" result="Failed" site="Child" start-time="2026-10-04 15:46:51Z" end-time="2026-10-04 15:46:53Z" duration="2.229528" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1010" name="ConsultorioSeguroNuevo.Tests.dll" fullname="/Users/moonstone/Source/UPIICSA/Plan 2021/2026 2/6NM69 Ambientes virtuales inmersivos/AVI/2027-1/consultorio-seguro/Library/ScriptAssemblies/ConsultorioSeguroNuevo.Tests.dll" runstate="Runnable" testcasecount="7" result="Failed" site="Child" start-time="2026-10-04 15:46:51Z" end-time="2026-10-04 15:46:53Z" duration="2.225671" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="11944" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1011" name="ConsultorioSeguroNuevo" fullname="ConsultorioSeguroNuevo" runstate="Runnable" testcasecount="7" result="Failed" site="Child" start-time="2026-10-04 15:46:51Z" end-time="2026-10-04 15:46:53Z" duration="2.225356" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1012" name="Tests" fullname="ConsultorioSeguroNuevo.Tests" runstate="Runnable" testcasecount="7" result="Failed" site="Child" start-time="2026-10-04 15:46:51Z" end-time="2026-10-04 15:46:53Z" duration="2.225160" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestFixture" id="1001" name="ClinicSceneIntegrationTests" fullname="ConsultorioSeguroNuevo.Tests.ClinicSceneIntegrationTests" classname="ConsultorioSeguroNuevo.Tests.ClinicSceneIntegrationTests" runstate="Runnable" testcasecount="1" result="Failed" site="Child" start-time="2026-10-04 15:46:51Z" end-time="2026-10-04 15:46:53Z" duration="2.224619" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-case id="1002" name="WalkEveryRouteAndCompleteEveryPracticeThroughVisibleTargets" fullname="ConsultorioSeguroNuevo.Tests.ClinicSceneIntegrationTests.WalkEveryRouteAndCompleteEveryPracticeThroughVisibleTargets" methodname="WalkEveryRouteAndCompleteEveryPracticeThroughVisibleTargets" classname="ConsultorioSeguroNuevo.Tests.ClinicSceneIntegrationTests" runstate="Runnable" seed="847445060" result="Failed" start-time="2026-10-04 15:46:51Z" end-time="2026-10-04 15:46:53Z" duration="2.218604" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="Timeout" value="240000" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[  El objetivo dejó de ser visible a altura de ojos: BOLSA ROJA; visitante (-3.75, 0.02, 7.00); destino de ruta (-3.75, 0.05, 7.00)
+Planeado: ojos=(-3.7500, 1.6750, 7.0000) cámara local=(0.0000, 1.6500, 0.0000) centro=(-5.0500, 0.3300, 7.9500) impacto=Cuerpo centro=(-5.0500, 0.6700, 7.9500) impacto=Tapa
+Real: ojos=(-3.7500, 1.6750, 7.0000) cámara local=(0.0000, 1.6500, 0.0000) centro=(-5.0500, 0.3300, 7.9500) impacto=Visitante centro=(-5.0500, 0.6700, 7.9500) impacto=Visitante
+  Expected: True
+  But was:  False
+]]></message>
+                <stack-trace><![CDATA[at ConsultorioSeguroNuevo.Tests.ClinicSceneIntegrationTests+<ApproachAndAim>d__16.MoveNext () [0x00134] in /Users/moonstone/Source/UPIICSA/Plan 2021/2026 2/6NM69 Ambientes virtuales inmersivos/AVI/2027-1/consultorio-seguro/Assets/ConsultorioSeguro/Tests/ClinicSceneIntegrationTests.cs:247
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in ./Library/PackageCache/com.unity.test-framework@76560ee600cb/UnityEngine.TestRunner/NUnitExtensions/Attributes/TestEnumerator.cs:44
+]]></stack-trace>
+              </failure>
+              <output><![CDATA[Reduced additional punctual light shadows resolution by 2 to make 18 shadow maps fit in the 4096x4096 shadow atlas. To avoid this, increase shadow atlas size, decrease big shadow resolutions, or reduce the number of shadow maps active in the same frame
+Saving results to: /Users/moonstone/Library/Application Support/Equipo 7 · UPIICSA/Consultorio Seguro/TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

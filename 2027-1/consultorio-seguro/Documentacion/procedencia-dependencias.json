@@ -1,0 +1,178 @@
+{
+  "fecha": "2026-10-03",
+  "paquete": "com.unity.ugui",
+  "version": "2.0.0",
+  "autor": "Unity Technologies ApS",
+  "fuente": "https://docs.unity3d.com/Packages/com.unity.ugui@2.0/manual/index.html",
+  "licencia": "Unity Companion License; Liberation Sans: SIL Open Font License 1.1",
+  "licencia_url": "https://unity.com/legal/licenses/unity-companion-license",
+  "origen_local": "Library/PackageCache/com.unity.ugui@473409526770/Package Resources/TMP Essential Resources.unitypackage",
+  "sha256_paquete": "2bb10a2e8af729e04fd31e18978ac04d3ece02a77a34f1848b2b988cb64a1801",
+  "archivos_importados": {
+    "Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile-2-Pass.shader": {
+      "sha256_original": "4bc2db64befbd0e37e23539f21096ad2fcd9d61b36d2174d208a7d831a0883f7",
+      "sha256_importado": "4bc2db64befbd0e37e23539f21096ad2fcd9d61b36d2174d208a7d831a0883f7",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Shaders/TMP_SDF-URP Unlit.shadergraph": {
+      "sha256_original": "dc15b6819ad87a4b34ed888ae2c274624efc0ada902d1a9e7752d87922414dcc",
+      "sha256_importado": "dc15b6819ad87a4b34ed888ae2c274624efc0ada902d1a9e7752d87922414dcc",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader": {
+      "sha256_original": "1d32f34c71276c1321aa0540a2410e15808743a38b2026923045a4dec4a79b58",
+      "sha256_importado": "1d32f34c71276c1321aa0540a2410e15808743a38b2026923045a4dec4a79b58",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader": {
+      "sha256_original": "2a991951b00b0c052363a1025f655450054325437b3d13c2623a987c8ec77c30",
+      "sha256_importado": "2a991951b00b0c052363a1025f655450054325437b3d13c2623a987c8ec77c30",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader": {
+      "sha256_original": "b50afc7edc8a710f8b4159149b2391e7238b5e4076cc0ea2119090ed29e13b4a",
+      "sha256_importado": "b50afc7edc8a710f8b4159149b2391e7238b5e4076cc0ea2119090ed29e13b4a",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset": {
+      "sha256_original": "e2d77876f2b90d98ba2424f6fc32b1403ea701de8fd24a8fe8e571ecc3cdc10a",
+      "sha256_importado": "e2d77876f2b90d98ba2424f6fc32b1403ea701de8fd24a8fe8e571ecc3cdc10a",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc": {
+      "sha256_original": "66db1f03e8d7a413eba79bcb6602fdb2de710b586f34a6f2584ed6f68f028e90",
+      "sha256_importado": "66db1f03e8d7a413eba79bcb6602fdb2de710b586f34a6f2584ed6f68f028e90",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Resources/TMP Settings.asset": {
+      "sha256_original": "7be438062cdc296835a1258b68bcbeb8e9fdc4b01ea27c05a24a1074260f7424",
+      "sha256_importado": "7be438062cdc296835a1258b68bcbeb8e9fdc4b01ea27c05a24a1074260f7424",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Shaders/TMPro.cginc": {
+      "sha256_original": "14edb7d7b88caf2b82cae68200abe895e5b5b3474c3fffbf0e9b4b09a4e2467e",
+      "sha256_importado": "14edb7d7b88caf2b82cae68200abe895e5b5b3474c3fffbf0e9b4b09a4e2467e",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader": {
+      "sha256_original": "42892a52f22bdde6d482cf2da5f35e4b813063fc6fe42189eee5562080079494",
+      "sha256_importado": "42892a52f22bdde6d482cf2da5f35e4b813063fc6fe42189eee5562080079494",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Shaders/TMP_SDF.shader": {
+      "sha256_original": "10efe6d4728474a09970b857faf37913793e168dc13dbd4d7316b54b37615d97",
+      "sha256_importado": "10efe6d4728474a09970b857faf37913793e168dc13dbd4d7316b54b37615d97",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt": {
+      "sha256_original": "37f8552e9a874ec10710dc0ede6a9adf168e6609fbd02a507f35629373b85a48",
+      "sha256_importado": "37f8552e9a874ec10710dc0ede6a9adf168e6609fbd02a507f35629373b85a48",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat": {
+      "sha256_original": "25874340976d40e9f9e8abf731b7f32e5a478541dead9288140bd60c7a3287d9",
+      "sha256_importado": "25874340976d40e9f9e8abf731b7f32e5a478541dead9288140bd60c7a3287d9",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader": {
+      "sha256_original": "f9fae5906dd37d89298338953294459975de58a5421e68dd9e82a79794b95509",
+      "sha256_importado": "f9fae5906dd37d89298338953294459975de58a5421e68dd9e82a79794b95509",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset": {
+      "sha256_original": "c3ff50e3133d989180b187748ffc67903f1fede099a5b85b4fcbd8cb6e8be958",
+      "sha256_importado": "c3ff50e3133d989180b187748ffc67903f1fede099a5b85b4fcbd8cb6e8be958",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Shaders/SDFFunctions.hlsl": {
+      "sha256_original": "88cf0f62e4000b71750c059d0886b19504cd1cf10f39bb61ddc11b77a882d417",
+      "sha256_importado": "88cf0f62e4000b71750c059d0886b19504cd1cf10f39bb61ddc11b77a882d417",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader": {
+      "sha256_original": "fb286386d0592ce6d63eb736f180b4b0f638ec538b0855aa54767a438ebd1173",
+      "sha256_importado": "fb286386d0592ce6d63eb736f180b4b0f638ec538b0855aa54767a438ebd1173",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Shaders/TMP_SDF-URP Lit.shadergraph": {
+      "sha256_original": "e0148ce8e5904232a4e711376a45b7af2a007fb9690c5a69c1cb4952a696cdbf",
+      "sha256_importado": "e0148ce8e5904232a4e711376a45b7af2a007fb9690c5a69c1cb4952a696cdbf",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader": {
+      "sha256_original": "41cff58473557bf760d03513a8c098f43a24e4eeb4c8ccd7d828c045a338a9ed",
+      "sha256_importado": "41cff58473557bf760d03513a8c098f43a24e4eeb4c8ccd7d828c045a338a9ed",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc": {
+      "sha256_original": "d9d43ddd9810476162f21b42477d9ce2cdc4e6cc7571d354c3253aafc6673ead",
+      "sha256_importado": "d9d43ddd9810476162f21b42477d9ce2cdc4e6cc7571d354c3253aafc6673ead",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader": {
+      "sha256_original": "8b30c140f6af9134392fe6ecf4c0676db73f873489ac52adfb47bbd288cb51b8",
+      "sha256_importado": "8b30c140f6af9134392fe6ecf4c0676db73f873489ac52adfb47bbd288cb51b8",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Shaders/TMP_SDF-HDRP LIT.shadergraph": {
+      "sha256_original": "bf68062f68b38b588abd1c354f64e905f824d9a2c47f92ebdd70a32989eb2097",
+      "sha256_importado": "bf68062f68b38b588abd1c354f64e905f824d9a2c47f92ebdd70a32989eb2097",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Shaders/TMP_Sprite.shader": {
+      "sha256_original": "af669bb9ae136c8099f8e0a94a6933fd2f1e1fb0a6842129939a319fab4b8dbb",
+      "sha256_importado": "af669bb9ae136c8099f8e0a94a6933fd2f1e1fb0a6842129939a319fab4b8dbb",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt": {
+      "sha256_original": "62d3f4d5f64aaf885692d2d13a8313f6918e6e4c5aeb3990a43f614652bfd89c",
+      "sha256_importado": "62d3f4d5f64aaf885692d2d13a8313f6918e6e4c5aeb3990a43f614652bfd89c",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc": {
+      "sha256_original": "244b442520282a66363d121c8d2aeeb30bb1e72cbbadbf41ce68d9100322ade5",
+      "sha256_importado": "244b442520282a66363d121c8d2aeeb30bb1e72cbbadbf41ce68d9100322ade5",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader": {
+      "sha256_original": "a0d318756cba0f95a7052c387e629d0add3e9a4125c8333f1d1ed591af5f17cb",
+      "sha256_importado": "a0d318756cba0f95a7052c387e629d0add3e9a4125c8333f1d1ed591af5f17cb",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Fonts/LiberationSans.ttf": {
+      "sha256_original": "e5b0af421ea2bfbc1ac8d251d647268087ae82786234c57f757d1f0b90fa8b49",
+      "sha256_importado": "e5b0af421ea2bfbc1ac8d251d647268087ae82786234c57f757d1f0b90fa8b49",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat": {
+      "sha256_original": "b6b65c34e4907dd3006c2217fc8a4cef81b6da24df0a3de8e2288199eb6c5a9d",
+      "sha256_importado": "b6b65c34e4907dd3006c2217fc8a4cef81b6da24df0a3de8e2288199eb6c5a9d",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Shaders/TMP_SDF-HDRP UNLIT.shadergraph": {
+      "sha256_original": "8a969c2d775079cce4e1c45d5eb6d3964b27d44dc884178363050c74fd5e9742",
+      "sha256_importado": "8a969c2d775079cce4e1c45d5eb6d3964b27d44dc884178363050c74fd5e9742",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader": {
+      "sha256_original": "5dadb68b56429547918b392626e9af8fd5173936d20bb43cfca58dfa00947257",
+      "sha256_importado": "5dadb68b56429547918b392626e9af8fd5173936d20bb43cfca58dfa00947257",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset": {
+      "sha256_original": "93e073cdb91b7e3d2fa31e2dd13626d7b9d2f327904ba8c3c2b97a3eecfbabac",
+      "sha256_importado": "93e073cdb91b7e3d2fa31e2dd13626d7b9d2f327904ba8c3c2b97a3eecfbabac",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt": {
+      "sha256_original": "3a73e5ffe2510756dd3c2e982fdc1218b4be82c6e21abde88070d6860e1bc8e6",
+      "sha256_importado": "3a73e5ffe2510756dd3c2e982fdc1218b4be82c6e21abde88070d6860e1bc8e6",
+      "sin_cambios": true
+    },
+    "Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader": {
+      "sha256_original": "44c39aabc7e88e7e1feffc1880df754f4adf86b62e9512aa89e9d2d65171aff4",
+      "sha256_importado": "44c39aabc7e88e7e1feffc1880df754f4adf86b62e9512aa89e9d2d65171aff4",
+      "sin_cambios": true
+    }
+  }
+}

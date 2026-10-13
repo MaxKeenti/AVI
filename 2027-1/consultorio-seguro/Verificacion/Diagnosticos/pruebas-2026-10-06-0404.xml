@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="7" result="Failed(Child)" total="7" passed="6" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-06 04:04:42Z" end-time="2026-10-06 04:04:47Z" duration="4.9985257">
+  <test-suite type="TestSuite" id="1016" name="Consultorio Seguro" fullname="Consultorio Seguro" runstate="Runnable" testcasecount="7" result="Failed" site="Child" start-time="2026-10-06 04:04:42Z" end-time="2026-10-06 04:04:47Z" duration="4.998526" total="7" passed="6" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1010" name="ConsultorioSeguroNuevo.Tests.dll" fullname="/Users/moonstone/Source/UPIICSA/Plan 2021/2026 2/6NM69 Ambientes virtuales inmersivos/AVI/2027-1/consultorio-seguro/Library/ScriptAssemblies/ConsultorioSeguroNuevo.Tests.dll" runstate="Runnable" testcasecount="7" result="Failed" site="Child" start-time="2026-10-06 04:04:42Z" end-time="2026-10-06 04:04:47Z" duration="4.995017" total="7" passed="6" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="34644" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1011" name="ConsultorioSeguroNuevo" fullname="ConsultorioSeguroNuevo" runstate="Runnable" testcasecount="7" result="Failed" site="Child" start-time="2026-10-06 04:04:42Z" end-time="2026-10-06 04:04:47Z" duration="4.994759" total="7" passed="6" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1012" name="Tests" fullname="ConsultorioSeguroNuevo.Tests" runstate="Runnable" testcasecount="7" result="Failed" site="Child" start-time="2026-10-06 04:04:42Z" end-time="2026-10-06 04:04:47Z" duration="4.994527" total="7" passed="6" failed="1" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestFixture" id="1001" name="ClinicSceneIntegrationTests" fullname="ConsultorioSeguroNuevo.Tests.ClinicSceneIntegrationTests" classname="ConsultorioSeguroNuevo.Tests.ClinicSceneIntegrationTests" runstate="Runnable" testcasecount="1" result="Failed" site="Child" start-time="2026-10-06 04:04:42Z" end-time="2026-10-06 04:04:46Z" duration="3.928417" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-case id="1002" name="WalkEveryRouteAndCompleteEveryPracticeThroughVisibleTargets" fullname="ConsultorioSeguroNuevo.Tests.ClinicSceneIntegrationTests.WalkEveryRouteAndCompleteEveryPracticeThroughVisibleTargets" methodname="WalkEveryRouteAndCompleteEveryPracticeThroughVisibleTargets" classname="ConsultorioSeguroNuevo.Tests.ClinicSceneIntegrationTests" runstate="Runnable" seed="420802314" result="Failed" start-time="2026-10-06 04:04:42Z" end-time="2026-10-06 04:04:46Z" duration="3.923160" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="Timeout" value="240000" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[  No hay posición alcanzable con visión y distancia de interacción para MANUAL DE CONTROLES (sala 5).
+  Expected: not null
+  But was:  null
+]]></message>
+                <stack-trace><![CDATA[at ConsultorioSeguroNuevo.Tests.ClinicSceneIntegrationTests+<ApproachAndAim>d__16.MoveNext () [0x0006b] in /Users/moonstone/Source/UPIICSA/Plan 2021/2026 2/6NM69 Ambientes virtuales inmersivos/AVI/2027-1/consultorio-seguro/Assets/ConsultorioSeguro/Tests/ClinicSceneIntegrationTests.cs:277
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in ./Library/PackageCache/com.unity.test-framework@76560ee600cb/UnityEngine.TestRunner/NUnitExtensions/Attributes/TestEnumerator.cs:44
+]]></stack-trace>
+              </failure>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1003" name="RuntimeInteractionTests" fullname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests" classname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-10-06 04:04:46Z" end-time="2026-10-06 04:04:47Z" duration="1.065575" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1004" name="AssistanceHidesForEveryItemWhileHoldingOrPaused" fullname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests.AssistanceHidesForEveryItemWhileHoldingOrPaused" methodname="AssistanceHidesForEveryItemWhileHoldingOrPaused" classname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests" runstate="Runnable" seed="652373800" result="Passed" start-time="2026-10-06 04:04:46Z" end-time="2026-10-06 04:04:46Z" duration="0.031673" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1006" name="ManualAndCreditsPreserveTheirReturnRouteAndPauseSimulation" fullname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests.ManualAndCreditsPreserveTheirReturnRouteAndPauseSimulation" methodname="ManualAndCreditsPreserveTheirReturnRouteAndPauseSimulation" classname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests" runstate="Runnable" seed="152004916" result="Passed" start-time="2026-10-06 04:04:46Z" end-time="2026-10-06 04:04:46Z" duration="0.022496" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1008" name="ManualShortcutWorksAtStartDuringVisitAndWhilePaused" fullname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests.ManualShortcutWorksAtStartDuringVisitAndWhilePaused" methodname="ManualShortcutWorksAtStartDuringVisitAndWhilePaused" classname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests" runstate="Runnable" seed="1591135182" result="Passed" start-time="2026-10-06 04:04:46Z" end-time="2026-10-06 04:04:46Z" duration="0.027884" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1007" name="OrderedStepsCannotBeSkippedAndResetCancelsAnActiveProcess" fullname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests.OrderedStepsCannotBeSkippedAndResetCancelsAnActiveProcess" methodname="OrderedStepsCannotBeSkippedAndResetCancelsAnActiveProcess" classname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests" runstate="Runnable" seed="133056056" result="Passed" start-time="2026-10-06 04:04:46Z" end-time="2026-10-06 04:04:47Z" duration="0.922169" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1009" name="RotatedRoomUsesItsActualVolumeAndAssistanceHasADistanceLimit" fullname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests.RotatedRoomUsesItsActualVolumeAndAssistanceHasADistanceLimit" methodname="RotatedRoomUsesItsActualVolumeAndAssistanceHasADistanceLimit" classname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests" runstate="Runnable" seed="1148899540" result="Passed" start-time="2026-10-06 04:04:47Z" end-time="2026-10-06 04:04:47Z" duration="0.038723" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1005" name="WrongAnswerRestoresPoseAndCorrectAnswerCompletesOnce" fullname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests.WrongAnswerRestoresPoseAndCorrectAnswerCompletesOnce" methodname="WrongAnswerRestoresPoseAndCorrectAnswerCompletesOnce" classname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests" runstate="Runnable" seed="209809937" result="Passed" start-time="2026-10-06 04:04:47Z" end-time="2026-10-06 04:04:47Z" duration="0.020156" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: /Users/moonstone/Library/Application Support/Equipo 7 · UPIICSA/Consultorio Seguro/TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
