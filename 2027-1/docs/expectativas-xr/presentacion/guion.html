@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#120e24">
+<title>Expectativas de la XR — Guion de presentación</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Newsreader:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#120e24; --bg-1:#1a1433; --bg-2:#231c45;
+    --panel:rgba(35,28,69,.72); --panel-line:rgba(155,120,255,.24);
+    --ink:#f3f1fb; --ink-dim:#b9b3d9; --ink-faint:#837da3;
+    --violeta:#9b78ff; --turquesa:#2bc4ba; --coral:#ef6b6f; --ambar:#f0a63a;
+    --font-head:'Montserrat',system-ui,sans-serif;
+    --font-body:'Inter',system-ui,sans-serif;
+    --font-serif:'Newsreader',Georgia,serif;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; font-family:var(--font-body); color:var(--ink);
+    background:
+      radial-gradient(120% 80% at 80% -10%, rgba(155,120,255,.14), transparent 60%),
+      radial-gradient(120% 80% at -10% 110%, rgba(43,196,186,.10), transparent 55%),
+      var(--bg-0);
+    line-height:1.6; padding:0 0 64px;
+    -webkit-text-size-adjust:100%;
+  }
+
+  /* ---- Header ---- */
+  header{
+    position:relative; padding:calc(34px + env(safe-area-inset-top)) 22px 30px;
+    background:linear-gradient(180deg,var(--bg-2),transparent);
+    border-bottom:1px solid var(--panel-line);
+  }
+  .continuo{height:10px;border-radius:10px;margin-bottom:22px;opacity:.8;
+    background:linear-gradient(90deg,var(--turquesa),var(--violeta),var(--bg-2));}
+  .eyebrow{
+    font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:.28em;
+    text-transform:uppercase;color:var(--violeta);display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--violeta);}
+  h1{
+    font-family:var(--font-head);font-weight:800;font-size:clamp(30px,9vw,50px);
+    line-height:1.05;letter-spacing:-1px;margin:12px 0 8px;
+  }
+  h1 .accent{color:var(--violeta);}
+  .sub{font-family:var(--font-serif);font-style:italic;font-size:clamp(17px,5vw,22px);color:var(--ink-dim);margin:0;}
+  .meta{margin-top:14px;font-family:var(--font-head);font-weight:600;font-size:12.5px;letter-spacing:.04em;color:var(--ink-faint);}
+
+  main{max-width:760px;margin:0 auto;padding:0 16px;}
+
+  /* ---- Division overview ---- */
+  .overview{margin-top:24px;}
+  .overview h2{
+    font-family:var(--font-head);font-weight:700;font-size:14px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--ink-faint);margin:0 0 14px;
+  }
+  .split{display:grid;gap:12px;}
+  .split a{
+    display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;
+    padding:14px 16px;background:var(--panel);border:1px solid var(--panel-line);
+    border-radius:14px;border-left:4px solid var(--pcol);
+  }
+  .split .pn{
+    font-family:var(--font-serif);font-style:italic;font-weight:600;font-size:30px;
+    color:var(--pcol);min-width:34px;text-align:center;line-height:1;
+  }
+  .split .pt{font-family:var(--font-head);font-weight:700;font-size:16px;color:var(--ink);}
+  .split .pr{font-size:13px;color:var(--ink-dim);margin-top:2px;}
+  .note{
+    margin-top:14px;font-size:13.5px;color:var(--ink-dim);
+    background:var(--panel);border:1px solid var(--panel-line);border-radius:12px;padding:12px 14px;
+  }
+  .note b{color:var(--ink);}
+
+  /* ---- Participant section ---- */
+  .part{margin-top:38px;scroll-margin-top:16px;}
+  .part-head{
+    position:sticky;top:0;z-index:5;
+    padding:14px 16px;margin:0 -16px 8px;
+    background:rgba(18,14,36,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--panel-line);
+    display:flex;align-items:baseline;gap:12px;border-left:4px solid var(--pcol);
+  }
+  .part-head .tag{font-family:var(--font-head);font-weight:800;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--pcol);}
+  .part-head .ttl{font-family:var(--font-head);font-weight:700;font-size:15px;color:var(--ink);}
+
+  /* ---- Slide cards ---- */
+  .slide{
+    background:var(--panel);border:1px solid var(--panel-line);border-radius:16px;
+    padding:18px 18px 20px;margin-top:14px;
+  }
+  .slide-tag{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--pcol);margin-bottom:8px;
+  }
+  .slide-tag .pg{
+    color:var(--ink-faint);font-size:10.5px;border:1px solid var(--panel-line);
+    border-radius:20px;padding:2px 8px;letter-spacing:.1em;
+  }
+  .slide h3{font-family:var(--font-head);font-weight:700;font-size:21px;margin:0 0 10px;color:var(--ink);}
+  .slide p{margin:0 0 12px;font-size:16.5px;}
+  .slide p:last-child{margin-bottom:0;}
+  .slide ul,.slide ol{margin:0 0 12px;padding-left:22px;}
+  .slide li{margin-bottom:8px;font-size:16px;}
+  .slide strong{color:var(--ink);font-weight:700;}
+  .relay{
+    margin-top:14px;display:flex;gap:10px;align-items:flex-start;
+    font-style:italic;font-family:var(--font-serif);font-size:15.5px;color:var(--ink-dim);
+    border-top:1px dashed var(--panel-line);padding-top:12px;
+  }
+  .relay::before{content:"↪";font-style:normal;color:var(--pcol);font-size:18px;line-height:1.3;}
+  .aviso{
+    margin-top:12px;font-size:13.5px;color:var(--ambar);
+    background:rgba(240,166,58,.08);border:1px solid rgba(240,166,58,.3);
+    border-radius:10px;padding:10px 12px;
+  }
+  .aviso b{color:var(--ambar);}
+
+  /* ---- Rehearsal notes ---- */
+  .closing-notes{
+    margin-top:40px;background:var(--panel);border:1px solid var(--panel-line);
+    border-radius:16px;padding:20px;
+  }
+  .closing-notes h2{font-family:var(--font-head);font-weight:700;font-size:18px;margin:0 0 12px;color:var(--ink);}
+  .closing-notes li{font-size:15px;margin-bottom:9px;color:var(--ink-dim);}
+  .closing-notes b{color:var(--ink);}
+  .closing-notes dt{font-weight:700;font-size:15px;color:var(--ink);margin-top:12px;}
+  .closing-notes dd{margin:4px 0 0;font-size:15px;color:var(--ink-dim);}
+
+  footer{text-align:center;margin-top:40px;font-size:12px;color:var(--ink-faint);font-family:var(--font-head);letter-spacing:.08em;}
+
+  /* ---- Back-to-top ---- */
+  #top{
+    position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));
+    width:46px;height:46px;border-radius:50%;border:1px solid var(--panel-line);
+    background:rgba(35,28,69,.9);color:var(--violeta);font-size:20px;
+    display:flex;align-items:center;justify-content:center;text-decoration:none;
+    box-shadow:0 6px 18px rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .25s;
+  }
+  #top.show{opacity:1;pointer-events:auto;}
+
+  .p1{--pcol:var(--violeta);} .p2{--pcol:var(--turquesa);} .p3{--pcol:var(--coral);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="continuo"></div>
+  <span class="eyebrow">Guion de presentación · Equipo 7</span>
+  <h1>Expectativas de la <span class="accent">Realidad Extendida</span></h1>
+  <p class="sub">La XR como tecnología core en los distintos enfoques de la industria</p>
+  <p class="meta">7NM78 · Ambientes Virtuales Inmersivos · 2027-1</p>
+</header>
+
+<main>
+  <section class="overview">
+    <h2>División por participantes</h2>
+    <div class="split">
+      <a href="#p1" class="p1"><span class="pn">1</span><span><span class="pt">Pregunta guía y panorama</span><br><span class="pr">Portada · slides 02–06</span></span></a>
+      <a href="#p2" class="p2"><span class="pn">2</span><span><span class="pt">Expectativas por enfoque</span><br><span class="pr">slides 07–12</span></span></a>
+      <a href="#p3" class="p3"><span class="pn">3</span><span><span class="pt">Comparativa, retos y cierre</span><br><span class="pr">slides 13–17</span></span></a>
+    </div>
+    <p class="note">Asignen los nombres del equipo a cada participante. <b>Integrantes:</b> Alatorre Fuentes Eduardo · Cruz Cruz Guillermo · Flores Roa Jorge Alejandro · González Calzada Maximiliano · Neri Mondragón Mónica · Soto Soto Héctor. &nbsp; <b>Duración estimada:</b> ~10–12 min (≈40 s por diapositiva).</p>
+  </section>
+
+  <!-- ============ PARTICIPANTE 1 ============ -->
+  <section class="part p1" id="p1">
+    <div class="part-head"><span class="tag">Participante 1</span><span class="ttl">Pregunta guía y panorama</span></div>
+
+    <article class="slide">
+      <span class="slide-tag">Portada <span class="pg">pág. 01</span></span>
+      <h3>Portada</h3>
+      <p>Buenas tardes. Somos el Equipo 7 y hoy les presentamos nuestra indagación: <strong>Expectativas de la Realidad Extendida como tecnología core en la industria</strong>. Revisamos qué esperan de la XR distintos sectores —la academia, el comercio, la industria, la salud, la defensa y la capacitación corporativa— y qué tan cerca está cada uno de convertirla en una parte central de su operación.</p>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">Pregunta guía <span class="pg">pág. 02</span></span>
+      <h3>¿Complemento o tecnología core?</h3>
+      <p>Antes de entrar a los datos, conviene aclarar qué entendemos por <strong>core</strong>. Una tecnología es un <strong>complemento</strong> cuando se usa en pilotos o demostraciones aisladas, de vez en cuando, y si se apaga, la operación sigue igual. En cambio, es <strong>core</strong> cuando forma parte central de la operación: se usa a escala, con resultados medibles, y sin ella el proceso cambia o se detiene.</p>
+      <p>Con esa distinción, la pregunta que guía la presentación es: <strong>¿qué espera cada enfoque de la industria para que la XR pase de la columna izquierda a la derecha?</strong></p>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">Definición <span class="pg">pág. 03</span></span>
+      <h3>¿Qué es la Realidad Extendida?</h3>
+      <p>La <strong>Realidad Extendida</strong>, o XR, agrupa a las tecnologías que mezclan lo real con lo virtual. Su base teórica más citada es el <strong>continuo realidad-virtualidad</strong> de Milgram y Kishino, de 1994: en un extremo está el entorno completamente real y en el otro, el completamente virtual.</p>
+      <ul>
+        <li><strong>Realidad Aumentada (AR)</strong>: está cerca del lado real; agrega objetos virtuales sobre lo que vemos, como instrucciones sobre una máquina.</li>
+        <li><strong>Realidad Mixta (MR)</strong>: queda en medio; lo virtual se ancla al espacio físico y responde a él.</li>
+        <li><strong>Realidad Virtual (VR)</strong>: está en el extremo virtual; sustituye por completo el entorno, normalmente con un visor.</li>
+      </ul>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">Mercado <span class="pg">pág. 04</span></span>
+      <h3>Todas las proyecciones crecen hacia 2030</h3>
+      <p>¿Qué dicen las proyecciones? Todas crecen hacia 2030. <strong>ABI Research</strong> estima que el software y los servicios XR pasarán de 44.7 a casi <strong>300 mil millones de dólares</strong> entre 2024 y 2030. <strong>PwC</strong> calcula que la VR y la AR podrían sumar hasta <strong>1.5 billones de dólares</strong> al PIB mundial, la mayor parte gracias a la AR. E <strong>IDC</strong> proyecta que la venta de lentes inteligentes se duplique, de 13.6 a <strong>27.3 millones</strong> de unidades al año.</p>
+      <p>Un detalle importante: estas cifras <strong>no se pueden comparar entre sí</strong>, porque cada consultora mide un alcance distinto. Lo que sí coincide es la tendencia.</p>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">Inversión vs. ganancias <span class="pg">pág. 05</span></span>
+      <h3>La inversión va por delante de las ganancias</h3>
+      <p>Pero ese crecimiento esperado contrasta con las ganancias actuales. Esta gráfica muestra la pérdida operativa anual de <strong>Reality Labs</strong>, la división de XR de Meta: pasó de 6.6 mil millones de dólares en 2020 a más de <strong>19 mil millones en 2025</strong>, y creció todos los años.</p>
+      <p>Al mismo tiempo, el mercado está cambiando de forma. En 2025 se vendieron <strong>7 millones</strong> de lentes Ray-Ban y Oakley con Meta, el triple que el año anterior, y en el primer trimestre de 2026 los lentes inteligentes crecieron <strong>167 %</strong>, mientras los visores de VR pierden terreno. Es decir, la apuesta se mueve del visor pesado a los <strong>lentes ligeros con inteligencia artificial</strong>.</p>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">Enfoques <span class="pg">pág. 06</span></span>
+      <h3>Seis enfoques, seis expectativas</h3>
+      <p>Para responder la pregunta guía organizamos la indagación en <strong>seis enfoques</strong> de la industria: académico, comercial, industrial, salud, gobierno y defensa, y capacitación corporativa. En cada uno vamos a ver qué se espera de la XR y qué evidencia hay de que esa expectativa se esté cumpliendo.</p>
+      <p class="relay">Mi compañero/a va a recorrer cada uno de estos enfoques.</p>
+    </article>
+  </section>
+
+  <!-- ============ PARTICIPANTE 2 ============ -->
+  <section class="part p2" id="p2">
+    <div class="part-head"><span class="tag">Participante 2</span><span class="ttl">Expectativas por enfoque</span></div>
+
+    <article class="slide">
+      <span class="slide-tag">01 · Académico <span class="pg">pág. 07</span></span>
+      <h3>Enfoque académico</h3>
+      <p>Gracias. Empezamos por el enfoque <strong>académico</strong>. En las universidades se espera que la XR permita practicar lo que en el aula solo se explica: recorrer un órgano en anatomía, operar una máquina peligrosa o visitar un sitio histórico.</p>
+      <p>Una revisión sistemática de Radianti y colaboradores encontró <strong>18 áreas de aplicación</strong> de la VR inmersiva en educación superior, pero advierte que la mayoría de los estudios mide la usabilidad y no el aprendizaje. Para explicar cuándo la inmersión sí ayuda, el modelo <strong>CAMIL</strong> propone que sus ventajas vienen de la <strong>presencia</strong> y la <strong>agencia</strong>, siempre que el diseño controle la carga cognitiva. Y el Horizon Report de EDUCAUSE la considera de alto potencial, aunque entre las tecnologías más costosas, por el equipo y por el esfuerzo de crear contenido.</p>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">02 · Comercial <span class="pg">pág. 08</span></span>
+      <h3>Enfoque comercial</h3>
+      <p>En el enfoque <strong>comercial</strong>, la expectativa es cambiar la forma de comprar y de entretenerse. En un estudio de Publicis y Snap, <strong>tres de cada cuatro</strong> encuestados dijeron que la AR tendrá un papel mayor en sus compras durante los siguientes cinco años, sobre todo para probarse productos de forma virtual o ver cómo queda un mueble en casa antes de comprarlo.</p>
+      <p>La apuesta de las grandes empresas se mueve hacia los lentes inteligentes, con los <strong>7 millones</strong> vendidos en 2025 que vimos antes, y ABI Research espera que el software y los servicios XR de consumo lleguen a <strong>169.4 mil millones de dólares</strong> en 2030.</p>
+      <p class="aviso"><b>Si preguntan:</b> el estudio de compras lo hizo Snap, que vende publicidad con AR, así que lo tomamos como una expectativa de los consumidores, no como un resultado medido.</p>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">03 · Industrial <span class="pg">pág. 09</span></span>
+      <h3>Enfoque industrial y de manufactura</h3>
+      <p>En la <strong>industria y la manufactura</strong> la expectativa es mucho más concreta: unir la XR con <strong>gemelos digitales</strong> para diseñar, simular procesos, capacitar operadores y dar soporte remoto.</p>
+      <p>En el estudio de Deloitte y el Manufacturing Leadership Council, el <strong>92 %</strong> de más de 350 ejecutivos de manufactura dijo que su empresa ya experimenta o implementa al menos un caso de uso del llamado <strong>metaverso industrial</strong>, y esperan mejoras de <strong>12 % o más</strong> en calidad, rendimiento y productividad en uno a tres años. Esto coincide con PwC, que atribuye la mayor parte del impacto económico a la AR, justamente por su uso en desarrollo de productos, mantenimiento y procesos.</p>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">04 · Salud <span class="pg">pág. 10</span></span>
+      <h3>Enfoque de salud</h3>
+      <p>En <strong>salud</strong> se espera que el personal pueda practicar sin poner en riesgo a pacientes reales. Aquí la evidencia es de las más sólidas: un metaanálisis de <strong>31 ensayos</strong> en cirugía laparoscópica encontró que el entrenamiento con VR es <strong>más efectivo que el entrenamiento con video</strong> y <strong>al menos igual de bueno que las cajas de práctica</strong> físicas.</p>
+      <p>Es el mismo principio que sigue nuestro proyecto, <strong>Consultorio Seguro</strong>: el usuario practica la clasificación de residuos peligrosos sin tocar materiales reales.</p>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">05 · Gobierno y defensa <span class="pg">pág. 11</span></span>
+      <h3>Enfoque de gobierno y defensa</h3>
+      <p>En <strong>gobierno y defensa</strong> la expectativa es dar al soldado información táctica en tiempo real mediante Realidad Mixta. El caso más conocido es <strong>IVAS</strong>, el programa del Ejército de Estados Unidos que usaba visores basados en HoloLens.</p>
+      <p>En abril de 2025 el contrato pasó de Microsoft a Anduril, y en septiembre se reorganizó como <strong>Soldier Borne Mission Command</strong>. Según un informe del Congressional Research Service de julio de 2026, <strong>ninguna de las unidades originales se va a desplegar</strong>, porque eran demasiado caras de producir a escala. La expectativa sigue en pie, pero el caso muestra que el costo del equipo puede detener un programa completo.</p>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">06 · Capacitación corporativa <span class="pg">pág. 12</span></span>
+      <h3>Enfoque de capacitación corporativa</h3>
+      <p>Por último, en la <strong>capacitación corporativa</strong> las empresas esperan una formación más rápida, medible y repetible. PwC estudió a nuevos gerentes y encontró que quienes se capacitaron con VR terminaron hasta <strong>cuatro veces más rápido</strong> que en el aula, y se sintieron hasta <strong>275 % más seguros</strong> de aplicar lo aprendido.</p>
+      <p>Crear el contenido cuesta más al principio, pero a partir de unos <strong>375 participantes</strong> el costo se iguala con el del aula.</p>
+      <p class="aviso"><b>Si preguntan:</b> PwC también ofrece servicios de capacitación con VR, por eso presentamos estas cifras como expectativa y no como un resultado garantizado.</p>
+      <p class="relay">Ya vimos qué espera cada enfoque. Mi compañero/a los compara y responde la pregunta guía.</p>
+    </article>
+  </section>
+
+  <!-- ============ PARTICIPANTE 3 ============ -->
+  <section class="part p3" id="p3">
+    <div class="part-head"><span class="tag">Participante 3</span><span class="ttl">Comparativa, retos y cierre</span></div>
+
+    <article class="slide">
+      <span class="slide-tag">Comparativa <span class="pg">pág. 13</span></span>
+      <h3>Comparativa de expectativas</h3>
+      <p>Gracias. Esta tabla resume lo que vimos; la última columna indica qué tan madura está cada expectativa.</p>
+      <ul>
+        <li><strong>Académico</strong>: sigue en fase experimental; hay muchas aplicaciones, pero poca evidencia de aprendizaje.</li>
+        <li><strong>Comercial</strong>: está en crecimiento, impulsado por los lentes inteligentes.</li>
+        <li><strong>Industrial</strong>: está en adopción temprana; casi todas las empresas experimentan y esperan resultados en uno a tres años.</li>
+        <li><strong>Salud y capacitación corporativa</strong>: son los enfoques con más evidencia de resultados.</li>
+        <li><strong>Defensa</strong>: se está reorganizando después de los problemas de costo de IVAS.</li>
+      </ul>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">Retos <span class="pg">pág. 14</span></span>
+      <h3>Retos que frenan la adopción</h3>
+      <p>¿Qué frena la adopción? Identificamos seis retos. El <strong>costo</strong> es el principal: el 51 % de los ejecutivos de manufactura lo señala como la mayor barrera, y fue lo que detuvo las unidades originales de IVAS. Después están el <strong>talento</strong>, porque faltan personas que sepan crear y mantener estas soluciones, y la <strong>integración</strong> con los sistemas que las empresas ya tienen.</p>
+      <p>La <strong>ciberseguridad</strong> y la privacidad preocupan a más del 70 % de los ejecutivos, porque estos dispositivos capturan video, voz y datos del entorno. En educación falta <strong>evidencia</strong> de resultados, ya que se mide más la usabilidad que el aprendizaje. Y en <strong>rentabilidad</strong>, las pérdidas de Reality Labs muestran que el mercado de consumo todavía no paga la inversión.</p>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">Respuesta <span class="pg">pág. 15</span></span>
+      <h3>¿Es la XR una tecnología core?</h3>
+      <p>Entonces, regresando a la pregunta guía: ¿es la XR una tecnología core? Nuestra respuesta es que <strong>en algunas tareas, sí</strong>. Ya es core en <strong>capacitación y simulación</strong>, en <strong>diseño de productos con gemelos digitales</strong> y en <strong>soporte en campo y mantenimiento</strong>. En esas tareas hay beneficios medibles, y el costo se justifica cuando se capacita a muchas personas o cuando equivocarse en la vida real es caro o peligroso.</p>
+      <p>Pero <strong>todavía no</strong> es core para el consumidor general ni para la mayoría de las empresas, y el visor de VR como dispositivo de uso diario no despegó como se esperaba. Por eso la industria está cambiando su apuesta hacia lentes ligeros con inteligencia artificial.</p>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">Conclusión <span class="pg">pág. 16</span></span>
+      <h3>Conclusión</h3>
+      <p>Para concluir: la expectativa general es que la XR se vuelva <strong>una capa más de la operación</strong>, como en su momento lo fueron el celular o la nube, pero cada enfoque la adopta a su propio ritmo. La <strong>academia</strong> busca evidencia de aprendizaje, el <strong>comercio</strong> busca dispositivos cómodos y baratos, la <strong>industria</strong> busca productividad, y la <strong>salud y la defensa</strong> buscan reducir riesgos.</p>
+      <p>Las expectativas más realistas son las que unen la XR con <strong>un problema concreto</strong>, como lo hace nuestro simulador de manejo de residuos, donde practicar en un entorno virtual evita riesgos reales.</p>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag">Referencias <span class="pg">pág. 17</span></span>
+      <h3>Referencias</h3>
+      <p>Estas son las referencias que usamos, en formato APA. Combinamos artículos académicos revisados por pares con reportes de consultoras, de gobierno y de medios especializados. <strong>Muchas gracias por su atención</strong>; quedamos atentos a sus preguntas.</p>
+    </article>
+  </section>
+
+  <section class="closing-notes">
+    <h2>Notas para el ensayo</h2>
+    <ul>
+      <li>Practiquen las dos transiciones de relevo (↪) para que el cambio de presentador sea fluido.</li>
+      <li>Lean las cifras en voz alta como en el guion: «casi 300 mil millones» suena mejor que «doscientos noventa y nueve punto tres».</li>
+      <li>Si el tiempo es corto, <b>pág. 06</b> (enfoques) y <b>pág. 13</b> (comparativa) se pueden resumir en una frase, porque repiten lo que se dice en otras diapositivas.</li>
+      <li>Presenten el PDF en pantalla completa y avancen con las flechas o la barra espaciadora.</li>
+    </ul>
+  </section>
+
+  <section class="closing-notes">
+    <h2>Preguntas probables</h2>
+    <dl>
+      <dt>¿Por qué las cifras de mercado son tan distintas?</dt>
+      <dd>Porque miden cosas diferentes: ABI mide ventas de software y servicios, PwC mide el impacto en el PIB e IDC mide unidades de lentes vendidas.</dd>
+      <dt>¿En qué se diferencian la AR y la MR?</dt>
+      <dd>En la AR lo virtual solo se sobrepone a lo real; en la MR los objetos virtuales se anclan al espacio físico y el usuario interactúa con ambos al mismo tiempo.</dd>
+      <dt>Si Meta pierde tanto dinero, ¿por qué sigue invirtiendo?</dt>
+      <dd>Es una apuesta a largo plazo: Meta indicó que las pérdidas no van a bajar pronto, y las ventas de lentes inteligentes se triplicaron en 2025.</dd>
+      <dt>¿Qué es un billón en estas cifras?</dt>
+      <dd>En español, un billón es un millón de millones; los 1.5 billones de PwC equivalen a 1.5 <i>trillion</i> en inglés.</dd>
+      <dt>¿Qué tiene que ver esto con su proyecto?</dt>
+      <dd>Consultorio Seguro cae en los enfoques de salud y capacitación, que son justo los que tienen más evidencia de que la XR ya funciona como core.</dd>
+    </dl>
+  </section>
+
+  <footer>Equipo 7 · Expectativas de la Realidad Extendida · 2027-1</footer>
+</main>
+
+<a href="#" id="top" aria-label="Volver arriba">↑</a>
+
+<script>
+  const top=document.getElementById('top');
+  addEventListener('scroll',()=>{top.classList.toggle('show',scrollY>500);},{passive:true});
+</script>
+</body>
+</html>
