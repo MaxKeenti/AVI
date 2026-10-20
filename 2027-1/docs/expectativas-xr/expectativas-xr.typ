@@ -78,6 +78,11 @@ El término `XR` agrupa a las tecnologías que mezclan lo real con lo virtual, s
 
 - *Realidad Mixta (`MR`):* los objetos virtuales se anclan al espacio físico y el usuario interactúa con ambos al mismo tiempo.
 
+#figure(
+  image("media/img/XR.png", width: 70%),
+  caption: [Imagen denotando las diferencias entre AR, VR y MR.],
+)
+
 = Panorama general del mercado
 
 Las cifras del mercado varían mucho porque cada consultora mide cosas diferentes, aun así, todas coinciden en un crecimiento fuerte hacia 2030.
@@ -106,11 +111,21 @@ Para explicar cuándo la inmersión sí mejora el aprendizaje, el modelo `CAMIL`
 
 La expectativa académica, entonces, es que la `XR` sea core en el aprendizaje basado en competencias y en la investigación, pero con evidencia más rigurosa sobre resultados.
 
+#figure(
+  image("media/img/EscuelaXR.jpg", width: 50%),
+  caption: [Realidad extendida siendo usada en una escuela.],
+)
+
 == Enfoque comercial
 
 En el comercio y el consumo se espera que la `XR` cambie la forma de comprar y de entretenerse. En un estudio de Publicis y Snap, cerca de *tres de cada cuatro* encuestados dijeron que la `AR` tendrá un papel mayor en sus compras durante los siguientes cinco años, sobre todo para probar productos de forma virtual o ver muebles en casa antes de comprarlos @marketingdive2021shopping.
 
 La apuesta de las grandes empresas se mueve hacia los lentes inteligentes: EssilorLuxottica vendió *7 millones* de lentes Ray-Ban y Oakley con Meta en 2025, el triple que el año anterior @roadtovr2026glasses. ABI Research estima que el software y los servicios `XR` de consumo llegarán a *169.4 mil millones de USD* en 2030 @abi2024xr.
+
+#figure(
+  image("media/img/ProbarXR.jpg", width: 50%),
+  caption: [Realidad extendida siendo usada para probar como se verian los productos.],
+)
 
 == Enfoque industrial y de manufactura
 
@@ -118,17 +133,37 @@ En la industria la expectativa es más concreta: usar `XR` junto con gemelos dig
 
 Esto coincide con PwC, que atribuye la mayor parte del impacto económico esperado a la `AR`, por su uso en desarrollo de productos, mantenimiento y procesos @pwc2019seeing.
 
+#figure(
+  image("media/img/EmpresasXR.jpg", width: 50%),
+  caption: [Realidad extendida siendo usada para dar mantenimiento a maquinaria.],
+)
+
 == Enfoque de salud
 
 En salud se espera que la `XR` reduzca riesgos al permitir que el personal practique sin pacientes reales. Un metaanálisis de *31 ensayos* en cirugía laparoscópica encontró que el entrenamiento con `VR` es más efectivo que el entrenamiento con video y al menos tan bueno como el entrenamiento con cajas de práctica @alaker2016laparoscopic. Este enfoque es el mismo que sigue nuestro proyecto *Consultorio Seguro*, donde el usuario practica la clasificación de residuos sin tocar materiales peligrosos.
+
+#figure(
+  image("media/img/SaludXR.jpg", width: 50%),
+  caption: [Realidad extendida siendo usada para simular un quirofano.],
+)
 
 == Enfoque de gobierno y defensa
 
 En defensa se espera que la `MR` dé al soldado información táctica en tiempo real. El programa `IVAS` del Ejército de Estados Unidos, que usaba visores basados en HoloLens, pasó a Anduril y se reorganizó como *Soldier Borne Mission Command*; según el Congressional Research Service, ninguna de las unidades desarrolladas originalmente se va a desplegar porque eran demasiado caras para producir a escala @crs2026ivas. El caso muestra que la expectativa sigue en pie, pero que el costo del equipo puede detener un programa completo.
 
+#figure(
+  image("media/img/MiliciaXR.jpg", width: 60%),
+  caption: [Realidad extendida siendo usada para estrategizar en el campo de batalla.],
+)
+
 == Enfoque de capacitación corporativa
 
 Las empresas esperan que la `XR` haga la capacitación más rápida y medible. En un estudio de PwC con nuevos gerentes, quienes se capacitaron con `VR` terminaron hasta *4 veces más rápido* que en el aula y se sintieron hasta *275 % más seguros* de aplicar lo aprendido; el costo de crear el contenido es mayor al principio, pero se iguala con el del aula a partir de unos *375 participantes* @pwc2020vlearning.
+
+#figure(
+  image("media/img/CapacitacionXR.jpg", width: 60%),
+  caption: [Realidad extendida siendo usada para capacitación corporativa.],
+)
 
 #pagebreak()
 
@@ -163,15 +198,27 @@ Las empresas esperan que la `XR` haga la capacitación más rápida y medible. E
 
 - *Rentabilidad:* las pérdidas de Reality Labs muestran que el mercado de consumo aún no paga la inversión @auganix2026reality.
 
+#pagebreak()
+
 = ¿Es la Realidad Extendida una tecnología core?
 
 Con base en lo revisado, la `XR` ya es core en algunas tareas concretas: capacitación y simulación, diseño de productos y soporte en campo, en estas tareas la evidencia muestra beneficios medibles y el costo se justifica cuando se capacita a muchas personas o cuando equivocarse en la vida real es caro o peligroso.
 
 En cambio, todavía no es core para el consumidor general ni para la mayoría de las empresas, el visor de `VR` como dispositivo de uso diario no despegó como se esperaba y la industria está cambiando su apuesta hacia lentes ligeros con inteligencia artificial @ubrani2026smartglasses.
 
+#figure(
+  image("media/img/FuturoXR.jpg", width: 50%),
+  caption: [La realidad aumentada se puede usar para la separación de basura en base a su tipo.],
+)
+
 == Conclusión:
 
 La expectativa general es que la `XR` se vuelva una capa más de la operación, igual que en su momento lo fueron el celular o la nube, pero cada enfoque la adopta a un ritmo diferente. La academia busca evidencia de aprendizaje, el comercio busca dispositivos cómodos y baratos, la industria busca productividad y la salud y la defensa buscan reducir riesgos. Las expectativas más realistas son las que unen a la `XR` con un problema concreto, como lo hace nuestro simulador de manejo de residuos, donde practicar en un entorno virtual evita riesgos reales.
+
+#figure(
+  image("media/img/BasuraXR.jpg", width: 50%),
+  caption: [En el futuro, la realidad extendida se integrará en la operación cotidiana.],
+)
 
 #pagebreak()
 
