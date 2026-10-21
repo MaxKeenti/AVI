@@ -1,0 +1,6 @@
+# Git LFS for heavy binaries in the Unity AR project
+2027-1/realidad-aumentada/**/*.[fF][bB][xX] filter=lfs diff=lfs merge=lfs -text
+2027-1/realidad-aumentada/**/*.[oO][bB][jJ] filter=lfs diff=lfs merge=lfs -text
+2027-1/realidad-aumentada/**/*.[tT][gG][aA] filter=lfs diff=lfs merge=lfs -text
+2027-1/realidad-aumentada/**/*.png filter=lfs diff=lfs merge=lfs -text
+2027-1/realidad-aumentada/**/*.tgz filter=lfs diff=lfs merge=lfs -text
