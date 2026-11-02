@@ -85,7 +85,7 @@
     opacity:0;pointer-events:none;transition:opacity .25s;
   }
   #top.show{opacity:1;pointer-events:auto;}
-  .p1{--pcol:var(--salvia);} .p2{--pcol:#4d7a80;} .p3{--pcol:var(--dorado);}
+  .p1{--pcol:var(--salvia);} .p2{--pcol:#4d7a80;} .p3{--pcol:#525c5c;} .p4{--pcol:#9e1f1a;} .p5{--pcol:var(--dorado);}
 </style>
 </head>
 <body>
@@ -101,131 +101,157 @@
   <section class="overview">
     <h2>División por participantes</h2>
     <div class="split">
-      <a href="#p1" class="p1"><span class="pn">1</span><span><span class="pt">Portada, público y alcances</span><br><span class="pr"></span></span></a>
-      <a href="#p2" class="p2"><span class="pn">2</span><span><span class="pt">Funciones y arquitectura</span><br><span class="pr"></span></span></a>
-      <a href="#p3" class="p3"><span class="pn">3</span><span><span class="pt">ODS y cierre</span><br><span class="pr"></span></span></a>
+      <a href="#p1" class="p1"><span class="pn">1</span><span><span class="pt">Presentación, problema y público</span><br><span class="pr"></span></span></a>
+      <a href="#p2" class="p2"><span class="pn">2</span><span><span class="pt">Tecnología, funciones y prácticas</span><br><span class="pr"></span></span></a>
+      <a href="#p3" class="p3"><span class="pn">3</span><span><span class="pt">Arquitectura</span><br><span class="pr"></span></span></a>
+      <a href="#p4" class="p4"><span class="pn">4</span><span><span class="pt">ODS: salud y educación</span><br><span class="pr"></span></span></a>
+      <a href="#p5" class="p5"><span class="pn">5</span><span><span class="pt">ODS: trabajo y residuos; cierre</span><br><span class="pr"></span></span></a>
     </div>
-    <p class="note">Asignen los nombres del equipo a cada participante. <b>Integrantes:</b> Alatorre Fuentes Eduardo · Cruz Cruz Guillermo · Flores Roa Jorge Alejandro · González Calzada Maximiliano · Neri Mondragón Mónica · Soto Soto Héctor. &nbsp; <b>Duración estimada:</b> ~9–10 min (≈40 s por diapositiva).</p>
+    <p class="note">Asignen un integrante a cada participante. <b>Integrantes:</b> Alatorre Fuentes Eduardo · Cruz Cruz Guillermo · Flores Roa Jorge Alejandro · González Calzada Maximiliano · Neri Mondragón Mónica · Soto Soto Héctor. Son seis integrantes y cinco turnos: quien no tenga turno puede controlar el deck y moderar las preguntas al final. &nbsp; <b>Duración estimada:</b> ~11 min (unos 2 min por participante).</p>
   </section>
 
   <!-- ============ PARTICIPANTE 1 ============ -->
   <section class="part p1" id="p1">
-    <div class="part-head"><span class="tag">Participante 1</span><span class="ttl">Portada, público y alcances</span></div>
+    <div class="part-head"><span class="tag">Participante 1</span><span class="ttl">Presentación, problema y público</span></div>
 
     <article class="slide">
       <span class="slide-tag" data-slide="portada.html">Portada <span class="pg"></span></span>
       <h3>Portada</h3>
-      <p>Buenas tardes. Somos el Equipo 7 y les presentamos <strong>Consultorio Seguro: Simulador de Manejo de RPBI en el Consultorio Dental</strong>, nuestro proyecto para Ambientes Virtuales Inmersivos. Es una clínica dental en 3D, hecha en Unity, donde se practica cómo separar los Residuos Peligrosos Biológico-Infecciosos sin tocar material real. El estilo de esta presentación es el mismo del menú del simulador.</p>
+      <p>Buenas tardes. Somos el Equipo 7 y les presentamos <strong>Consultorio Seguro: Simulador de Manejo de RPBI en el Consultorio Dental</strong>, nuestro proyecto para Ambientes Virtuales Inmersivos. Es una clínica dental en 3D, hecha en Unity, donde se practica cómo separar los Residuos Peligrosos Biológico-Infecciosos sin tocar material real.</p>
+      <p>¿Por qué lo hicimos? En México la <strong>NOM-087</strong> establece cómo clasificar y manejar estos residuos, pero conocer la norma en teoría no garantiza aplicarla en el consultorio. Casi siempre se aprende con textos e imágenes, y practicar con residuos reales implica riesgos y materiales que no siempre hay. Nuestro objetivo es que estudiantes y profesionales puedan <strong>identificar, clasificar y manejar</strong> los residuos dentro de un consultorio virtual.</p>
     </article>
 
     <article class="slide">
       <span class="slide-tag" data-slide="publico-objetivo.html">Público objetivo <span class="pg"></span></span>
       <h3>Público objetivo</h3>
-      <p>Está pensado para tres grupos: <strong>estudiantes de odontología</strong>, que necesitan practicar antes de atender pacientes; el <strong>personal de consultorios y clínicas</strong>, que requiere repasar la NOM-087 sin detener la operación; y las <strong>escuelas y docentes del área de la salud</strong>, que buscan material de apoyo para sus clases de bioseguridad. Solo se necesita manejo básico de computadora: el manual de controles está siempre disponible.</p>
+      <p>Está pensado para tres grupos: <strong>estudiantes de odontología</strong>, que necesitan practicar antes de atender pacientes; el <strong>personal de consultorios y clínicas</strong>, que requiere repasar la NOM-087 sin detener la operación; y las <strong>escuelas y docentes del área de la salud</strong>, que buscan material de apoyo para sus clases de bioseguridad.</p>
+      <p>Solo se necesita manejo básico de computadora: el manual de controles está siempre disponible, desde el inicio, la pausa y cada sala.</p>
     </article>
 
     <article class="slide">
       <span class="slide-tag" data-slide="alcance-publico.html">Alcance público <span class="pg"></span></span>
       <h3>Alcance 1: público</h3>
-      <p>El primer alcance es el <strong>público</strong>. Llega a usuarios de habla hispana en México, con casos basados en la <strong>NOM-087</strong> para RPBI y la <strong>NOM-013</strong> para el instrumental reutilizable. Se usa de forma individual o en clase y se repite sin gastar insumos.</p>
-      <p>También marcamos sus límites: es apoyo educativo, no certifica competencias clínicas, no está dirigido a pacientes y no cubre el transporte ni la disposición final fuera del consultorio.</p>
-    </article>
-
-    <article class="slide">
-      <span class="slide-tag" data-slide="alcance-tecnologico.html">Alcance tecnológico <span class="pg"></span></span>
-      <h3>Alcance 2: tecnológico</h3>
-      <p>En lo <strong>tecnológico</strong>, el simulador está hecho en <strong>Unity 6</strong> con C#, el <strong>Universal Render Pipeline</strong> para la iluminación, el <strong>Input System</strong> para teclado y ratón, y uGUI con TextMesh Pro para menús y rótulos. Tiene <strong>7 pruebas automáticas aprobadas</strong> y 51 recursos 3D con su licencia documentada.</p>
-      <p>Esta entrega es para escritorio. La realidad aumentada en Android queda como ampliación futura.</p>
-      <p class="relay">Mi compañero/a continúa con lo que el usuario puede hacer dentro del simulador.</p>
+      <p>El primer alcance es el <strong>público</strong>. Llega a usuarios de habla hispana en México, con casos basados en la <strong>NOM-087</strong> para RPBI y la <strong>NOM-013</strong> para el instrumental reutilizable. Se usa de forma individual o en clase y se repite sin gastar insumos ni generar basura.</p>
+      <p>También marcamos sus límites: es apoyo educativo y no certifica competencias clínicas. Los procedimientos se representan solo lo necesario para generar los residuos; no se reproduce una extracción, una esterilización validada ni un estudio radiográfico real, y no cubre el transporte ni la disposición final. Antes de usarse como capacitación clínica formal, el contenido debe revisarlo un <strong>especialista en bioseguridad</strong>.</p>
+      <p class="relay">Mi compañero/a continúa con la tecnología del simulador y lo que el usuario puede hacer en él.</p>
     </article>
   </section>
 
   <!-- ============ PARTICIPANTE 2 ============ -->
   <section class="part p2" id="p2">
-    <div class="part-head"><span class="tag">Participante 2</span><span class="ttl">Funciones y arquitectura</span></div>
+    <div class="part-head"><span class="tag">Participante 2</span><span class="ttl">Tecnología, funciones y prácticas</span></div>
+
+    <article class="slide">
+      <span class="slide-tag" data-slide="alcance-tecnologico.html">Alcance tecnológico <span class="pg"></span></span>
+      <h3>Alcance 2: tecnológico</h3>
+      <p>En lo <strong>tecnológico</strong>, el simulador está hecho en <strong>Unity 6</strong> con C#, el <strong>Universal Render Pipeline</strong> para la iluminación, el <strong>Input System</strong> para teclado y ratón, y uGUI con TextMesh Pro para menús y rótulos. Los paquetes se usan sin modificar.</p>
+      <p>Tiene <strong>7 pruebas automáticas aprobadas</strong> y <strong>51 recursos externos</strong> documentados, cada uno con su fuente, autor y licencia; los créditos de la aplicación reproducen esas atribuciones.</p>
+      <p>Esta entrega es para escritorio. La versión del simulador para Android con realidad aumentada queda como ampliación futura; por separado, desarrollamos una aplicación de RA con Vuforia, cuya arquitectura veremos más adelante.</p>
+    </article>
 
     <article class="slide">
       <span class="slide-tag" data-slide="alcance-funcional.html">Alcance funcional <span class="pg"></span></span>
       <h3>Alcance 3: funcional</h3>
-      <p>El tercer alcance es el <strong>funcional</strong>. El usuario <strong>recorre</strong> la clínica con WASD y el ratón; <strong>interactúa</strong> con la tecla E a menos de 2,6 metros; <strong>devuelve</strong> objetos con R; recibe <strong>puntuación</strong>, +10 por acierto y −5 por error; y una <strong>explicación</strong> después de cada decisión. Con Esc y M abre la pausa y el manual.</p>
-      <p>La silueta blanca señala los objetos cercanos y la dorada el que se apunta; el color nunca revela la respuesta.</p>
+      <p>El tercer alcance es el <strong>funcional</strong>. El usuario <strong>recorre</strong> la clínica en primera persona con WASD o las flechas, mira con el ratón y corre con Mayús; <strong>interactúa</strong> con la tecla E a menos de 2,6 metros; <strong>devuelve</strong> objetos con R; recibe <strong>puntuación</strong>, +10 por acierto y −5 por error, sin bajar de cero; y una <strong>explicación</strong> después de cada decisión. Con Esc y M abre la pausa y el manual.</p>
+      <p>La silueta blanca señala los objetos cercanos y la dorada el que se apunta; el contorno nunca revela el recipiente correcto.</p>
     </article>
 
     <article class="slide">
       <span class="slide-tag" data-slide="alcance-funcional-practicas.html">Las cinco prácticas <span class="pg"></span></span>
       <h3>Las cinco prácticas</h3>
-      <p>Las funciones se aplican en <strong>cinco salas</strong>: Clasificación, Esterilización, Materiales, Procedimientos y Radiografía. En total hay <strong>10 pasos previos y 13 objetos</strong> por clasificar entre cinco destinos: residuos comunes, bolsa roja, recipiente rígido para punzocortantes, bolsa amarilla para patológicos y el área de reprocesamiento. Las salas se visitan en cualquier orden.</p>
+      <p>Las funciones se aplican en <strong>cinco salas</strong>. En <strong>Clasificación</strong> se separan residuos directamente; en <strong>Esterilización</strong> se sigue la ruta del instrumental sucio; en <strong>Materiales</strong> se reconocen los consumibles antes de usarlos; en <strong>Procedimientos</strong> una curación breve genera gasas con sangre y una pieza extraída; y en <strong>Radiografía</strong> se preparan el sensor y la barrera, sin generar radiación.</p>
+      <p>En total hay <strong>10 pasos previos y 13 objetos</strong> por clasificar entre cinco destinos: residuos comunes, bolsa roja, recipiente rígido para punzocortantes, bolsa amarilla para patológicos y reprocesamiento. Cada sala es un escenario independiente: se visita en cualquier orden y registra sus aciertos y errores por separado.</p>
+      <p class="relay">Le paso la palabra a mi compañero/a, que nos muestra cómo está construido por dentro.</p>
     </article>
+  </section>
+
+  <!-- ============ PARTICIPANTE 3 ============ -->
+  <section class="part p3" id="p3">
+    <div class="part-head"><span class="tag">Participante 3</span><span class="ttl">Arquitectura</span></div>
 
     <article class="slide">
       <span class="slide-tag" data-slide="arquitectura.html">Arquitectura <span class="pg"></span></span>
       <h3>Arquitectura</h3>
       <p>Así está construido. El <strong>frontend</strong> es la capa de presentación: <strong>ClinicUI</strong> dibuja los menús y el HUD, <strong>ClinicPlayer</strong> maneja la cámara y la entrada, <strong>ClinicOutline</strong> dibuja las siluetas y la escena URP contiene la clínica.</p>
       <p>El <strong>backend</strong> es la lógica: <strong>ClinicGame</strong> controla los estados del juego, <strong>PracticeRoom</strong> lleva los pasos y la puntuación de cada sala, los interactuables representan materiales y recipientes, y <strong>WasteInformation</strong> guarda las reglas de la norma. Todo corre en un solo ejecutable local; no hay servidor ni base de datos.</p>
+      <p>En el editor, <strong>ClinicBuilder</strong> arma y guarda la escena y ofrece vistas de cada área; de ellas salen las capturas que ven de fondo en esta presentación.</p>
     </article>
 
     <article class="slide">
       <span class="slide-tag" data-slide="arquitectura-flujo.html">Flujo de una clasificación <span class="pg"></span></span>
       <h3>Flujo de una clasificación</h3>
       <p>Veamos cómo colaboran las dos capas. <strong>1</strong>: el usuario apunta y pulsa E. <strong>2</strong>: el backend lanza un rayo y encuentra el material. <strong>3</strong>: lo toma. <strong>4</strong>: el frontend muestra el caso. <strong>5</strong>: al depositarlo, el backend compara con el destino correcto y suma o resta puntos. <strong>6</strong>: el frontend explica la regla y actualiza el HUD. Si hubo error, el material vuelve a su lugar para intentarlo otra vez.</p>
+      <p>Este flujo lo comprueban las pruebas automáticas: una prueba de integración mueve al jugador desde la banqueta por la recepción, el pasillo y las cinco salas, y verifica la recogida, el depósito y la puntuación.</p>
     </article>
 
     <article class="slide">
       <span class="slide-tag" data-slide="arquitectura-ra.html">Arquitectura de la RA <span class="pg"></span></span>
       <h3>Arquitectura de la RA</h3>
-      <p>Esta es la arquitectura de la aplicación de <strong>realidad aumentada</strong>, hecha en Unity con <strong>Vuforia</strong>. Tiene tres partes. La primera es la <strong>navegación</strong>: la escena MainMenu contiene el Canvas, y <strong>MainMenu.cs</strong> abre los paneles del menú principal, de créditos y del menú secundario, desde donde se elige modelos 3D, textos, sonido o video.</p>
+      <p>Además del simulador, desarrollamos una aplicación de <strong>realidad aumentada</strong> en Unity con <strong>Vuforia</strong>. Tiene tres partes. La primera es la <strong>navegación</strong>: la escena MainMenu contiene el Canvas, y <strong>MainMenu.cs</strong> abre los paneles del menú principal, de créditos y del menú secundario, desde donde se elige modelos 3D, textos, sonido o video.</p>
       <p>La segunda son las <strong>experiencias RA</strong>: Vuforia detecta un <strong>Image Target</strong> y dispara <strong>Target Found</strong> o <strong>Target Lost</strong>. Cada una de las cuatro escenas responde a su marcador con un modelo 3D, un texto flotante, un audio o un video. La tercera es la <strong>lógica y los recursos</strong>: <strong>Audio.cs</strong> ordena los sonidos para que el aviso de detección, el audio principal y el aviso de pérdida no se encimen, como muestra el ciclo de abajo, y los recursos se organizan por tipo de archivo.</p>
-      <p class="relay">Le paso la palabra para hablar de los Objetivos de Desarrollo Sostenible.</p>
+      <p class="relay">Le paso la palabra a mi compañero/a para hablar de los Objetivos de Desarrollo Sostenible.</p>
     </article>
   </section>
 
-  <!-- ============ PARTICIPANTE 3 ============ -->
-  <section class="part p3" id="p3">
-    <div class="part-head"><span class="tag">Participante 3</span><span class="ttl">ODS y cierre</span></div>
+  <!-- ============ PARTICIPANTE 4 ============ -->
+  <section class="part p4" id="p4">
+    <div class="part-head"><span class="tag">Participante 4</span><span class="ttl">ODS: salud y educación</span></div>
 
     <article class="slide">
       <span class="slide-tag" data-slide="ods.html">ODS aplicados <span class="pg"></span></span>
       <h3>Objetivos de Desarrollo Sostenible</h3>
-      <p>De los 17 ODS de la Agenda 2030, el proyecto contribuye a cuatro: el <strong>3, Salud y bienestar</strong>; el <strong>4, Educación de calidad</strong>; el <strong>8, Trabajo decente</strong>; y el <strong>12, Producción y consumo responsables</strong>. El eje que los une es la correcta disposición de los residuos biológico-infecciosos.</p>
+      <p>De los 17 ODS de la Agenda 2030, el proyecto contribuye a cuatro: el <strong>3, Salud y bienestar</strong>; el <strong>4, Educación de calidad</strong>; el <strong>8, Trabajo decente</strong>; y el <strong>12, Producción y consumo responsables</strong>. El eje que los une es la correcta disposición de los residuos biológico-infecciosos: si no se separan bien, aumentan los riesgos para el personal, los pacientes y el medio ambiente.</p>
     </article>
 
     <article class="slide">
       <span class="slide-tag" data-slide="ods-03.html">ODS 3 <span class="pg"></span></span>
       <h3>ODS 3: Salud y bienestar</h3>
-      <p>Aplica por las metas <strong>3.3</strong>, combatir la hepatitis y otras enfermedades transmisibles, y <strong>3.9</strong>, reducir enfermedades por contaminación. Una aguja o una gasa saturada en la basura común puede contagiar hepatitis o VIH a quien la toque después. En el simulador, los punzocortantes van directo al recipiente rígido, las gasas saturadas a la bolsa roja y el instrumental reutilizable a reprocesamiento.</p>
+      <p>Aplica por las metas <strong>3.3</strong>, combatir la hepatitis y otras enfermedades transmisibles, y <strong>3.9</strong>, reducir enfermedades por contaminación. Una aguja o una gasa saturada en la basura común puede contagiar hepatitis o VIH a quien la toque después.</p>
+      <p>En el simulador, los punzocortantes van directo al recipiente rígido, las gasas saturadas a la bolsa roja y el instrumental reutilizable a reprocesamiento.</p>
     </article>
 
     <article class="slide">
       <span class="slide-tag" data-slide="ods-04.html">ODS 4 <span class="pg"></span></span>
       <h3>ODS 4: Educación de calidad</h3>
       <p>Aplica por la meta <strong>4.4</strong>: más personas con competencias técnicas y profesionales. Manejar RPBI es una competencia obligatoria, pero practicarla con material real es riesgoso y costoso. Aquí se aprende haciendo: cinco prácticas repetibles, explicación inmediata, puntuación formativa y todo en español.</p>
+      <p>Nuestra hipótesis es que practicar en un entorno seguro, viendo cada residuo en el lugar donde normalmente se trabajaría, ayuda a entender y acostumbrarse mejor a su manejo correcto que solo memorizar la norma. Así el simulador complementa las clases teóricas y prepara antes de entrar a un consultorio real.</p>
+      <p class="relay">Mi compañero/a continúa con los dos ODS restantes y el cierre.</p>
     </article>
+  </section>
+
+  <!-- ============ PARTICIPANTE 5 ============ -->
+  <section class="part p5" id="p5">
+    <div class="part-head"><span class="tag">Participante 5</span><span class="ttl">ODS: trabajo y residuos; cierre</span></div>
 
     <article class="slide">
       <span class="slide-tag" data-slide="ods-08.html">ODS 8 <span class="pg"></span></span>
       <h3>ODS 8: Trabajo decente</h3>
-      <p>Aplica por la meta <strong>8.8</strong>: entornos de trabajo seguros. Las lesiones con punzocortantes son de los principales riesgos del personal de salud, y también del de limpieza y recolección. El simulador insiste en no reencapuchar agujas, trasladar el instrumental sucio en recipiente cerrado y retirar barreras sin contaminar el equipo.</p>
+      <p>Aplica por la meta <strong>8.8</strong>: entornos de trabajo seguros. Las lesiones con punzocortantes son de los principales riesgos del personal de salud, y también del de limpieza y recolección que manipula las bolsas después.</p>
+      <p>El simulador insiste en no reencapuchar agujas, trasladar el instrumental sucio en recipiente cerrado y retirar barreras sin contaminar el equipo.</p>
     </article>
 
     <article class="slide">
       <span class="slide-tag" data-slide="ods-12.html">ODS 12 <span class="pg"></span></span>
       <h3>ODS 12: Producción y consumo responsables</h3>
-      <p>Este es el centro del proyecto. Las metas <strong>12.4</strong> y <strong>12.5</strong> piden gestionar bien los desechos peligrosos y generar menos residuos. Separar mal tiene dos costos: un RPBI en la basura común contamina, y un residuo común en la bolsa roja se trata como peligroso sin necesidad. Por eso el simulador también enseña a <strong>no sobreclasificar</strong>: vasos, guantes y barreras sin sangre visible van a residuos comunes. Además, entrenar aquí no genera residuos reales.</p>
+      <p>Este es el centro del proyecto. Las metas <strong>12.4</strong> y <strong>12.5</strong> piden gestionar bien los desechos peligrosos y generar menos residuos. Separar mal tiene dos costos: un RPBI en la basura común contamina, y un residuo común en la bolsa roja se trata como peligroso sin necesidad.</p>
+      <p>Por eso los casos siguen la norma con precisión: gasas saturadas de sangre a la bolsa roja, agujas y hojas de bisturí al recipiente rígido, la pieza extraída a la bolsa amarilla, y vasos, guantes y barreras sin sangre visible a residuos comunes. Así se enseña también a <strong>no sobreclasificar</strong>. Además, entrenar aquí no genera residuos reales.</p>
     </article>
 
     <article class="slide">
       <span class="slide-tag" data-slide="cierre.html">Cierre <span class="pg"></span></span>
       <h3>Cierre</h3>
-      <p>Con esto cerramos. <strong>Consultorio Seguro</strong> muestra cómo un ambiente virtual puede enseñar el manejo de RPBI de forma segura, repetible y alineada con la Agenda 2030. <strong>Gracias por su atención</strong>; quedamos atentos a sus preguntas y comentarios.</p>
+      <p>Con esto cerramos. <strong>Consultorio Seguro</strong> muestra que los entornos 3D y la realidad aumentada pueden servir más allá del entretenimiento: aquí enseñan el manejo de RPBI de forma segura, repetible y alineada con la Agenda 2030, en un lugar donde equivocarse no pone en riesgo la salud de nadie.</p>
+      <p><strong>Gracias por su atención</strong>; quedamos atentos a sus preguntas y comentarios.</p>
     </article>
   </section>
 
   <section class="closing-notes">
     <h2>Notas para el ensayo</h2>
     <ul>
-      <li>Practiquen las dos transiciones de relevo (↪) para que el cambio de presentador sea fluido.</li>
-      <li>En las diapositivas de arquitectura, señalen el diagrama mientras narran: frontend a la izquierda, backend a la derecha.</li>
+      <li>Practiquen las cuatro transiciones de relevo (↪) y cambien «mi compañero/a» por el nombre de quien sigue.</li>
+      <li>En la arquitectura del simulador, señalen el diagrama mientras narran: frontend a la izquierda, backend a la derecha. En la de RA, recorran las tres columnas de izquierda a derecha y terminen en el ciclo de audio.</li>
       <li>Si el tiempo es corto, las más resumibles son <b>ODS 4</b> y <b>ODS 8</b>; no omitan <b>ODS 12</b>, que es el eje del proyecto.</li>
+      <li>Si preguntan por la RA: la aplicación con Vuforia es un desarrollo aparte; llevar el simulador a Android con RA queda como ampliación futura.</li>
       <li>Control del deck: abran <b>presenter.html</b>; flechas o barra espaciadora para avanzar y <b>F</b> para pantalla completa.</li>
     </ul>
   </section>
