@@ -17,7 +17,7 @@
   encabezado: (),
   proyecto: none,
 ) = [
-  #set text(font: "ITC Avant Garde Gothic", size: 12pt)
+  #set text(font: "Arial", size: 12pt)
 
   #set page(
     paper: "us-letter",

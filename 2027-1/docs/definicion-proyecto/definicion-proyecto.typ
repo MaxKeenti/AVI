@@ -1,13 +1,13 @@
 #import "portada-template.typ": portada
 
 #show raw: set text(
-  font: "JetBrainsMono NFM",
+  font: "Arial",
   weight: "medium",
   size: 1em,
 )
 
 #set text(
-  font: "ITC Avant Garde Gothic",
+  font: "Arial",
   lang: "es",
   weight: "semibold",
 )
@@ -35,7 +35,7 @@
   "Integrantes", // titulo_alumno
   "Secuencia", // titulo_profesorx
   "Profesora", // titulo_fecha
-  "Ambientes Virtuales Inmersivos", // carrera
+  "Simuladores Virtuales", // carrera
   "Simulación de Ambientes Virtuales", // materia
   "Equipo 7", // practica
   "2027 - 1", // secuencia
@@ -55,7 +55,7 @@
 
 #show link: set text(fill: rgb("#336B75"))
 #show link: it => underline(text(fill: rgb("#336B75"), it))
-Carpeta del equipo: #link("https://drive.google.com/drive/folders/1Xc2jnpCpinsPkV-dof3KsvBKfH1W1DBe")[*drive.google.com/drive/folders...*]
+
 
 #block[
   #set text(size: 9pt)

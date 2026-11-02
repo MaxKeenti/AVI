@@ -35,7 +35,7 @@
   "Integrantes", // titulo_alumno
   "Secuencia", // titulo_profesorx
   "Profesora", // titulo_fecha
-  "Ambientes Virtuales Inmersivos", // carrera
+  "Simuladores Virtuales", // carrera
   "Simulación de Ambientes Virtuales", // materia
   "Equipo 7", // practica
   "2027 - 1", // secuencia
@@ -43,7 +43,7 @@
   "7NM78", // profesorx
   "Bustamante Tranquilino Rocío", // fecha
   encabezado: ("Plan 2021", "Ingeniería en Informática"),
-  proyecto: "Reto II.3 La interfaz de la APK de mi RA",
+  proyecto: "Reto II.4 Avance del Proyecto",
 )
 
 #pagebreak()
@@ -55,5 +55,5 @@
 #title("Link de la carpeta del proyecto en Google Drive")
 
 #link(
-  "https://drive.google.com/drive/folders/1gee-3BykC_bRlON9-YShZLZ8-FfFFswa?usp=share_link",
-)[https://drive.google.com/drive/folders/1gee-3BykC_bRlON9-YShZLZ8-FfFFswa?usp=share_link]
+  "https://drive.google.com/drive/folders/1VuH02Ga23w75UOJFoOp8f_CCYjEwn54l?usp=drive_link",
+)[https://drive.google.com/drive/folders/1VuH02Ga23w75UOJFoOp8f_CCYjEwn54l?usp=drive_link]
