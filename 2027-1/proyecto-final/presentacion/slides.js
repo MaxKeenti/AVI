@@ -15,6 +15,7 @@
     { file: 'alcance-funcional-practicas.html', section: 'Alcance', kicker: 'Alcance · 3. Funcional', fondo: 'procedimientos' },
     { file: 'arquitectura.html', section: 'Arquitectura', fondo: 'pasillo' },
     { file: 'arquitectura-flujo.html', section: 'Arquitectura', fondo: 'personal' },
+    { file: 'arquitectura-ra.html', section: 'Arquitectura', kicker: 'Arquitectura · Realidad aumentada', fondo: 'corte-superior' },
     { file: 'ods.html', section: 'Objetivos de Desarrollo Sostenible', kicker: 'ODS', fondo: 'exterior' },
     { file: 'ods-03.html', section: 'Objetivos de Desarrollo Sostenible', kicker: 'ODS 3', fondo: 'esterilizacion' },
     { file: 'ods-04.html', section: 'Objetivos de Desarrollo Sostenible', kicker: 'ODS 4', fondo: 'espera' },

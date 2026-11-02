@@ -168,6 +168,13 @@
       <span class="slide-tag" data-slide="arquitectura-flujo.html">Flujo de una clasificación <span class="pg"></span></span>
       <h3>Flujo de una clasificación</h3>
       <p>Veamos cómo colaboran las dos capas. <strong>1</strong>: el usuario apunta y pulsa E. <strong>2</strong>: el backend lanza un rayo y encuentra el material. <strong>3</strong>: lo toma. <strong>4</strong>: el frontend muestra el caso. <strong>5</strong>: al depositarlo, el backend compara con el destino correcto y suma o resta puntos. <strong>6</strong>: el frontend explica la regla y actualiza el HUD. Si hubo error, el material vuelve a su lugar para intentarlo otra vez.</p>
+    </article>
+
+    <article class="slide">
+      <span class="slide-tag" data-slide="arquitectura-ra.html">Arquitectura de la RA <span class="pg"></span></span>
+      <h3>Arquitectura de la RA</h3>
+      <p>Esta es la arquitectura de la aplicación de <strong>realidad aumentada</strong>, hecha en Unity con <strong>Vuforia</strong>. Tiene tres partes. La primera es la <strong>navegación</strong>: la escena MainMenu contiene el Canvas, y <strong>MainMenu.cs</strong> abre los paneles del menú principal, de créditos y del menú secundario, desde donde se elige modelos 3D, textos, sonido o video.</p>
+      <p>La segunda son las <strong>experiencias RA</strong>: Vuforia detecta un <strong>Image Target</strong> y dispara <strong>Target Found</strong> o <strong>Target Lost</strong>. Cada una de las cuatro escenas responde a su marcador con un modelo 3D, un texto flotante, un audio o un video. La tercera es la <strong>lógica y los recursos</strong>: <strong>Audio.cs</strong> ordena los sonidos para que el aviso de detección, el audio principal y el aviso de pérdida no se encimen, como muestra el ciclo de abajo, y los recursos se organizan por tipo de archivo.</p>
       <p class="relay">Le paso la palabra para hablar de los Objetivos de Desarrollo Sostenible.</p>
     </article>
   </section>
