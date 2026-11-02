@@ -4,113 +4,83 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Consultorio Seguro — Presentación</title>
-<script src="theme.js"></script>
 <script src="slides.js"></script>
 <style>
+  /* Colores del menú del simulador (ClinicUI.cs), igual que deck.css. */
   html, body {
     margin: 0; padding: 0; width: 100%; height: 100%;
-    background: #03070a; overflow: hidden;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #0f1f1a; overflow: hidden;
+    font-family: Arial, 'Liberation Sans', 'Helvetica Neue', Helvetica, sans-serif;
   }
-  html.light, html.light body { background: #dde4ec; }
 
   #stage { position: relative; width: 100vw; height: 100vh; }
 
   iframe.slide-frame {
     position: absolute; inset: 0; width: 100%; height: 100%;
-    border: 0; background: #03070a;
+    border: 0; background: #0f1f1a;
     visibility: hidden; pointer-events: none;
   }
-  html.light iframe.slide-frame { background: #dde4ec; }
   iframe.slide-frame.active { visibility: visible; pointer-events: auto; }
 
-  /* ---- progress bar ---- */
+  /* ---- barra de avance ---- */
   #progress {
-    position: fixed; top: 0; left: 0; height: 3px;
-    background: linear-gradient(90deg, #c43a63, #2dd4bf);
+    position: fixed; top: 0; left: 0; height: 4px;
+    background: #c7deb8;
     width: 0%; transition: width 0.25s ease; z-index: 50;
-    box-shadow: 0 0 8px rgba(45, 212, 191, 0.6);
   }
 
-  /* ---- floating controls ---- */
+  /* ---- controles flotantes: panel HUD del simulador ---- */
   #controls {
     position: fixed; bottom: 18px; left: 50%;
     transform: translateX(-50%);
-    display: flex; align-items: center; gap: 4px;
-    padding: 6px 10px;
-    background: rgba(8, 22, 27, 0.82);
-    border: 1px solid rgba(45, 212, 191, 0.35);
-    border-radius: 999px; color: #fff; font-size: 13px;
-    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+    display: flex; align-items: center; gap: 2px;
+    padding: 6px 8px;
+    background: rgba(15, 36, 28, 0.9); color: #fff; font-size: 14px;
     z-index: 100; opacity: 0; transition: opacity 0.3s ease;
     user-select: none;
-  }
-  html.light #controls {
-    background: rgba(255, 255, 255, 0.9);
-    border-color: rgba(15, 118, 110, 0.35); color: #16202a;
   }
   body.show-ui #controls { opacity: 1; }
 
   #controls button {
     background: transparent; border: 0; color: inherit;
-    font-size: 18px; line-height: 1; padding: 6px 10px;
-    border-radius: 999px; cursor: pointer; transition: background 0.15s ease;
+    font-size: 18px; line-height: 1; padding: 7px 11px;
+    cursor: pointer; transition: background 0.15s ease;
   }
-  #controls button:hover { background: rgba(45, 212, 191, 0.22); }
-  #controls button:active { background: rgba(45, 212, 191, 0.4); }
+  #controls button:hover { background: #406354; }
+  #controls button:active { background: #adc999; color: #263630; }
 
-  #counter {
-    font-variant-numeric: tabular-nums; padding: 0 8px;
-    color: #2dd4bf; font-weight: 600; letter-spacing: 0.5px;
-  }
-  html.light #counter { color: #0f766e; }
-  #counter .total { color: #bdc9de; font-weight: 400; }
-  html.light #counter .total { color: #6c7785; }
+  #counter { font-variant-numeric: tabular-nums; padding: 0 10px; color: #c7deb8; font-weight: 700; }
+  #counter .total { color: #fff; font-weight: 400; }
 
-  .divider {
-    width: 1px; height: 18px; background: rgba(45, 212, 191, 0.3); margin: 0 2px;
-  }
+  .divider { width: 1px; height: 18px; background: rgba(255, 255, 255, 0.25); margin: 0 4px; }
 
-  /* ---- help overlay ---- */
+  /* ---- ayuda: tarjeta de papel como el manual de controles ---- */
   #help {
     position: fixed; inset: 0;
-    background: rgba(3, 7, 10, 0.92); color: #fff;
+    background: rgba(15, 31, 26, 0.78); color: #263630;
     display: flex; align-items: center; justify-content: center;
     z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.2s ease;
   }
-  html.light #help { background: rgba(221, 228, 236, 0.94); color: #16202a; }
   #help.visible { opacity: 1; pointer-events: auto; }
-  #help .panel {
-    background: linear-gradient(160deg, rgba(15, 35, 41, 0.96), rgba(8, 22, 27, 0.96));
-    border: 1px solid rgba(45, 212, 191, 0.4);
-    border-radius: 16px; padding: 32px 40px; max-width: 470px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-  }
-  html.light #help .panel {
-    background: #ffffff; border-color: rgba(15, 118, 110, 0.4);
-  }
-  #help h2 { margin: 0 0 18px; font-size: 22px; color: #2dd4bf; letter-spacing: 0.5px; }
-  html.light #help h2 { color: #0f766e; }
+  #help .panel { background: #f5f5eb; padding: 36px 44px 28px; width: 500px; }
+  #help h2 { margin: 0 0 18px; font-size: 30px; font-weight: 400; }
   #help .row {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 8px 0; border-bottom: 1px solid rgba(150, 170, 175, 0.15); font-size: 14px;
+    padding: 9px 0; border-bottom: 1px solid rgba(38, 54, 48, 0.16); font-size: 16px;
   }
   #help .row:last-child { border-bottom: 0; }
   #help kbd {
-    background: rgba(45, 212, 191, 0.15); border: 1px solid rgba(45, 212, 191, 0.35);
-    color: #2dd4bf; border-radius: 6px; padding: 3px 8px;
-    font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12px; margin-left: 4px;
+    background: #406354; color: #fff; padding: 4px 9px;
+    font-family: inherit; font-size: 13px; font-weight: 700; margin-left: 4px;
   }
-  html.light #help kbd { color: #0f766e; background: rgba(15,118,110,0.12); border-color: rgba(15,118,110,0.35); }
-  #help .hint { margin-top: 18px; font-size: 12px; color: #8a9b9b; text-align: center; }
+  #help .hint { margin: 18px 0 0; font-size: 14px; text-align: center; }
 
   body.idle, body.idle * { cursor: none !important; }
 
   #stage::before {
     content: "Cargando…"; position: absolute; inset: 0;
     display: flex; align-items: center; justify-content: center;
-    color: #4a5660; font-size: 14px; letter-spacing: 0.5px; z-index: -1;
+    color: #c7deb8; font-size: 16px; z-index: -1;
   }
 </style>
 </head>
@@ -127,7 +97,6 @@
   <button id="btn-last" title="Final (End)">⏭</button>
   <span class="divider"></span>
   <button id="btn-fs" title="Pantalla completa (F)">⛶</button>
-  <button id="btn-theme" title="Tema claro/oscuro (T)" aria-label="Cambiar tema">☀</button>
   <button id="btn-help" title="Ayuda (?)">?</button>
 </div>
 
@@ -140,7 +109,6 @@
     <div class="row"><span>Última diapositiva</span><span><kbd>End</kbd></span></div>
     <div class="row"><span>Pantalla completa</span><span><kbd>F</kbd></span></div>
     <div class="row"><span>Salir pantalla completa</span><span><kbd>Esc</kbd></span></div>
-    <div class="row"><span>Tema claro / oscuro</span><span><kbd>T</kbd></span></div>
     <div class="row"><span>Mostrar / ocultar ayuda</span><span><kbd>?</kbd></span></div>
     <p class="hint">Mueve el cursor para mostrar los controles.</p>
   </div>
@@ -231,7 +199,6 @@
       case 'Home': e.preventDefault(); first(); break;
       case 'End': e.preventDefault(); last(); break;
       case 'f': case 'F': e.preventDefault(); toggleFullscreen(); break;
-      case 't': case 'T': e.preventDefault(); toggleTheme(); break;
       case '?': case 'h': case 'H': e.preventDefault(); toggleHelp(); break;
       case 'Escape':
         if (help.classList.contains('visible')) { help.classList.remove('visible'); e.preventDefault(); }
@@ -246,7 +213,7 @@
         const doc = f.contentDocument;
         if (!doc) return;
         doc.addEventListener('keydown', function (e) {
-          if (['ArrowRight','ArrowLeft','PageUp','PageDown','Home','End',' ','f','F','t','T','?','h','H','Escape'].indexOf(e.key) !== -1) {
+          if (['ArrowRight','ArrowLeft','PageUp','PageDown','Home','End',' ','f','F','?','h','H','Escape'].indexOf(e.key) !== -1) {
             const evt = new KeyboardEvent('keydown', { key: e.key, code: e.code, bubbles: true });
             window.dispatchEvent(evt); document.dispatchEvent(evt);
             e.preventDefault();
@@ -263,30 +230,6 @@
   document.getElementById('btn-last').addEventListener('click', last);
   document.getElementById('btn-fs').addEventListener('click', toggleFullscreen);
   document.getElementById('btn-help').addEventListener('click', toggleHelp);
-
-  // ---- Theme: drive every iframe from the shared VRDeckTheme API ----
-  const btnTheme = document.getElementById('btn-theme');
-  function updateThemeBtn() {
-    const isLight = window.VRDeckTheme && window.VRDeckTheme.get() === 'light';
-    btnTheme.textContent = isLight ? '☾' : '☀';
-    btnTheme.title = isLight ? 'Cambiar a oscuro (T)' : 'Cambiar a claro (T)';
-  }
-  function broadcastTheme(value) {
-    frames.forEach(function (f) {
-      try { if (f.contentWindow) f.contentWindow.postMessage({ type: 'vr-deck-theme', value: value }, '*'); }
-      catch (e) {}
-    });
-  }
-  function toggleTheme() {
-    if (!window.VRDeckTheme) return;
-    const value = window.VRDeckTheme.get() === 'light' ? 'dark' : 'light';
-    window.VRDeckTheme.set(value);
-    broadcastTheme(value);
-    updateThemeBtn();
-  }
-  document.getElementById('btn-theme').addEventListener('click', toggleTheme);
-  updateThemeBtn();
-  window.addEventListener('storage', function (e) { if (e.key === 'vrDeckTheme') updateThemeBtn(); });
 
   // ---- Mouse activity: show controls + hide cursor when idle ----
   let idleTimer;

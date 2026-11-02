@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consultorio Seguro — Flujo de una clasificación</title>
+<link rel="stylesheet" href="deck.css">
+<style>
+  .carriles { display: grid; grid-template-columns: 140px repeat(6, 1fr); grid-template-rows: 1fr 76px 1fr; column-gap: 12px; }
+  .carril { display: flex; align-items: center; justify-content: center; text-align: center; font-size: 18px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .carril.f { grid-row: 1; }
+  .carril.b { grid-row: 3; }
+
+  .paso { border: 1px solid var(--linea); border-left: 4px solid var(--salvia); background: #fbfbf5; padding: 12px 14px; }
+  .paso.f { grid-row: 1; }
+  .paso.b { grid-row: 3; }
+  .paso b { display: block; font-size: 17.5px; margin-bottom: 4px; word-break: break-word; }
+  .paso p { font-size: 17px; line-height: 1.4; }
+
+  /* línea de tiempo entre ambos carriles */
+  .tiempo { grid-row: 2; grid-column: 2 / span 6; position: relative; display: grid; grid-template-columns: repeat(6, 1fr); column-gap: 12px; }
+  .tiempo::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 2px; background: var(--salvia); }
+  .tiempo span { position: relative; justify-self: center; align-self: center; }
+  .tiempo span::after {
+    content: ""; position: absolute; left: calc(50% - 1px); width: 2px; height: 15px; background: var(--salvia);
+  }
+  .tiempo span.f::after { bottom: 100%; }
+  .tiempo span.b::after { top: 100%; }
+
+  .notas { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 22px; }
+  .notas .hud { font-size: 19px; padding: 16px 22px; }
+  .notas .error { border: 2px dashed var(--salvia); padding: 16px 22px; font-size: 19px; line-height: 1.45; }
+</style>
+</head>
+<body>
+<div class="scaler">
+  <div class="slide">
+    <div class="tarjeta">
+      <h2 class="titulo" style="margin-bottom:22px;">Arquitectura: flujo de una clasificación</h2>
+
+      <div class="carriles">
+        <div class="carril f boton">Frontend</div>
+        <div class="carril b boton">Backend</div>
+
+        <div class="paso f" style="grid-column:2"><b>ClinicPlayer</b><p>El usuario apunta con la cruz central y pulsa <b style="display:inline">E</b>.</p></div>
+        <div class="paso b" style="grid-column:3"><b>ClinicGame<br>.RefreshTarget</b><p>Rayo de 2,6 m desde los ojos: identifica el material de la sala actual.</p></div>
+        <div class="paso b" style="grid-column:4"><b>ClinicGame<br>.PickUp</b><p>El material pasa a la mano y se ocultan los contornos.</p></div>
+        <div class="paso f" style="grid-column:5"><b>ClinicUI<br>.ShowMessage</b><p>Presenta el caso; el usuario elige un recipiente y pulsa E.</p></div>
+        <div class="paso b" style="grid-column:6"><b>ClinicGame<br>.Deposit</b><p>Compara con el destino correcto; PracticeRoom suma 10 o resta 5.</p></div>
+        <div class="paso f" style="grid-column:7"><b>ClinicUI<br>+ HUD</b><p>Explica la regla de WasteInformation y actualiza aciertos y errores.</p></div>
+
+        <div class="tiempo">
+          <span class="tecla f">1</span><span class="tecla b">2</span><span class="tecla b">3</span>
+          <span class="tecla f">4</span><span class="tecla b">5</span><span class="tecla f">6</span>
+        </div>
+      </div>
+
+      <div class="notas">
+        <div class="hud"><b>Acierto:</b> el material se retira de la escena; al terminar la sala se muestra su puntuación y el avance de las cinco prácticas.</div>
+        <div class="error"><b>Error:</b> el material vuelve a su lugar original y la explicación indica el destino correcto para intentarlo de nuevo.</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="slides.js"></script>
+<script src="chrome.js"></script>
+<script src="slide.js"></script>
+<script src="anim.js"></script>
+</body>
+</html>

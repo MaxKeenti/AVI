@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consultorio Seguro — Alcance público</title>
+<link rel="stylesheet" href="deck.css">
+<style>
+  .columnas { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 4px; }
+  .columnas .boton { justify-content: flex-start; font-size: 24px; min-height: 64px; margin-bottom: 30px; }
+  .lista li { font-size: 23px; padding-left: 30px; }
+  .lista li::before { top: 11px; width: 11px; height: 11px; }
+  .lista li + li { margin-top: 26px; }
+  .fuera li::before { background: transparent; border: 2px solid var(--salvia); }
+</style>
+</head>
+<body>
+<div class="scaler">
+  <div class="slide">
+    <div class="tarjeta">
+      <h2 class="titulo">Alcance público</h2>
+      <div class="columnas" data-cascada>
+        <div>
+          <div class="boton">A quién llega y qué le ofrece</div>
+          <ul class="lista">
+            <li>Usuarios de habla hispana en México: textos, rótulos y avisos en español.</li>
+            <li>Casos basados en la <b>NOM-087-SEMARNAT-SSA1-2002</b> (RPBI) y la <b>NOM-013-SSA2-2015</b> (instrumental reutilizable).</li>
+            <li>Uso individual o en clase: cada práctica se repite las veces necesarias sin gastar insumos ni generar residuos reales.</li>
+            <li>Manual de controles y créditos de cada recurso accesibles desde el menú.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="boton claro">Hasta dónde llega</div>
+          <ul class="lista fuera">
+            <li>Es apoyo educativo: no sustituye el protocolo de cada institución ni certifica competencias clínicas.</li>
+            <li>No está dirigido a pacientes; representa la separación de residuos, no enseña a realizar procedimientos.</li>
+            <li>Cubre la separación en el consultorio; quedan fuera el transporte, el tratamiento y la disposición final.</li>
+            <li>Antes de su uso docente formal, un especialista en bioseguridad debe revisar los casos.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="slides.js"></script>
+<script src="chrome.js"></script>
+<script src="slide.js"></script>
+<script src="anim.js"></script>
+</body>
+</html>

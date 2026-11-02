@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consultorio Seguro — Público objetivo</title>
+<link rel="stylesheet" href="deck.css">
+<style>
+  .bloques { grid-template-columns: repeat(3, 1fr); margin-top: 30px; }
+  .bloque .boton { font-size: 24px; min-height: 72px; }
+  .bloque .cuerpo { font-size: 21px; padding: 22px 24px; }
+  .bloque .necesita { margin-top: 18px; font-size: 17px; color: var(--salvia); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+  .hud { margin-top: 34px; font-size: 21px; padding: 22px 26px; }
+</style>
+</head>
+<body>
+<div class="scaler">
+  <div class="slide">
+    <div class="tarjeta">
+      <h2 class="titulo">Público objetivo</h2>
+      <p class="lead">Personas que generan, manipulan o enseñan a separar Residuos Peligrosos Biológico-Infecciosos (RPBI) en la práctica odontológica.</p>
+
+      <div class="bloques" data-cascada>
+        <div class="bloque">
+          <div class="boton">Estudiantes de odontología</div>
+          <div class="cuerpo">
+            En formación clínica, antes de atender pacientes.
+            <p class="necesita">Necesitan</p>
+            Practicar la clasificación sin exponerse a material contaminado real.
+          </div>
+        </div>
+        <div class="bloque">
+          <div class="boton">Personal de consultorios y clínicas</div>
+          <div class="cuerpo">
+            Odontólogos, asistentes y personal de apoyo que manejan los residuos a diario.
+            <p class="necesita">Necesitan</p>
+            Capacitación y repaso periódico de la NOM-087 sin detener la operación.
+          </div>
+        </div>
+        <div class="bloque">
+          <div class="boton">Escuelas y docentes del área de la salud</div>
+          <div class="cuerpo">
+            Programas que imparten bioseguridad y manejo de residuos.
+            <p class="necesita">Necesitan</p>
+            Material de apoyo que complemente la clase teórica con práctica guiada.
+          </div>
+        </div>
+      </div>
+
+      <div class="hud"><b>Perfil común:</b> hispanohablantes con manejo básico de computadora. No se requiere experiencia con videojuegos: el manual de controles está disponible desde el inicio, la pausa y cada sala.</div>
+    </div>
+  </div>
+</div>
+<script src="slides.js"></script>
+<script src="chrome.js"></script>
+<script src="slide.js"></script>
+<script src="anim.js"></script>
+</body>
+</html>

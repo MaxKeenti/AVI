@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consultorio Seguro — Arquitectura</title>
+<link rel="stylesheet" href="deck.css">
+<style>
+  .diagrama { display: grid; grid-template-columns: 150px 120px 1fr 170px 1fr; align-items: stretch; }
+  .usuario { display: flex; flex-direction: column; justify-content: center; gap: 12px; }
+  .usuario .hud { text-align: center; padding: 18px 10px; font-size: 18px; }
+  .usuario .hud b { display: block; font-size: 21px; margin-bottom: 4px; }
+
+  .flechas { display: flex; flex-direction: column; justify-content: center; gap: 26px; padding: 0 10px; }
+  .flecha { font-size: 14px; line-height: 1.3; text-align: center; color: var(--salvia); }
+  .flecha svg { display: block; width: 100%; height: 14px; margin: 4px 0; }
+  .flecha svg path { fill: none; stroke: var(--salvia); stroke-width: 2; }
+  .flecha code { font-family: inherit; font-weight: 700; color: var(--tinta); }
+
+  .capa { display: flex; flex-direction: column; border: 1px solid var(--linea); }
+  .capa .boton { flex-direction: column; align-items: flex-start; text-align: left; padding: 10px 18px; }
+  .capa .boton small { font-size: 14px; letter-spacing: 0.08em; color: var(--resalte); }
+  .capa .boton span { font-size: 24px; }
+  .nodos { display: flex; flex-direction: column; gap: 8px; padding: 12px; flex: 1; }
+  .nodo { border: 1px solid var(--linea); border-left: 4px solid var(--salvia); padding: 8px 14px; background: #fbfbf5; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .nodo b { font-size: 19px; }
+  .nodo p { font-size: 16.5px; line-height: 1.35; margin-top: 2px; }
+  .nodo.enfocado { outline-offset: -2px; }
+
+  .edicion { display: grid; grid-template-columns: 1fr 1fr 1.25fr; gap: 16px; margin-top: 22px; }
+  .edicion > div { border: 2px dashed var(--salvia); padding: 12px 18px; font-size: 17px; line-height: 1.4; }
+  .edicion .nota { border: 0; background: var(--hud); color: #fff; }
+</style>
+</head>
+<body>
+<div class="scaler">
+  <div class="slide">
+    <div class="tarjeta">
+      <h2 class="titulo" style="margin-bottom:18px;">Arquitectura de Consultorio Seguro</h2>
+
+      <div class="diagrama">
+        <div class="usuario">
+          <div class="hud"><b>Usuario</b>Teclado<br>y ratón</div>
+          <div class="hud"><b>Pantalla</b>1920 × 1080</div>
+        </div>
+
+        <div class="flechas">
+          <div class="flecha">entrada
+            <svg viewBox="0 0 100 14" preserveAspectRatio="none"><path d="M0 7 H96 M88 1 L96 7 L88 13"/></svg></div>
+          <div class="flecha"><svg viewBox="0 0 100 14" preserveAspectRatio="none"><path d="M100 7 H4 M12 1 L4 7 L12 13"/></svg>
+            imagen y menús</div>
+        </div>
+
+        <div class="capa">
+          <div class="boton"><small>FRONTEND</small><span>Presentación e interfaz</span></div>
+          <div class="nodos">
+            <div class="nodo"><b>ClinicUI</b><p>Inicio, pausa, manual, créditos, HUD y mensajes · uGUI</p></div>
+            <div class="nodo"><b>ClinicPlayer</b><p>Cámara en primera persona, CharacterController e Input System</p></div>
+            <div class="nodo"><b>ClinicOutline + shader Silueta</b><p>Contorno blanco cercano y dorado en el objetivo</p></div>
+            <div class="nodo"><b>Escena URP</b><p>ConsultorioSeguro.unity: arquitectura, mobiliario, luces y rótulos</p></div>
+          </div>
+        </div>
+
+        <div class="flechas">
+          <div class="flecha"><code>Interact()</code> · <code>Deposit()</code>
+            <svg viewBox="0 0 100 14" preserveAspectRatio="none"><path d="M0 7 H96 M88 1 L96 7 L88 13"/></svg></div>
+          <div class="flecha"><svg viewBox="0 0 100 14" preserveAspectRatio="none"><path d="M100 7 H4 M12 1 L4 7 L12 13"/></svg>
+            <code>ShowMessage()</code> · <code>ScreenChanged</code></div>
+        </div>
+
+        <div class="capa">
+          <div class="boton"><small>BACKEND</small><span>Lógica y datos</span></div>
+          <div class="nodos">
+            <div class="nodo enfocado"><b>ClinicGame</b><p>Estados: menú · recorrido · pausa · manual · créditos; objetivo y objeto en mano</p></div>
+            <div class="nodo"><b>PracticeRoom</b><p>Pasos, aciertos, errores y puntuación de cada sala</p></div>
+            <div class="nodo"><b>Interactuables</b><p>ClinicItem · PracticeStation · ClinicDestination · ClinicManual</p></div>
+            <div class="nodo"><b>WasteInformation</b><p>Reglas: destinos y explicación normativa (NOM&#8209;087)</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="edicion">
+        <div><b>ClinicBuilder</b> (editor): construye y guarda la escena, vistas de inspección y capturas.</div>
+        <div><b>Pruebas PlayMode</b> (Test Framework): 7 pruebas recorren la escena real.</div>
+        <div class="nota">Todo corre en un ejecutable local: el backend es la capa de lógica en C#; no hay servidor ni base de datos.</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="slides.js"></script>
+<script src="chrome.js"></script>
+<script src="slide.js"></script>
+<script src="anim.js"></script>
+</body>
+</html>

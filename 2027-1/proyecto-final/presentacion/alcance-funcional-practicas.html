@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consultorio Seguro — Las cinco prácticas</title>
+<link rel="stylesheet" href="deck.css">
+<style>
+  .salas { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .sala { display: flex; flex-direction: column; border: 1px solid var(--linea); }
+  .sala .boton { flex-direction: column; align-items: flex-start; text-align: left; padding: 14px 18px; }
+  .sala .boton small { font-size: 15px; color: var(--resalte); letter-spacing: 0.08em; }
+  .sala .boton span { font-size: 24px; margin-top: 2px; }
+  .sala .proposito { padding: 16px 18px 0; font-size: 19px; line-height: 1.42; min-height: 130px; }
+  .sala .lbl { padding: 14px 18px 6px; font-size: 15px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--salvia); }
+  .sala ul { list-style: none; padding: 0 18px 18px; }
+  .sala li { font-size: 18px; line-height: 1.35; padding: 4px 0; }
+  .destinos { display: grid; grid-template-columns: repeat(5, 1fr) 1.15fr; gap: 12px; margin-top: 28px; align-items: stretch; }
+  .destino { display: flex; align-items: center; gap: 12px; font-size: 17.5px; line-height: 1.25; border: 1px solid var(--linea); padding: 14px 14px; }
+  .destino i { width: 24px; height: 34px; flex: none; }
+  .cifras { background: var(--hud); color: #fff; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 18.5px; line-height: 1.35; padding: 8px 10px; }
+</style>
+</head>
+<body>
+<div class="scaler">
+  <div class="slide">
+    <div class="tarjeta">
+      <h2 class="titulo" style="margin-bottom:20px;">Alcance funcional: las cinco prácticas</h2>
+      <div class="salas" data-cascada>
+        <div class="sala">
+          <div class="boton"><small>SALA 01</small><span>Clasificación</span></div>
+          <p class="proposito">Reconocer residuos y elegir su destino.</p>
+          <p class="lbl">Clasifica</p>
+          <ul><li>Gasa saturada de sangre</li><li>Aguja usada</li><li>Vaso sin sangre visible</li></ul>
+        </div>
+        <div class="sala">
+          <div class="boton"><small>SALA 02 · 3 PASOS</small><span>Esterilización</span></div>
+          <p class="proposito">Distinguir instrumental reutilizable de desechables y recorrer el reprocesamiento.</p>
+          <p class="lbl">Clasifica</p>
+          <ul><li>Espejo reutilizable</li><li>Hoja desechable usada</li></ul>
+        </div>
+        <div class="sala">
+          <div class="boton"><small>SALA 03 · 1 PASO</small><span>Materiales</span></div>
+          <p class="proposito">Identificar consumibles y su destino según su estado.</p>
+          <p class="lbl">Clasifica</p>
+          <ul><li>Algodón limpio</li><li>Guantes sin sangre visible</li><li>Aguja de un solo uso</li></ul>
+        </div>
+        <div class="sala">
+          <div class="boton"><small>SALA 04 · 3 PASOS</small><span>Procedimientos</span></div>
+          <p class="proposito">Relacionar una atención dental simulada con sus residuos.</p>
+          <p class="lbl">Clasifica</p>
+          <ul><li>Gasa de extracción</li><li>Pieza dental extraída</li><li>Hoja de bisturí usada</li></ul>
+        </div>
+        <div class="sala">
+          <div class="boton"><small>SALA 05 · 3 PASOS</small><span>Radiografía</span></div>
+          <p class="proposito">Retirar barreras de una toma digital simulada, sin radiación.</p>
+          <p class="lbl">Clasifica</p>
+          <ul><li>Barrera del sensor</li><li>Guantes de radiografía</li></ul>
+        </div>
+      </div>
+      <div class="destinos" data-cascada>
+        <div class="destino"><i style="background:#525c5c"></i>Residuos comunes</div>
+        <div class="destino"><i style="background:#9e1f1a"></i>Bolsa roja · RPBI no anatómicos</div>
+        <div class="destino"><i style="background:#a81f17;outline:3px solid #6b130e;outline-offset:-3px"></i>Recipiente rígido · Punzocortantes</div>
+        <div class="destino"><i style="background:#e6a321"></i>Bolsa amarilla · Patológicos</div>
+        <div class="destino"><i style="background:#4d7a80"></i>Área de reprocesamiento</div>
+        <div class="cifras">10 pasos · 13 objetos<br>Cualquier orden</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="slides.js"></script>
+<script src="chrome.js"></script>
+<script src="slide.js"></script>
+<script src="anim.js"></script>
+</body>
+</html>

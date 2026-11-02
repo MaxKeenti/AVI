@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consultorio Seguro — Alcance tecnológico</title>
+<link rel="stylesheet" href="deck.css">
+<style>
+  .tecs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px 24px; }
+  .tec { display: grid; grid-template-rows: auto 1fr; }
+  .tec .boton { justify-content: space-between; font-size: 23px; min-height: 58px; }
+  .tec .boton small { font-size: 16px; color: var(--resalte); }
+  .tec .cuerpo { border: 1px solid var(--linea); border-top: 0; padding: 16px 20px; font-size: 19.5px; line-height: 1.45; }
+  .plataforma { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 28px; }
+  .plataforma .hud { font-size: 20px; padding: 20px 24px; }
+  .plataforma .futuro { border: 2px dashed var(--salvia); padding: 18px 24px; font-size: 20px; line-height: 1.45; }
+</style>
+</head>
+<body>
+<div class="scaler">
+  <div class="slide">
+    <div class="tarjeta">
+      <h2 class="titulo" style="margin-bottom:24px;">Alcance tecnológico</h2>
+      <div class="tecs" data-cascada>
+        <div class="tec">
+          <div class="boton">Unity 6 <small>6000.4.6f1</small></div>
+          <div class="cuerpo">Motor del simulador. Toda la lógica está escrita en <b>C#</b>; la escena se guarda editable.</div>
+        </div>
+        <div class="tec">
+          <div class="boton">URP <small>17.4.0</small></div>
+          <div class="cuerpo">Universal Render Pipeline con Forward+, sombras suaves y 8 sondas de reflexión.</div>
+        </div>
+        <div class="tec">
+          <div class="boton">Input System <small>1.19.0</small></div>
+          <div class="cuerpo">Teclado y ratón: caminar, mirar, interactuar, pausar y abrir el manual.</div>
+        </div>
+        <div class="tec">
+          <div class="boton">uGUI y TextMesh Pro <small>2.0.0</small></div>
+          <div class="cuerpo">Menús y HUD generados en tiempo de ejecución; rótulos de la clínica con Noto Sans.</div>
+        </div>
+        <div class="tec">
+          <div class="boton">Test Framework <small>1.6.0</small></div>
+          <div class="cuerpo"><b>7 pruebas PlayMode aprobadas</b>: recorrido completo, las cinco prácticas, menús y repetición.</div>
+        </div>
+        <div class="tec">
+          <div class="boton">Recursos 3D <small>51</small></div>
+          <div class="cuerpo">Poly Haven (CC0), Kenney y modelos con atribución; procedencia y licencia documentadas.</div>
+        </div>
+      </div>
+      <div class="plataforma">
+        <div class="hud"><b>Plataforma de esta entrega:</b> aplicación de escritorio con teclado y ratón, comprobada en Full HD (1920 × 1080).</div>
+        <div class="futuro"><b>Ampliación futura:</b> realidad aumentada en Android. Requiere su propia implementación y verificación; no forma parte de esta entrega.</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="slides.js"></script>
+<script src="chrome.js"></script>
+<script src="slide.js"></script>
+<script src="anim.js"></script>
+</body>
+</html>

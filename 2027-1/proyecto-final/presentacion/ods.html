@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consultorio Seguro — Objetivos de Desarrollo Sostenible</title>
+<link rel="stylesheet" href="deck.css">
+<style>
+  .fichas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 22px; }
+  .fichas > div { display: flex; flex-direction: column; }
+  .fichas .ods-ficha { height: 236px; padding: 18px 22px; }
+  .fichas .ods-ficha .num { font-size: 80px; }
+  .fichas .ods-ficha .nom { font-size: 21px; margin-top: 8px; }
+  .fichas .ods-ficha .metas { font-size: 15.5px; }
+  .fichas .porque { flex: 1; border: 1px solid var(--linea); border-top: 0; padding: 14px 20px; font-size: 18px; line-height: 1.42; }
+  .hud { margin-top: 20px; font-size: 19px; padding: 16px 24px; }
+</style>
+</head>
+<body>
+<div class="scaler">
+  <div class="slide">
+    <div class="tarjeta">
+      <h2 class="titulo" style="margin-bottom:16px;">Objetivos de Desarrollo Sostenible aplicados</h2>
+      <p class="lead">La Agenda 2030 de la ONU define 17 ODS. Consultorio Seguro contribuye directamente a cuatro de ellos.</p>
+
+      <div class="fichas" data-cascada>
+        <div class="ods-3">
+          <div class="ods-ficha"><span class="num">3</span><span class="nom">Salud y bienestar</span><span class="metas">Metas 3.3 · 3.9</span></div>
+          <p class="porque">Separar bien los RPBI evita infecciones en el personal, los pacientes y quienes recolectan la basura.</p>
+        </div>
+        <div class="ods-4">
+          <div class="ods-ficha"><span class="num">4</span><span class="nom">Educación de calidad</span><span class="metas">Meta 4.4</span></div>
+          <p class="porque">Práctica repetible con retroalimentación inmediata para formar una competencia profesional.</p>
+        </div>
+        <div class="ods-8">
+          <div class="ods-ficha"><span class="num">8</span><span class="nom">Trabajo decente y crecimiento económico</span><span class="metas">Meta 8.8</span></div>
+          <p class="porque">Reduce los accidentes con punzocortantes y la exposición del personal de salud y de limpieza.</p>
+        </div>
+        <div class="ods-12">
+          <div class="ods-ficha"><span class="num">12</span><span class="nom">Producción y consumo responsables</span><span class="metas">Metas 12.4 · 12.5</span></div>
+          <p class="porque">Correcta disposición de los residuos biológico-infecciosos desde su origen, sin generar residuos para entrenar.</p>
+        </div>
+      </div>
+
+      <div class="hud"><b>Eje del proyecto:</b> la correcta disposición de residuos biológico-infecciosos une la salud (ODS 3), la seguridad laboral (ODS 8) y la gestión responsable de residuos (ODS 12); la simulación la vuelve enseñable (ODS 4).</div>
+    </div>
+  </div>
+</div>
+<script src="slides.js"></script>
+<script src="chrome.js"></script>
+<script src="slide.js"></script>
+<script src="anim.js"></script>
+</body>
+</html>

@@ -1,31 +1,26 @@
 /* Orden y estructura de la presentación: única fuente de verdad.
    - El orden de este arreglo define el número de página de cada diapositiva.
-   - `section` agrupa diapositivas bajo un tema del índice; las secciones se
-     numeran solas en el orden en que aparecen aquí y alimentan el índice
-     (slide1) y el número del kicker de cada diapositiva.
-   - `kicker` es el texto del kicker sin su número; si se omite, se usa `section`.
+   - `section` agrupa diapositivas bajo un tema; las secciones se numeran solas
+     en el orden en que aparecen aquí y alimentan el número de la etiqueta.
+   - `kicker` es el texto de la etiqueta sin su número; si se omite, se usa `section`.
+   - `fondo` es la captura de Unity (media/fondos/) que se ve detrás de la tarjeta.
    Para agregar, quitar o reordenar diapositivas basta con editar esta lista. */
 (function () {
   var slides = [
-    { file: 'slide0.html' },
-    { file: 'slide1.html', kicker: 'Índice' },
-    { file: 'slide2.html', section: 'Nombre del proyecto', kicker: 'Nombre' },
-    { file: 'slide3.html', section: 'Objetivo general' },
-    { file: 'slide4.html', section: 'Objetivos específicos' },
-    { file: 'slide5.html', section: 'Justificación' },
-    { file: 'slide6.html', section: 'Alcance y tecnología', kicker: 'Alcance' },
-    { file: 'slide7.html', section: 'Alcance y tecnología', kicker: 'Alcance' },
-    { file: 'slide8.html', section: 'Alcance y tecnología', kicker: 'Alcance de funciones' },
-    { file: 'slide-acciones-1.html', section: 'Alcance y tecnología', kicker: 'Alcance · Acciones' },
-    { file: 'slide-acciones-2.html', section: 'Alcance y tecnología', kicker: 'Alcance · Acciones' },
-    { file: 'slide9.html', section: 'Alcance y tecnología', kicker: 'Alcance · Ambientación' },
-    { file: 'slide10.html', section: 'Descripción del AVI' },
-    { file: 'slide11.html', section: 'Descripción del AVI' },
-    { file: 'slide12.html', section: 'Mapa del AVI' },
-    { file: 'slide13.html', section: 'Experiencia de aprendizaje' },
-    { file: 'slide14.html', section: 'Link del AVI (video)', kicker: 'Link del AVI' },
-    { file: 'slide15.html', section: 'Link de la RA' },
-    { file: 'slide16.html' },
+    { file: 'portada.html', fondo: 'acceso' },
+    { file: 'publico-objetivo.html', section: 'Público objetivo', fondo: 'espera' },
+    { file: 'alcance-publico.html', section: 'Alcance', kicker: 'Alcance · 1. Público', fondo: 'recepcion' },
+    { file: 'alcance-tecnologico.html', section: 'Alcance', kicker: 'Alcance · 2. Tecnológico', fondo: 'corte-superior' },
+    { file: 'alcance-funcional.html', section: 'Alcance', kicker: 'Alcance · 3. Funcional', fondo: 'clasificacion' },
+    { file: 'alcance-funcional-practicas.html', section: 'Alcance', kicker: 'Alcance · 3. Funcional', fondo: 'procedimientos' },
+    { file: 'arquitectura.html', section: 'Arquitectura', fondo: 'pasillo' },
+    { file: 'arquitectura-flujo.html', section: 'Arquitectura', fondo: 'personal' },
+    { file: 'ods.html', section: 'Objetivos de Desarrollo Sostenible', kicker: 'ODS', fondo: 'exterior' },
+    { file: 'ods-03.html', section: 'Objetivos de Desarrollo Sostenible', kicker: 'ODS 3', fondo: 'esterilizacion' },
+    { file: 'ods-04.html', section: 'Objetivos de Desarrollo Sostenible', kicker: 'ODS 4', fondo: 'espera' },
+    { file: 'ods-08.html', section: 'Objetivos de Desarrollo Sostenible', kicker: 'ODS 8', fondo: 'radiografia' },
+    { file: 'ods-12.html', section: 'Objetivos de Desarrollo Sostenible', kicker: 'ODS 12', fondo: 'materiales' },
+    { file: 'cierre.html', fondo: 'acceso' },
   ];
 
   // --- Secciones únicas, en orden de aparición ---

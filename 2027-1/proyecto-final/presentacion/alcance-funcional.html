@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consultorio Seguro — Alcance funcional</title>
+<link rel="stylesheet" href="deck.css">
+<style>
+  .funciones { display: grid; grid-template-columns: 1fr 1fr; gap: 0 56px; }
+  .funcion {
+    display: grid; grid-template-columns: 150px 1fr; gap: 22px; align-items: start;
+    padding: 20px 0; border-bottom: 1px solid var(--linea);
+  }
+  .funcion .teclas { display: flex; flex-wrap: wrap; gap: 6px; }
+  .funcion h3 { font-weight: 700; font-size: 20px; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 4px; }
+  .funcion p { font-size: 19.5px; line-height: 1.45; }
+  .ayuda { display: flex; align-items: center; gap: 22px; margin-top: 26px; }
+  .ayuda .muestra { width: 46px; height: 46px; flex: none; background: var(--hud); }
+  .ayuda .blanca { outline: 3px solid #fff; outline-offset: -8px; }
+  .ayuda .dorada { outline: 3px solid var(--dorado); outline-offset: -8px; }
+  .ayuda .hud { flex: 1; }
+</style>
+</head>
+<body>
+<div class="scaler">
+  <div class="slide">
+    <div class="tarjeta">
+      <h2 class="titulo" style="margin-bottom:12px;">Alcance funcional: lo que el usuario puede hacer</h2>
+      <div class="funciones" data-cascada>
+        <div class="funcion">
+          <div class="teclas"><span class="tecla">WASD</span><span class="tecla">Ratón</span></div>
+          <div><h3>Recorrer</h3><p>Caminar por la calle, recepción, espera, pasillo, las cinco salas de práctica y la sala de personal.</p></div>
+        </div>
+        <div class="funcion">
+          <div class="teclas"><span class="tecla">E</span></div>
+          <div><h3>Interactuar</h3><p>Apuntar con la cruz central a menos de 2,6 m para tomar un material, realizar un paso o depositar.</p></div>
+        </div>
+        <div class="funcion">
+          <div class="teclas"><span class="tecla">R</span></div>
+          <div><h3>Devolver</h3><p>Regresar en cualquier momento el objeto sostenido a su lugar original.</p></div>
+        </div>
+        <div class="funcion">
+          <div class="teclas"><span class="tecla">+10</span><span class="tecla">−5</span></div>
+          <div><h3>Evaluar</h3><p>Cada acierto suma 10 puntos y cada error resta 5, sin bajar de cero. El HUD muestra aciertos y errores.</p></div>
+        </div>
+        <div class="funcion">
+          <div class="teclas"><span class="tecla">✓</span><span class="tecla">✗</span></div>
+          <div><h3>Retroalimentar</h3><p>Cada decisión explica el destino correcto. Si hay error, el objeto vuelve a su lugar para intentarlo de nuevo.</p></div>
+        </div>
+        <div class="funcion">
+          <div class="teclas"><span class="tecla">Esc</span><span class="tecla">M</span></div>
+          <div><h3>Pausar y consultar</h3><p>Pausa, manual de controles, créditos y «Reiniciar esta práctica» sin perder el avance de las demás.</p></div>
+        </div>
+      </div>
+      <div class="ayuda">
+        <span class="muestra blanca"></span><span class="muestra dorada"></span>
+        <div class="hud"><b>Ayuda de contorno:</b> silueta blanca en los instrumentos cercanos de la sala; dorada en el objeto apuntado. El color solo indica dónde interactuar, nunca la respuesta.</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="slides.js"></script>
+<script src="chrome.js"></script>
+<script src="slide.js"></script>
+<script src="anim.js"></script>
+</body>
+</html>
