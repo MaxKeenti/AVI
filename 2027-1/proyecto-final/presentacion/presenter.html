@@ -97,6 +97,7 @@
   <button id="btn-last" title="Final (End)">⏭</button>
   <span class="divider"></span>
   <button id="btn-fs" title="Pantalla completa (F)">⛶</button>
+  <button id="btn-pdf" title="Guardar como PDF (P)">⤓</button>
   <button id="btn-help" title="Ayuda (?)">?</button>
 </div>
 
@@ -109,6 +110,7 @@
     <div class="row"><span>Última diapositiva</span><span><kbd>End</kbd></span></div>
     <div class="row"><span>Pantalla completa</span><span><kbd>F</kbd></span></div>
     <div class="row"><span>Salir pantalla completa</span><span><kbd>Esc</kbd></span></div>
+    <div class="row"><span>Guardar como PDF</span><span><kbd>P</kbd></span></div>
     <div class="row"><span>Mostrar / ocultar ayuda</span><span><kbd>?</kbd></span></div>
     <p class="hint">Mueve el cursor para mostrar los controles.</p>
   </div>
@@ -188,6 +190,9 @@
 
   function toggleHelp() { help.classList.toggle('visible'); }
 
+  // Abre la versión imprimible; con ?dialogo lanza el diálogo de impresión.
+  function savePdf() { window.open('imprimir.html?dialogo', '_blank'); }
+
   // ---- Keyboard ----
   document.addEventListener('keydown', function (e) {
     if (e.metaKey || e.ctrlKey || e.altKey) return;
@@ -200,6 +205,7 @@
       case 'End': e.preventDefault(); last(); break;
       case 'f': case 'F': e.preventDefault(); toggleFullscreen(); break;
       case '?': case 'h': case 'H': e.preventDefault(); toggleHelp(); break;
+      case 'p': case 'P': e.preventDefault(); savePdf(); break;
       case 'Escape':
         if (help.classList.contains('visible')) { help.classList.remove('visible'); e.preventDefault(); }
         break;
@@ -213,7 +219,7 @@
         const doc = f.contentDocument;
         if (!doc) return;
         doc.addEventListener('keydown', function (e) {
-          if (['ArrowRight','ArrowLeft','PageUp','PageDown','Home','End',' ','f','F','?','h','H','Escape'].indexOf(e.key) !== -1) {
+          if (['ArrowRight','ArrowLeft','PageUp','PageDown','Home','End',' ','f','F','?','h','H','p','P','Escape'].indexOf(e.key) !== -1) {
             const evt = new KeyboardEvent('keydown', { key: e.key, code: e.code, bubbles: true });
             window.dispatchEvent(evt); document.dispatchEvent(evt);
             e.preventDefault();
@@ -230,6 +236,7 @@
   document.getElementById('btn-last').addEventListener('click', last);
   document.getElementById('btn-fs').addEventListener('click', toggleFullscreen);
   document.getElementById('btn-help').addEventListener('click', toggleHelp);
+  document.getElementById('btn-pdf').addEventListener('click', savePdf);
 
   // ---- Mouse activity: show controls + hide cursor when idle ----
   let idleTimer;

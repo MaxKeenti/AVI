@@ -4,7 +4,8 @@
  * activa. El presentador avisa la activación por postMessage; una diapositiva
  * abierta sola se anima una vez al cargar.
  *
- * Respeta prefers-reduced-motion: el contenido se muestra sin movimiento. */
+ * Respeta prefers-reduced-motion: el contenido se muestra sin movimiento.
+ * Con ?imprimir (imprimir.html) no se anima nada. */
 (function () {
   var slide = document.querySelector('.slide');
   if (!slide) return;
@@ -30,6 +31,9 @@
   }
 
   var targets = buildTargets();
+
+  // imprimir.html carga cada diapositiva con ?imprimir: se muestra completa.
+  if (/[?&]imprimir\b/.test(location.search)) return;
 
   if (reduce) {
     targets.forEach(function (el) { el.classList.add('reveal-item', 'is-in'); });

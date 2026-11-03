@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consultorio Seguro — Presentación</title>
+<script src="slides.js"></script>
+<style>
+  /* Versión imprimible: todas las diapositivas de slides.js, una por página de
+     1600 × 900. La usan exportar-pdf.sh y el botón de descarga del presentador.
+     Cada diapositiva va en su propio iframe para conservar sus estilos; con
+     ?imprimir, anim.js las muestra completas y sin animación. */
+  @page { size: 1600px 900px; margin: 0; }
+
+  :root { --s: 1; }
+  html, body { margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { background: #0f1f1a; font-family: Arial, 'Liberation Sans', 'Helvetica Neue', Helvetica, sans-serif; }
+
+  .hoja { position: relative; overflow: hidden; width: calc(1600px * var(--s)); height: calc(900px * var(--s)); }
+  .hoja iframe {
+    position: absolute; top: 0; left: 0; width: 1600px; height: 900px; border: 0;
+    transform: scale(var(--s)); transform-origin: top left;
+  }
+
+  /* ---- pantalla: barra de aviso y vista previa reducida ---- */
+  #barra {
+    position: sticky; top: 0; z-index: 5;
+    display: flex; align-items: center; gap: 18px; padding: 12px 24px;
+    background: rgba(15, 36, 28, 0.96); color: #fff; font-size: 15px;
+  }
+  #barra p { margin: 0; flex: 1; line-height: 1.4; }
+  #barra b { color: #c7deb8; }
+  #barra button {
+    background: #406354; color: #fff; border: 0; padding: 11px 20px;
+    font: inherit; font-weight: 700; cursor: pointer;
+  }
+  #barra button:hover { background: #4f7867; }
+  #barra button:disabled { opacity: 0.6; cursor: wait; }
+  #hojas { display: flex; flex-direction: column; align-items: center; gap: 24px; padding: 24px; }
+
+  @media print {
+    :root { --s: 1 !important; }
+    body { background: none; }
+    #barra { display: none; }
+    #hojas { display: block; padding: 0; }
+    .hoja { break-after: page; }
+    .hoja:last-child { break-after: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div id="barra">
+  <p>Vista para guardar la presentación en PDF. En el diálogo de impresión elijan <b>Guardar como PDF</b>; el tamaño de página y los márgenes ya están definidos.</p>
+  <button id="btn-imprimir" disabled>Cargando…</button>
+</div>
+<div id="hojas"></div>
+
+<script>
+(function () {
+  var hojas = document.getElementById('hojas');
+  var boton = document.getElementById('btn-imprimir');
+  var slides = window.DECK.slides;
+  var pendientes = slides.length;
+
+  // Vista previa en pantalla: reduce las hojas al ancho de la ventana.
+  function ajustar() {
+    var s = Math.min(1, (window.innerWidth - 48) / 1600);
+    document.documentElement.style.setProperty('--s', s);
+  }
+  window.addEventListener('resize', ajustar);
+  ajustar();
+
+  function listo() {
+    boton.disabled = false;
+    boton.textContent = 'Guardar como PDF';
+    // Desde el presentador (?dialogo) el diálogo se abre solo.
+    if (/[?&]dialogo\b/.test(location.search)) window.print();
+  }
+
+  slides.forEach(function (s, i) {
+    var hoja = document.createElement('div');
+    hoja.className = 'hoja';
+    var f = document.createElement('iframe');
+    f.title = 'Diapositiva ' + (i + 1);
+    f.addEventListener('load', function () {
+      if (--pendientes === 0) document.fonts.ready.then(listo);
+    });
+    f.src = s.file + '?imprimir';
+    hoja.appendChild(f);
+    hojas.appendChild(hoja);
+  });
+
+  boton.addEventListener('click', function () { window.print(); });
+})();
+</script>
+</body>
+</html>

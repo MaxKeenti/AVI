@@ -28,6 +28,8 @@
 
 html, body {
   min-height: 100vh;
+  /* conserva fondos y colores al imprimir o guardar como PDF */
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
   background: var(--escenario);
   font-family: var(--fuente);
 }
