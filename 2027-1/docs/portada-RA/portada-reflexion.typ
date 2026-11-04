@@ -38,11 +38,5 @@
   "7NM78", // profesorx
   "Bustamante Tranquilino Rocío", // fecha
   encabezado: ("Plan 2021", "Ingeniería en Informática"),
-  proyecto: "Reto II.4 Avance del Proyecto",
+  proyecto: "Reto II.1 Gemelos digitales - Reflexión",
 )
-
-#pagebreak()
-#set par(justify: true, leading: 1.4em)
-#set heading(numbering: "1.")
-#set list(indent: 1.5em)
-#show table: set par(justify: false)
