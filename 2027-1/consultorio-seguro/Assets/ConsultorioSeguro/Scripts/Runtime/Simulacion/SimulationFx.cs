@@ -164,6 +164,37 @@ namespace ConsultorioSeguroNuevo
             });
         }
 
+        /// <summary>Nube de vapor que sale por la puerta al abrir el autoclave.</summary>
+        public static ParticleSystem SteamBurst(Vector3 position, Vector3 outward) =>
+            Burst("Partículas · Vapor al abrir", position, Quaternion.LookRotation(outward.normalized + Vector3.up * .35f), ps =>
+            {
+                var main = ps.main;
+                main.duration = 1.5f;
+                main.startLifetime = new ParticleSystem.MinMaxCurve(1.4f, 2.4f);
+                main.startSpeed = new ParticleSystem.MinMaxCurve(.35f, .8f);
+                main.startSize = new ParticleSystem.MinMaxCurve(.08f, .16f);
+                main.startRotation = new ParticleSystem.MinMaxCurve(0, Mathf.PI * 2);
+                main.gravityModifier = -.06f;
+                ps.emission.SetBursts(new[] { new ParticleSystem.Burst(0, 40), new ParticleSystem.Burst(.25f, 25) });
+                var shape = ps.shape;
+                shape.shapeType = ParticleSystemShapeType.Cone;
+                shape.angle = 30;
+                shape.radius = .14f;
+                var size = ps.sizeOverLifetime;
+                size.enabled = true;
+                size.size = new ParticleSystem.MinMaxCurve(1, Rise(1, 4.5f));
+                var color = ps.colorOverLifetime;
+                color.enabled = true;
+                color.color = Fade(new Color(1, 1, 1, .5f), 0, .1f);
+                var noise = ps.noise;
+                noise.enabled = true;
+                noise.strength = .2f;
+                noise.frequency = .5f;
+                var drag = ps.limitVelocityOverLifetime;
+                drag.enabled = true;
+                drag.drag = 1.2f;
+            });
+
         // --- Ráfagas de retroalimentación ---
 
         /// <summary>Destellos verdes y blancos al acertar una clasificación.</summary>

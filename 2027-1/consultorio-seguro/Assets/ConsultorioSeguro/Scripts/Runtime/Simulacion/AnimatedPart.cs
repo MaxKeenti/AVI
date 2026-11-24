@@ -70,18 +70,22 @@ namespace ConsultorioSeguroNuevo
         /// <paramref name="target"/>. Devuelve el giro en el mundo al final del clip (positivo o negativo).
         /// </summary>
         public static AnimatedPart SwingToward(string label, string controller, Transform pivot, Vector3 tip, Vector3 target,
-            float clipDegrees, out float worldDegrees)
+            float clipDegrees, out float worldDegrees) =>
+            SwingToward(label, controller, pivot.position, new[] { pivot }, tip, target, clipDegrees, out worldDegrees);
+
+        /// <summary>Igual que la sobrecarga anterior, para varias piezas que giran sobre una bisagra vertical en <paramref name="origin"/>.</summary>
+        public static AnimatedPart SwingToward(string label, string controller, Vector3 origin, Transform[] parts, Vector3 tip,
+            Vector3 target, float clipDegrees, out float worldDegrees)
         {
-            Vector3 origin = pivot.position;
             Vector3 reach = tip - origin, wanted = target - origin;
             reach.y = 0; wanted.y = 0;
-            if (reach.sqrMagnitude < 1e-6f) reach = pivot.forward;
+            if (reach.sqrMagnitude < 1e-6f) reach = Vector3.forward;
             float angle = wanted.sqrMagnitude < 1e-6f ? clipDegrees : Vector3.SignedAngle(reach, wanted, Vector3.up);
             float sign = angle >= 0 ? 1 : -1;
             // Con el pivote invertido, el giro local positivo equivale a un giro negativo en el mundo.
             Quaternion orientation = Quaternion.LookRotation(reach.normalized, Vector3.up);
             if (sign < 0) orientation *= Quaternion.Euler(0, 0, 180);
-            var part = Wrap(label, controller, origin, orientation, pivot);
+            var part = Wrap(label, controller, origin, orientation, parts);
             part.transform.RotateAround(origin, Vector3.up, angle - sign * clipDegrees);
             worldDegrees = sign * clipDegrees;
             return part;

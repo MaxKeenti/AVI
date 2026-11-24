@@ -105,6 +105,37 @@ namespace ConsultorioSeguroNuevo.Tests
         }
 
         [UnityTest]
+        public IEnumerator AutoclaveLoadsTheTrayClosesForTheCycleAndReopens()
+        {
+            var sim = game.Simulation;
+            var room = Room(2);
+            Assert.IsNotNull(sim.AutoclaveDoor, "La puerta del autoclave se articula");
+            var door = sim.AutoclaveDoor.Axis;
+            Vector3 mouth = sim.AutoclaveOpening;
+            float FlatDistance(Vector3 a, Vector3 b) => new Vector2(a.x - b.x, a.z - b.z).magnitude;
+            float openDistance = FlatDistance(Center(door), mouth);
+            Assert.Greater(openDistance, .2f, "Al iniciar, la puerta está abierta a un lado");
+            Enter(room);
+            room.steps[0].Interact(game);
+            room.steps[1].Interact(game);
+            room.steps[2].Interact(game);
+            Assert.GreaterOrEqual(room.steps[2].duration, ClinicSimulation.AutoclaveCycleSeconds, "El paso dura todo el ciclo");
+            yield return new WaitForSeconds(2f);
+            Assert.Less(FlatDistance(Center(door), mouth), .12f, "Durante el ciclo la puerta cubre la cámara");
+            Assert.Less(FlatDistance(Center(sim.AutoclaveTray), mouth), .2f, "La charola está dentro de la cámara");
+            Assert.IsTrue(sim.AutoclaveSteam.isEmitting, "El respiradero libera vapor durante el ciclo");
+            Assert.Greater(sim.AutoclaveLight.Value.r, sim.AutoclaveLight.Value.b, "Indicador en ámbar durante el ciclo");
+            yield return new WaitForSeconds(2.2f);
+            Assert.IsTrue(room.steps[2].Completed);
+            Assert.Greater(FlatDistance(Center(door), mouth), openDistance - .05f, "Al terminar, la puerta vuelve a abrirse");
+            Assert.Greater(sim.AutoclaveLight.Value.g, sim.AutoclaveLight.Value.r, "Indicador en verde al terminar");
+            game.RestartCurrentRoom();
+            yield return null;
+            Assert.Greater(FlatDistance(Center(sim.AutoclaveTray), mouth), .4f, "Reiniciar devuelve la charola a la encimera");
+            Assert.IsNull(sim.AutoclaveLight);
+        }
+
+        [UnityTest]
         public IEnumerator OperatingLampSwingsOverThePatientAndLightsTheMouth()
         {
             var room = Room(4);

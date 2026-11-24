@@ -37,6 +37,7 @@ namespace ConsultorioSeguroNuevo.Editor
             BuildChair();
             BuildLamp();
             BuildPanel();
+            BuildAutoclave();
             BuildMaterials();
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
@@ -95,6 +96,15 @@ namespace ConsultorioSeguroNuevo.Editor
             var done = Clip("Panel_Completar", Rot("y", (0, 0), (.15f, 0), (.85f, 360)),
                 Pos("z", (0, 0), (.08f, .025f), (.18f, 0)));
             OneShot("Panel", "Completar", ("Reposo", rest), ("Completar", done));
+        }
+
+        static void BuildAutoclave()
+        {
+            float closed = ClinicSimulation.AutoclaveClosed, opens = ClinicSimulation.AutoclaveOpens;
+            var rest = Clip("Autoclave_Abierta", Rot("y", (0, 0)));
+            // La puerta espera a la charola, cierra, se mantiene durante el ciclo y vuelve a abrir.
+            var cycle = Clip("Autoclave_Ciclo", Rot("y", (0, 0), (.9f, 0), (closed, 90), (opens, 90), (opens + .6f, 0)));
+            OneShot(ClinicSimulation.AutoclaveController, "Ciclo", ("Abierta", rest), ("Ciclo", cycle));
         }
 
         static AnimatorController Controller(string name)

@@ -41,6 +41,8 @@ namespace ConsultorioSeguroNuevo.Editor
             {
                 var chair = Deep(room.transform, "dental-chair-reclined");
                 if (chair) AddPatient(chair);
+                var autoclave = Deep(room.transform, "autoclave");
+                if (autoclave) SplitAutoclaveDoor(autoclave);
             }
         }
 
@@ -66,12 +68,94 @@ namespace ConsultorioSeguroNuevo.Editor
             }
         }
 
+        // --- Autoclave ---
+
+        // El OBJ del autoclave es una sola malla con una submalla por material. La puerta (materiales 18-22)
+        // se separa en su propio objeto para que gire sobre su bisagra; se marca también la boca de la cámara.
+        static void SplitAutoclaveDoor(Transform autoclave)
+        {
+            // La fuente es siempre el OBJ original: volver a ejecutar el paso regenera las mallas sin duplicar objetos.
+            var model = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Terceros/dental-practice/autoclave.obj");
+            var original = model ? model.GetComponentInChildren<MeshRenderer>() : null;
+            if (!original) return;
+            var source = original.GetComponent<MeshFilter>().sharedMesh;
+            var names = original.sharedMaterials.Select(material => material ? material.name : "").ToArray();
+            bool IsDoor(int i) => new[] { "_18", "_19", "_20", "_21", "_22" }.Any(suffix => names[i].EndsWith(suffix));
+            var doorSlots = Enumerable.Range(0, source.subMeshCount).Where(IsDoor).ToArray();
+            var bodySlots = Enumerable.Range(0, source.subMeshCount).Where(i => !IsDoor(i)).ToArray();
+            int mouthSlot = Enumerable.Range(0, source.subMeshCount).FirstOrDefault(i => names[i].EndsWith("_6"));
+            if (doorSlots.Length == 0) return;
+
+            Mesh Subset(string name, int[] slots)
+            {
+                string path = Generated + "/" + name + ".asset";
+                var mesh = AssetDatabase.LoadAssetAtPath<Mesh>(path);
+                bool created = !mesh;
+                if (created) mesh = new Mesh();
+                mesh.Clear();
+                mesh.name = name;
+                // Solo los vértices que usa cada parte: así sus límites corresponden a su geometría.
+                var remap = new Dictionary<int, int>();
+                var sourceVertices = source.vertices;
+                var sourceNormals = source.normals;
+                var sourceUv = source.uv;
+                var vertices = new List<Vector3>();
+                var normals = new List<Vector3>();
+                var uv = new List<Vector2>();
+                var triangles = slots.Select(slot => source.GetTriangles(slot).Select(index =>
+                {
+                    if (!remap.TryGetValue(index, out int mapped))
+                    {
+                        mapped = remap[index] = vertices.Count;
+                        vertices.Add(sourceVertices[index]);
+                        if (sourceNormals.Length > index) normals.Add(sourceNormals[index]);
+                        if (sourceUv.Length > index) uv.Add(sourceUv[index]);
+                    }
+                    return mapped;
+                }).ToArray()).ToArray();
+                mesh.indexFormat = vertices.Count > 65535 ? UnityEngine.Rendering.IndexFormat.UInt32 : UnityEngine.Rendering.IndexFormat.UInt16;
+                mesh.SetVertices(vertices);
+                if (normals.Count == vertices.Count) mesh.SetNormals(normals);
+                if (uv.Count == vertices.Count) mesh.SetUVs(0, uv);
+                mesh.subMeshCount = slots.Length;
+                for (int i = 0; i < slots.Length; i++) mesh.SetTriangles(triangles[i], i);
+                mesh.RecalculateBounds();
+                if (created) AssetDatabase.CreateAsset(mesh, path);
+                else EditorUtility.SetDirty(mesh);
+                return mesh;
+            }
+            var body = Subset("Autoclave · cuerpo", bodySlots);
+            var door = Subset("Autoclave · puerta", doorSlots);
+            if (Deep(autoclave, ClinicSimulation.AutoclaveDoorName)) return;
+            var filter = autoclave.GetComponentsInChildren<MeshFilter>().FirstOrDefault(f => f.sharedMesh == source);
+            if (!filter) return;
+            var renderer = filter.GetComponent<MeshRenderer>();
+            var materials = renderer.sharedMaterials;
+            filter.sharedMesh = body;
+            renderer.sharedMaterials = bodySlots.Select(i => materials[i]).ToArray();
+            var doorObject = new GameObject(ClinicSimulation.AutoclaveDoorName, typeof(MeshFilter), typeof(MeshRenderer));
+            doorObject.transform.SetParent(filter.transform.parent, false);
+            doorObject.transform.localPosition = filter.transform.localPosition;
+            doorObject.transform.localRotation = filter.transform.localRotation;
+            doorObject.transform.localScale = filter.transform.localScale;
+            doorObject.GetComponent<MeshFilter>().sharedMesh = door;
+            var doorRenderer = doorObject.GetComponent<MeshRenderer>();
+            doorRenderer.sharedMaterials = doorSlots.Select(i => materials[i]).ToArray();
+            doorRenderer.lightProbeUsage = renderer.lightProbeUsage;
+            doorRenderer.reflectionProbeUsage = renderer.reflectionProbeUsage;
+            // Centro de la boca de la cámara, a partir de los vértices de su aro.
+            var ring = source.GetTriangles(mouthSlot).Select(index => source.vertices[index]).ToArray();
+            Vector3 center = ring.Aggregate(Vector3.zero, (sum, v) => sum + v) / Mathf.Max(1, ring.Length);
+            var mouth = Group(ClinicSimulation.AutoclaveMouthName, filter.transform.parent);
+            mouth.position = filter.transform.TransformPoint(center);
+        }
+
         // --- Paciente ---
 
         static void AddPatient(Transform chair)
         {
-            var previous = chair.Find(PatientName);
-            if (previous) Object.DestroyImmediate(previous.gameObject);
+            // Para volver a ajustar al paciente, se borra «Paciente simulado» y se ejecuta de nuevo el menú.
+            if (chair.Find(PatientName)) return;
             var tailored = Deep(chair, "Tapicería anatómica y detalles");
             var headrest = Deep(tailored, "Reposacabezas anatómico");
             var legrest = Deep(tailored, "Apoyo de piernas");

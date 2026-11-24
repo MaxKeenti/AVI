@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -16,6 +17,10 @@ namespace ConsultorioSeguroNuevo
         // Grados que recorren los brazos en sus clips y nombre de la articulación del respaldo.
         public const float ArmSwing = 40, LampSwing = 40;
         public const string BackrestJoint = "Respaldo", PatientHead = "Paciente · cabeza";
+        // Ciclo del autoclave: la puerta cierra a 0.9-1.5 s, el ciclo dura hasta 3.0 s y abre a 3.0-3.6 s.
+        public const string AutoclaveController = "Autoclave", AutoclaveDoorName = "Puerta del autoclave",
+            AutoclaveMouthName = "Boca del autoclave";
+        public const float AutoclaveCycleSeconds = 3.7f, AutoclaveClosed = 1.5f, AutoclaveOpens = 3f;
         static readonly string[] PatientUpperBody =
             { "Paciente · torso", "Paciente · cuello", PatientHead, "Paciente · brazo derecho", "Paciente · brazo izquierdo" };
         const int Sterilization = 2, Procedures = 4, Radiography = 5;
@@ -34,6 +39,16 @@ namespace ConsultorioSeguroNuevo
         public AnimatedPart DentalChair { get; private set; }
         public AnimatedPart OperatingLamp { get; private set; }
         public Transform Backrest { get; private set; }
+        public AnimatedPart AutoclaveDoor { get; private set; }
+        public Transform AutoclaveTray { get; private set; }
+        public Vector3 AutoclaveOpening { get; private set; }
+        public bool AutoclaveRunning { get; private set; }
+        Renderer autoclaveBody;
+        int[] autoclaveLightSlots = new int[0];
+        Vector3 autoclaveOutward, trayPosition, trayScale;
+        Quaternion trayRotation;
+        Transform trayParent;
+        Coroutine autoclaveCycle;
         public ParticleSystem AutoclaveSteam { get; private set; }
         public IReadOnlyList<ClinicFaucet> Faucets => faucets;
         public BinFeedback FeedbackFor(ClinicDestination destination) => destination && bins.TryGetValue(destination, out var bin) ? bin : null;
@@ -131,8 +146,8 @@ namespace ConsultorioSeguroNuevo
                     if (faucetByRoom.TryGetValue(Sterilization, out var faucet)) faucet.SetRunning(true, 3.5f);
                     break;
                 case (Sterilization, 2):
-                    if (AutoclaveSteam) AutoclaveSteam.Play();
-                    if (steamSound) steamSound.Play();
+                    if (autoclaveCycle != null) StopCoroutine(autoclaveCycle);
+                    autoclaveCycle = StartCoroutine(RunAutoclave());
                     break;
                 case (Procedures, 1):
                     if (OperatingLamp) OperatingLamp.SetBool("Encendida", true);
@@ -170,7 +185,7 @@ namespace ConsultorioSeguroNuevo
             switch (station.roomId)
             {
                 case Sterilization:
-                    StopSteam();
+                    ResetAutoclave();
                     if (faucetByRoom.TryGetValue(Sterilization, out var faucet)) faucet.SetRunning(false);
                     break;
                 case Procedures:
@@ -227,6 +242,7 @@ namespace ConsultorioSeguroNuevo
                 Vector3 vent = new Vector3(bounds.center.x, bounds.max.y + .01f, bounds.center.z) + toRoom.normalized * bounds.extents.z * .5f;
                 AutoclaveSteam = SimulationFx.Steam(autoclave, vent);
                 steamSound = SimulationFx.Loop("Vapor", AutoclaveSteam.transform, .3f);
+                SetUpAutoclave(sterilization, autoclave, toRoom);
             }
 
             var procedures = RoomById(Procedures);
@@ -284,6 +300,126 @@ namespace ConsultorioSeguroNuevo
                     WorldBounds(radiographyHead).center, ArmSwing, out _);
             }
             else if (arm) XrayArm = AnimatedPart.Wrap("Brazo de rayos X", ArmController, arm.position, arm.rotation, arm);
+        }
+
+        // --- Autoclave: puerta articulada, charola que entra a la cámara y ciclo con indicadores ---
+
+        void SetUpAutoclave(PracticeRoom room, Transform autoclave, Vector3 toRoom)
+        {
+            var door = FindIn(autoclave, AutoclaveDoorName);
+            var mouth = FindIn(autoclave, AutoclaveMouthName);
+            autoclaveOutward = toRoom.sqrMagnitude > 0 ? toRoom.normalized : -autoclave.forward;
+            if (door && mouth)
+            {
+                // La puerta abierta es una lámina perpendicular al frente: la bisagra está en su extremo más cercano a la cámara.
+                Bounds bounds = WorldBounds(door);
+                AutoclaveOpening = mouth.position;
+                Vector3 axis = bounds.size.x > bounds.size.z ? Vector3.right : Vector3.forward;
+                float reach = Vector3.Dot(bounds.extents, axis);
+                Vector3 a = bounds.center - axis * reach, b = bounds.center + axis * reach;
+                Vector3 hinge = FlatDistance(a, AutoclaveOpening) < FlatDistance(b, AutoclaveOpening) ? a : b;
+                AutoclaveDoor = AnimatedPart.SwingToward("Puerta del autoclave", AutoclaveController, hinge, new[] { door },
+                    bounds.center, AutoclaveOpening, 90, out _);
+            }
+            // Indicadores del panel: submallas con los materiales 14 y 15 del modelo.
+            autoclaveBody = autoclave.GetComponentsInChildren<MeshRenderer>().FirstOrDefault(r => r.name != AutoclaveDoorName
+                && r.sharedMaterials.Length > 1);
+            if (autoclaveBody)
+                autoclaveLightSlots = Enumerable.Range(0, autoclaveBody.sharedMaterials.Length)
+                    .Where(i => autoclaveBody.sharedMaterials[i] && (autoclaveBody.sharedMaterials[i].name.EndsWith("_14")
+                        || autoclaveBody.sharedMaterials[i].name.EndsWith("_15"))).ToArray();
+            AutoclaveTray = FindIn(room, "instrument-tray");
+            if (AutoclaveTray)
+            {
+                trayParent = AutoclaveTray.parent;
+                trayPosition = AutoclaveTray.localPosition;
+                trayRotation = AutoclaveTray.localRotation;
+                trayScale = AutoclaveTray.localScale;
+            }
+            // El paso dura lo mismo que el ciclo representado.
+            var step = room.steps.FirstOrDefault(candidate => candidate && candidate.stepIndex == 2);
+            if (step) step.duration = Mathf.Max(step.duration, AutoclaveCycleSeconds);
+        }
+
+        static float FlatDistance(Vector3 a, Vector3 b) => new Vector2(a.x - b.x, a.z - b.z).magnitude;
+
+        IEnumerator RunAutoclave()
+        {
+            AutoclaveRunning = true;
+            if (AutoclaveDoor) AutoclaveDoor.Trigger("Ciclo");
+            if (AutoclaveTray && AutoclaveDoor)
+            {
+                // La charola entra a la cámara antes de que cierre la puerta.
+                Vector3 start = AutoclaveTray.position;
+                Quaternion startRotation = AutoclaveTray.rotation;
+                Quaternion inward = Quaternion.LookRotation(-autoclaveOutward, Vector3.up);
+                Bounds tray = WorldBounds(AutoclaveTray);
+                float drop = tray.center.y - AutoclaveTray.position.y;
+                Vector3 front = AutoclaveOpening + autoclaveOutward * .32f + Vector3.down * drop;
+                Vector3 inside = AutoclaveOpening - autoclaveOutward * .05f + Vector3.down * drop;
+                for (float t = 0; t < .5f; t += Time.deltaTime)
+                {
+                    float k = Mathf.SmoothStep(0, 1, t / .5f);
+                    AutoclaveTray.SetPositionAndRotation(Vector3.Lerp(start, front, k) + Vector3.up * Mathf.Sin(k * Mathf.PI) * .08f,
+                        Quaternion.Slerp(startRotation, inward, k));
+                    yield return null;
+                }
+                for (float t = 0; t < .35f; t += Time.deltaTime)
+                {
+                    AutoclaveTray.position = Vector3.Lerp(front, inside, Mathf.SmoothStep(0, 1, t / .35f));
+                    yield return null;
+                }
+                AutoclaveTray.SetPositionAndRotation(inside, inward);
+            }
+            yield return new WaitForSeconds(Mathf.Max(0, AutoclaveClosed - .85f));
+            // Ciclo con la puerta cerrada: vapor por el respiradero e indicadores en ámbar.
+            SetAutoclaveLights(new Color(1f, .62f, .12f));
+            if (AutoclaveSteam) AutoclaveSteam.Play();
+            if (steamSound) steamSound.Play();
+            yield return new WaitForSeconds(AutoclaveOpens - AutoclaveClosed);
+            StopSteam();
+            SetAutoclaveLights(new Color(.3f, .86f, .42f));
+            yield return new WaitForSeconds(.08f);
+            SimulationFx.SteamBurst(AutoclaveOpening + autoclaveOutward * .1f, autoclaveOutward);
+            SimulationFx.Play("Vapor", AutoclaveOpening, .45f);
+            AutoclaveRunning = false;
+            autoclaveCycle = null;
+        }
+
+        public Color? AutoclaveLight { get; private set; }
+
+        void SetAutoclaveLights(Color? color)
+        {
+            AutoclaveLight = color;
+            if (!autoclaveBody) return;
+            foreach (int slot in autoclaveLightSlots)
+            {
+                block.Clear();
+                if (color.HasValue)
+                {
+                    block.SetColor(BaseColor, color.Value);
+                    block.SetColor(LegacyColor, color.Value);
+                }
+                autoclaveBody.SetPropertyBlock(block, slot);
+            }
+            block.Clear();
+        }
+
+        void ResetAutoclave()
+        {
+            if (autoclaveCycle != null) StopCoroutine(autoclaveCycle);
+            autoclaveCycle = null;
+            AutoclaveRunning = false;
+            StopSteam();
+            if (AutoclaveDoor) AutoclaveDoor.ResetPose();
+            SetAutoclaveLights(null);
+            if (AutoclaveTray)
+            {
+                AutoclaveTray.SetParent(trayParent, false);
+                AutoclaveTray.localPosition = trayPosition;
+                AutoclaveTray.localRotation = trayRotation;
+                AutoclaveTray.localScale = trayScale;
+            }
         }
 
         // El respaldo, el reposacabezas y la parte superior del paciente giran juntos sobre la articulación del sillón.
