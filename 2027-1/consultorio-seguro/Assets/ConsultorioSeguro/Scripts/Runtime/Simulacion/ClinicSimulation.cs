@@ -40,6 +40,12 @@ namespace ConsultorioSeguroNuevo
         public AnimatedPart OperatingLamp { get; private set; }
         public Transform Backrest { get; private set; }
         public AnimatedPart AutoclaveDoor { get; private set; }
+        public const string ForcepsName = "Pinzas de recuperación";
+        public GlovedHand Hand { get; private set; }
+        public Transform Forceps { get; private set; }
+        public IReadOnlyList<ClinicGloveDispenser> Dispensers => dispensers;
+        readonly List<ClinicGloveDispenser> dispensers = new List<ClinicGloveDispenser>();
+        ClinicItem gripped;
         public Transform AutoclaveTray { get; private set; }
         public Vector3 AutoclaveOpening { get; private set; }
         public bool AutoclaveRunning { get; private set; }
@@ -71,7 +77,11 @@ namespace ConsultorioSeguroNuevo
             {
                 Handling = game.player.HoldPoint.gameObject.AddComponent<HeldItemHandling>();
                 Handling.Initialize(game, game.player);
+                Hand = GlovedHand.Build(game.player.HoldPoint);
+                Forceps = game.GetComponentsInChildren<Transform>(true).FirstOrDefault(t => t.name == ForcepsName);
+                if (Forceps) { Forceps.SetParent(game.player.HoldPoint, false); Forceps.gameObject.SetActive(false); }
             }
+            SetUpDispensers();
             foreach (var item in items)
             {
                 if (!item) continue;
@@ -202,6 +212,58 @@ namespace ConsultorioSeguroNuevo
         {
             if (AutoclaveSteam) AutoclaveSteam.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             if (steamSound) steamSound.Stop();
+        }
+
+        // --- Protección: dispensadores, mano enguantada y pinzas ---
+
+        void SetUpDispensers()
+        {
+            foreach (var model in FindObjectsByType<Transform>(FindObjectsInactive.Exclude)
+                         .Where(t => t.name == "glove-and-mask-dispenser" && (!t.parent || t.parent.name != t.name)))
+            {
+                if (model.GetComponent<ClinicGloveDispenser>()) continue;
+                Bounds bounds = WorldBounds(model);
+                var room = RoomAt(bounds.center);
+                var dispenser = model.gameObject.AddComponent<ClinicGloveDispenser>();
+                dispenser.roomId = room ? room.roomId : 0;
+                var collider = model.gameObject.AddComponent<BoxCollider>();
+                collider.center = model.InverseTransformPoint(bounds.center);
+                Vector3 size = model.InverseTransformVector(bounds.size);
+                collider.size = new Vector3(Mathf.Abs(size.x), Mathf.Abs(size.y), Mathf.Abs(size.z));
+                dispensers.Add(dispenser);
+            }
+        }
+
+        void UpdateGrip()
+        {
+            var held = game.HeldItem;
+            if (held == gripped) return;
+            gripped = held;
+            if (!held)
+            {
+                if (Hand) Hand.Release();
+                if (Forceps) Forceps.gameObject.SetActive(false);
+                return;
+            }
+            // Límites del objeto en el espacio del punto de sujeción.
+            var point = game.player.HoldPoint;
+            Bounds local = new Bounds(Vector3.zero, Vector3.one * .02f);
+            foreach (var renderer in held.GetComponentsInChildren<Renderer>())
+            {
+                if (renderer.name == "Silueta de interacción") continue;
+                var b = renderer.bounds;
+                for (int c = 0; c < 8; c++)
+                    local.Encapsulate(point.InverseTransformPoint(b.center + Vector3.Scale(b.extents,
+                        new Vector3((c & 1) == 0 ? -1 : 1, (c & 2) == 0 ? -1 : 1, (c & 4) == 0 ? -1 : 1))));
+            }
+            bool forceps = game.HeldWithForceps && Forceps;
+            if (Hand) Hand.Grip(local, forceps);
+            if (Forceps)
+            {
+                Forceps.gameObject.SetActive(forceps);
+                Forceps.localPosition = new Vector3(0, -.01f, -.01f);
+                Forceps.localRotation = Quaternion.identity;
+            }
         }
 
         // --- Grifos ---
@@ -472,6 +534,11 @@ namespace ConsultorioSeguroNuevo
             Vector3 position = eye.position + (forward.sqrMagnitude > .01f ? forward.normalized : Vector3.forward) * 1.4f + Vector3.down * .5f;
             SimulationFx.Confetti(position);
             SimulationFx.Play("Acierto", position, .8f);
+        }
+
+        void LateUpdate()
+        {
+            if (game) UpdateGrip();
         }
 
         void Update()

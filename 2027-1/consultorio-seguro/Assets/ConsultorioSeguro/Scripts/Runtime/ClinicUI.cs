@@ -14,6 +14,7 @@ namespace ConsultorioSeguroNuevo
             "<b>INTERACCIÓN</b>\nAcércate a menos de 2,6 metros y apunta con la cruz central. Pulsa E cuando aparezca la indicación. Los instrumentos cercanos de la sala actual muestran una silueta blanca; el objeto apuntado cambia a dorado. El color solo indica dónde puedes interactuar.\n\n" +
             "<b>LAS CINCO PRÁCTICAS</b>\n1. Clasificación de residuos.\n2. Reprocesamiento de instrumentos.\n3. Manejo de materiales.\n4. Procedimiento odontológico.\n5. Radiografía digital.\nPuedes visitarlas en cualquier orden. En cada sala, lee el objetivo de la esquina superior izquierda y realiza sus pasos. Después clasifica sus residuos.\n\n" +
             "<b>TOMAR, CLASIFICAR Y DEVOLVER</b>\nApunta al material y pulsa E para tomarlo. Lee las condiciones del caso. Apunta al recipiente elegido y pulsa E para depositarlo: la tapa se abre al apuntarle. Pulsa R en cualquier momento del recorrido para devolver el objeto a su lugar. La ayuda de contorno se oculta mientras llevas un objeto.\n\n" +
+            "<b>PROTECCIÓN Y PUNZOCORTANTES</b>\nAntes de manipular materiales, apunta al dispensador de la sala y pulsa E para ponerte guantes; se desechan al salir. Si sueltas o lanzas un punzocortante se registra un incidente (−5): recógelo con pinzas, nunca con la mano.\n\n" +
             "<b>MANIPULAR E INSPECCIONAR</b>\nCon un objeto en mano, gira la rueda del ratón o mantén el clic derecho y arrastra para inspeccionarlo desde todos sus lados. Pulsa G para soltarlo; mantén G para lanzarlo con más fuerza. El objeto cae con gravedad y puedes tomarlo de nuevo. Sin objeto en mano, R devuelve a su lugar los materiales sueltos de la sala. En las salas, E abre o cierra los grifos.\n\n" +
             "<b>RESULTADOS Y REPETICIÓN</b>\nCada acierto suma 10 puntos y cada error resta 5, sin puntuaciones negativas. Si te equivocas, lee la explicación: el objeto vuelve a su lugar para intentarlo de nuevo. Al terminar, puedes repetir con Esc → Reiniciar esta práctica.\n\n" +
             "<b>MANUAL SIEMPRE DISPONIBLE</b>\nPulsa M para abrir esta guía durante el recorrido. También está disponible desde el inicio, desde la pausa o apuntando al panel de controles de cada sala y pulsando E. Usa Volver para regresar y Reanudar para seguir explorando.\n\n" +
@@ -270,7 +271,10 @@ namespace ConsultorioSeguroNuevo
             else if (room.Completed) objective.text = "Práctica completada · " + room.Score + " puntos\nEsc · Reiniciar esta práctica";
             else if (room.Busy) objective.text = "Proceso simulado en curso…\nAciertos: " + room.Correct + " · Errores: " + room.Mistakes;
             else if (!room.StepsComplete) objective.text = "Paso " + (room.NextStep + 1) + " de " + room.steps.Length + ": " + room.CurrentStep.actionText;
-            else objective.text = "Materiales por clasificar: " + room.Remaining + "\nAciertos: " + room.Correct + " · Errores: " + room.Mistakes;
+            else if (game.requireGloves && !game.GlovesOn && !game.HeldItem && room.Remaining > 0)
+                objective.text = "Ponte guantes en el dispensador de la sala\nMateriales por clasificar: " + room.Remaining;
+            else objective.text = "Materiales por clasificar: " + room.Remaining + "\nAciertos: " + room.Correct + " · Errores: " + room.Mistakes
+                + (room.Incidents > 0 ? " · Incidentes: " + room.Incidents : "");
             prompt.text = game.Prompt;
             holding.text = !game.HeldItem ? "E · Interactuar     C · Agacharse     M · Manual     Esc · Pausa"
                 : game.ThrowCharge >= 0 ? "Lanzamiento  " + new string('|', 2 + Mathf.RoundToInt(game.ThrowCharge * 18)) + "  · suelta G"

@@ -30,6 +30,14 @@ namespace ConsultorioSeguroNuevo
         public event Action<ClinicItem, ClinicDestination, bool, Vector3, Quaternion> ItemDeposited;
         public event Action<PracticeRoom> RoomCompleted;
         public ClinicSimulation Simulation { get; private set; }
+        [Tooltip("Exige ponerse guantes en el dispensador de la sala antes de tomar material.")]
+        public bool requireGloves = true;
+        /// <summary>Guantes puestos en la sala actual; se desechan al salir de ella.</summary>
+        public bool GlovesOn { get; private set; }
+        /// <summary>El objeto en mano es un punzocortante recogido del piso con pinzas.</summary>
+        public bool HeldWithForceps { get; private set; }
+        public event Action<bool> GlovesChanged;
+        public event Action<ClinicItem> SharpIncident;
         [Min(.1f)] public float maxThrowSpeed = 5.5f;
         [Min(.05f)] public float throwChargeTime = .6f;
         /// <summary>Carga del lanzamiento entre 0 y 1 mientras se mantiene G; negativa si no se carga.</summary>
@@ -103,7 +111,10 @@ namespace ConsultorioSeguroNuevo
             PracticeRoom room = rooms.FirstOrDefault(candidate => candidate && candidate.Contains(player.eye.transform.position));
             if (room == CurrentRoom) return;
             CurrentRoom = room;
-            if (room) ShowMessage(room.title, room.instructions);
+            // Los guantes se desechan al salir de la sala; con un objeto en mano se conservan hasta soltarlo.
+            if (GlovesOn && !HeldItem) SetGloves(false);
+            if (room) ShowMessage(room.title, room.instructions + (requireGloves && !GlovesOn
+                ? "\n\nPonte guantes en el dispensador de la sala antes de manipular los materiales." : ""));
         }
 
         public void RefreshTarget()
@@ -129,11 +140,14 @@ namespace ConsultorioSeguroNuevo
             if (!item || !item.CanInteract(this)) return;
             Vector3 fromPosition = item.transform.position;
             Quaternion fromRotation = item.transform.rotation;
+            // Un punzocortante que cayó al piso no se recoge con la mano.
+            HeldWithForceps = item.Loose && item.IsSharp;
             HeldItem = item;
             item.Hold(player.HoldPoint);
             Target = null;
             ItemPickedUp?.Invoke(item, fromPosition, fromRotation);
-            ShowMessage(item.displayName, item.description + "\n\nElige el destino. Pulsa R para devolverlo a su lugar.");
+            ShowMessage(item.displayName, (HeldWithForceps ? "Recogido con pinzas, sin tocarlo con la mano.\n" : "")
+                + item.description + "\n\nElige el destino. Pulsa R para devolverlo a su lugar.");
         }
 
         // Sin objeto en mano, R también recoge los materiales sueltos de la sala actual.
@@ -143,7 +157,21 @@ namespace ConsultorioSeguroNuevo
             else if (CurrentRoom)
                 foreach (var item in CurrentRoom.Items) if (item && item.Loose) item.ReturnToPlace();
             HeldItem = null;
+            HeldWithForceps = false;
             charging = false;
+        }
+
+        public void PutOnGloves()
+        {
+            if (!Playing || GlovesOn) return;
+            SetGloves(true);
+            ShowMessage("Guantes puestos", "Ya puedes manipular los materiales de esta sala. Los guantes se desechan al salir.");
+        }
+
+        void SetGloves(bool on)
+        {
+            GlovesOn = on;
+            GlovesChanged?.Invoke(on);
         }
 
         /// <summary>Suelta el objeto en mano. <paramref name="strength"/> 0 lo deja caer; 1 lo lanza a la velocidad máxima.</summary>
@@ -153,11 +181,20 @@ namespace ConsultorioSeguroNuevo
             if (!Playing || !HeldItem) return;
             var item = HeldItem;
             HeldItem = null;
+            HeldWithForceps = false;
             Vector3 forward = player.eye.transform.forward;
             Vector3 velocity = forward * Mathf.Lerp(.7f, maxThrowSpeed, Mathf.Clamp01(strength)) + player.PlanarVelocity;
             Vector3 spin = player.eye.transform.right * Mathf.Lerp(1.5f, 9f, Mathf.Clamp01(strength));
             item.Release(velocity, spin);
             ItemReleased?.Invoke(item);
+            if (item.IsSharp && CurrentRoom && CurrentRoom.roomId == item.roomId)
+            {
+                // Un punzocortante suelto es un incidente: cuenta como error y debe recogerse con pinzas.
+                CurrentRoom.RecordIncident();
+                SharpIncident?.Invoke(item);
+                ShowMessage("Incidente con punzocortante", item.displayName + " quedó suelto. Nunca sueltes ni lances un punzocortante: "
+                    + "avisa, señaliza el área y recógelo con pinzas, sin tocarlo con la mano. Se registra como error (−5).");
+            }
         }
 
         public void Deposit(ClinicDestination destination)
@@ -169,6 +206,7 @@ namespace ConsultorioSeguroNuevo
                 return;
             }
             var item = HeldItem;
+            HeldWithForceps = false;
             Vector3 handPosition = item.transform.position;
             Quaternion handRotation = item.transform.rotation;
             bool correct = item.correctDestination == destination.destination;

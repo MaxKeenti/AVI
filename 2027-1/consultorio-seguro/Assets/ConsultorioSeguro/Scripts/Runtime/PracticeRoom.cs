@@ -15,6 +15,8 @@ namespace ConsultorioSeguroNuevo
         public int NextStep { get; private set; }
         public int Correct { get; private set; }
         public int Mistakes { get; private set; }
+        /// <summary>Incidentes de seguridad (punzocortantes soltados); cada uno cuenta también como error.</summary>
+        public int Incidents { get; private set; }
         public bool Busy { get; private set; }
         public bool StepsComplete => NextStep >= steps.Length && !Busy;
         public int Remaining => Items.Count(item => item && !item.Completed);
@@ -48,6 +50,12 @@ namespace ConsultorioSeguroNuevo
             Busy = false;
             NextStep++;
         }
+        public void RecordIncident()
+        {
+            Incidents++;
+            Mistakes++;
+        }
+
         public void RecordAnswer(bool correct)
         {
             if (correct) Correct++;
@@ -56,7 +64,7 @@ namespace ConsultorioSeguroNuevo
 
         public void ResetPractice()
         {
-            NextStep = Correct = Mistakes = 0;
+            NextStep = Correct = Mistakes = Incidents = 0;
             Busy = false;
             foreach (var step in steps) if (step) step.ResetStation();
             foreach (var item in Items) if (item) item.ResetItem();

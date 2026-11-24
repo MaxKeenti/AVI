@@ -63,6 +63,7 @@ namespace ConsultorioSeguroNuevo.Tests
 
             game = Child("Gestión", root.transform).AddComponent<ClinicGame>();
             game.player = player;
+            game.requireGloves = false;
             game.rooms = new[] { room, radiography };
             // Los colisionadores se movieron tras crearse: se sincronizan antes de los raycasts.
             Physics.SyncTransforms();

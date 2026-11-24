@@ -160,6 +160,7 @@ namespace ConsultorioSeguroNuevo.Tests
             var red = destinations.First(d => d.roomId == 1 && d.destination == WasteDestination.RedBag);
             var item = room.Items.First(i => i.correctDestination == WasteDestination.RedBag);
             var bin = game.Simulation.FeedbackFor(red);
+            game.PutOnGloves();
             game.PickUp(item);
             game.Deposit(red);
             yield return new WaitForSeconds(.4f);
@@ -169,6 +170,57 @@ namespace ConsultorioSeguroNuevo.Tests
             yield return new WaitForSeconds(1.2f);
             Assert.IsFalse(bin.LidOpen);
             Assert.AreEqual(0, Mathf.DeltaAngle(0, bin.Pedal.localEulerAngles.x), .5f);
+        }
+
+        [UnityTest]
+        public IEnumerator GlovesAreRequiredShownInHandAndDiscardedOnLeaving()
+        {
+            var room = Room(1);
+            Enter(room);
+            var item = room.Items.First(i => i.correctDestination == WasteDestination.RedBag);
+            Assert.IsTrue(game.requireGloves);
+            Assert.IsFalse(item.CanInteract(game), "Sin guantes no se toma material");
+            StringAssert.Contains("guantes", item.Prompt(game));
+            var dispenser = game.Simulation.Dispensers.Single(d => d.roomId == room.roomId);
+            Assert.IsNotNull(dispenser.GetComponent<Collider>(), "El dispensador se puede apuntar");
+            dispenser.Interact(game);
+            Assert.IsTrue(game.GlovesOn);
+            game.PickUp(item);
+            yield return null;
+            Assert.IsTrue(game.Simulation.Hand.gameObject.activeSelf, "La mano enguantada sostiene el objeto");
+            game.ReturnHeld();
+            yield return null;
+            Assert.IsFalse(game.Simulation.Hand.gameObject.activeSelf);
+            game.player.Teleport(new Vector3(0, .05f, 4.75f));
+            game.RefreshRoom();
+            Assert.IsFalse(game.GlovesOn, "Los guantes se desechan al salir");
+        }
+
+        [UnityTest]
+        public IEnumerator DroppedSharpIsAnIncidentAndIsRecoveredWithForceps()
+        {
+            var room = Room(1);
+            Enter(room);
+            game.Simulation.Dispensers.Single(d => d.roomId == room.roomId).Interact(game);
+            var needle = room.Items.First(i => i.IsSharp);
+            game.PickUp(needle);
+            Assert.IsFalse(game.HeldWithForceps, "Desde la charola se toma con la mano enguantada");
+            game.DropHeld(0);
+            Assert.AreEqual(1, room.Incidents);
+            Assert.AreEqual(1, room.Mistakes, "El incidente cuenta como error");
+            yield return new WaitForSeconds(1f);
+            Assert.IsTrue(needle.Loose);
+            StringAssert.Contains("pinzas", needle.Prompt(game));
+            game.PickUp(needle);
+            yield return null;
+            Assert.IsTrue(game.HeldWithForceps);
+            Assert.IsTrue(game.Simulation.Forceps.gameObject.activeSelf, "Las pinzas sostienen el punzocortante");
+            var sharps = Object.FindObjectsByType<ClinicDestination>().First(d => d.roomId == 1 && d.destination == WasteDestination.Sharps);
+            game.Deposit(sharps);
+            yield return null;
+            Assert.IsTrue(needle.Completed);
+            Assert.IsFalse(game.Simulation.Forceps.gameObject.activeSelf);
+            Assert.AreEqual(5, room.Score, "+10 por el acierto y −5 por el incidente");
         }
 
         [UnityTest]

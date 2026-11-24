@@ -247,6 +247,14 @@ namespace ConsultorioSeguroNuevo.Editor
             particle.SetColor("_BaseColor", Color.white);
             SimulationFx.ConfigureTransparentParticle(particle);
             EditorUtility.SetDirty(particle);
+            var glove = MaterialAsset("Guante", "Universal Render Pipeline/Lit");
+            glove.SetColor("_BaseColor", new Color(.36f, .56f, .86f));
+            glove.SetFloat("_Smoothness", .55f);
+            EditorUtility.SetDirty(glove);
+            var sleeve = MaterialAsset("Manga de bata", "Universal Render Pipeline/Lit");
+            sleeve.SetColor("_BaseColor", new Color(.93f, .94f, .93f));
+            sleeve.SetFloat("_Smoothness", .2f);
+            EditorUtility.SetDirty(sleeve);
             var indicator = MaterialAsset("Indicador", "Universal Render Pipeline/Unlit");
             indicator.SetColor("_BaseColor", new Color(.55f, .57f, .56f));
             EditorUtility.SetDirty(indicator);

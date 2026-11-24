@@ -60,7 +60,7 @@ namespace ConsultorioSeguroNuevo
             eyeHeight = eyeBase.y;
             HoldPoint = new GameObject("Objeto en mano").transform;
             HoldPoint.SetParent(eye.transform, false);
-            HoldPoint.localPosition = new Vector3(.23f, -.20f, .55f);
+            HoldPoint.localPosition = new Vector3(.22f, -.17f, .55f);
         }
 
         void Update()

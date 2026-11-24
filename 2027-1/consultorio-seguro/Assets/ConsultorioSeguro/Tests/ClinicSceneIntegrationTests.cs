@@ -101,6 +101,7 @@ namespace ConsultorioSeguroNuevo.Tests
 
             var destinations = UnityEngine.Object.FindObjectsByType<ClinicDestination>(FindObjectsSortMode.None);
             var manuals = UnityEngine.Object.FindObjectsByType<ClinicManual>(FindObjectsSortMode.None);
+            var dispensers = UnityEngine.Object.FindObjectsByType<ClinicGloveDispenser>(FindObjectsSortMode.None);
             foreach (var room in game.rooms.OrderBy(room => room.roomId))
             {
                 int side = room.roomId % 2 == 1 ? -1 : 1;
@@ -130,6 +131,12 @@ namespace ConsultorioSeguroNuevo.Tests
                     Assert.IsTrue(step.Completed, room.title + ": " + step.actionText);
                 }
                 Assert.IsTrue(room.StepsComplete);
+                // Protección: los materiales solo se manipulan con guantes puestos.
+                Assert.IsFalse(room.Items[0].CanInteract(game), "Sin guantes no se toma material.");
+                var dispenser = dispensers.Single(candidate => candidate.roomId == room.roomId);
+                yield return ApproachAndAim(dispenser);
+                ActivateTarget(dispenser);
+                Assert.IsTrue(game.GlovesOn, room.title + ": guantes puestos");
                 foreach (var item in room.Items)
                 {
                     yield return ApproachAndAim(item);
@@ -171,6 +178,7 @@ namespace ConsultorioSeguroNuevo.Tests
                 yield return WalkTo(new Vector3(0, 0, doorway), "Retorno al pasillo");
                 game.RefreshRoom();
                 Assert.IsNull(game.CurrentRoom);
+                Assert.IsFalse(game.GlovesOn, "Los guantes se desechan al salir de la sala.");
             }
             Assert.AreEqual(5, game.CompletedRooms);
             yield return WalkTo(new Vector3(0, 0, 16.85f), "Acceso al área de personal");

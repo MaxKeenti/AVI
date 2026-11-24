@@ -18,6 +18,7 @@ display-mannequin/paciente-5.obj
 display-mannequin/paciente-6.obj
 display-mannequin/paciente-7.obj
 display-mannequin/paciente-8.obj
+field-medicine/forceps.glb
 field-medicine/gauze-stack.glb
 gallery-gloves/guantes.obj
 paper-cup/cup.glb

@@ -12,6 +12,7 @@ namespace ConsultorioSeguroNuevo
         public bool Held { get; private set; }
         // Suelto: se soltó o lanzó y la simulación física lo controla hasta tomarlo o devolverlo.
         public bool Loose { get; private set; }
+        public bool IsSharp => correctDestination == WasteDestination.Sharps;
         public Rigidbody Body { get; private set; }
         Transform originalParent;
         Vector3 originalPosition, originalScale;
@@ -83,12 +84,14 @@ namespace ConsultorioSeguroNuevo
 
         public override bool CanInteract(ClinicGame game) => game.Playing && !Completed && !Held
             && !game.HeldItem && game.CurrentRoom && game.CurrentRoom.roomId == roomId
-            && game.CurrentRoom.StepsComplete;
+            && game.CurrentRoom.StepsComplete && (!game.requireGloves || game.GlovesOn);
         public override string Prompt(ClinicGame game)
         {
             if (Completed) return "";
             if (game.HeldItem) return "R · Devolver el objeto que llevas";
             if (game.CurrentRoom && !game.CurrentRoom.StepsComplete) return "Completa primero los pasos de la práctica";
+            if (game.requireGloves && !game.GlovesOn) return "Ponte guantes en el dispensador de la sala";
+            if (Loose && IsSharp) return "E · Recoger con pinzas: " + displayName;
             return "E · Tomar: " + displayName;
         }
         public override void Interact(ClinicGame game)

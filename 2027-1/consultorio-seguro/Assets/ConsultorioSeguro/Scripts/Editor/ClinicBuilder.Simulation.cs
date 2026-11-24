@@ -45,6 +45,8 @@ namespace ConsultorioSeguroNuevo.Editor
                 if (autoclave) SplitAutoclaveDoor(autoclave);
             }
             foreach (var destination in Object.FindObjectsByType<ClinicDestination>()) UpgradeBin(destination.transform);
+            var game = Object.FindAnyObjectByType<ClinicGame>();
+            if (game) AddForceps(game.transform);
         }
 
         static Transform Deep(Transform root, string name) =>
@@ -67,6 +69,33 @@ namespace ConsultorioSeguroNuevo.Editor
                 var matrix = filter.transform.localToWorldMatrix;
                 foreach (var vertex in filter.sharedMesh.vertices) yield return matrix.MultiplyPoint3x4(vertex);
             }
+        }
+
+        // --- Pinzas para recoger punzocortantes ---
+
+        // Las pinzas quedan inactivas bajo la simulación; al jugar se colocan en la mano. Su eje largo
+        // apunta a +Z y la punta queda en el origen, donde se sostiene el objeto.
+        static void AddForceps(Transform game)
+        {
+            if (Deep(game, ClinicSimulation.ForcepsName)) return;
+            var holder = Group(ClinicSimulation.ForcepsName, game);
+            var model = Model("field-medicine/forceps.glb", holder, Vector3.zero, .03f, 0, false);
+            Bounds Measure()
+            {
+                var renderers = model.GetComponentsInChildren<Renderer>();
+                Bounds b = new Bounds(holder.InverseTransformPoint(renderers[0].bounds.center), Vector3.zero);
+                foreach (var r in renderers)
+                    foreach (var corner in Corners(r.bounds)) b.Encapsulate(holder.InverseTransformPoint(corner));
+                return b;
+            }
+            Bounds bounds = Measure();
+            if (bounds.size.x >= bounds.size.y && bounds.size.x >= bounds.size.z) model.localRotation = Quaternion.Euler(0, 90, 0) * model.localRotation;
+            else if (bounds.size.y >= bounds.size.z) model.localRotation = Quaternion.Euler(90, 0, 0) * model.localRotation;
+            bounds = Measure();
+            model.localScale *= .17f / Mathf.Max(bounds.size.z, 1e-4f);
+            bounds = Measure();
+            model.localPosition -= new Vector3(bounds.center.x, bounds.center.y, bounds.max.z);
+            holder.gameObject.SetActive(false);
         }
 
         // --- Recipientes ---
