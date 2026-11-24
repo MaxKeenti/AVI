@@ -24,6 +24,18 @@ namespace ConsultorioSeguroNuevo
         public int CompletedRooms => rooms.Count(room => room && room.Completed);
         public string Prompt { get; private set; } = "";
         public event Action<ClinicScreen> ScreenChanged;
+        // Eventos de simulación: el objeto, su pose antes del cambio y el resultado de la decisión.
+        public event Action<ClinicItem, Vector3, Quaternion> ItemPickedUp;
+        public event Action<ClinicItem> ItemReleased;
+        public event Action<ClinicItem, ClinicDestination, bool, Vector3, Quaternion> ItemDeposited;
+        public event Action<PracticeRoom> RoomCompleted;
+        public ClinicSimulation Simulation { get; private set; }
+        [Min(.1f)] public float maxThrowSpeed = 5.5f;
+        [Min(.05f)] public float throwChargeTime = .6f;
+        /// <summary>Carga del lanzamiento entre 0 y 1 mientras se mantiene G; negativa si no se carga.</summary>
+        public float ThrowCharge => charging && HeldItem ? Mathf.Clamp01((Time.time - chargeStarted) / throwChargeTime) : -1;
+        bool charging;
+        float chargeStarted;
         ClinicScreen previousScreen;
         ClinicUI ui;
         ClinicOutline[] outlines;
@@ -49,6 +61,8 @@ namespace ConsultorioSeguroNuevo
                 }).ToArray();
             ui = gameObject.AddComponent<ClinicUI>();
             ui.Initialize(this);
+            Simulation = gameObject.AddComponent<ClinicSimulation>();
+            Simulation.Initialize(this, items);
             SetScreen(ClinicScreen.Menu);
         }
 
@@ -73,6 +87,9 @@ namespace ConsultorioSeguroNuevo
             RefreshTarget();
             if (keyboard == null) return;
             if (keyboard.rKey.wasPressedThisFrame) ReturnHeld();
+            if (keyboard.gKey.wasPressedThisFrame && HeldItem) { charging = true; chargeStarted = Time.time; }
+            if (keyboard.gKey.wasReleasedThisFrame && charging && HeldItem) DropHeld(ThrowCharge);
+            if (!keyboard.gKey.isPressed || !HeldItem) charging = false;
             if (keyboard.eKey.wasPressedThisFrame && Target && Target.CanInteract(this)) Target.Interact(this);
         }
 
@@ -96,7 +113,7 @@ namespace ConsultorioSeguroNuevo
                     out RaycastHit hit, interactionRange, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
                 Target = hit.collider.GetComponentInParent<ClinicInteractable>();
             if (Target && Target.roomId != 0 && (!CurrentRoom || Target.roomId != CurrentRoom.roomId)) Target = null;
-            Prompt = Target ? Target.Prompt(this) : HeldItem ? "R · Devolver el objeto a su lugar" : "";
+            Prompt = Target ? Target.Prompt(this) : HeldItem ? "G · Soltar (mantén para lanzar)   R · Devolver a su lugar" : "";
         }
 
         public bool ShouldOutline(ClinicInteractable target)
@@ -110,16 +127,37 @@ namespace ConsultorioSeguroNuevo
         public void PickUp(ClinicItem item)
         {
             if (!item || !item.CanInteract(this)) return;
+            Vector3 fromPosition = item.transform.position;
+            Quaternion fromRotation = item.transform.rotation;
             HeldItem = item;
             item.Hold(player.HoldPoint);
             Target = null;
+            ItemPickedUp?.Invoke(item, fromPosition, fromRotation);
             ShowMessage(item.displayName, item.description + "\n\nElige el destino. Pulsa R para devolverlo a su lugar.");
         }
 
+        // Sin objeto en mano, R también recoge los materiales sueltos de la sala actual.
         public void ReturnHeld()
         {
             if (HeldItem) HeldItem.ReturnToPlace();
+            else if (CurrentRoom)
+                foreach (var item in CurrentRoom.Items) if (item && item.Loose) item.ReturnToPlace();
             HeldItem = null;
+            charging = false;
+        }
+
+        /// <summary>Suelta el objeto en mano. <paramref name="strength"/> 0 lo deja caer; 1 lo lanza a la velocidad máxima.</summary>
+        public void DropHeld(float strength = 0)
+        {
+            charging = false;
+            if (!Playing || !HeldItem) return;
+            var item = HeldItem;
+            HeldItem = null;
+            Vector3 forward = player.eye.transform.forward;
+            Vector3 velocity = forward * Mathf.Lerp(.7f, maxThrowSpeed, Mathf.Clamp01(strength)) + player.PlanarVelocity;
+            Vector3 spin = player.eye.transform.right * Mathf.Lerp(1.5f, 9f, Mathf.Clamp01(strength));
+            item.Release(velocity, spin);
+            ItemReleased?.Invoke(item);
         }
 
         public void Deposit(ClinicDestination destination)
@@ -131,6 +169,8 @@ namespace ConsultorioSeguroNuevo
                 return;
             }
             var item = HeldItem;
+            Vector3 handPosition = item.transform.position;
+            Quaternion handRotation = item.transform.rotation;
             bool correct = item.correctDestination == destination.destination;
             CurrentRoom.RecordAnswer(correct);
             HeldItem = null;
@@ -146,6 +186,8 @@ namespace ConsultorioSeguroNuevo
             }
             else ShowMessage("Revisa la clasificación", "Destino elegido: " + WasteInformation.Label(destination.destination)
                 + ".\n" + feedback + "\nEl objeto volvió a su lugar. Puedes intentarlo de nuevo.");
+            ItemDeposited?.Invoke(item, destination, correct, handPosition, handRotation);
+            if (correct && CurrentRoom.Completed) RoomCompleted?.Invoke(CurrentRoom);
         }
 
         public void StartVisit() { HasStartedVisit = true; Resume(); }

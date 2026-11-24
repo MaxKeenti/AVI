@@ -2,7 +2,7 @@
 
 Simulador educativo en español para practicar la separación de residuos y el manejo inicial del instrumental en una clínica dental. Esta versión se construye desde una escena e implementación nuevas; conserva únicamente recursos externos documentados de la biblioteca anterior.
 
-**Estado de la entrega:** escena nueva guardada, 18 capturas reales de Unity y 7 pruebas PlayMode aprobadas. El recorrido completo y las cinco prácticas se comprobaron automáticamente. [ENTREGA.md](ENTREGA.md) distingue la inspección visual, la prueba en el editor y lo que sigue sin ensayarse.
+**Estado de la entrega:** escena nueva guardada, 18 capturas reales de Unity y 21 pruebas PlayMode aprobadas (7 del recorrido y las prácticas, 14 de las acciones de simulación). El recorrido completo y las cinco prácticas se comprobaron automáticamente. [ENTREGA.md](ENTREGA.md) distingue la inspección visual, la prueba en el editor y lo que sigue sin ensayarse.
 
 ## Abrir y explorar
 
@@ -13,8 +13,11 @@ Abre esta carpeta desde Unity Hub con **Unity 6000.4.6f1**. El proyecto utiliza 
 | WASD o flechas | Caminar |
 | Ratón | Mirar |
 | Mayús izquierda | Caminar más rápido |
-| E | Interactuar con el objeto apuntado, a menos de 2,6 m |
-| R | Devolver el objeto sostenido a su lugar |
+| C (mantener) | Agacharse |
+| E | Interactuar con el objeto apuntado, a menos de 2,6 m; también abre y cierra los grifos |
+| Rueda o clic derecho + arrastrar | Inspeccionar el objeto sostenido |
+| G (mantener para lanzar) | Soltar o lanzar el objeto sostenido |
+| R | Devolver el objeto sostenido a su lugar; sin objeto, recoge los materiales sueltos de la sala |
 | M | Abrir el manual / volver |
 | Esc | Abrir pausa, reanudar o volver desde la ayuda |
 
@@ -43,6 +46,20 @@ Se pueden visitar las prácticas en cualquier orden. Cada sala presenta primero 
 La clínica incluye recepción, espera, pasillo central, sala de personal y almacenamiento. Las actividades apoyan el aprendizaje de clasificación; no constituyen entrenamiento práctico para efectuar procedimientos en pacientes ni validan un proceso de esterilización.
 
 La escena define **13 objetos por clasificar y 10 pasos previos**, distribuidos entre las cinco prácticas. Radiografía representa preparación, toma digital y retiro de barreras mediante estaciones y mensajes; el brazo del equipo permanece estático.
+
+## Acciones de simulación
+
+Se añaden al iniciar Play desde `Scripts/Runtime/Simulacion/`; `ClinicGame` las conecta con los objetos existentes, de modo que la escena guardada y sus ajustes manuales no cambian.
+
+| Acción | Qué ocurre |
+| --- | --- |
+| Física | Los materiales tienen `Rigidbody`. Con G caen o se lanzan con gravedad, chocan con mesas y piso, levantan polvo y suenan según el impacto; se pueden volver a tomar. El visitante empuja los materiales sueltos. Si uno sale de su sala, regresa a su lugar. |
+| Movimiento | Caminar con aceleración e inercia, balanceo de cabeza y agacharse con C. El sillón de Procedimientos sube a altura de trabajo y baja al terminar; el brazo de rayos X gira hacia el paciente durante la toma. |
+| Partículas | Vapor del autoclave durante el ciclo de Esterilización, agua de los grifos con salpicadura, destellos al acertar, nube roja al rechazar, polvo al impactar y confeti al completar una práctica. |
+| Efectos de manipulación | El objeto viaja de la mesa a la mano, se balancea con la mirada y el paso, y se inspecciona girándolo. La tapa se abre al apuntar con un material; el material vuela en parábola hasta la boca y el recipiente se sacude. Los contenedores de punzocortantes no se abren: tienen abertura fija. |
+| Animaciones | Clips `.anim` y controladores `.controller` editables en las ventanas Animation y Animator: tapas, sillón, lámpara operatoria, brazo de rayos X y paneles de paso, que giran al completarse y muestran un indicador de estado. El aviso de la interfaz entra deslizándose y se desvanece. |
+
+Los controladores están en `Assets/ConsultorioSeguro/Resources/Simulacion/` y los clips en `Assets/ConsultorioSeguro/Animaciones/`. **Consultorio Seguro → Generar animaciones de simulación** los regenera sin cambiar sus GUID. Los sonidos se sintetizan por código; no se añadió audio de terceros.
 
 ## Recursos y edición
 

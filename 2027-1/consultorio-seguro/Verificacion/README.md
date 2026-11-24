@@ -19,3 +19,9 @@ Las capturas de ejecución 13–18 corresponden a esta prueba automatizada. En `
 ## Observación del aviso de audio
 
 El 6 de octubre de 2026 se investigó el aviso nativo `FMOD failed to switch back to normal output` (código 32). El registro contenía una aparición; no había llamadas de audio personalizadas en los scripts de la clínica. Se reinició Unity con el audio habilitado y sin cambiar la suspensión de salida. El registro de la sesión iniciada tras el reinicio no mostró otra aparición durante la comprobación. Esto no confirma una corrección permanente: queda pendiente reproducir un período prolongado de inactividad y reanudación.
+
+## Acciones de simulación · 23 de noviembre de 2026
+
+El informe **pruebas-simulacion-2026-11-23.xml** registra 21 pruebas de PlayMode aprobadas y 0 fallos; la ejecución termina el 23 de noviembre de 2026 a las 18:28:39, hora de Ciudad de México (24 de noviembre a las 00:28:39 UTC), en Unity 6000.4.6f1. Incluye las 7 pruebas anteriores, con el recorrido completo de la escena entregable, y 14 pruebas nuevas en `SimulationActionsTests`: física (caída, lanzamiento fuera de la sala, reinicio), movimiento (agacharse, sillón, brazo de rayos X), partículas (grifo, ráfagas de clasificación y confeti), manipulación (tapa, viaje e inspección, trayectoria al recipiente) y animaciones (controladores generados, panel de paso y lámpara).
+
+La prueba de integración vuelve a escribir las capturas 13–18. Esas imágenes se restauraron a su versión registrada para conservar las sumas SHA-256 de `Capturas/manifiesto-capturas.json`; no muestran las acciones de simulación. No se realizó una prueba manual con teclado y ratón de la inspección con clic derecho ni del lanzamiento con G.
