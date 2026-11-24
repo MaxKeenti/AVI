@@ -10,10 +10,12 @@ namespace ConsultorioSeguroNuevo
     public sealed class ClinicUI : MonoBehaviour
     {
         public const string ManualText =
-            "<b>RECORRIDO</b>\nW, A, S, D o flechas: caminar.\nRatón: mirar alrededor. Mayús: caminar más rápido.\nEsc: pausar; vuelve a pulsarlo para reanudar.\nM: abrir el manual de controles.\n\n" +
+            "<b>RECORRIDO</b>\nW, A, S, D o flechas: caminar.\nRatón: mirar alrededor. Mayús: caminar más rápido.\nC (mantener): agacharse para revisar recipientes y superficies bajas.\nEsc: pausar; vuelve a pulsarlo para reanudar.\nM: abrir el manual de controles.\n\n" +
             "<b>INTERACCIÓN</b>\nAcércate a menos de 2,6 metros y apunta con la cruz central. Pulsa E cuando aparezca la indicación. Los instrumentos cercanos de la sala actual muestran una silueta blanca; el objeto apuntado cambia a dorado. El color solo indica dónde puedes interactuar.\n\n" +
             "<b>LAS CINCO PRÁCTICAS</b>\n1. Clasificación de residuos.\n2. Reprocesamiento de instrumentos.\n3. Manejo de materiales.\n4. Procedimiento odontológico.\n5. Radiografía digital.\nPuedes visitarlas en cualquier orden. En cada sala, lee el objetivo de la esquina superior izquierda y realiza sus pasos. Después clasifica sus residuos.\n\n" +
-            "<b>TOMAR, CLASIFICAR Y DEVOLVER</b>\nApunta al material y pulsa E para tomarlo. Lee las condiciones del caso. Apunta al recipiente elegido y pulsa E para depositarlo. Pulsa R en cualquier momento del recorrido para devolver el objeto a su lugar. La ayuda de contorno se oculta mientras llevas un objeto.\n\n" +
+            "<b>TOMAR, CLASIFICAR Y DEVOLVER</b>\nApunta al material y pulsa E para tomarlo. Lee las condiciones del caso. Apunta al recipiente elegido y pulsa E para depositarlo: la tapa se abre al apuntarle. Pulsa R en cualquier momento del recorrido para devolver el objeto a su lugar. La ayuda de contorno se oculta mientras llevas un objeto.\n\n" +
+            "<b>PROTECCIÓN Y PUNZOCORTANTES</b>\nAntes de manipular materiales, apunta al dispensador de la sala y pulsa E para ponerte guantes; se desechan al salir. Si sueltas o lanzas un punzocortante se registra un incidente (−5): recógelo con pinzas, nunca con la mano.\n\n" +
+            "<b>MANIPULAR E INSPECCIONAR</b>\nCon un objeto en mano, gira la rueda del ratón o mantén el clic derecho y arrastra para inspeccionarlo desde todos sus lados. Pulsa G para soltarlo; mantén G para lanzarlo con más fuerza. El objeto cae con gravedad y puedes tomarlo de nuevo. Sin objeto en mano, R devuelve a su lugar los materiales sueltos de la sala. En las salas, E abre o cierra los grifos.\n\n" +
             "<b>RESULTADOS Y REPETICIÓN</b>\nCada acierto suma 10 puntos y cada error resta 5, sin puntuaciones negativas. Si te equivocas, lee la explicación: el objeto vuelve a su lugar para intentarlo de nuevo. Al terminar, puedes repetir con Esc → Reiniciar esta práctica.\n\n" +
             "<b>MANUAL SIEMPRE DISPONIBLE</b>\nPulsa M para abrir esta guía durante el recorrido. También está disponible desde el inicio, desde la pausa o apuntando al panel de controles de cada sala y pulsando E. Usa Volver para regresar y Reanudar para seguir explorando.\n\n" +
             "<b>ALCANCE EDUCATIVO</b>\nLos casos describen condiciones concretas. Este recorrido no sustituye los procedimientos institucionales ni representa una certificación clínica. Los tiempos de equipo se abrevian en la simulación; sigue los ciclos validados y las instrucciones del fabricante en la práctica real.";
@@ -24,7 +26,10 @@ namespace ConsultorioSeguroNuevo
         GameObject hud, overlay, mainPanel, pausePanel, manualPanel, creditsPanel, toast;
         Text roomTitle, objective, prompt, holding, toastTitle, toastBody, progress;
         Button resetButton;
-        float messageUntil;
+        float messageUntil, messageShown = -10;
+        CanvasGroup toastFade;
+        RectTransform toastRect;
+        Vector2 toastHome;
         int layoutWidth, layoutHeight;
         readonly Color ink = new Color(.15f, .21f, .19f);
         readonly Color sage = new Color(.25f, .39f, .33f);
@@ -186,6 +191,10 @@ namespace ConsultorioSeguroNuevo
             var toastPanel = Panel("Explicación", hudRoot, paper);
             Position(toastPanel, new Vector2(1, 1), new Vector2(-282, -213), new Vector2(516, 378));
             toast = toastPanel.gameObject;
+            toastRect = toastPanel;
+            toastHome = toastPanel.anchoredPosition;
+            toastFade = toast.AddComponent<CanvasGroup>();
+            toastFade.blocksRaycasts = false;
             toastTitle = MakeText(toastPanel, "Título", "", 23, sage, TextAnchor.UpperLeft);
             Position(toastTitle.rectTransform, new Vector2(.5f, 1), new Vector2(0, -46), new Vector2(470, 58));
             toastBody = MakeText(toastPanel, "Explicación", "", 19, ink, TextAnchor.UpperLeft);
@@ -240,6 +249,7 @@ namespace ConsultorioSeguroNuevo
             toastTitle.text = title ?? string.Empty;
             toastBody.text = body;
             toast.SetActive(true);
+            messageShown = Time.unscaledTime;
             messageUntil = Time.time + Mathf.Clamp(6 + body.Length / 28f, 9, 26);
         }
 
@@ -253,6 +263,7 @@ namespace ConsultorioSeguroNuevo
                 foreach (var label in root.GetComponentsInChildren<Text>(true)) label.SetAllDirty();
                 Canvas.ForceUpdateCanvases();
             }
+            AnimateToast();
             if (!game || !game.Playing) return;
             var room = game.CurrentRoom;
             roomTitle.text = room ? room.title : "Consultorio Seguro";
@@ -260,10 +271,27 @@ namespace ConsultorioSeguroNuevo
             else if (room.Completed) objective.text = "Práctica completada · " + room.Score + " puntos\nEsc · Reiniciar esta práctica";
             else if (room.Busy) objective.text = "Proceso simulado en curso…\nAciertos: " + room.Correct + " · Errores: " + room.Mistakes;
             else if (!room.StepsComplete) objective.text = "Paso " + (room.NextStep + 1) + " de " + room.steps.Length + ": " + room.CurrentStep.actionText;
-            else objective.text = "Materiales por clasificar: " + room.Remaining + "\nAciertos: " + room.Correct + " · Errores: " + room.Mistakes;
+            else if (game.requireGloves && !game.GlovesOn && !game.HeldItem && room.Remaining > 0)
+                objective.text = "Ponte guantes en el dispensador de la sala\nMateriales por clasificar: " + room.Remaining;
+            else objective.text = "Materiales por clasificar: " + room.Remaining + "\nAciertos: " + room.Correct + " · Errores: " + room.Mistakes
+                + (room.Incidents > 0 ? " · Incidentes: " + room.Incidents : "");
             prompt.text = game.Prompt;
-            holding.text = game.HeldItem ? "En mano: " + game.HeldItem.displayName + " · R para devolver" : "E · Interactuar     M · Manual     Esc · Pausa";
+            holding.text = !game.HeldItem ? "E · Interactuar     C · Agacharse     M · Manual     Esc · Pausa"
+                : game.ThrowCharge >= 0 ? "Lanzamiento  " + new string('|', 2 + Mathf.RoundToInt(game.ThrowCharge * 18)) + "  · suelta G"
+                : "En mano: " + game.HeldItem.displayName + " · Rueda o clic derecho: inspeccionar · G soltar · R devolver";
             if (toast.activeSelf && Time.time > messageUntil) toast.SetActive(false);
+        }
+
+        // El aviso entra deslizándose desde la derecha y se desvanece al expirar.
+        void AnimateToast()
+        {
+            if (!toastFade || !toast.activeSelf) return;
+            float age = Time.unscaledTime - messageShown;
+            float enter = Mathf.Clamp01(age / .28f);
+            enter = 1 - (1 - enter) * (1 - enter) * (1 - enter);
+            float exit = Mathf.Clamp01((messageUntil - Time.time) / .35f);
+            toastFade.alpha = Mathf.Min(enter, exit);
+            toastRect.anchoredPosition = toastHome + new Vector2((1 - enter) * 60, 0);
         }
 
         RectTransform Panel(string name, Transform parent, Color color)

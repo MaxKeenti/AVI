@@ -42,6 +42,7 @@ namespace ConsultorioSeguroNuevo.Tests
             correctBin = Child("Bolsa roja").AddComponent<ClinicDestination>();
             correctBin.roomId = room.roomId; correctBin.destination = WasteDestination.RedBag;
             game = Child("Gestión").AddComponent<ClinicGame>(); game.player = player;
+            game.requireGloves = false;
             game.rooms = new[] { room };
             yield return null;
             game.StartVisit(); game.RefreshRoom();

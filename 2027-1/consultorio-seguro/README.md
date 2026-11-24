@@ -2,7 +2,7 @@
 
 Simulador educativo en español para practicar la separación de residuos y el manejo inicial del instrumental en una clínica dental. Esta versión se construye desde una escena e implementación nuevas; conserva únicamente recursos externos documentados de la biblioteca anterior.
 
-**Estado de la entrega:** escena nueva guardada, 18 capturas reales de Unity y 7 pruebas PlayMode aprobadas. El recorrido completo y las cinco prácticas se comprobaron automáticamente. [ENTREGA.md](ENTREGA.md) distingue la inspección visual, la prueba en el editor y lo que sigue sin ensayarse.
+**Estado de la entrega:** escena nueva guardada, 18 capturas reales de Unity y 31 pruebas PlayMode aprobadas (7 del recorrido y las prácticas, 14 de las acciones de simulación y 10 de los modelos de simulación en la escena entregable). El recorrido completo y las cinco prácticas se comprobaron automáticamente. [ENTREGA.md](ENTREGA.md) distingue la inspección visual, la prueba en el editor y lo que sigue sin ensayarse.
 
 ## Abrir y explorar
 
@@ -13,8 +13,11 @@ Abre esta carpeta desde Unity Hub con **Unity 6000.4.6f1**. El proyecto utiliza 
 | WASD o flechas | Caminar |
 | Ratón | Mirar |
 | Mayús izquierda | Caminar más rápido |
-| E | Interactuar con el objeto apuntado, a menos de 2,6 m |
-| R | Devolver el objeto sostenido a su lugar |
+| C (mantener) | Agacharse |
+| E | Interactuar con el objeto apuntado, a menos de 2,6 m; también abre y cierra los grifos y toma guantes del dispensador |
+| Rueda o clic derecho + arrastrar | Inspeccionar el objeto sostenido |
+| G (mantener para lanzar) | Soltar o lanzar el objeto sostenido |
+| R | Devolver el objeto sostenido a su lugar; sin objeto, recoge los materiales sueltos de la sala |
 | M | Abrir el manual / volver |
 | Esc | Abrir pausa, reanudar o volver desde la ayuda |
 
@@ -43,6 +46,20 @@ Se pueden visitar las prácticas en cualquier orden. Cada sala presenta primero 
 La clínica incluye recepción, espera, pasillo central, sala de personal y almacenamiento. Las actividades apoyan el aprendizaje de clasificación; no constituyen entrenamiento práctico para efectuar procedimientos en pacientes ni validan un proceso de esterilización.
 
 La escena define **13 objetos por clasificar y 10 pasos previos**, distribuidos entre las cinco prácticas. Radiografía representa preparación, toma digital y retiro de barreras mediante estaciones y mensajes; el brazo del equipo permanece estático.
+
+## Acciones de simulación
+
+Se añaden al iniciar Play desde `Scripts/Runtime/Simulacion/`; `ClinicGame` las conecta con los objetos existentes, de modo que la escena guardada y sus ajustes manuales no cambian.
+
+| Acción | Qué ocurre |
+| --- | --- |
+| Física | Los materiales tienen `Rigidbody` con masa, fricción y rebote propios (la gasa cae blanda, el vaso rebota). Con G caen o se lanzan con gravedad, chocan con mesas y piso, levantan polvo y suenan según el impacto; se pueden volver a tomar. El visitante empuja los materiales sueltos. Si uno sale de su sala, regresa a su lugar. Soltar un punzocortante es un incidente (−5) y se recoge con pinzas. |
+| Movimiento | Caminar con aceleración e inercia, balanceo de cabeza y agacharse con C. En Procedimientos el sillón pasa de sentado a reclinado y sube a altura de trabajo con el paciente; la lámpara operatoria gira su brazo sobre la boca del paciente. En Radiografía solo el brazo articulado gira hacia la cabeza del paciente. |
+| Partículas | Ciclo del autoclave (vapor por el respiradero con la puerta cerrada y nube al abrir), chorro de agua de los grifos, destellos al acertar, nube roja al rechazar, polvo al impactar y confeti al completar una práctica. |
+| Efectos de manipulación | Guantes del dispensador obligatorios para manipular materiales; una mano enguantada sostiene el objeto, que viaja de la mesa a la mano, se balancea y se inspecciona. Botes de pedal reales: el pedal se hunde y la tapa se abre sobre su bisagra, con la bolsa del color del destino; el material vuela en parábola hasta la boca. El contenedor rígido rojo de punzocortantes tiene abertura fija. |
+| Animaciones | Clips `.anim` y controladores `.controller` editables en las ventanas Animation y Animator: tapas, sillón y respaldo, lámpara, brazo de rayos X, puerta del autoclave y paneles de paso, que dan media vuelta y muestran «COMPLETADO». El indicador de exposición se enciende durante la toma. |
+
+Los controladores están en `Assets/ConsultorioSeguro/Resources/Simulacion/` y los clips en `Assets/ConsultorioSeguro/Animaciones/`. **Consultorio Seguro → Generar animaciones de simulación** los regenera sin cambiar sus GUID. **Consultorio Seguro → Añadir modelos de simulación** agrega a la escena existente, sin reconstruirla, el paciente (piezas `display-mannequin`), los botes de pedal y contenedores de punzocortantes, la puerta separada del autoclave y las pinzas; *Crear escena nueva* ejecuta el mismo paso. Los sonidos se sintetizan por código; no se añadió audio de terceros.
 
 ## Recursos y edición
 

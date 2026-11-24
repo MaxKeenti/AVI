@@ -35,7 +35,7 @@ namespace ConsultorioSeguroNuevo.Editor
             SetupFont();
             architecture = Group("01 · Arquitectura"); roof = Group("02 · Techos y torre");
             furniture = Group("03 · Mobiliario y equipamiento"); city = Group("04 · Entorno urbano"); lighting = Group("05 · Iluminación");
-            MakeArchitecture(); MakeReception(); MakeRooms(); RefineDentalEquipment(); MakeInteriorDetails(); MakeCity(); MakeLighting(); MakePlayer(); MakeViews();
+            MakeArchitecture(); MakeReception(); MakeRooms(); RefineDentalEquipment(); MakeInteriorDetails(); MakeCity(); MakeLighting(); MakePlayer(); MakeViews(); ApplySimulationModels();
             EditorSceneManager.SaveScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene(), ScenePath);
             EditorBuildSettings.scenes = new[]{new EditorBuildSettingsScene(ScenePath,true)};
             PlayerSettings.companyName="Equipo 7 · UPIICSA"; PlayerSettings.productName="Consultorio Seguro";

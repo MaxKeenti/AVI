@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -14,6 +15,8 @@ namespace ConsultorioSeguroNuevo
         public UnityEvent onReset = new UnityEvent();
         public bool Completed { get; private set; }
         public bool Working { get; private set; }
+        // Avisa al inicio del paso para sincronizar animaciones y partículas con el proceso simulado.
+        public event Action<PracticeStation> Began;
 
         public override bool CanInteract(ClinicGame game) => game.Playing && !Completed && !Working
             && !game.HeldItem && game.CurrentRoom && game.CurrentRoom.roomId == roomId
@@ -32,6 +35,7 @@ namespace ConsultorioSeguroNuevo
         {
             Working = true;
             room.BeginStep();
+            Began?.Invoke(this);
             if (duration > 0)
             {
                 game.ShowMessage(actionText, "Proceso representado de forma abreviada. En la clínica se siguen los tiempos y controles validados del fabricante.");
