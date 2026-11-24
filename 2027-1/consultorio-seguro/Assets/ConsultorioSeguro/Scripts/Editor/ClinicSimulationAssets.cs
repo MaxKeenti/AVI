@@ -56,27 +56,35 @@ namespace ConsultorioSeguroNuevo.Editor
 
         static void BuildChair()
         {
-            var low = Clip("Sillon_Bajo", Pos("y", (0, 0)));
-            var rise = Clip("Sillon_Elevar", Pos("y", (0, 0), (1.4f, .14f)), Rot("x", (0, 0), (1.4f, 0)));
-            var lower = Clip("Sillon_Bajar", Pos("y", (0, .14f), (1.4f, 0)), Rot("x", (0, 0), (1.4f, 0)));
+            // Reposo: sillón bajo con el respaldo erguido. Trabajo: elevado y reclinado como en la escena guardada.
+            string back = Axis + "/" + ClinicSimulation.BackrestJoint + "/" + Axis;
+            const float upright = 25;
+            var low = Clip("Sillon_Bajo", Pos("y", (0, 0)), Curve(back, typeof(Transform), "localEulerAnglesRaw.x", (0, upright)));
+            var rise = Clip("Sillon_Elevar", Pos("y", (0, 0), (1.4f, .14f)),
+                Curve(back, typeof(Transform), "localEulerAnglesRaw.x", (0, upright), (.2f, upright), (1.8f, 0)));
+            var lower = Clip("Sillon_Bajar", Pos("y", (0, .14f), (1.4f, 0)),
+                Curve(back, typeof(Transform), "localEulerAnglesRaw.x", (0, 0), (1.8f, upright)));
             Toggle("Sillon", "Elevado", ("Bajo", low), ("Elevando", rise), ("Bajando", lower));
         }
 
         static void BuildLamp()
         {
             string light = Axis + "/Luz";
-            var off = Clip("Lampara_Apagada", Curve(light, typeof(Light), "m_Intensity", (0, 0)));
-            // Parpadeo breve de encendido antes de la intensidad de trabajo.
-            var on = Clip("Lampara_Encender", Curve(light, typeof(Light), "m_Intensity", (0, 0), (.06f, 1.4f), (.12f, .2f), (.2f, 2f), (.5f, 2.8f)));
-            var fade = Clip("Lampara_Apagar", Curve(light, typeof(Light), "m_Intensity", (0, 2.8f), (.35f, 0)));
+            float swing = ClinicSimulation.LampSwing;
+            var off = Clip("Lampara_Apagada", Rot("y", (0, 0)), Curve(light, typeof(Light), "m_Intensity", (0, 0)));
+            // El brazo se coloca sobre el paciente y la luz parpadea brevemente antes de la intensidad de trabajo.
+            var on = Clip("Lampara_Encender", Rot("y", (0, 0), (1.2f, swing)),
+                Curve(light, typeof(Light), "m_Intensity", (0, 0), (.9f, 0), (.96f, 1.4f), (1.02f, .2f), (1.1f, 2f), (1.4f, 2.8f)));
+            var fade = Clip("Lampara_Apagar", Rot("y", (0, swing), (.3f, swing), (1.5f, 0)),
+                Curve(light, typeof(Light), "m_Intensity", (0, 2.8f), (.3f, 0)));
             Toggle("Lampara", "Encendida", ("Apagada", off), ("Encendiendo", on), ("Apagando", fade));
         }
 
         static void BuildArm()
         {
-            var rest = Clip("Brazo_Reposo", Rot("y", (0, 0)), Pos("y", (0, 0)));
-            var shot = Clip("Brazo_Toma", Rot("y", (0, 0), (.7f, 32), (1.6f, 32), (2.2f, 0)),
-                Pos("y", (0, 0), (.7f, -.05f), (1.6f, -.05f), (2.2f, 0)));
+            float swing = ClinicSimulation.ArmSwing;
+            var rest = Clip("Brazo_Reposo", Rot("y", (0, 0)));
+            var shot = Clip("Brazo_Toma", Rot("y", (0, 0), (.7f, swing), (1.6f, swing), (2.2f, 0)));
             OneShot("Brazo", "Toma", ("Reposo", rest), ("Toma", shot));
         }
 

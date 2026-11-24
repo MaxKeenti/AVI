@@ -49,6 +49,44 @@ namespace ConsultorioSeguroNuevo
             return animated;
         }
 
+        /// <summary>
+        /// Articulación anidada sin Animator propio: crea «<paramref name="name"/>/Eje» bajo <paramref name="parent"/>
+        /// para que el Animator de un antecesor la anime con la ruta «…/<paramref name="name"/>/Eje».
+        /// </summary>
+        public static Transform Nest(Transform parent, string name, Vector3 hinge, Quaternion orientation, params Transform[] parts)
+        {
+            var joint = new GameObject(name).transform;
+            joint.SetParent(parent, false);
+            joint.SetPositionAndRotation(hinge, orientation);
+            var axis = new GameObject(AxisName).transform;
+            axis.SetParent(joint, false);
+            foreach (var part in parts.Where(part => part)) part.SetParent(axis, true);
+            return axis;
+        }
+
+        /// <summary>
+        /// Envuelve un brazo articulado que gira sobre la vertical de <paramref name="pivot"/>. Lo estaciona de modo
+        /// que el giro positivo del clip (<paramref name="clipDegrees"/>) lleve <paramref name="tip"/> hacia
+        /// <paramref name="target"/>. Devuelve el giro en el mundo al final del clip (positivo o negativo).
+        /// </summary>
+        public static AnimatedPart SwingToward(string label, string controller, Transform pivot, Vector3 tip, Vector3 target,
+            float clipDegrees, out float worldDegrees)
+        {
+            Vector3 origin = pivot.position;
+            Vector3 reach = tip - origin, wanted = target - origin;
+            reach.y = 0; wanted.y = 0;
+            if (reach.sqrMagnitude < 1e-6f) reach = pivot.forward;
+            float angle = wanted.sqrMagnitude < 1e-6f ? clipDegrees : Vector3.SignedAngle(reach, wanted, Vector3.up);
+            float sign = angle >= 0 ? 1 : -1;
+            // Con el pivote invertido, el giro local positivo equivale a un giro negativo en el mundo.
+            Quaternion orientation = Quaternion.LookRotation(reach.normalized, Vector3.up);
+            if (sign < 0) orientation *= Quaternion.Euler(0, 0, 180);
+            var part = Wrap(label, controller, origin, orientation, pivot);
+            part.transform.RotateAround(origin, Vector3.up, angle - sign * clipDegrees);
+            worldDegrees = sign * clipDegrees;
+            return part;
+        }
+
         void Attach(string controller)
         {
             ControllerName = controller;

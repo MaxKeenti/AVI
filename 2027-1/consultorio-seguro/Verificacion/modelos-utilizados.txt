@@ -7,6 +7,15 @@ dental-practice/instrument-tray.glb
 dental-practice/intraoral-xray-arm.glb
 dental-practice/operating-light.glb
 dental-practice/sterile-store-cabinet.glb
+display-mannequin/paciente-0.obj
+display-mannequin/paciente-1.obj
+display-mannequin/paciente-2.obj
+display-mannequin/paciente-3.obj
+display-mannequin/paciente-4.obj
+display-mannequin/paciente-5.obj
+display-mannequin/paciente-6.obj
+display-mannequin/paciente-7.obj
+display-mannequin/paciente-8.obj
 field-medicine/gauze-stack.glb
 gallery-gloves/guantes.obj
 paper-cup/cup.glb

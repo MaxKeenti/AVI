@@ -13,6 +13,11 @@ namespace ConsultorioSeguroNuevo
     {
         // Controladores de Resources/Simulacion y sus parámetros.
         public const string PanelController = "Panel", ArmController = "Brazo", ChairController = "Sillon", LampController = "Lampara";
+        // Grados que recorren los brazos en sus clips y nombre de la articulación del respaldo.
+        public const float ArmSwing = 40, LampSwing = 40;
+        public const string BackrestJoint = "Respaldo", PatientHead = "Paciente · cabeza";
+        static readonly string[] PatientUpperBody =
+            { "Paciente · torso", "Paciente · cuello", PatientHead, "Paciente · brazo derecho", "Paciente · brazo izquierdo" };
         const int Sterilization = 2, Procedures = 4, Radiography = 5;
 
         ClinicGame game;
@@ -28,6 +33,7 @@ namespace ConsultorioSeguroNuevo
         public AnimatedPart XrayArm { get; private set; }
         public AnimatedPart DentalChair { get; private set; }
         public AnimatedPart OperatingLamp { get; private set; }
+        public Transform Backrest { get; private set; }
         public ParticleSystem AutoclaveSteam { get; private set; }
         public IReadOnlyList<ClinicFaucet> Faucets => faucets;
         public BinFeedback FeedbackFor(ClinicDestination destination) => destination && bins.TryGetValue(destination, out var bin) ? bin : null;
@@ -225,6 +231,9 @@ namespace ConsultorioSeguroNuevo
 
             var procedures = RoomById(Procedures);
             var chair = FindIn(procedures, "dental-chair-reclined");
+            // Objetivo de la lámpara: la boca del paciente con el sillón reclinado (pose guardada en la escena).
+            var procedureHead = FindIn(procedures, PatientHead);
+            Vector3? mouth = procedureHead ? WorldBounds(procedureHead).center + Vector3.up * .07f : (Vector3?)null;
             if (chair)
             {
                 var original = chair.parent;
@@ -235,32 +244,79 @@ namespace ConsultorioSeguroNuevo
                     var floorPart = FindIn(chair, name);
                     if (floorPart) floorPart.SetParent(original, true);
                 }
+                SetUpBackrest(chair);
             }
             var lamp = FindIn(procedures, "operating-light");
-            if (lamp)
+            var lampArm = FindIn(lamp, "light-arm");
+            var lens = FindIn(lamp, "light-head-lens");
+            if (lampArm && lens && mouth.HasValue)
+            {
+                // El brazo de la lámpara gira sobre su eje y se coloca sobre la boca del paciente.
+                Vector3 lensPosition = WorldBounds(lens).center;
+                OperatingLamp = AnimatedPart.SwingToward("Lámpara operatoria", LampController, lampArm, lensPosition, mouth.Value,
+                    LampSwing, out float swing);
+                Quaternion turn = Quaternion.AngleAxis(swing, Vector3.up);
+                Vector3 pivot = OperatingLamp.transform.position;
+                Vector3 parked = WorldBounds(lens).center + Vector3.down * .03f;
+                Vector3 working = pivot + turn * (parked - pivot);
+                // La luz se orienta como quedará al terminar el giro.
+                AddLampLight(OperatingLamp, parked, Quaternion.Inverse(turn) * Quaternion.LookRotation(mouth.Value - working));
+            }
+            else if (lamp)
             {
                 Bounds bounds = WorldBounds(lamp);
-                Vector3 target = chair ? WorldBounds(chair).center + Vector3.up * .3f : bounds.center + lamp.forward;
+                Vector3 target = mouth ?? (chair ? WorldBounds(chair).center + Vector3.up * .3f : bounds.center + lamp.forward);
                 Vector3 head = new Vector3(bounds.center.x, bounds.max.y - .15f, bounds.center.z);
-                head = Vector3.Lerp(head, new Vector3(target.x, head.y, target.z), .35f);
-                OperatingLamp = AnimatedPart.Create("Lámpara operatoria", LampController, lamp, head,
-                    Quaternion.LookRotation(target - head));
-                var light = new GameObject("Luz").AddComponent<Light>();
-                light.transform.SetParent(OperatingLamp.Axis, false);
-                light.type = LightType.Spot;
-                light.range = 3.5f;
-                light.spotAngle = 42;
-                light.innerSpotAngle = 22;
-                light.color = new Color(1f, .96f, .9f);
-                light.intensity = 0;
-                light.shadows = LightShadows.None;
-                // El Animator se enlazó antes de existir la luz: se vuelve a enlazar para animar su intensidad.
-                OperatingLamp.ResetPose();
+                OperatingLamp = AnimatedPart.Create("Lámpara operatoria", LampController, lamp, head, Quaternion.identity);
+                AddLampLight(OperatingLamp, head, Quaternion.LookRotation(target - head));
             }
 
             var radiography = RoomById(Radiography);
             var arm = FindIn(radiography, "intraoral-xray-arm");
-            if (arm) XrayArm = AnimatedPart.Wrap("Brazo de rayos X", ArmController, arm.position, arm.rotation, arm);
+            var articulated = FindIn(arm, "xray-arm");
+            var radiographyHead = FindIn(radiography, PatientHead);
+            if (articulated && radiographyHead)
+            {
+                // Solo el brazo articulado gira; la base queda fija en la columna.
+                var collimator = FindIn(articulated, "xray-arm/dark");
+                Vector3 tip = collimator ? WorldBounds(collimator).center : WorldBounds(articulated).center;
+                XrayArm = AnimatedPart.SwingToward("Brazo de rayos X", ArmController, articulated, tip,
+                    WorldBounds(radiographyHead).center, ArmSwing, out _);
+            }
+            else if (arm) XrayArm = AnimatedPart.Wrap("Brazo de rayos X", ArmController, arm.position, arm.rotation, arm);
+        }
+
+        // El respaldo, el reposacabezas y la parte superior del paciente giran juntos sobre la articulación del sillón.
+        void SetUpBackrest(Transform chair)
+        {
+            var back = FindIn(chair, "chair-back");
+            if (!back || !DentalChair) return;
+            var parts = new[] { "Respaldo lumbar", "Reposacabezas anatómico" }.Concat(PatientUpperBody)
+                .Select(name => FindIn(chair, name)).Where(part => part).Prepend(back).ToArray();
+            var headrest = FindIn(chair, "Reposacabezas anatómico");
+            Vector3 toHead = (headrest ? WorldBounds(headrest).center : WorldBounds(back).center) - back.position;
+            toHead.y = 0;
+            // El eje local -Z apunta a la cabeza: el giro positivo en X levanta el respaldo.
+            Backrest = AnimatedPart.Nest(DentalChair.Axis, BackrestJoint, back.position,
+                Quaternion.LookRotation(-toHead.normalized, Vector3.up), parts);
+            // El Animator se enlazó antes de existir la articulación: se vuelve a enlazar.
+            DentalChair.ResetPose();
+        }
+
+        static void AddLampLight(AnimatedPart lamp, Vector3 position, Quaternion rotation)
+        {
+            var light = new GameObject("Luz").AddComponent<Light>();
+            light.transform.SetParent(lamp.Axis, false);
+            light.transform.SetPositionAndRotation(position, rotation);
+            light.type = LightType.Spot;
+            light.range = 3.5f;
+            light.spotAngle = 38;
+            light.innerSpotAngle = 20;
+            light.color = new Color(1f, .96f, .9f);
+            light.intensity = 0;
+            light.shadows = LightShadows.None;
+            // El Animator se enlazó antes de existir la luz: se vuelve a enlazar para animar su intensidad.
+            lamp.ResetPose();
         }
 
         // --- Retroalimentación de clasificación ---

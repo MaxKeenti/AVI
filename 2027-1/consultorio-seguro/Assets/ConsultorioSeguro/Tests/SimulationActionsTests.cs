@@ -174,8 +174,7 @@ namespace ConsultorioSeguroNuevo.Tests
             Assert.IsNotNull(arm);
             arm.Trigger("Toma");
             yield return new WaitForSeconds(1.1f);
-            Assert.AreEqual(32, arm.Axis.localEulerAngles.y, 2, "El brazo gira hacia el paciente.");
-            Assert.Less(arm.Axis.localPosition.y, -.03f);
+            Assert.AreEqual(ClinicSimulation.ArmSwing, arm.Axis.localEulerAngles.y, 2, "El brazo gira hacia el paciente.");
             yield return new WaitForSeconds(1.5f);
             Assert.Less(Quaternion.Angle(Quaternion.identity, arm.Axis.localRotation), 1, "El brazo vuelve al reposo.");
         }
@@ -317,8 +316,9 @@ namespace ConsultorioSeguroNuevo.Tests
             Assert.AreEqual(0, light.intensity);
             steps[0].Interact(game);
             steps[1].Interact(game);
-            yield return new WaitForSeconds(.8f);
+            yield return new WaitForSeconds(1.8f);
             Assert.AreEqual(2.8f, light.intensity, .05f, "La lámpara se enciende con la exploración.");
+            Assert.AreEqual(ClinicSimulation.LampSwing, lamp.Axis.localEulerAngles.y, 2, "El brazo de la lámpara se coloca sobre el paciente.");
             game.RestartCurrentRoom();
             yield return null;
             Assert.AreEqual(0, light.intensity, .01f, "Reiniciar apaga la lámpara.");
