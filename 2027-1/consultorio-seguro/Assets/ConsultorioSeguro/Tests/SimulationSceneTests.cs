@@ -136,6 +136,42 @@ namespace ConsultorioSeguroNuevo.Tests
         }
 
         [UnityTest]
+        public IEnumerator PedalBinsOpenTheirRealLidAndSharpsContainersStayClosed()
+        {
+            var destinations = Object.FindObjectsByType<ClinicDestination>();
+            Assert.AreEqual(17, destinations.Length);
+            foreach (var destination in destinations)
+            {
+                var feedback = game.Simulation.FeedbackFor(destination);
+                Assert.IsNotNull(destination.transform.Find(BinFeedback.ModelName), destination.name + ": falta el modelo del recipiente");
+                if (destination.destination == WasteDestination.Sharps)
+                {
+                    Assert.IsTrue(feedback.FixedOpening, "El contenedor rígido no tiene tapa abatible");
+                    Assert.IsNull(feedback.Lid);
+                    continue;
+                }
+                Assert.IsNotNull(feedback.Lid, destination.name + ": la tapa del bote se articula");
+                Assert.IsNotNull(feedback.Pedal, destination.name + ": el pedal se articula");
+                Assert.IsNotNull(destination.transform.Find("Bolsa interior"), destination.name + ": falta la bolsa");
+                Assert.IsFalse(destination.transform.Find("Tapa").gameObject.activeSelf, "La tapa provisional queda oculta");
+            }
+            var room = Room(1);
+            Enter(room);
+            var red = destinations.First(d => d.roomId == 1 && d.destination == WasteDestination.RedBag);
+            var item = room.Items.First(i => i.correctDestination == WasteDestination.RedBag);
+            var bin = game.Simulation.FeedbackFor(red);
+            game.PickUp(item);
+            game.Deposit(red);
+            yield return new WaitForSeconds(.4f);
+            Assert.IsTrue(bin.LidOpen);
+            Assert.Greater(bin.Lid.Axis.localEulerAngles.x, 60, "La tapa gira sobre la bisagra del modelo");
+            Assert.Less(Mathf.DeltaAngle(0, bin.Pedal.localEulerAngles.x), -10, "El pedal se hunde al abrir");
+            yield return new WaitForSeconds(1.2f);
+            Assert.IsFalse(bin.LidOpen);
+            Assert.AreEqual(0, Mathf.DeltaAngle(0, bin.Pedal.localEulerAngles.x), .5f);
+        }
+
+        [UnityTest]
         public IEnumerator OperatingLampSwingsOverThePatientAndLightsTheMouth()
         {
             var room = Room(4);

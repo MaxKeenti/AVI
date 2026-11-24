@@ -12,7 +12,7 @@ namespace ConsultorioSeguroNuevo
     /// </summary>
     public sealed class BinFeedback : MonoBehaviour
     {
-        public const string LidController = "Tapa";
+        public const string LidController = "Tapa", ModelName = "Modelo de recipiente";
         public const float FlightTime = .42f;
         ClinicGame game;
         ClinicDestination destination;
@@ -20,6 +20,9 @@ namespace ConsultorioSeguroNuevo
         /// <summary>Los contenedores de punzocortantes tienen una abertura fija: no se abren.</summary>
         public bool FixedOpening { get; private set; }
         public bool LidOpen { get; private set; }
+        /// <summary>Eje del pedal; se hunde mientras la tapa está abierta.</summary>
+        public Transform Pedal { get; private set; }
+        float pedalAngle;
         float holdOpenUntil;
         Coroutine shaking;
         Quaternion restRotation;
@@ -29,10 +32,26 @@ namespace ConsultorioSeguroNuevo
             game = owner;
             destination = target;
             restRotation = transform.localRotation;
-            var lid = transform.Cast<Transform>().FirstOrDefault(child => child.name == "Tapa");
             var slot = transform.Cast<Transform>().FirstOrDefault(child => child.name == "Abertura segura");
             FixedOpening = slot;
-            if (!lid || FixedOpening) return;
+            if (FixedOpening) return;
+            var model = transform.Find(ModelName);
+            if (model)
+            {
+                // Bote de pedal real: la tapa gira sobre su propio nodo de bisagra y el pedal se hunde al abrir.
+                var lidNode = model.GetComponentsInChildren<Transform>(true).FirstOrDefault(t => t.name == "lid");
+                if (lidNode) Lid = AnimatedPart.Wrap("Tapa de " + name, LidController, lidNode.position, transform.rotation, lidNode);
+                var pedal = model.GetComponentsInChildren<Transform>(true).FirstOrDefault(t => t.name == "pedal-waste-bin_0");
+                if (pedal)
+                {
+                    Bounds bounds = LocalBounds(pedal);
+                    Vector3 back = transform.TransformPoint(new Vector3(bounds.center.x, bounds.center.y, bounds.max.z));
+                    Pedal = AnimatedPart.Nest(transform, "Pedal articulado", back, transform.rotation, pedal);
+                }
+                return;
+            }
+            var lid = transform.Cast<Transform>().FirstOrDefault(child => child.name == "Tapa");
+            if (!lid) return;
             // Bisagra en el borde posterior superior de la tapa (el rótulo marca el frente, en -Z).
             Bounds local = LocalBounds(lid);
             Vector3 hinge = transform.TransformPoint(new Vector3(local.center.x, local.max.y, local.max.z));
@@ -62,7 +81,7 @@ namespace ConsultorioSeguroNuevo
         {
             get
             {
-                var renderers = GetComponentsInChildren<Renderer>().Where(r => !(r is ParticleSystemRenderer)).ToArray();
+                var renderers = GetComponentsInChildren<Renderer>().Where(r => r.enabled && !(r is ParticleSystemRenderer)).ToArray();
                 if (renderers.Length == 0) return transform.position + Vector3.up * .7f;
                 Bounds bounds = renderers[0].bounds;
                 foreach (var renderer in renderers.Skip(1)) bounds.Encapsulate(renderer.bounds);
@@ -75,6 +94,12 @@ namespace ConsultorioSeguroNuevo
         void Update()
         {
             if (!game) return;
+            if (Pedal)
+            {
+                // El pedal se pisa antes de que la tapa termine de subir (frente en -Z: giro negativo).
+                pedalAngle = Mathf.MoveTowards(pedalAngle, LidOpen ? -14 : 0, 140 * Time.deltaTime);
+                Pedal.localRotation = Quaternion.Euler(pedalAngle, 0, 0);
+            }
             bool aimed = game.Playing && game.HeldItem && game.Target == destination;
             bool open = aimed || Time.time < holdOpenUntil;
             if (open != LidOpen)
@@ -159,6 +184,8 @@ namespace ConsultorioSeguroNuevo
         {
             holdOpenUntil = 0;
             LidOpen = false;
+            pedalAngle = 0;
+            if (Pedal) Pedal.localRotation = Quaternion.identity;
             if (Lid) Lid.ResetPose();
             if (shaking != null) StopCoroutine(shaking);
             shaking = null;

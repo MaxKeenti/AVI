@@ -44,6 +44,7 @@ namespace ConsultorioSeguroNuevo.Editor
                 var autoclave = Deep(room.transform, "autoclave");
                 if (autoclave) SplitAutoclaveDoor(autoclave);
             }
+            foreach (var destination in Object.FindObjectsByType<ClinicDestination>()) UpgradeBin(destination.transform);
         }
 
         static Transform Deep(Transform root, string name) =>
@@ -66,6 +67,92 @@ namespace ConsultorioSeguroNuevo.Editor
                 var matrix = filter.transform.localToWorldMatrix;
                 foreach (var vertex in filter.sharedMesh.vertices) yield return matrix.MultiplyPoint3x4(vertex);
             }
+        }
+
+        // --- Recipientes ---
+
+        // Sustituye la caja provisional por el bote de pedal real (o el contenedor rígido de punzocortantes),
+        // con el color de su destino. Las piezas anteriores se ocultan, no se borran, y el colisionador se ajusta.
+        static void UpgradeBin(Transform bin)
+        {
+            var body = bin.Find("Cuerpo");
+            if (!body) return;
+            bool sharps = bin.Find("Abertura segura");
+            var color = body.GetComponent<Renderer>().sharedMaterial;
+            var model = bin.Find(BinFeedback.ModelName);
+            if (!model)
+            {
+                string path = sharps ? "dental-practice/sharps-bin.glb" : "dental-practice/pedal-waste-bin.glb";
+                // El modelo mira hacia +Z; el frente del recipiente (rótulo y pedal) está en -Z.
+                model = Model(path, bin, Vector3.zero, sharps ? .50f : .70f, 180, false);
+                model.name = BinFeedback.ModelName;
+                var trim = Material("Detalle de recipiente", new Color(.16f, .18f, .18f), .4f);
+                // Bote de acero con tapa del color del destino; contenedor rígido rojo para punzocortantes.
+                foreach (var renderer in model.GetComponentsInChildren<Renderer>())
+                    renderer.sharedMaterials = renderer.sharedMaterials.Select(material =>
+                    {
+                        string n = material ? material.name.ToLowerInvariant() : "";
+                        if (n.Contains("yellow") || (n.Contains("white") && !sharps)) return color;
+                        return n.Contains("teal") ? trim : material;
+                    }).ToArray();
+                foreach (var name in new[] { "Tapa", "Pedal", "Abertura segura" })
+                {
+                    var old = bin.Find(name);
+                    if (old) old.gameObject.SetActive(false);
+                }
+                body.GetComponent<Renderer>().enabled = false;
+            }
+
+            Bounds Local(IEnumerable<Renderer> renderers)
+            {
+                Bounds result = default;
+                bool first = true;
+                foreach (var renderer in renderers)
+                    foreach (var corner in Corners(renderer.bounds))
+                    {
+                        Vector3 p = bin.InverseTransformPoint(corner);
+                        if (first) { result = new Bounds(p, Vector3.zero); first = false; } else result.Encapsulate(p);
+                    }
+                return result;
+            }
+            var parts = model.GetComponentsInChildren<Renderer>();
+            Bounds all = Local(parts);
+            // Cuerpo del bote (sin tapa, base ni pedal) para el rótulo y la bolsa.
+            var shellParts = parts.Where(r => r.GetComponentsInParent<Transform>().Any(t => t.name == "pedal-waste-bin_1")).ToArray();
+            Bounds shell = Local(shellParts.Length > 0 ? shellParts : parts);
+            var rimParts = parts.Where(r => r.GetComponentsInParent<Transform>().Any(t => t.name == "pedal-waste-bin_2")).ToArray();
+            float rim = rimParts.Length > 0 ? Local(rimParts).max.y : shell.max.y;
+
+            var collider = body.GetComponent<BoxCollider>();
+            if (collider)
+            {
+                collider.center = all.center - body.localPosition;
+                collider.size = all.size;
+            }
+            // El rótulo se apoya en el frente del cuerpo.
+            var sign = bin.Cast<Transform>().FirstOrDefault(t => t.name == bin.name);
+            if (sign)
+            {
+                float fit = Mathf.Min(1, shell.size.x * .95f / .45f);
+                sign.localScale = new Vector3(fit, fit, 1);
+                sign.localPosition = new Vector3(shell.center.x, shell.min.y + shell.size.y * (sharps ? .45f : .6f), shell.min.z - .006f);
+            }
+            var previousBag = bin.Find("Bolsa interior");
+            if (previousBag) Object.DestroyImmediate(previousBag.gameObject);
+            if (!sharps)
+            {
+                // Bolsa del color del destino, visible al abrir la tapa.
+                var bag = Material("Bolsa · " + bin.name, Color.Lerp(color.GetColor("_BaseColor"), Color.black, .25f), .55f);
+                float diameter = Mathf.Min(shell.size.x, shell.size.z) * .86f;
+                Cylinder("Bolsa interior", bin, new Vector3(shell.center.x, rim + .002f, shell.center.z),
+                    new Vector3(diameter, .002f, diameter), bag);
+            }
+        }
+
+        static IEnumerable<Vector3> Corners(Bounds b)
+        {
+            for (int c = 0; c < 8; c++)
+                yield return b.center + Vector3.Scale(b.extents, new Vector3((c & 1) == 0 ? -1 : 1, (c & 2) == 0 ? -1 : 1, (c & 4) == 0 ? -1 : 1));
         }
 
         // --- Autoclave ---

@@ -6,6 +6,8 @@ dental-practice/glove-and-mask-dispenser.glb
 dental-practice/instrument-tray.glb
 dental-practice/intraoral-xray-arm.glb
 dental-practice/operating-light.glb
+dental-practice/pedal-waste-bin.glb
+dental-practice/sharps-bin.glb
 dental-practice/sterile-store-cabinet.glb
 display-mannequin/paciente-0.obj
 display-mannequin/paciente-1.obj
