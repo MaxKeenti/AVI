@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="31" result="Passed" total="31" passed="31" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-24 01:17:31Z" end-time="2026-11-24 01:18:15Z" duration="44.6722873">
+  <test-suite type="TestSuite" id="1042" name="Consultorio Seguro" fullname="Consultorio Seguro" runstate="Runnable" testcasecount="31" result="Passed" start-time="2026-11-24 01:17:31Z" end-time="2026-11-24 01:18:15Z" duration="44.672287" total="31" passed="31" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1036" name="ConsultorioSeguroNuevo.Tests.dll" fullname="/Users/moonstone/Source/UPIICSA/Plan 2021/2026 2/6NM69 Ambientes virtuales inmersivos/AVI/2027-1/consultorio-seguro/Library/ScriptAssemblies/ConsultorioSeguroNuevo.Tests.dll" runstate="Runnable" testcasecount="31" result="Passed" start-time="2026-11-24 01:17:31Z" end-time="2026-11-24 01:18:15Z" duration="44.669025" total="31" passed="31" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="17507" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1037" name="ConsultorioSeguroNuevo" fullname="ConsultorioSeguroNuevo" runstate="Runnable" testcasecount="31" result="Passed" start-time="2026-11-24 01:17:31Z" end-time="2026-11-24 01:18:15Z" duration="44.668830" total="31" passed="31" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1038" name="Tests" fullname="ConsultorioSeguroNuevo.Tests" runstate="Runnable" testcasecount="31" result="Passed" start-time="2026-11-24 01:17:31Z" end-time="2026-11-24 01:18:15Z" duration="44.668684" total="31" passed="31" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1001" name="ClinicSceneIntegrationTests" fullname="ConsultorioSeguroNuevo.Tests.ClinicSceneIntegrationTests" classname="ConsultorioSeguroNuevo.Tests.ClinicSceneIntegrationTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-24 01:17:31Z" end-time="2026-11-24 01:17:38Z" duration="7.659196" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1002" name="WalkEveryRouteAndCompleteEveryPracticeThroughVisibleTargets" fullname="ConsultorioSeguroNuevo.Tests.ClinicSceneIntegrationTests.WalkEveryRouteAndCompleteEveryPracticeThroughVisibleTargets" methodname="WalkEveryRouteAndCompleteEveryPracticeThroughVisibleTargets" classname="ConsultorioSeguroNuevo.Tests.ClinicSceneIntegrationTests" runstate="Runnable" seed="411354518" result="Passed" start-time="2026-11-24 01:17:31Z" end-time="2026-11-24 01:17:38Z" duration="7.654219" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="Timeout" value="240000" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1003" name="RuntimeInteractionTests" fullname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests" classname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-11-24 01:17:38Z" end-time="2026-11-24 01:17:39Z" duration="1.038746" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1004" name="AssistanceHidesForEveryItemWhileHoldingOrPaused" fullname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests.AssistanceHidesForEveryItemWhileHoldingOrPaused" methodname="AssistanceHidesForEveryItemWhileHoldingOrPaused" classname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests" runstate="Runnable" seed="1176845718" result="Passed" start-time="2026-11-24 01:17:38Z" end-time="2026-11-24 01:17:38Z" duration="0.026077" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1006" name="ManualAndCreditsPreserveTheirReturnRouteAndPauseSimulation" fullname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests.ManualAndCreditsPreserveTheirReturnRouteAndPauseSimulation" methodname="ManualAndCreditsPreserveTheirReturnRouteAndPauseSimulation" classname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests" runstate="Runnable" seed="1558684559" result="Passed" start-time="2026-11-24 01:17:38Z" end-time="2026-11-24 01:17:38Z" duration="0.021223" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1008" name="ManualShortcutWorksAtStartDuringVisitAndWhilePaused" fullname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests.ManualShortcutWorksAtStartDuringVisitAndWhilePaused" methodname="ManualShortcutWorksAtStartDuringVisitAndWhilePaused" classname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests" runstate="Runnable" seed="2077704704" result="Passed" start-time="2026-11-24 01:17:38Z" end-time="2026-11-24 01:17:38Z" duration="0.025783" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1007" name="OrderedStepsCannotBeSkippedAndResetCancelsAnActiveProcess" fullname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests.OrderedStepsCannotBeSkippedAndResetCancelsAnActiveProcess" methodname="OrderedStepsCannotBeSkippedAndResetCancelsAnActiveProcess" classname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests" runstate="Runnable" seed="628102104" result="Passed" start-time="2026-11-24 01:17:38Z" end-time="2026-11-24 01:17:39Z" duration="0.921597" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1009" name="RotatedRoomUsesItsActualVolumeAndAssistanceHasADistanceLimit" fullname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests.RotatedRoomUsesItsActualVolumeAndAssistanceHasADistanceLimit" methodname="RotatedRoomUsesItsActualVolumeAndAssistanceHasADistanceLimit" classname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests" runstate="Runnable" seed="1619627347" result="Passed" start-time="2026-11-24 01:17:39Z" end-time="2026-11-24 01:17:39Z" duration="0.019657" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1005" name="WrongAnswerRestoresPoseAndCorrectAnswerCompletesOnce" fullname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests.WrongAnswerRestoresPoseAndCorrectAnswerCompletesOnce" methodname="WrongAnswerRestoresPoseAndCorrectAnswerCompletesOnce" classname="ConsultorioSeguroNuevo.Tests.RuntimeInteractionTests" runstate="Runnable" seed="305594166" result="Passed" start-time="2026-11-24 01:17:39Z" end-time="2026-11-24 01:17:39Z" duration="0.022330" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene
+]]></output>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1010" name="SimulationActionsTests" fullname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests" classname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests" runstate="Runnable" testcasecount="14" result="Passed" start-time="2026-11-24 01:17:39Z" end-time="2026-11-24 01:17:57Z" duration="17.474634" total="14" passed="14" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <output><![CDATA[There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene
+]]></output>
+            <test-case id="1022" name="Animations_ControllersAreGeneratedWithTheirParameters" fullname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests.Animations_ControllersAreGeneratedWithTheirParameters" methodname="Animations_ControllersAreGeneratedWithTheirParameters" classname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests" runstate="Runnable" seed="100267964" result="Passed" start-time="2026-11-24 01:17:39Z" end-time="2026-11-24 01:17:39Z" duration="0.022906" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene
+]]></output>
+            </test-case>
+            <test-case id="1024" name="Animations_OperatingLampLightsUpDuringTheExamination" fullname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests.Animations_OperatingLampLightsUpDuringTheExamination" methodname="Animations_OperatingLampLightsUpDuringTheExamination" classname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests" runstate="Runnable" seed="651070050" result="Passed" start-time="2026-11-24 01:17:39Z" end-time="2026-11-24 01:17:41Z" duration="1.823181" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1023" name="Animations_StepPanelFlipsAndItsIndicatorTurnsGreen" fullname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests.Animations_StepPanelFlipsAndItsIndicatorTurnsGreen" methodname="Animations_StepPanelFlipsAndItsIndicatorTurnsGreen" classname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests" runstate="Runnable" seed="1271192770" result="Passed" start-time="2026-11-24 01:17:41Z" end-time="2026-11-24 01:17:42Z" duration="1.273516" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1021" name="Manipulation_DepositFliesIntoTheBinWithoutChangingTheScore" fullname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests.Manipulation_DepositFliesIntoTheBinWithoutChangingTheScore" methodname="Manipulation_DepositFliesIntoTheBinWithoutChangingTheScore" classname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests" runstate="Runnable" seed="658532569" result="Passed" start-time="2026-11-24 01:17:42Z" end-time="2026-11-24 01:17:43Z" duration="0.792233" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene
+There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene
+There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene
+]]></output>
+            </test-case>
+            <test-case id="1020" name="Manipulation_ItemTravelsToTheHandAndCanBeInspected" fullname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests.Manipulation_ItemTravelsToTheHandAndCanBeInspected" methodname="Manipulation_ItemTravelsToTheHandAndCanBeInspected" classname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests" runstate="Runnable" seed="1130817907" result="Passed" start-time="2026-11-24 01:17:43Z" end-time="2026-11-24 01:17:44Z" duration="0.823625" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1019" name="Manipulation_LidOpensWhileAimingWithAnItemAndClosesAfter" fullname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests.Manipulation_LidOpensWhileAimingWithAnItemAndClosesAfter" methodname="Manipulation_LidOpensWhileAimingWithAnItemAndClosesAfter" classname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests" runstate="Runnable" seed="2004331918" result="Passed" start-time="2026-11-24 01:17:44Z" end-time="2026-11-24 01:17:45Z" duration="1.246409" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1014" name="Movement_CrouchLowersTheEyesSmoothlyAndStandsUpAgain" fullname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests.Movement_CrouchLowersTheEyesSmoothlyAndStandsUpAgain" methodname="Movement_CrouchLowersTheEyesSmoothlyAndStandsUpAgain" classname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests" runstate="Runnable" seed="1781210132" result="Passed" start-time="2026-11-24 01:17:45Z" end-time="2026-11-24 01:17:46Z" duration="1.021716" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1015" name="Movement_DentalChairRisesAndLowersWithTheProcedureSteps" fullname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests.Movement_DentalChairRisesAndLowersWithTheProcedureSteps" methodname="Movement_DentalChairRisesAndLowersWithTheProcedureSteps" classname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests" runstate="Runnable" seed="1963324050" result="Passed" start-time="2026-11-24 01:17:46Z" end-time="2026-11-24 01:17:50Z" duration="3.422117" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1016" name="Movement_XrayArmSwingsDuringTheShotAndReturns" fullname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests.Movement_XrayArmSwingsDuringTheShotAndReturns" methodname="Movement_XrayArmSwingsDuringTheShotAndReturns" classname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests" runstate="Runnable" seed="1377953789" result="Passed" start-time="2026-11-24 01:17:50Z" end-time="2026-11-24 01:17:52Z" duration="2.622220" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1018" name="Particles_ClassificationAndCompletionEmitBursts" fullname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests.Particles_ClassificationAndCompletionEmitBursts" methodname="Particles_ClassificationAndCompletionEmitBursts" classname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests" runstate="Runnable" seed="1568502958" result="Passed" start-time="2026-11-24 01:17:52Z" end-time="2026-11-24 01:17:53Z" duration="0.978938" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene
+There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene
+]]></output>
+            </test-case>
+            <test-case id="1017" name="Particles_FaucetStreamsWaterAndClosesAgain" fullname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests.Particles_FaucetStreamsWaterAndClosesAgain" methodname="Particles_FaucetStreamsWaterAndClosesAgain" classname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests" runstate="Runnable" seed="246302468" result="Passed" start-time="2026-11-24 01:17:53Z" end-time="2026-11-24 01:17:54Z" duration="1.163799" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1011" name="Physics_DroppedItemFallsUnderGravityAndCanBeTakenAgain" fullname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests.Physics_DroppedItemFallsUnderGravityAndCanBeTakenAgain" methodname="Physics_DroppedItemFallsUnderGravityAndCanBeTakenAgain" classname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests" runstate="Runnable" seed="675043113" result="Passed" start-time="2026-11-24 01:17:54Z" end-time="2026-11-24 01:17:56Z" duration="1.222421" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1013" name="Physics_RestartingThePracticeCollectsLooseItems" fullname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests.Physics_RestartingThePracticeCollectsLooseItems" methodname="Physics_RestartingThePracticeCollectsLooseItems" classname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests" runstate="Runnable" seed="863692314" result="Passed" start-time="2026-11-24 01:17:56Z" end-time="2026-11-24 01:17:56Z" duration="0.323218" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene
+There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene
+]]></output>
+            </test-case>
+            <test-case id="1012" name="Physics_ThrownItemLeavingTheRoomReturnsToItsPlace" fullname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests.Physics_ThrownItemLeavingTheRoomReturnsToItsPlace" methodname="Physics_ThrownItemLeavingTheRoomReturnsToItsPlace" classname="ConsultorioSeguroNuevo.Tests.SimulationActionsTests" runstate="Runnable" seed="640334685" result="Passed" start-time="2026-11-24 01:17:56Z" end-time="2026-11-24 01:17:57Z" duration="0.736444" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1025" name="SimulationSceneTests" fullname="ConsultorioSeguroNuevo.Tests.SimulationSceneTests" classname="ConsultorioSeguroNuevo.Tests.SimulationSceneTests" runstate="Runnable" testcasecount="10" result="Passed" start-time="2026-11-24 01:17:57Z" end-time="2026-11-24 01:18:15Z" duration="18.495427" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1029" name="AutoclaveLoadsTheTrayClosesForTheCycleAndReopens" fullname="ConsultorioSeguroNuevo.Tests.SimulationSceneTests.AutoclaveLoadsTheTrayClosesForTheCycleAndReopens" methodname="AutoclaveLoadsTheTrayClosesForTheCycleAndReopens" classname="ConsultorioSeguroNuevo.Tests.SimulationSceneTests" runstate="Runnable" seed="1325335573" result="Passed" start-time="2026-11-24 01:17:57Z" end-time="2026-11-24 01:18:01Z" duration="4.736418" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1027" name="ChairReclinesWithThePatientAndRises" fullname="ConsultorioSeguroNuevo.Tests.SimulationSceneTests.ChairReclinesWithThePatientAndRises" methodname="ChairReclinesWithThePatientAndRises" classname="ConsultorioSeguroNuevo.Tests.SimulationSceneTests" runstate="Runnable" seed="981576783" result="Passed" start-time="2026-11-24 01:18:01Z" end-time="2026-11-24 01:18:04Z" duration="2.547575" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1032" name="DroppedSharpIsAnIncidentAndIsRecoveredWithForceps" fullname="ConsultorioSeguroNuevo.Tests.SimulationSceneTests.DroppedSharpIsAnIncidentAndIsRecoveredWithForceps" methodname="DroppedSharpIsAnIncidentAndIsRecoveredWithForceps" classname="ConsultorioSeguroNuevo.Tests.SimulationSceneTests" runstate="Runnable" seed="1878920699" result="Passed" start-time="2026-11-24 01:18:04Z" end-time="2026-11-24 01:18:05Z" duration="1.440717" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1031" name="GlovesAreRequiredShownInHandAndDiscardedOnLeaving" fullname="ConsultorioSeguroNuevo.Tests.SimulationSceneTests.GlovesAreRequiredShownInHandAndDiscardedOnLeaving" methodname="GlovesAreRequiredShownInHandAndDiscardedOnLeaving" classname="ConsultorioSeguroNuevo.Tests.SimulationSceneTests" runstate="Runnable" seed="1485846695" result="Passed" start-time="2026-11-24 01:18:05Z" end-time="2026-11-24 01:18:06Z" duration="0.435436" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1034" name="ItemsHaveMaterialSpecificPhysicsAndWaterReadsAsAStream" fullname="ConsultorioSeguroNuevo.Tests.SimulationSceneTests.ItemsHaveMaterialSpecificPhysicsAndWaterReadsAsAStream" methodname="ItemsHaveMaterialSpecificPhysicsAndWaterReadsAsAStream" classname="ConsultorioSeguroNuevo.Tests.SimulationSceneTests" runstate="Runnable" seed="1816729390" result="Passed" start-time="2026-11-24 01:18:06Z" end-time="2026-11-24 01:18:06Z" duration="0.434812" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1035" name="OperatingLampSwingsOverThePatientAndLightsTheMouth" fullname="ConsultorioSeguroNuevo.Tests.SimulationSceneTests.OperatingLampSwingsOverThePatientAndLightsTheMouth" methodname="OperatingLampSwingsOverThePatientAndLightsTheMouth" classname="ConsultorioSeguroNuevo.Tests.SimulationSceneTests" runstate="Runnable" seed="1038452698" result="Passed" start-time="2026-11-24 01:18:06Z" end-time="2026-11-24 01:18:09Z" duration="2.634688" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1026" name="PatientsLieOnTheProcedureAndRadiographyChairs" fullname="ConsultorioSeguroNuevo.Tests.SimulationSceneTests.PatientsLieOnTheProcedureAndRadiographyChairs" methodname="PatientsLieOnTheProcedureAndRadiographyChairs" classname="ConsultorioSeguroNuevo.Tests.SimulationSceneTests" runstate="Runnable" seed="1871758507" result="Passed" start-time="2026-11-24 01:18:09Z" end-time="2026-11-24 01:18:09Z" duration="0.448534" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1030" name="PedalBinsOpenTheirRealLidAndSharpsContainersStayClosed" fullname="ConsultorioSeguroNuevo.Tests.SimulationSceneTests.PedalBinsOpenTheirRealLidAndSharpsContainersStayClosed" methodname="PedalBinsOpenTheirRealLidAndSharpsContainersStayClosed" classname="ConsultorioSeguroNuevo.Tests.SimulationSceneTests" runstate="Runnable" seed="1157440649" result="Passed" start-time="2026-11-24 01:18:09Z" end-time="2026-11-24 01:18:11Z" duration="2.035232" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1028" name="XrayArmSwingsTowardThePatientWhileItsBaseStaysFixed" fullname="ConsultorioSeguroNuevo.Tests.SimulationSceneTests.XrayArmSwingsTowardThePatientWhileItsBaseStaysFixed" methodname="XrayArmSwingsTowardThePatientWhileItsBaseStaysFixed" classname="ConsultorioSeguroNuevo.Tests.SimulationSceneTests" runstate="Runnable" seed="1822282377" result="Passed" start-time="2026-11-24 01:18:11Z" end-time="2026-11-24 01:18:13Z" duration="1.536210" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1033" name="XrayShotLightsTheExposureLampOnlyWhileExposing" fullname="ConsultorioSeguroNuevo.Tests.SimulationSceneTests.XrayShotLightsTheExposureLampOnlyWhileExposing" methodname="XrayShotLightsTheExposureLampOnlyWhileExposing" classname="ConsultorioSeguroNuevo.Tests.SimulationSceneTests" runstate="Runnable" seed="1967478033" result="Passed" start-time="2026-11-24 01:18:13Z" end-time="2026-11-24 01:18:15Z" duration="2.244342" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: /Users/moonstone/Library/Application Support/Equipo 7 · UPIICSA/Consultorio Seguro/TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

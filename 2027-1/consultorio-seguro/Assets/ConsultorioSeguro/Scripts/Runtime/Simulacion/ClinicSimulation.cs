@@ -67,7 +67,14 @@ namespace ConsultorioSeguroNuevo
             public AnimatedPart Panel;
             public Renderer Indicator;
             public PracticeRoom Room;
+            public GameObject Back;
         }
+
+        public GameObject CompletedBackFor(PracticeStation station) =>
+            station && stations.TryGetValue(station, out var visual) ? visual.Back : null;
+        public Renderer ExposureLamp { get; private set; }
+        public bool Exposing { get; private set; }
+        static readonly Color ExposureOn = new Color(1f, .7f, .15f), ExposureOff = new Color(.25f, .2f, .12f);
 
         public void Initialize(ClinicGame owner, ClinicItem[] items)
         {
@@ -87,6 +94,7 @@ namespace ConsultorioSeguroNuevo
                 if (!item) continue;
                 var physics = item.GetComponent<ItemPhysics>();
                 if (!physics) physics = item.gameObject.AddComponent<ItemPhysics>();
+                ApplyMaterial(item);
                 physics.Initialize(game, item, RoomById(item.roomId));
             }
             foreach (var destination in FindObjectsByType<ClinicDestination>(FindObjectsInactive.Include))
@@ -108,6 +116,30 @@ namespace ConsultorioSeguroNuevo
             if (!game) return;
             game.ItemDeposited -= OnDeposited;
             game.RoomCompleted -= OnRoomCompleted;
+        }
+
+        // Masa (kg), fricción y rebote según el material: la gasa cae blanda y el vaso rebota.
+        static readonly (string key, float mass, float friction, float bounce, float drag)[] Materials =
+        {
+            ("gasa", .02f, .9f, 0, .9f), ("algodón", .005f, .9f, 0, 1.6f), ("guantes", .015f, .9f, 0, .8f),
+            ("barrera", .003f, .8f, 0, 2.2f), ("vaso", .01f, .5f, .25f, .4f), ("aguja", .004f, .4f, .15f, .05f),
+            ("hoja", .004f, .35f, .2f, .05f), ("espejo", .035f, .4f, .25f, .05f), ("pieza dental", .005f, .5f, .35f, .05f),
+        };
+
+        public static void ApplyMaterial(ClinicItem item)
+        {
+            if (!item || !item.Body) return;
+            string name = item.displayName.ToLowerInvariant();
+            var match = Materials.FirstOrDefault(entry => name.Contains(entry.key));
+            if (match.key == null) return;
+            item.Body.mass = match.mass;
+            item.Body.linearDamping = match.drag;
+            var material = new PhysicsMaterial("Material físico · " + match.key)
+            {
+                dynamicFriction = match.friction, staticFriction = match.friction + .1f, bounciness = match.bounce,
+                frictionCombine = PhysicsMaterialCombine.Average, bounceCombine = PhysicsMaterialCombine.Maximum
+            };
+            foreach (var collider in item.GetComponentsInChildren<Collider>(true)) collider.sharedMaterial = material;
         }
 
         PracticeRoom RoomById(int id) => game.rooms.FirstOrDefault(room => room && room.roomId == id);
@@ -135,17 +167,40 @@ namespace ConsultorioSeguroNuevo
             light.name = "Indicador de paso";
             Destroy(light.GetComponent<Collider>());
             light.transform.SetParent(station.transform, false);
-            light.transform.localPosition = new Vector3(.235f, .088f, -.018f);
+            // Atraviesa el panel para verse por ambas caras tras el giro.
+            light.transform.localPosition = new Vector3(.235f, .088f, 0);
             light.transform.localScale = Vector3.one * .026f;
             var indicator = light.GetComponent<Renderer>();
             var material = Resources.Load<Material>(SimulationFx.ResourceFolder + "Indicador");
             if (material) indicator.sharedMaterial = material;
             indicator.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
             visual.Indicator = indicator;
+            visual.Back = CompletedBack(station);
             stations[station] = visual;
             station.Began += OnStepBegan;
             station.onComplete.AddListener(() => OnStepCompleted(station));
             station.onReset.AddListener(() => OnStepReset(station));
+        }
+
+        // Reverso del panel: se activa al completar el paso y queda a la vista tras la media vuelta.
+        static GameObject CompletedBack(PracticeStation station)
+        {
+            var front = station.GetComponentsInChildren<TMPro.TextMeshPro>(true).FirstOrDefault();
+            var back = new GameObject("Reverso completado", typeof(RectTransform));
+            back.transform.SetParent(station.transform, false);
+            back.transform.localPosition = new Vector3(0, 0, .019f);
+            back.transform.localRotation = Quaternion.Euler(0, 180, 0);
+            var text = back.AddComponent<TMPro.TextMeshPro>();
+            if (front) { text.font = front.font; text.fontSharedMaterial = front.fontSharedMaterial; }
+            text.text = "PASO " + (station.stepIndex + 1) + "\n<size=70%>COMPLETADO</size>";
+            text.alignment = TMPro.TextAlignmentOptions.Center;
+            text.color = new Color(.16f, .5f, .3f);
+            text.rectTransform.sizeDelta = new Vector2(.48f, .21f);
+            text.enableAutoSizing = true;
+            text.fontSizeMin = .1f;
+            text.fontSizeMax = .9f;
+            back.SetActive(false);
+            return back;
         }
 
         void OnStepBegan(PracticeStation station)
@@ -164,13 +219,18 @@ namespace ConsultorioSeguroNuevo
                     break;
                 case (Radiography, 1):
                     if (XrayArm) XrayArm.Trigger("Toma");
+                    StartCoroutine(Expose());
                     break;
             }
         }
 
         void OnStepCompleted(PracticeStation station)
         {
-            if (stations.TryGetValue(station, out var visual) && visual.Panel) visual.Panel.Trigger("Completar");
+            if (stations.TryGetValue(station, out var visual))
+            {
+                if (visual.Panel) visual.Panel.Trigger("Completar");
+                if (visual.Back) visual.Back.SetActive(true);
+            }
             SimulationFx.StepDone(station.transform.TransformPoint(new Vector3(0, 0, -.03f)), station.transform.rotation * Quaternion.Euler(0, 180, 0));
             SimulationFx.Play("Acierto", station.transform.position, .25f);
             switch (station.roomId, station.stepIndex)
@@ -190,7 +250,11 @@ namespace ConsultorioSeguroNuevo
 
         void OnStepReset(PracticeStation station)
         {
-            if (stations.TryGetValue(station, out var visual) && visual.Panel) visual.Panel.ResetPose();
+            if (stations.TryGetValue(station, out var visual))
+            {
+                if (visual.Panel) visual.Panel.ResetPose();
+                if (visual.Back) visual.Back.SetActive(false);
+            }
             if (station.stepIndex != 0) return;
             switch (station.roomId)
             {
@@ -350,6 +414,7 @@ namespace ConsultorioSeguroNuevo
             }
 
             var radiography = RoomById(Radiography);
+            SetUpExposureLamp(radiography);
             var arm = FindIn(radiography, "intraoral-xray-arm");
             var articulated = FindIn(arm, "xray-arm");
             var radiographyHead = FindIn(radiography, PatientHead);
@@ -482,6 +547,46 @@ namespace ConsultorioSeguroNuevo
                 AutoclaveTray.localRotation = trayRotation;
                 AutoclaveTray.localScale = trayScale;
             }
+        }
+
+        // --- Radiografía: indicador y aviso sonoro de exposición ---
+
+        void SetUpExposureLamp(PracticeRoom room)
+        {
+            var column = FindIn(room, "Columna de radiografía");
+            if (!column) return;
+            Bounds bounds = WorldBounds(column);
+            var lamp = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            lamp.name = "Indicador de exposición";
+            Destroy(lamp.GetComponent<Collider>());
+            lamp.transform.SetParent(column, true);
+            lamp.transform.position = new Vector3(bounds.center.x, bounds.max.y + .03f, bounds.center.z);
+            lamp.transform.localScale = new Vector3(.045f / column.lossyScale.x, .045f / column.lossyScale.y, .045f / column.lossyScale.z);
+            ExposureLamp = lamp.GetComponent<Renderer>();
+            var material = Resources.Load<Material>(SimulationFx.ResourceFolder + "Indicador");
+            if (material) ExposureLamp.sharedMaterial = material;
+            ExposureLamp.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            SetExposure(false);
+        }
+
+        void SetExposure(bool on)
+        {
+            Exposing = on;
+            if (!ExposureLamp) return;
+            ExposureLamp.GetPropertyBlock(block);
+            block.SetColor(BaseColor, on ? ExposureOn : ExposureOff);
+            block.SetColor(LegacyColor, on ? ExposureOn : ExposureOff);
+            ExposureLamp.SetPropertyBlock(block);
+        }
+
+        // El disparo ocurre con el brazo ya colocado: luz ámbar y tono mientras dura la exposición simulada.
+        IEnumerator Expose()
+        {
+            yield return new WaitForSeconds(.7f);
+            SetExposure(true);
+            if (ExposureLamp) SimulationFx.Play("Exposicion", ExposureLamp.transform.position, .5f);
+            yield return new WaitForSeconds(.7f);
+            SetExposure(false);
         }
 
         // El respaldo, el reposacabezas y la parte superior del paciente giran juntos sobre la articulación del sillón.

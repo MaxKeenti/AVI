@@ -2,7 +2,7 @@
 
 Simulador educativo en español para practicar la separación de residuos y el manejo inicial del instrumental en una clínica dental. Esta versión se construye desde una escena e implementación nuevas; conserva únicamente recursos externos documentados de la biblioteca anterior.
 
-**Estado de la entrega:** escena nueva guardada, 18 capturas reales de Unity y 21 pruebas PlayMode aprobadas (7 del recorrido y las prácticas, 14 de las acciones de simulación). El recorrido completo y las cinco prácticas se comprobaron automáticamente. [ENTREGA.md](ENTREGA.md) distingue la inspección visual, la prueba en el editor y lo que sigue sin ensayarse.
+**Estado de la entrega:** escena nueva guardada, 18 capturas reales de Unity y 31 pruebas PlayMode aprobadas (7 del recorrido y las prácticas, 14 de las acciones de simulación y 10 de los modelos de simulación en la escena entregable). El recorrido completo y las cinco prácticas se comprobaron automáticamente. [ENTREGA.md](ENTREGA.md) distingue la inspección visual, la prueba en el editor y lo que sigue sin ensayarse.
 
 ## Abrir y explorar
 
@@ -14,7 +14,7 @@ Abre esta carpeta desde Unity Hub con **Unity 6000.4.6f1**. El proyecto utiliza 
 | Ratón | Mirar |
 | Mayús izquierda | Caminar más rápido |
 | C (mantener) | Agacharse |
-| E | Interactuar con el objeto apuntado, a menos de 2,6 m; también abre y cierra los grifos |
+| E | Interactuar con el objeto apuntado, a menos de 2,6 m; también abre y cierra los grifos y toma guantes del dispensador |
 | Rueda o clic derecho + arrastrar | Inspeccionar el objeto sostenido |
 | G (mantener para lanzar) | Soltar o lanzar el objeto sostenido |
 | R | Devolver el objeto sostenido a su lugar; sin objeto, recoge los materiales sueltos de la sala |
@@ -53,13 +53,13 @@ Se añaden al iniciar Play desde `Scripts/Runtime/Simulacion/`; `ClinicGame` las
 
 | Acción | Qué ocurre |
 | --- | --- |
-| Física | Los materiales tienen `Rigidbody`. Con G caen o se lanzan con gravedad, chocan con mesas y piso, levantan polvo y suenan según el impacto; se pueden volver a tomar. El visitante empuja los materiales sueltos. Si uno sale de su sala, regresa a su lugar. |
-| Movimiento | Caminar con aceleración e inercia, balanceo de cabeza y agacharse con C. El sillón de Procedimientos sube a altura de trabajo y baja al terminar; el brazo de rayos X gira hacia el paciente durante la toma. |
-| Partículas | Vapor del autoclave durante el ciclo de Esterilización, agua de los grifos con salpicadura, destellos al acertar, nube roja al rechazar, polvo al impactar y confeti al completar una práctica. |
-| Efectos de manipulación | El objeto viaja de la mesa a la mano, se balancea con la mirada y el paso, y se inspecciona girándolo. La tapa se abre al apuntar con un material; el material vuela en parábola hasta la boca y el recipiente se sacude. Los contenedores de punzocortantes no se abren: tienen abertura fija. |
-| Animaciones | Clips `.anim` y controladores `.controller` editables en las ventanas Animation y Animator: tapas, sillón, lámpara operatoria, brazo de rayos X y paneles de paso, que giran al completarse y muestran un indicador de estado. El aviso de la interfaz entra deslizándose y se desvanece. |
+| Física | Los materiales tienen `Rigidbody` con masa, fricción y rebote propios (la gasa cae blanda, el vaso rebota). Con G caen o se lanzan con gravedad, chocan con mesas y piso, levantan polvo y suenan según el impacto; se pueden volver a tomar. El visitante empuja los materiales sueltos. Si uno sale de su sala, regresa a su lugar. Soltar un punzocortante es un incidente (−5) y se recoge con pinzas. |
+| Movimiento | Caminar con aceleración e inercia, balanceo de cabeza y agacharse con C. En Procedimientos el sillón pasa de sentado a reclinado y sube a altura de trabajo con el paciente; la lámpara operatoria gira su brazo sobre la boca del paciente. En Radiografía solo el brazo articulado gira hacia la cabeza del paciente. |
+| Partículas | Ciclo del autoclave (vapor por el respiradero con la puerta cerrada y nube al abrir), chorro de agua de los grifos, destellos al acertar, nube roja al rechazar, polvo al impactar y confeti al completar una práctica. |
+| Efectos de manipulación | Guantes del dispensador obligatorios para manipular materiales; una mano enguantada sostiene el objeto, que viaja de la mesa a la mano, se balancea y se inspecciona. Botes de pedal reales: el pedal se hunde y la tapa se abre sobre su bisagra, con la bolsa del color del destino; el material vuela en parábola hasta la boca. El contenedor rígido rojo de punzocortantes tiene abertura fija. |
+| Animaciones | Clips `.anim` y controladores `.controller` editables en las ventanas Animation y Animator: tapas, sillón y respaldo, lámpara, brazo de rayos X, puerta del autoclave y paneles de paso, que dan media vuelta y muestran «COMPLETADO». El indicador de exposición se enciende durante la toma. |
 
-Los controladores están en `Assets/ConsultorioSeguro/Resources/Simulacion/` y los clips en `Assets/ConsultorioSeguro/Animaciones/`. **Consultorio Seguro → Generar animaciones de simulación** los regenera sin cambiar sus GUID. Los sonidos se sintetizan por código; no se añadió audio de terceros.
+Los controladores están en `Assets/ConsultorioSeguro/Resources/Simulacion/` y los clips en `Assets/ConsultorioSeguro/Animaciones/`. **Consultorio Seguro → Generar animaciones de simulación** los regenera sin cambiar sus GUID. **Consultorio Seguro → Añadir modelos de simulación** agrega a la escena existente, sin reconstruirla, el paciente (piezas `display-mannequin`), los botes de pedal y contenedores de punzocortantes, la puerta separada del autoclave y las pinzas; *Crear escena nueva* ejecuta el mismo paso. Los sonidos se sintetizan por código; no se añadió audio de terceros.
 
 ## Recursos y edición
 

@@ -298,15 +298,19 @@ namespace ConsultorioSeguroNuevo.Tests
             Assert.IsNotNull(panel.Animator);
             steps[0].Interact(game);
             yield return new WaitForSeconds(.45f);
-            Assert.IsTrue(panel.Animator.GetCurrentAnimatorStateInfo(0).IsName("Completar"));
+            Assert.IsTrue(panel.Animator.GetCurrentAnimatorStateInfo(0).IsName("Completado"));
+            Assert.IsTrue(game.Simulation.CompletedBackFor(steps[0]).activeSelf, "El reverso muestra «COMPLETADO»");
             Assert.Greater(Quaternion.Angle(Quaternion.identity, panel.Axis.localRotation), 20, "El panel gira al completarse.");
             var block = new MaterialPropertyBlock();
             indicator.GetPropertyBlock(block);
             Color color = block.GetColor("_BaseColor");
             Assert.Greater(color.g, color.r + .3f, "El indicador del paso completado es verde.");
             yield return new WaitForSeconds(.8f);
-            Assert.IsTrue(panel.Animator.GetCurrentAnimatorStateInfo(0).IsName("Reposo"));
+            Assert.AreEqual(180, Quaternion.Angle(Quaternion.identity, panel.Axis.localRotation), 1, "Queda volteado hasta reiniciar");
+            game.RestartCurrentRoom();
+            yield return null;
             Assert.Less(Quaternion.Angle(Quaternion.identity, panel.Axis.localRotation), 1);
+            Assert.IsFalse(game.Simulation.CompletedBackFor(steps[0]).activeSelf);
         }
 
         [UnityTest]

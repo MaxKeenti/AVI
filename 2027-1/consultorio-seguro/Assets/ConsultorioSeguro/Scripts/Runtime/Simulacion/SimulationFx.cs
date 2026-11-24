@@ -138,13 +138,18 @@ namespace ConsultorioSeguroNuevo
                 main.loop = true;
                 main.duration = 1;
                 main.startLifetime = new ParticleSystem.MinMaxCurve(.45f, .6f);
-                main.startSpeed = new ParticleSystem.MinMaxCurve(.2f, .35f);
-                main.startSize = new ParticleSystem.MinMaxCurve(.012f, .022f);
-                main.startColor = new Color(.78f, .9f, 1f, .75f);
+                main.startSpeed = new ParticleSystem.MinMaxCurve(.25f, .4f);
+                main.startSize = new ParticleSystem.MinMaxCurve(.018f, .03f);
+                main.startColor = new Color(.82f, .92f, 1f, .9f);
                 main.gravityModifier = 1;
-                main.maxParticles = 240;
+                main.maxParticles = 400;
                 var emission = ps.emission;
-                emission.rateOverTime = 150;
+                emission.rateOverTime = 260;
+                // Partículas estiradas según su velocidad: se lee como un chorro continuo.
+                var renderer = ps.GetComponent<ParticleSystemRenderer>();
+                renderer.renderMode = ParticleSystemRenderMode.Stretch;
+                renderer.velocityScale = .07f;
+                renderer.lengthScale = 1.6f;
                 var shape = ps.shape;
                 shape.shapeType = ParticleSystemShapeType.Cone;
                 shape.angle = 2;
@@ -325,7 +330,7 @@ namespace ConsultorioSeguroNuevo
         {
             if (clips.TryGetValue(name, out var clip) && clip) return clip;
             const int rate = 22050;
-            float length = name switch { "Agua" => 1f, "Vapor" => 1f, "Acierto" => .42f, "Error" => .3f, "Tapa" => .12f, _ => .16f };
+            float length = name switch { "Agua" => 1f, "Vapor" => 1f, "Acierto" => .42f, "Error" => .3f, "Tapa" => .12f, "Exposicion" => 1.2f, _ => .16f };
             int samples = Mathf.CeilToInt(rate * length);
             var data = new float[samples];
             var random = new System.Random(name.GetHashCode());
@@ -342,6 +347,8 @@ namespace ConsultorioSeguroNuevo
                     "Tapa" => (Mathf.Sin(2 * Mathf.PI * 420 * t) * .5f + noise * .5f) * Mathf.Exp(-t * 55),
                     "Acierto" => Mathf.Sin(2 * Mathf.PI * (t < .14f ? 660 : 880) * t) * .45f * Mathf.Exp(-(t < .14f ? t : t - .14f) * 9),
                     "Error" => Mathf.Sign(Mathf.Sin(2 * Mathf.PI * 140 * t)) * .22f * Mathf.Exp(-t * 7),
+                    // Aviso de exposición: tono continuo de 1 kHz con entrada y salida suaves.
+                    "Exposicion" => Mathf.Sin(2 * Mathf.PI * 1000 * t) * .18f * Mathf.Clamp01(t * 40) * Mathf.Clamp01((1.2f - t) * 40),
                     // Agua y vapor: ruido filtrado en bucle; el primero más grave y continuo.
                     "Agua" => (filtered = Mathf.Lerp(filtered, noise, .35f)) * .35f,
                     "Vapor" => (filtered = Mathf.Lerp(filtered, noise, .8f)) * .18f,

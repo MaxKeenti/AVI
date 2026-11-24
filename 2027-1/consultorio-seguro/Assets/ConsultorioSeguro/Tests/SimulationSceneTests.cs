@@ -224,6 +224,35 @@ namespace ConsultorioSeguroNuevo.Tests
         }
 
         [UnityTest]
+        public IEnumerator XrayShotLightsTheExposureLampOnlyWhileExposing()
+        {
+            var room = Room(5);
+            Assert.IsNotNull(game.Simulation.ExposureLamp, "Indicador de exposición en la columna");
+            Enter(room);
+            room.steps[0].Interact(game);
+            room.steps[1].Interact(game);
+            Assert.IsFalse(game.Simulation.Exposing, "Primero se coloca el brazo");
+            yield return new WaitForSeconds(1f);
+            Assert.IsTrue(game.Simulation.Exposing);
+            yield return new WaitForSeconds(.8f);
+            Assert.IsFalse(game.Simulation.Exposing);
+        }
+
+        [Test]
+        public void ItemsHaveMaterialSpecificPhysicsAndWaterReadsAsAStream()
+        {
+            var items = game.rooms.SelectMany(room => room.Items).ToArray();
+            var gauze = items.First(i => i.displayName.StartsWith("Gasa"));
+            var cup = items.First(i => i.displayName.StartsWith("Vaso"));
+            Assert.AreEqual(.02f, gauze.Body.mass, .001f);
+            Assert.AreEqual(0, gauze.GetComponent<Collider>().sharedMaterial.bounciness, .001f, "La gasa no rebota");
+            Assert.Greater(cup.GetComponent<Collider>().sharedMaterial.bounciness, .2f, "El vaso rebota");
+            Assert.Greater(gauze.Body.linearDamping, cup.Body.linearDamping, "La gasa frena más en el aire");
+            var stream = game.Simulation.Faucets.First().Stream.GetComponent<ParticleSystemRenderer>();
+            Assert.AreEqual(ParticleSystemRenderMode.Stretch, stream.renderMode);
+        }
+
+        [UnityTest]
         public IEnumerator OperatingLampSwingsOverThePatientAndLightsTheMouth()
         {
             var room = Room(4);

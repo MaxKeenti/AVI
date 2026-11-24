@@ -92,10 +92,10 @@ namespace ConsultorioSeguroNuevo.Editor
         static void BuildPanel()
         {
             var rest = Clip("Panel_Reposo", Rot("y", (0, 0)), Pos("z", (0, 0)));
-            // Se hunde al pulsarlo y gira una vuelta completa para confirmar el paso.
-            var done = Clip("Panel_Completar", Rot("y", (0, 0), (.15f, 0), (.85f, 360)),
+            // Se hunde al pulsarlo y gira media vuelta: el reverso muestra «COMPLETADO» hasta reiniciar la práctica.
+            var done = Clip("Panel_Completar", Rot("y", (0, 0), (.15f, 0), (.75f, 180)),
                 Pos("z", (0, 0), (.08f, .025f), (.18f, 0)));
-            OneShot("Panel", "Completar", ("Reposo", rest), ("Completar", done));
+            Latch("Panel", "Completar", ("Reposo", rest), ("Completado", done));
         }
 
         static void BuildAutoclave()
@@ -151,6 +151,19 @@ namespace ConsultorioSeguroNuevo.Editor
             back.exitTime = 1;
             back.hasFixedDuration = true;
             back.duration = 0;
+            EditorUtility.SetDirty(controller);
+        }
+
+        /// <summary>Animación disparada por un trigger que conserva su pose final hasta que se reinicia el Animator.</summary>
+        static void Latch(string name, string trigger, (string name, AnimationClip clip) rest, (string name, AnimationClip clip) action)
+        {
+            var controller = Controller(name);
+            controller.AddParameter(trigger, AnimatorControllerParameterType.Trigger);
+            var machine = controller.layers[0].stateMachine;
+            var idle = State(machine, rest, new Vector3(260, 0));
+            var play = State(machine, action, new Vector3(520, 0));
+            machine.defaultState = idle;
+            Link(idle, play, AnimatorConditionMode.If, trigger);
             EditorUtility.SetDirty(controller);
         }
 
